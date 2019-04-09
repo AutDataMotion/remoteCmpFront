@@ -51,6 +51,15 @@ const style = {
   },
 };
 
+const imgIcons = [
+  require('./images/theme-banner-1.png'),
+  require('./images/theme-banner-2.png'),
+  require('./images/theme-banner-3.png'),
+  require('./images/theme-banner-4.png'),
+  require('./images/theme-banner-5.png'),
+  require('./images/theme-banner-6.png'),
+];
+
 export default class IntroBanner extends Component {
   static displayName = 'IntroBanner';
 
@@ -64,11 +73,12 @@ export default class IntroBanner extends Component {
   }
 
   render() {
+    const {themeConf} = this.props;
     return (
       <div className="intro-banner-wrap" style={style.introBannerWrapStyles}>
         <img
           className="intro-banner-img"
-          src={require('./images/home-banner.png')}
+          src={imgIcons[themeConf.bannerId]}
           style={style.introBannerImgStyles}
           alt=""
         />
@@ -81,13 +91,13 @@ export default class IntroBanner extends Component {
             className="intro-banner-title"
             style={style.introBannerTitleStyles}
           >
-            主题六：遥感卫星视频目标自动跟踪
+            {themeConf.bannerTitle + themeConf.title}
           </h2>
           <p
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-          详细介绍文字、详细介绍文字、详细介绍文字、详细介绍文字
+            {themeConf.bannerTitleSecond}
           </p>
 
         </div>

@@ -10,8 +10,8 @@ function mockData(page = 1) {
   return Array.from({ length: 30 }).map((n, i) => {
     return {
       index: i + 1 + (page - 1) * 30,
-      keyword: ['连衣裙', '情人节礼物', '七夕节', '男人装'][i % 4],
-      total: 300 * (30 - i),
+      keyword: ['梦之队', '遥感精度', '天眼', '智能压缩'][i % 4],
+      total: (30 * (30 - i))/9,
       percent: 100 - i * 2.8,
       url: '#',
     };
@@ -37,11 +37,8 @@ export default class HotRank extends Component {
       <Container>
         <div style={styles.header}>
           <h3 style={{ fontSize: 16, color: '#333', margin: 0 }}>
-            粉丝热门关注点
+            公告：排行榜每日上午8:00更新一次
           </h3>
-          <span style={{ fontSize: 12, color: '#999' }}>
-            每日计算分析近期粉丝行为，从而得出专注领域下粉丝热点综合指数排行
-          </span>
         </div>
 
         <Row wrap>

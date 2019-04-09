@@ -11,8 +11,17 @@ import Setting from './pages/Setting';
 import DemoShow from './pages/DemoShow';
 import Home from './pages/Home';
 import ThemeHome from "./pages/ThemeHome";
+import Theme2 from "./pages/Theme2";
+import Theme3 from "./pages/Theme3";
+import Theme4 from "./pages/Theme4";
+import Theme5 from "./pages/Theme5";
+import Theme6 from "./pages/Theme6";
 
 const routerConfig = [
+  {
+    path: '/home',
+    component: Home,
+  },
   {
     path: '/user/login',
     component: UserLogin,
@@ -22,12 +31,28 @@ const routerConfig = [
     component: UserRegister,
   },
   {
-    path: '/home',
-    component: Home,
-  },
-  {
     path: '/theme/1',
     component: ThemeHome,
+  },
+  {
+    path: '/theme/2',
+    component: Theme2,
+  },
+  {
+    path: '/theme/3',
+    component: Theme3,
+  },
+  {
+    path: '/theme/4',
+    component: Theme4,
+  },
+  {
+    path: '/theme/5',
+    component: Theme5,
+  },
+  {
+    path: '/theme/6',
+    component: Theme6,
   },
   {
     path: '/management',

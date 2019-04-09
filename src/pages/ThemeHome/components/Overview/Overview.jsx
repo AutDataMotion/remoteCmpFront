@@ -8,8 +8,8 @@ const mockData = [
   {
     symbolBgColor: '#ee706d',
     symbol: 'shezhi',
-    count: '861',
-    desc: '已注册人数',
+    count: '注册报名',
+    desc: '当前状态',
   },
   {
     symbolBgColor: '#f7da47',
@@ -20,7 +20,7 @@ const mockData = [
   {
     symbolBgColor: '#58ca9a',
     symbol: 'cascades',
-    count: '100',
+    count: '50',
     desc: '参数队伍',
   },
   {
@@ -84,7 +84,7 @@ const styles = {
     color: '#c6cad6',
   },
   count: {
-    fontSize: '36px',
+    fontSize: '30px',
     marginBottom: '2px',
   },
   desc: {

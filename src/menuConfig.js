@@ -14,6 +14,31 @@ const asideMenuConfig = [
     icon: 'cascades',
   },
   {
+    name: '赛题二',
+    path: '/theme/2',
+    icon: 'cascades',
+  },
+  {
+    name: '赛题三',
+    path: '/theme/3',
+    icon: 'cascades',
+  },
+  {
+    name: '赛题四',
+    path: '/theme/4',
+    icon: 'cascades',
+  },
+  {
+    name: '赛题五',
+    path: '/theme/5',
+    icon: 'cascades',
+  },
+  {
+    name: '赛题六',
+    path: '/theme/6',
+    icon: 'cascades',
+  },
+  {
     name: '模型管理',
     path: '/management',
     icon: 'cascades',

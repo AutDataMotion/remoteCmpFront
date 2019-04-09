@@ -10,6 +10,25 @@ const rankStyle = [
 ];
 
 class HotItem extends Component {
+
+  changeTwoDecimal(x){
+    let f_x1 = parseFloat(x);
+    if (isNaN(f_x1)) {
+      return 0;
+    }
+    let f_x = Math.round(x * 100) / 100;
+    let s_x = f_x.toString();
+    let pos_decimal = s_x.indexOf('.');
+    if (pos_decimal < 0) {
+      pos_decimal = s_x.length;
+      s_x += '.';
+    }
+    while (s_x.length <= pos_decimal + 2) {
+      s_x += '0';
+    }
+    return s_x;
+  }
+
   render() {
     const { data } = this.props;
     return (
@@ -23,9 +42,8 @@ class HotItem extends Component {
           {data.index}
         </span>
         <span style={styles.keyword}>{data.keyword}</span>
-        <Progress shape="progressive" style={{ width: 60 }} percent={data.percent} />
-        <span style={styles.total}>{data.total}</span>
-        <span style={styles.link}>解读</span>
+        <span style={styles.total}>{ this.changeTwoDecimal(data.total)}</span>
+        <span style={styles.link}>2019-04-01</span>
       </a>
     );
   }

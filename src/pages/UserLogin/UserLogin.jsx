@@ -63,7 +63,7 @@ class UserLogin extends Component {
                 <Input
                   size="large"
                   maxLength={20}
-                  placeholder="用户名"
+                  placeholder="手机号码"
                   style={styles.inputCol}
                 />
               </IceFormBinder>
@@ -81,12 +81,6 @@ class UserLogin extends Component {
                 />
               </IceFormBinder>
               <IceFormError name="password" />
-            </div>
-
-            <div style={styles.formItem}>
-              <IceFormBinder name="checkbox">
-                <Checkbox style={styles.checkbox}>记住账号</Checkbox>
-              </IceFormBinder>
             </div>
 
             <div style={styles.footer}>

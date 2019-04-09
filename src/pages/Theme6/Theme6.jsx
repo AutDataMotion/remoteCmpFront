@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import IntroBanner from './components/IntroBanner';
-import BlackFooter from './components/BlackFooter';
-import BasicTab from "./components/BasicTab";
-import Overview from "./components/Overview";
+import IntroBanner from '../ThemeHome/components/IntroBanner';
+import BlackFooter from '../ThemeHome/components/BlackFooter';
+import BasicTab from "../ThemeHome/components/BasicTab";
+import Overview from "../ThemeHome/components/Overview";
 import {Col, Row} from "@alifd/next/lib/grid";
 import globalConf from "../../globalConfig";
 
 const introBannerProp={
-  themeId: 1,
+  themeId: 6,
   cmpInfoConf:{},
   dataDownloadConf:{
     dataUrl: 'http://pan.baidu.com',
@@ -16,19 +16,17 @@ const introBannerProp={
   commitResConf:{},
   hotRankConf:{},
 };
-
-export default class ThemeHome extends Component {
-  static displayName = 'ThemeHome';
+export default class Theme6 extends Component {
+  static displayName = 'Theme6';
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-
     return (
       <Row gutter="20" wrap>
         <Col l="24" xxs="24">
-          <IntroBanner themeConf={globalConf.themeConf[0]} />
+          <IntroBanner themeConf={globalConf.themeConf[5]} />
         </Col>
         <Col l="24" xxs="24">
           <div  style = {styles.sOverview}> <Overview /></div>
