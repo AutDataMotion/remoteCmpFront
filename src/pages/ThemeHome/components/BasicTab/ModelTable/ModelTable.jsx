@@ -116,6 +116,11 @@ export default class ModelTable extends Component {
 
     return (
       <IceContainer className={styles.container}>
+        <div style={inStyles.headerTips}>
+          <h3 style={{ fontSize: 16, color: '#333', margin: 0 }}>
+            提示：每日限制上传【5】次，取最高分作为最终成绩
+          </h3>
+        </div>
         <TableHead onChange={this.handleFilterChange} />
         <Table
           loading={isLoading}
@@ -124,7 +129,8 @@ export default class ModelTable extends Component {
           className={styles.table}
         >
           <Table.Column title="上传时间" dataIndex="uploadTime" />
-          <Table.Column title="文件名" dataIndex="fileName" />
+          <Table.Column title="结果文件" dataIndex="fileName" />
+          <Table.Column title="算法模型" dataIndex="fileName" />
           <Table.Column title="得分" dataIndex="score" />
           <Table.Column title="备注" dataIndex="remark" />
           <Table.Column
@@ -143,3 +149,9 @@ export default class ModelTable extends Component {
     );
   }
 }
+
+const inStyles = {
+  headerTips: {
+    marginBottom: 20,
+  },
+};

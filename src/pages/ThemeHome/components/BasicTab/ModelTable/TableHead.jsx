@@ -25,30 +25,41 @@ export default class TableHead extends Component {
         onChange={this.formChange}
         ref="form"
       >
-        <Row wrap gutter="20" style={styles.formRow}>
-          <Col l="8">
+        <Row wrap gutter="24" style={styles.formRow}>
+          <Col l="6">
             <div style={styles.formItem}>
-              <span style={styles.formLabel}>选择上传文件：</span>
-              <IceFormBinder name="creator" triggerType="onBlur">
-                <Input placeholder="请选择文件" />
+              <span style={styles.formLabel}>结果文件</span>
+              <IceFormBinder name="resultFile" triggerType="onBlur">
+                <Input placeholder="请选择上传结果文件" />
               </IceFormBinder>
               <div style={styles.formError}>
-                <IceFormError name="creator" />
+                <IceFormError name="resultFile" />
               </div>
             </div>
           </Col>
-          <Col l="8">
+          <Col l="6">
             <div style={styles.formItem}>
-              <span style={styles.formLabel}>状态：</span>
-              <IceFormBinder name="state" triggerType="onBlur">
-                <Input disabled placeholder="上传状态" />
+              <span style={styles.formLabel}>算法文件</span>
+              <IceFormBinder name="algFile" triggerType="onBlur">
+                <Input placeholder="请选择上传算法模型文件" />
               </IceFormBinder>
               <div style={styles.formError}>
-                <IceFormError name="state" />
+                <IceFormError name="algFile" />
               </div>
             </div>
           </Col>
-          <Col l="8">
+          <Col l="6">
+            <div style={styles.formItem}>
+              <span style={styles.formLabel}>备注</span>
+              <IceFormBinder name="remark" triggerType="onBlur">
+                <Input placeholder="备注" />
+              </IceFormBinder>
+              <div style={styles.formError}>
+                <IceFormError name="remark" />
+              </div>
+            </div>
+          </Col>
+          <Col l="6">
             <div style={styles.formItem}>
             <Button type="primary" style={{width:'80px'}}>上传</Button>
             </div>

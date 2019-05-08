@@ -4,40 +4,31 @@ import React from 'react';
 const globalConf={
   themeConf : [
     {
-      condition: '赛题一',
+      condition: '主题一',
       validate: true,
       title: '遥感图像场景分类',
       bannerId: 1,
-      bannerTitle:'赛题一: ',
+      bannerTitle: '主题一: ',
       bannerTitleSecond: '介绍文字',
       operation: '查看详情',
+      url:'/theme/1',
       regist: '报名注册',
       description:
-        '遥感图像场景分类竞赛任务旨在对空间信息网络中场景级的 遥感图像进行内容解译，高效地对遥感图像中的感兴趣及非感兴趣场景 进行自动化的识别和区分，进而针对场景类别有选择性的压缩遥感图像， 减少待传输图像数据的容量，有效缓解数据链路传输压力',
+        '遥感图像场景分类竞赛任务旨在对空间信息网络中场景级的遥感图像进行内容解译，' +
+        '高效地对遥感图像中的感兴趣及非感兴趣场景进行自动化的识别和区分，' +
+        '进而针对场景类别有选择性的压缩遥感图像，减少待传输图像数据的容量，有效缓解数据链路传输压力。',
     },
     {
-      condition: '赛题二',
-      validate: false,
-      title: '高分辨率 SAR 遥感图像建筑物提取 ',
-      bannerId: 2,
-      bannerTitle:'赛题二: ',
-      bannerTitleSecond: '介绍文字',
-
-      operation: '查看详情',
-      regist: '报名注册',
-      description:
-        '空间信息网络建设中的 SAR 遥感平台成像受气候、光照等条件的限制程度较小，具因而能使空间信息网络具备获取全天时、全天候的空间信息的能力。基于高分辨率 SAR 图像的建筑物解译对于城市环境进行分析具有重要意义，是我国国情发展的需求和城市规划相关研究的需求。通过本项竞赛遴选出快速的建筑物目标提取算法，实现空间信息网络对建筑物目标的全天时、全天候、多视角的在线检测与实时跟踪，同时将检测跟踪的解译结果经链路直接传回，可以大大降低对专家解译的依赖，提高 SAR 图像解译的自动化程度与在轨实时处理能力。',
-    },
-    {
-      condition: '赛题三',
+      condition: '主题二',
       validate: true,
-      title: '光学遥感图像目标自动检测识别 ',
+      title: '光学遥感图像目标检测 ',
 
-      bannerId: 3,
-      bannerTitle:'赛题三: ',
+      bannerId: 2,
+      bannerTitle: '主题二: ',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
+      url:'/theme/2',
       regist: '报名注册',
       description:
         '针对空间信息网络多维、多尺度空间信息链路传输与处理瓶' +
@@ -48,15 +39,16 @@ const globalConf={
         '除背景等冗余信息，提高空间信息网络链路传输的效率。',
     },
     {
-      condition: '赛题四',
+      condition: '主题三',
       validate: false,
       title: '遥感图像语义分割 ',
 
-      bannerId: 4,
-      bannerTitle:'赛题四: ',
+      bannerId: 3,
+      bannerTitle: '主题三: ',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
+      url:'/theme/3',
       regist: '报名注册',
       description:
         '通过对遥感图像的语义分割，可方便快捷地获取土地利用/覆' +
@@ -70,33 +62,33 @@ const globalConf={
         '解译的自动化程度和实际应用能力。',
     },
     {
-      condition: '赛题五',
+      condition: '主题四',
       validate: false,
-      title: '任务驱动的遥感图像智能压缩 ',
+      title: '遥感图像变化检测 ',
 
-      bannerId: 5,
-      bannerTitle:'赛题五: ',
+      bannerId: 4,
+      bannerTitle: '主题四: ',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
+      url:'/theme/4',
       regist: '报名注册',
       description:
-        '空间信息网络环境下传输带宽资源有限，传统的遥感数据压' +
-        '缩效率难以满足星地和星间实时传输的应用需要。通过对遥感影像进行' +
-        '高效的压缩，节省需要的存储空间及传输带宽，可实现海量遥感影像数' +
-        '据的高效存储与分发。通过本项竞赛遴选出优秀的遥感图像智能压缩算' +
-        '法，从而提升空间信息网络中遥感图像的传输效率，支撑空间网络信息' +
-        '的实时分析与应用',
+        '遥感图像变化检测可以对同一地点的不同时相数据进行变化检测处理，' +
+        '在资源和环境监测、地理国情监测、自然灾害评估等领域具有高度的实用价值。' +
+        '目前遥感图像变化检测的前沿算法在数据层面以及算法设计层面均具有局限性。因此，' +
+        '通过本项竞赛遴选出泛化性能强大的高效变化检测算法，可以提高空间信息网络建设中的遥感图像自动化解译能力。',
     },
     {
-      condition: '赛题六',
+      condition: '主题五',
       validate: false,
       title: '遥感卫星视频目标自动跟踪 ',
-      bannerId: 6,
-      bannerTitle:'赛题六: ',
+      bannerId: 5,
+      bannerTitle: '主题五: ',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
+      url:'/theme/5',
       regist: '报名注册',
       description:
         '利用光学遥感卫星视频可以实现指定目标监控，在机场、商' +

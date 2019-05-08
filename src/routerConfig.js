@@ -16,6 +16,7 @@ import Theme3 from "./pages/Theme3";
 import Theme4 from "./pages/Theme4";
 import Theme5 from "./pages/Theme5";
 import Theme6 from "./pages/Theme6";
+import Dashboard from "./pages/Dashboard";
 
 const routerConfig = [
   {
@@ -55,8 +56,8 @@ const routerConfig = [
     component: Theme6,
   },
   {
-    path: '/management',
-    component: ModelManagement,
+    path: '/dashboard',
+    component: Dashboard,
   },
   {
     path: '/market',

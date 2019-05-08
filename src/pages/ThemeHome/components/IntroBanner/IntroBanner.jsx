@@ -97,7 +97,7 @@ export default class IntroBanner extends Component {
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-            {themeConf.bannerTitleSecond}
+            {/*{themeConf.bannerTitleSecond}*/}
           </p>
 
         </div>

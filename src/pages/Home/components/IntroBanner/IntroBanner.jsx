@@ -33,6 +33,15 @@ const style = {
     zIndex: '15',
     width: '100%',
     boxSizing: 'border-box',
+    color: '#fff',
+    pointerEvents: 'none',
+  },
+  organizationBannerTextStyles: {
+    position: 'absolute',
+    top: '20px',
+    zIndex: '15',
+    width: '100%',
+    boxSizing: 'border-box',
     paddingLeft: '40px',
     color: '#fff',
     pointerEvents: 'none',
@@ -41,6 +50,7 @@ const style = {
     fontWeight: '400',
     fontSize: '50px',
     lineHeight: '70px',
+    textAlign:'center',
   },
   introBannerSubtitleStyles: {
     marginTop: '8px',
@@ -81,13 +91,22 @@ export default class IntroBanner extends Component {
             className="intro-banner-title"
             style={style.introBannerTitleStyles}
           >
-            2019年遥感图像【稀疏表征与智能分析】竞赛
+            2019-遥感图像【稀疏表征与智能分析】竞赛
           </h2>
           <p
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-          详细介绍文字、详细介绍文字、详细介绍文字、详细介绍文字
+          </p>
+
+        </div>
+        <div className="intro-banner-text" style={style.organizationBannerTextStyles}>
+          <p
+            className="intro-banner-subtitle"
+            style={style.introBannerSubtitleStyles}
+          >
+            国家自然科学基金委信息科学部<br/>
+            空间信息网络重大研究计划指导专家组
           </p>
 
         </div>

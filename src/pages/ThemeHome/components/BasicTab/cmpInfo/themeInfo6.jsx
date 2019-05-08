@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import './InfomStyle.css'
 
 
 
@@ -9,7 +9,7 @@ export default class ThemeInfo6 extends React.Component {
   render(){
 
     return (
-      <div>
+      <div className={'info-paragraph'}>
       <p>
         主题六：遥感图像场景分类&nbsp;
       </p>

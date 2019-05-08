@@ -27,11 +27,19 @@ const statusEnum = [
   },
   {
     value: 2,
-    label: '工程师',
+    label: '教师',
   },
   {
     value: 3,
-    label: '个人',
+    label: '工程师',
+  },
+  {
+    value: 4,
+    label: '科研人员',
+  },
+  {
+    value: 5,
+    label: '其他',
   },
   ];
 const themeEnum = [
@@ -342,8 +350,8 @@ class UserRegister extends Component {
           <Row>
             <Col>
               <div style={styles.formItem}>
-                <IceFormBinder name="identity" required message="身份">
-                  <Select dataSource={statusEnum}  placeholder="选择身份" style={styles.selectStatus} />
+                <IceFormBinder name="identity" required message="职业">
+                  <Select dataSource={statusEnum}  placeholder="选择职业" style={styles.selectStatus} />
                 </IceFormBinder>
                 <IceFormError name="identity"/>
               </div>

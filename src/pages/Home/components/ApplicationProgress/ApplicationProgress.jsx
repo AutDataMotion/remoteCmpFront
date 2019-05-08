@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Step, Grid, Icon } from '@alifd/next';
 import IceContainer from '@icedesign/container';
 import globalConf from "../../../../globalConfig";
+import {Link} from "react-router-dom";
 
 const { Row, Col } = Grid;
 
@@ -89,12 +90,9 @@ export default class ApplicationProgress extends Component {
                     </Col>
                     <Col xxs="24" s="4">
                       <div style={styles.operationWrap}>
-                        <a href={item.url} target="_blank">
+                        <Link to={item.url}>
                           {item.operation}
-                        </a>
-                        <a style={styles.operBtn} href={item.url} target="_blank">
-                          {item.regist}
-                        </a>
+                        </Link>
                       </div>
                     </Col>
                   </Row>

@@ -42,16 +42,10 @@ export default class Header extends Component {
                   if (nav.children && nav.children.length > 0) {
                     return (
                       <SubMenu
-                        triggerType="click"
+                        triggerType="hover"
                         key={index}
-                        title={
-                          <span>
-                            {nav.icon ? (
-                              <FoundationSymbol size="small" type={nav.icon} />
-                            ) : null}
-                            <span>{nav.name}</span>
-                          </span>
-                        }
+                        label={nav.name}
+                        selectable
                       >
                         {nav.children.map((item) => {
                           const linkProps = {};
@@ -151,12 +145,12 @@ export default class Header extends Component {
             className="user-profile-menu"
           >
             <ul>
-              <li className="user-profile-menu-item">
-                <Link to="/setting">
-                  <FoundationSymbol type="repair" size="small" />
-                  个人信息
-                </Link>
-              </li>
+              {/*<li className="user-profile-menu-item">*/}
+                {/*<Link to="/setting">*/}
+                  {/*<FoundationSymbol type="repair" size="small" />*/}
+                  {/*个人信息*/}
+                {/*</Link>*/}
+              {/*</li>*/}
               <li className="user-profile-menu-item">
                 <Link to="/user/login">
                   <FoundationSymbol type="compass" size="small" />
