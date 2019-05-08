@@ -45,6 +45,7 @@ export default class Rule extends Component {
           2019年9月15日在浙江乌镇举办的颁奖仪式和学术交流活动。
         </p>
 
+        <br/>
         <h2>竞赛主题</h2>
         <ol>
           <li>
@@ -87,6 +88,7 @@ export default class Rule extends Component {
           </li>
         </ol>
 
+        <br/>
         <h2>时间安排</h2>
 
         <table>
@@ -133,6 +135,7 @@ export default class Rule extends Component {
           </tbody>
         </table>
 
+        <br/>
         <h2>竞赛开发与测试平台</h2>
 
         <p><strong>1.	初赛评测平台</strong></p>
@@ -150,6 +153,8 @@ export default class Rule extends Component {
           <li>显存：16GB<br/></li>
           <li>操作系统：Ubuntu 16.06 64bit/CentOS 7.3 64bit<br/></li>
         </ul>
+
+        <br/>
 
         <h2> 奖项设置 </h2>
         <p>竞赛将根据测试得分情况，对参赛队伍进行排名，
@@ -207,6 +212,7 @@ export default class Rule extends Component {
 
         </ol>
 
+        <br/>
         <h2>注意事项</h2>
 
         <p><strong>报名与组队要求</strong></p>
@@ -250,7 +256,9 @@ export default class Rule extends Component {
           </header>
         </Col>
         <Col l="24" xxs="24">
-          {this.renderText()}
+          <div className='whiteText'>
+            {this.renderText()}
+          </div>
         </Col>
         <Col l="24" xxs="24">
           <BlackFooter/>

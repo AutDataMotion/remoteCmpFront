@@ -18,6 +18,8 @@ import Theme5 from "./pages/Theme5";
 import Theme6 from "./pages/Theme6";
 import Dashboard from "./pages/Dashboard";
 import Rule from "./pages/Rule";
+import Org from "./pages/Org";
+import AboutUs from "./pages/AboutUs";
 
 const routerConfig = [
   {
@@ -27,6 +29,14 @@ const routerConfig = [
   {
     path: '/rule',
     component: Rule,
+  },
+  {
+    path: '/org',
+    component: Org,
+  },
+  {
+    path: '/about',
+    component: AboutUs,
   },
 
   {

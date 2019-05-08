@@ -15,7 +15,7 @@ const asideMenuConfig = [
   },
   {
     name: '组织机构',
-    path: '/home',
+    path: '/org',
 
   },
   {
@@ -89,7 +89,7 @@ const asideMenuConfig = [
   },
   {
     name: '关于我们',
-    path: '/home',
+    path: '/about',
   },
 ];
 

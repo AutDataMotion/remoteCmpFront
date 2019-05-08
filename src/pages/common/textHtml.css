@@ -1,4 +1,22 @@
+.whiteText{
+ background: white;
+}
+/*组织结构*/
+table.org {
+  border-width: 0px;
+  font-size: 16px;
+}
+table.org th {
+  border-width: 0px;
+  padding: 8px;
 
+}
+table.org td {
+  border-width: 0px;
+  padding: 8px 20px;
+}
+
+/*======================*/
 
 #contentEditorHtmlOutput table {
   display: table;
@@ -172,7 +190,7 @@
   min-height: 498px;
   line-height: 1.8;
   font-size: 14px;
-  margin: 20px auto;
+  margin: 0px auto;
   padding: 20px 40px;
   justify-content: space-between;
   background-color: #fff;
