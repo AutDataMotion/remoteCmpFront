@@ -17,6 +17,7 @@ import Theme4 from "./pages/Theme4";
 import Theme5 from "./pages/Theme5";
 import Theme6 from "./pages/Theme6";
 import Dashboard from "./pages/Dashboard";
+import Rule from "./pages/Rule";
 
 const routerConfig = [
   {
@@ -24,13 +25,10 @@ const routerConfig = [
     component: Home,
   },
   {
-    path: '/user/login',
-    component: UserLogin,
+    path: '/rule',
+    component: Rule,
   },
-  {
-    path: '/user/register',
-    component: UserRegister,
-  },
+
   {
     path: '/theme/1',
     component: ThemeHome,
@@ -70,6 +68,14 @@ const routerConfig = [
   {
     path: '/demo',
     component: DemoShow,
+  },
+  {
+    path: '/user/login',
+    component: UserLogin,
+  },
+  {
+    path: '/user/register',
+    component: UserRegister,
   },
   {
     path: '/setting',

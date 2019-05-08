@@ -1,0 +1,1584 @@
+
+
+#contentEditorHtmlOutput table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+#rules-header {
+  width: 100%;
+  height: 180px;
+  background-image: url('text-banner.jpg');
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#rules-header .cn-header {
+  font-size: 36px;
+  margin-top: 46px;
+}
+#rules-header .en-header {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+#rules-content {
+  width: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8F8F8;
+  padding-top: 20px;
+  padding-bottom: 240px;
+  background-image: url('rule-bg.png');
+}
+#rules-content .wrapper {
+  margin-bottom: 15px;
+}
+#rules-content .wrapper .about-chapter {
+  padding: 20px 40px;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #DCDCDC;
+}
+#rules-content .wrapper .about-chapter .info-wrapper {
+  margin-right: 20px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .about-title {
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper {
+  margin-bottom: 20px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-number {
+  background-color: #3272FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc {
+  flex: 1;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul {
+  margin-top: 15px;
+  padding-left: 15px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul .li {
+  margin-bottom: 15px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul .li .li-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 20px;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul .li .li-header-container .li-header {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #3272FF;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul .li .li-content {
+  flex: 1;
+}
+#rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul .li.last {
+  margin-bottom: 0;
+}
+#rules-content .wrapper .about-1 {
+  height: 290px;
+}
+#rules-content .wrapper .about-2 {
+  height: 323px;
+}
+#rules-content .wrapper .about-3 {
+  height: 324px;
+}
+#rules-content .wrapper .about-4 {
+  height: 193px;
+}
+#rules-content .wrapper .about-5 {
+  height: 324px;
+}
+#rules-content .wrapper .about-6 {
+  height: 281px;
+}
+#rules-content .wrapper .about-7 {
+  height: 339px;
+}
+#rules-content .wrapper .about-8 {
+  height: 274px;
+}
+#rules-content .wrapper .about-9 {
+  height: 322px;
+}
+@media (max-width: 768px) {
+  #rules-content .wrapper .about-chapter {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-number {
+    margin-right: 10px;
+  }
+  #rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul {
+    padding-left: 5px;
+  }
+  #rules-content .wrapper .about-chapter .info-wrapper .point-wrapper .point-desc .ul .li .li-header-container {
+    margin-right: 10px;
+  }
+  #rules-content .wrapper .about-1 {
+    height: 248px;
+  }
+  #rules-content .wrapper .about-2 {
+    height: 277px;
+  }
+  #rules-content .wrapper .about-3 {
+    height: 280px;
+  }
+  #rules-content .wrapper .about-4 {
+    height: 176px;
+  }
+  #rules-content .wrapper .about-5 {
+    height: 292px;
+  }
+  #rules-content .wrapper .about-6 {
+    height: 241px;
+  }
+  #rules-content .wrapper .about-7 {
+    height: 311px;
+  }
+  #rules-content .wrapper .about-8 {
+    height: 259px;
+  }
+  #rules-content .wrapper .about-9 {
+    height: 287px;
+  }
+}
+
+
+
+.contentEditorHtmlOutput {
+  width: 82.6%;
+  min-height: 498px;
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 20px auto;
+  padding: 20px 40px;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #DCDCDC;
+}
+
+.contentEditorHtmlOutput p{
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 26px;
+}
+.contentEditorHtmlOutput ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.contentEditorHtmlOutput i,
+.contentEditorHtmlOutput cite,
+.contentEditorHtmlOutput em,
+.contentEditorHtmlOutput var,
+.contentEditorHtmlOutput address,
+.contentEditorHtmlOutput dfn {
+  font-style: italic;
+}
+
+.contentEditorHtmlOutput s,
+.contentEditorHtmlOutput strike,
+.contentEditorHtmlOutput del {
+  text-decoration: line-through !important;
+}
+
+.contentEditorHtmlOutput font.center {
+  display: block;
+  text-align: center;
+}
+
+.contentEditorHtmlOutput .bg-rosybrown {
+  background-color: rosybrown;
+}
+
+.contentEditorHtmlOutput .bg-indianred {
+  background-color: indianred;
+}
+
+.contentEditorHtmlOutput .bg-brown {
+  background-color: brown;
+}
+
+.contentEditorHtmlOutput .bg-firebrick {
+  background-color: firebrick;
+}
+
+.contentEditorHtmlOutput .bg-lightcoral {
+  background-color: lightcoral;
+}
+
+.contentEditorHtmlOutput .bg-maroon {
+  background-color: maroon;
+}
+
+.contentEditorHtmlOutput .bg-darkred {
+  background-color: darkred;
+}
+
+.contentEditorHtmlOutput .bg-red {
+  background-color: red;
+}
+
+.contentEditorHtmlOutput .bg-snow {
+  background-color: snow;
+}
+
+.contentEditorHtmlOutput .bg-mistyrose {
+  background-color: mistyrose;
+}
+
+.contentEditorHtmlOutput .bg-salmon {
+  background-color: salmon;
+}
+
+.contentEditorHtmlOutput .bg-tomato {
+  background-color: tomato;
+}
+
+.contentEditorHtmlOutput .bg-darksalmon {
+  background-color: darksalmon;
+}
+
+.contentEditorHtmlOutput .bg-coral {
+  background-color: coral;
+}
+
+.contentEditorHtmlOutput .bg-orangered {
+  background-color: orangered;
+}
+
+.contentEditorHtmlOutput .bg-lightsalmon {
+  background-color: lightsalmon;
+}
+
+.contentEditorHtmlOutput .bg-sienna {
+  background-color: sienna;
+}
+
+.contentEditorHtmlOutput .bg-seashell {
+  background-color: seashell;
+}
+
+.contentEditorHtmlOutput .bg-chocolate {
+  background-color: chocolate;
+}
+
+.contentEditorHtmlOutput .bg-saddlebrown {
+  background-color: saddlebrown;
+}
+
+.contentEditorHtmlOutput .bg-sandybrown {
+  background-color: sandybrown;
+}
+
+.contentEditorHtmlOutput .bg-peachpuff {
+  background-color: peachpuff;
+}
+
+.contentEditorHtmlOutput .bg-peru {
+  background-color: peru;
+}
+
+.contentEditorHtmlOutput .bg-linen {
+  background-color: linen;
+}
+
+.contentEditorHtmlOutput .bg-bisque {
+  background-color: bisque;
+}
+
+.contentEditorHtmlOutput .bg-darkorange {
+  background-color: darkorange;
+}
+
+.contentEditorHtmlOutput .bg-burlywood {
+  background-color: burlywood;
+}
+
+.contentEditorHtmlOutput .bg-antiquewhite {
+  background-color: antiquewhite;
+}
+
+.contentEditorHtmlOutput .bg-tan {
+  background-color: tan;
+}
+
+.contentEditorHtmlOutput .bg-navajowhite {
+  background-color: navajowhite;
+}
+
+.contentEditorHtmlOutput .bg-blanchedalmond {
+  background-color: blanchedalmond;
+}
+
+.contentEditorHtmlOutput .bg-papayawhip {
+  background-color: papayawhip;
+}
+
+.contentEditorHtmlOutput .bg-moccasin {
+  background-color: moccasin;
+}
+
+.contentEditorHtmlOutput .bg-orange {
+  background-color: orange;
+}
+
+.contentEditorHtmlOutput .bg-wheat {
+  background-color: wheat;
+}
+
+.contentEditorHtmlOutput .bg-oldlace {
+  background-color: oldlace;
+}
+
+.contentEditorHtmlOutput .bg-floralwhite {
+  background-color: floralwhite;
+}
+
+.contentEditorHtmlOutput .bg-darkgoldenrod {
+  background-color: darkgoldenrod;
+}
+
+.contentEditorHtmlOutput .bg-goldenrod {
+  background-color: goldenrod;
+}
+
+.contentEditorHtmlOutput .bg-cornsilk {
+  background-color: cornsilk;
+}
+
+.contentEditorHtmlOutput .bg-gold {
+  background-color: gold;
+}
+
+.contentEditorHtmlOutput .bg-lemonchiffon {
+  background-color: lemonchiffon;
+}
+
+.contentEditorHtmlOutput .bg-khaki {
+  background-color: khaki;
+}
+
+.contentEditorHtmlOutput .bg-palegoldenrod {
+  background-color: palegoldenrod;
+}
+
+.contentEditorHtmlOutput .bg-darkkhaki {
+  background-color: darkkhaki;
+}
+
+.contentEditorHtmlOutput .bg-beige {
+  background-color: beige;
+}
+
+.contentEditorHtmlOutput .bg-lightgoldenrodyellow {
+  background-color: lightgoldenrodyellow;
+}
+
+.contentEditorHtmlOutput .bg-olive {
+  background-color: olive;
+}
+
+.contentEditorHtmlOutput .bg-ivory {
+  background-color: ivory;
+}
+
+.contentEditorHtmlOutput .bg-lightyellow {
+  background-color: lightyellow;
+}
+
+.contentEditorHtmlOutput .bg-yellow {
+  background-color: yellow;
+}
+
+.contentEditorHtmlOutput .bg-olivedrab {
+  background-color: olivedrab;
+}
+
+.contentEditorHtmlOutput .bg-yellowgreen {
+  background-color: yellowgreen;
+}
+
+.contentEditorHtmlOutput .bg-darkolivegreen {
+  background-color: darkolivegreen;
+}
+
+.contentEditorHtmlOutput .bg-greenyellow {
+  background-color: greenyellow;
+}
+
+.contentEditorHtmlOutput .bg-chartreuse {
+  background-color: chartreuse;
+}
+
+.contentEditorHtmlOutput .bg-lawngreen {
+  background-color: lawngreen;
+}
+
+.contentEditorHtmlOutput .bg-darkseagreen {
+  background-color: darkseagreen;
+}
+
+.contentEditorHtmlOutput .bg-forestgreen {
+  background-color: forestgreen;
+}
+
+.contentEditorHtmlOutput .bg-limegreen {
+  background-color: limegreen;
+}
+
+.contentEditorHtmlOutput .bg-lightgreen {
+  background-color: lightgreen;
+}
+
+.contentEditorHtmlOutput .bg-palegreen {
+  background-color: palegreen;
+}
+
+.contentEditorHtmlOutput .bg-green {
+  background-color: green;
+}
+
+.contentEditorHtmlOutput .bg-lime {
+  background-color: lime;
+}
+
+.contentEditorHtmlOutput .bg-darkgreen {
+  background-color: darkgreen;
+}
+
+.contentEditorHtmlOutput .bg-honeydew {
+  background-color: honeydew;
+}
+
+.contentEditorHtmlOutput .bg-seagreen {
+  background-color: seagreen;
+}
+
+.contentEditorHtmlOutput .bg-mediumseagreen {
+  background-color: mediumseagreen;
+}
+
+.contentEditorHtmlOutput .bg-springgreen {
+  background-color: springgreen;
+}
+
+.contentEditorHtmlOutput .bg-mintcream {
+  background-color: mintcream;
+}
+
+.contentEditorHtmlOutput .bg-mediumspringgreen {
+  background-color: mediumspringgreen;
+}
+
+.contentEditorHtmlOutput .bg-mediumaquamarine {
+  background-color: mediumaquamarine;
+}
+
+.contentEditorHtmlOutput .bg-aquamarine {
+  background-color: aquamarine;
+}
+
+.contentEditorHtmlOutput .bg-turquoise {
+  background-color: turquoise;
+}
+
+.contentEditorHtmlOutput .bg-lightseagreen {
+  background-color: lightseagreen;
+}
+
+.contentEditorHtmlOutput .bg-mediumturquoise {
+  background-color: mediumturquoise;
+}
+
+.contentEditorHtmlOutput .bg-darkslategray {
+  background-color: darkslategray;
+}
+
+.contentEditorHtmlOutput .bg-darkslategrey {
+  background-color: darkslategrey;
+}
+
+.contentEditorHtmlOutput .bg-paleturquoise {
+  background-color: paleturquoise;
+}
+
+.contentEditorHtmlOutput .bg-aqua {
+  background-color: aqua;
+}
+
+.contentEditorHtmlOutput .bg-darkcyan {
+  background-color: darkcyan;
+}
+
+.contentEditorHtmlOutput .bg-azure {
+  background-color: azure;
+}
+
+.contentEditorHtmlOutput .bg-cyan {
+  background-color: cyan;
+}
+
+.contentEditorHtmlOutput .bg-lightcyan {
+  background-color: lightcyan;
+}
+
+.contentEditorHtmlOutput .bg-teal {
+  background-color: teal;
+}
+
+.contentEditorHtmlOutput .bg-darkturquoise {
+  background-color: darkturquoise;
+}
+
+.contentEditorHtmlOutput .bg-cadetblue {
+  background-color: cadetblue;
+}
+
+.contentEditorHtmlOutput .bg-powderblue {
+  background-color: powderblue;
+}
+
+.contentEditorHtmlOutput .bg-lightblue {
+  background-color: lightblue;
+}
+
+.contentEditorHtmlOutput .bg-deepskyblue {
+  background-color: deepskyblue;
+}
+
+.contentEditorHtmlOutput .bg-skyblue {
+  background-color: skyblue;
+}
+
+.contentEditorHtmlOutput .bg-lightskyblue {
+  background-color: lightskyblue;
+}
+
+.contentEditorHtmlOutput .bg-steelblue {
+  background-color: steelblue;
+}
+
+.contentEditorHtmlOutput .bg-aliceblue {
+  background-color: aliceblue;
+}
+
+.contentEditorHtmlOutput .bg-dodgerblue {
+  background-color: dodgerblue;
+}
+
+.contentEditorHtmlOutput .bg-slategrey {
+  background-color: slategrey;
+}
+
+.contentEditorHtmlOutput .bg-slategray {
+  background-color: slategray;
+}
+
+.contentEditorHtmlOutput .bg-lightslategrey {
+  background-color: lightslategrey;
+}
+
+.contentEditorHtmlOutput .bg-lightslategray {
+  background-color: lightslategray;
+}
+
+.contentEditorHtmlOutput .bg-lightsteelblue {
+  background-color: lightsteelblue;
+}
+
+.contentEditorHtmlOutput .bg-cornflowerblue {
+  background-color: cornflowerblue;
+}
+
+.contentEditorHtmlOutput .bg-royalblue {
+  background-color: royalblue;
+}
+
+.contentEditorHtmlOutput .bg-midnightblue {
+  background-color: midnightblue;
+}
+
+.contentEditorHtmlOutput .bg-lavender {
+  background-color: lavender;
+}
+
+.contentEditorHtmlOutput .bg-navy {
+  background-color: navy;
+}
+
+.contentEditorHtmlOutput .bg-mediumblue {
+  background-color: mediumblue;
+}
+
+.contentEditorHtmlOutput .bg-darkblue {
+  background-color: darkblue;
+}
+
+.contentEditorHtmlOutput .bg-ghostwhite {
+  background-color: ghostwhite;
+}
+
+.contentEditorHtmlOutput .bg-blue {
+  background-color: blue;
+}
+
+.contentEditorHtmlOutput .bg-slateblue {
+  background-color: slateblue;
+}
+
+.contentEditorHtmlOutput .bg-darkslateblue {
+  background-color: darkslateblue;
+}
+
+.contentEditorHtmlOutput .bg-mediumslateblue {
+  background-color: mediumslateblue;
+}
+
+.contentEditorHtmlOutput .bg-mediumpurple {
+  background-color: mediumpurple;
+}
+
+.contentEditorHtmlOutput .bg-rebeccapurple {
+  background-color: rebeccapurple;
+}
+
+.contentEditorHtmlOutput .bg-blueviolet {
+  background-color: blueviolet;
+}
+
+.contentEditorHtmlOutput .bg-indigo {
+  background-color: indigo;
+}
+
+.contentEditorHtmlOutput .bg-darkorchid {
+  background-color: darkorchid;
+}
+
+.contentEditorHtmlOutput .bg-darkviolet {
+  background-color: darkviolet;
+}
+
+.contentEditorHtmlOutput .bg-mediumorchid {
+  background-color: mediumorchid;
+}
+
+.contentEditorHtmlOutput .bg-thistle {
+  background-color: thistle;
+}
+
+.contentEditorHtmlOutput .bg-plum {
+  background-color: plum;
+}
+
+.contentEditorHtmlOutput .bg-violet {
+  background-color: violet;
+}
+
+.contentEditorHtmlOutput .bg-fuchsia {
+  background-color: fuchsia;
+}
+
+.contentEditorHtmlOutput .bg-darkmagenta {
+  background-color: darkmagenta;
+}
+
+.contentEditorHtmlOutput .bg-purple {
+  background-color: purple;
+}
+
+.contentEditorHtmlOutput .bg-magenta {
+  background-color: magenta;
+}
+
+.contentEditorHtmlOutput .bg-orchid {
+  background-color: orchid;
+}
+
+.contentEditorHtmlOutput .bg-mediumvioletred {
+  background-color: mediumvioletred;
+}
+
+.contentEditorHtmlOutput .bg-deeppink {
+  background-color: deeppink;
+}
+
+.contentEditorHtmlOutput .bg-hotpink {
+  background-color: hotpink;
+}
+
+.contentEditorHtmlOutput .bg-lavenderblush {
+  background-color: lavenderblush;
+}
+
+.contentEditorHtmlOutput .bg-palevioletred {
+  background-color: palevioletred;
+}
+
+.contentEditorHtmlOutput .bg-crimson {
+  background-color: crimson;
+}
+
+.contentEditorHtmlOutput .bg-pink {
+  background-color: pink;
+}
+
+.contentEditorHtmlOutput .bg-lightpink {
+  background-color: lightpink;
+}
+
+.contentEditorHtmlOutput .bg-white {
+  background-color: white;
+}
+
+.contentEditorHtmlOutput .bg-whitesmoke {
+  background-color: whitesmoke;
+}
+
+.contentEditorHtmlOutput .bg-gainsboro {
+  background-color: gainsboro;
+}
+
+.contentEditorHtmlOutput .bg-lightgrey {
+  background-color: lightgrey;
+}
+
+.contentEditorHtmlOutput .bg-lightgray {
+  background-color: lightgray;
+}
+
+.contentEditorHtmlOutput .bg-silver {
+  background-color: silver;
+}
+
+.contentEditorHtmlOutput .bg-darkgrey {
+  background-color: darkgrey;
+}
+
+.contentEditorHtmlOutput .bg-darkgray {
+  background-color: darkgray;
+}
+
+.contentEditorHtmlOutput .bg-grey {
+  background-color: grey;
+}
+
+.contentEditorHtmlOutput .bg-gray {
+  background-color: gray;
+}
+
+.contentEditorHtmlOutput .bg-dimgrey {
+  background-color: dimgrey;
+}
+
+.contentEditorHtmlOutput .bg-dimgray {
+  background-color: dimgray;
+}
+
+.contentEditorHtmlOutput .bg-black {
+  background-color: black;
+}
+
+.contentEditorHtmlOutput blockquote {
+  color: rgba(0, 0, 0, 0.5);
+  padding-left: 1.5em;
+  border-left: 5px solid rgba(0, 0, 0, 0.1);
+}
+
+.app--dark .layout__panel--editor .contentEditorHtmlOutput blockquote,
+.app--dark .layout__panel--preview .contentEditorHtmlOutput blockquote {
+  color: rgba(255, 255, 255, 0.4);
+  border-left-color: rgba(255, 255, 255, 0.1);
+}
+
+.contentEditorHtmlOutput ol ul,
+.contentEditorHtmlOutput ul ol,
+.contentEditorHtmlOutput ul ul,
+.contentEditorHtmlOutput ol ol {
+  margin: 0;
+}
+
+.contentEditorHtmlOutput p,
+.contentEditorHtmlOutput blockquote,
+.contentEditorHtmlOutput pre,
+.contentEditorHtmlOutput ul,
+.contentEditorHtmlOutput ol,
+.contentEditorHtmlOutput dl {
+  margin: 1.2em 0;
+}
+
+.contentEditorHtmlOutput h1,
+.contentEditorHtmlOutput h2,
+.contentEditorHtmlOutput h3,
+.contentEditorHtmlOutput h4,
+.contentEditorHtmlOutput h5,
+.contentEditorHtmlOutput h6 {
+  margin: 1.8em 0;
+  line-height: 1.33;
+  font-weight: bold;
+}
+
+.contentEditorHtmlOutput h1::after,
+.contentEditorHtmlOutput h2::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 0.33em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.33);
+}
+
+.contentEditorHtmlOutput dt {
+  font-weight: bold;
+}
+
+.contentEditorHtmlOutput b,
+.contentEditorHtmlOutput strong {
+  font-weight: bolder;
+}
+
+.contentEditorHtmlOutput h1 {
+  font-size: 2em;
+}
+
+.contentEditorHtmlOutput h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm *,
+.contentEditorHtmlOutput .prism * {
+  font-weight: inherit !important;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.comment,
+.contentEditorHtmlOutput .prism .token.comment,
+.contentEditorHtmlOutput .token.pre.gfm .token.prolog,
+.contentEditorHtmlOutput .prism .token.prolog,
+.contentEditorHtmlOutput .token.pre.gfm .token.doctype,
+.contentEditorHtmlOutput .prism .token.doctype,
+.contentEditorHtmlOutput .token.pre.gfm .token.cdata,
+.contentEditorHtmlOutput .prism .token.cdata {
+  color: #708090;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.punctuation,
+.contentEditorHtmlOutput .prism .token.punctuation {
+  color: #999;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .namespace,
+.contentEditorHtmlOutput .prism .namespace {
+  opacity: 0.7;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.property,
+.contentEditorHtmlOutput .prism .token.property,
+.contentEditorHtmlOutput .token.pre.gfm .token.tag,
+.contentEditorHtmlOutput .prism .token.tag,
+.contentEditorHtmlOutput .token.pre.gfm .token.boolean,
+.contentEditorHtmlOutput .prism .token.boolean,
+.contentEditorHtmlOutput .token.pre.gfm .token.number,
+.contentEditorHtmlOutput .prism .token.number,
+.contentEditorHtmlOutput .token.pre.gfm .token.constant,
+.contentEditorHtmlOutput .prism .token.constant,
+.contentEditorHtmlOutput .token.pre.gfm .token.symbol,
+.contentEditorHtmlOutput .prism .token.symbol,
+.contentEditorHtmlOutput .token.pre.gfm .token.deleted,
+.contentEditorHtmlOutput .prism .token.deleted {
+  color: #905;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.selector,
+.contentEditorHtmlOutput .prism .token.selector,
+.contentEditorHtmlOutput .token.pre.gfm .token.attr-name,
+.contentEditorHtmlOutput .prism .token.attr-name,
+.contentEditorHtmlOutput .token.pre.gfm .token.string,
+.contentEditorHtmlOutput .prism .token.string,
+.contentEditorHtmlOutput .token.pre.gfm .token.char,
+.contentEditorHtmlOutput .prism .token.char,
+.contentEditorHtmlOutput .token.pre.gfm .token.builtin,
+.contentEditorHtmlOutput .prism .token.builtin,
+.contentEditorHtmlOutput .token.pre.gfm .token.inserted,
+.contentEditorHtmlOutput .prism .token.inserted {
+  color: #690;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.operator,
+.contentEditorHtmlOutput .prism .token.operator,
+.contentEditorHtmlOutput .token.pre.gfm .token.entity,
+.contentEditorHtmlOutput .prism .token.entity,
+.contentEditorHtmlOutput .token.pre.gfm .token.url,
+.contentEditorHtmlOutput .prism .token.url,
+.contentEditorHtmlOutput .token.pre.gfm .language-css .token.string,
+.contentEditorHtmlOutput .prism .language-css .token.string,
+.contentEditorHtmlOutput .token.pre.gfm .style .token.string,
+.contentEditorHtmlOutput .prism .style .token.string {
+  color: #a67f59;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.atrule,
+.contentEditorHtmlOutput .prism .token.atrule,
+.contentEditorHtmlOutput .token.pre.gfm .token.attr-value,
+.contentEditorHtmlOutput .prism .token.attr-value,
+.contentEditorHtmlOutput .token.pre.gfm .token.keyword,
+.contentEditorHtmlOutput .prism .token.keyword {
+  color: #07a;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.function,
+.contentEditorHtmlOutput .prism .token.function {
+  color: #dd4a68;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.regex,
+.contentEditorHtmlOutput .prism .token.regex,
+.contentEditorHtmlOutput .token.pre.gfm .token.important,
+.contentEditorHtmlOutput .prism .token.important,
+.contentEditorHtmlOutput .token.pre.gfm .token.variable,
+.contentEditorHtmlOutput .prism .token.variable {
+  color: #e90;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.important,
+.contentEditorHtmlOutput .prism .token.important,
+.contentEditorHtmlOutput .token.pre.gfm .token.bold,
+.contentEditorHtmlOutput .prism .token.bold {
+  font-weight: 500;
+}
+
+.contentEditorHtmlOutput .token.pre.gfm .token.italic,
+.contentEditorHtmlOutput .prism .token.italic {
+  font-style: italic;
+}
+
+.contentEditorHtmlOutput .app--dark .layout__panel--editor,
+.contentEditorHtmlOutput .app--dark .layout__panel--preview {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contentEditorHtmlOutput code,
+.contentEditorHtmlOutput pre,
+.contentEditorHtmlOutput samp {
+  font-family: 'Roboto Mono', 'Lucida Sans Typewriter', 'Lucida Console', monaco, Courrier, monospace;
+  font-size: 0.85em;
+}
+
+.contentEditorHtmlOutput code *,
+.contentEditorHtmlOutput pre *,
+.contentEditorHtmlOutput samp * {
+  font-size: inherit;
+}
+
+.contentEditorHtmlOutput code {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
+.contentEditorHtmlOutput hr {
+  border: 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.33);
+  margin: 2em 0;
+}
+
+.contentEditorHtmlOutput pre>code {
+  background-color: rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0.5em;
+  -webkit-text-size-adjust: none;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.contentEditorHtmlOutput .toc ul {
+  padding-left: 20px;
+}
+
+.contentEditorHtmlOutput table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.contentEditorHtmlOutput td,
+.contentEditorHtmlOutput th {
+  border-right: 1px solid #dcdcdc;
+  padding: 8px 12px;
+}
+
+.contentEditorHtmlOutput td:last-child,
+.contentEditorHtmlOutput th:last-child {
+  border-right: 0;
+}
+
+.contentEditorHtmlOutput td {
+  border-top: 1px solid #dcdcdc;
+}
+
+.contentEditorHtmlOutput mark {
+  background-color: #f8f840;
+}
+
+.contentEditorHtmlOutput kbd {
+  font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  border: 1px solid rgba(63, 63, 63, 0.25);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(63, 63, 63, 0.25);
+  color: #333;
+  display: inline-block;
+  font-size: 0.8em;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em;
+  white-space: nowrap;
+}
+
+.contentEditorHtmlOutput abbr[title] {
+  border-bottom: 1px dotted #777;
+  cursor: help;
+}
+
+.contentEditorHtmlOutput img {
+  max-width: 100%;
+}
+
+.contentEditorHtmlOutput .task-list-item {
+  list-style-type: none;
+}
+
+.contentEditorHtmlOutput .task-list-item-checkbox {
+  margin: 0 0.2em 0 -1.3em;
+}
+
+.contentEditorHtmlOutput .footnote {
+  font-size: 0.8em;
+  position: relative;
+  top: -0.25em;
+  vertical-align: top;
+}
+
+.contentEditorHtmlOutput .page-break-after {
+  page-break-after: always;
+}
+
+.contentEditorHtmlOutput .abc-notation-block {
+  overflow-x: auto !important;
+}
+
+.contentEditorHtmlOutput .preview__inner-2> :first-child> :first-child {
+  margin-top: 0;
+}
+
+.contentEditorHtmlOutput blockquote,
+.contentEditorHtmlOutput dl,
+.contentEditorHtmlOutput ol,
+.contentEditorHtmlOutput p,
+.contentEditorHtmlOutput pre,
+.contentEditorHtmlOutput ul {
+  margin: 1.2em 0;
+}
+
+.contentEditorHtmlOutput blockquote,
+.contentEditorHtmlOutput dl,
+.contentEditorHtmlOutput ol,
+.contentEditorHtmlOutput p,
+.contentEditorHtmlOutput pre,
+.contentEditorHtmlOutput ul {
+  margin: 1.2em 0;
+}
+
+.contentEditorHtmlOutput ul,
+.contentEditorHtmlOutput menu,
+.contentEditorHtmlOutput dir {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.contentEditorHtmlOutput li {
+  border-bottom: 0px;
+}
+
+.contentEditorHtmlOutput blockquote p {
+  float: none !important;
+}
+
+.contentEditorHtmlOutput p {
+  float: none !important;
+  width: 100% !important;
+}
+
+.contentEditorHtmlOutput ul li {
+  list-style: disc;
+  padding: 0px;
+  height: auto;
+  line-height: 1.5;
+}
+
+.contentEditorHtmlOutput input {
+  height: auto !important;
+}
+
+.contentEditorHtmlOutput .mermaid {
+  font-size: 16px;
+  /** Section styling */
+  /* Grid and axis */
+  /* Today line */
+  /* Task styling */
+  /* Default task */
+  /* Specific task settings for the sections*/
+  /* Active task */
+  /* Completed task */
+  /* Tasks on the critical line */
+}
+
+.contentEditorHtmlOutput .mermaid svg {
+  color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  max-width: 100%;
+}
+
+.app--dark .contentEditorHtmlOutput .mermaid svg {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contentEditorHtmlOutput .mermaid svg * {
+  font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.contentEditorHtmlOutput .mermaid .mermaid .label {
+  color: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .node rect,
+.contentEditorHtmlOutput .mermaid .node circle,
+.contentEditorHtmlOutput .mermaid .node ellipse,
+.contentEditorHtmlOutput .mermaid .node polygon {
+  fill: #eee;
+  stroke: #999;
+  stroke-width: 1px;
+}
+
+.contentEditorHtmlOutput .mermaid .node.clickable {
+  cursor: pointer;
+}
+
+.contentEditorHtmlOutput .mermaid .arrowheadPath {
+  fill: #333333;
+}
+
+.contentEditorHtmlOutput .mermaid .edgePath .path {
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+.contentEditorHtmlOutput .mermaid .edgeLabel {
+  background-color: white;
+}
+
+.contentEditorHtmlOutput .mermaid .cluster rect {
+  fill: #eaf2fb !important;
+  stroke: #26a !important;
+  stroke-width: 1px !important;
+}
+
+.contentEditorHtmlOutput .mermaid .cluster text {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 12px;
+  background: #eaf2fb;
+  border: 1px solid #26a;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.contentEditorHtmlOutput .mermaid .actor {
+  stroke: #999;
+  fill: #eee;
+}
+
+.contentEditorHtmlOutput .mermaid text.actor {
+  fill: #333;
+  stroke: none;
+}
+
+.contentEditorHtmlOutput .mermaid .actor-line {
+  stroke: #666;
+}
+
+.contentEditorHtmlOutput .mermaid .messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  marker-end: 'url(#arrowhead)';
+  stroke: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: #333;
+}
+
+.contentEditorHtmlOutput .mermaid #arrowhead {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid #crosshead path {
+  fill: #333 !important;
+  stroke: #333 !important;
+}
+
+.contentEditorHtmlOutput .mermaid .messageText {
+  fill: #333;
+  stroke: none;
+}
+
+.contentEditorHtmlOutput .mermaid .labelBox {
+  stroke: #999;
+  fill: #eee;
+}
+
+.contentEditorHtmlOutput .mermaid .labelText {
+  fill: white;
+  stroke: none;
+}
+
+.contentEditorHtmlOutput .mermaid .loopText {
+  fill: white;
+  stroke: none;
+}
+
+.contentEditorHtmlOutput .mermaid .loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  marker-end: 'url(#arrowhead)';
+  stroke: #999;
+}
+
+.contentEditorHtmlOutput .mermaid .note {
+  stroke: #777700;
+  fill: #ffa;
+}
+
+.contentEditorHtmlOutput .mermaid .noteText {
+  fill: black;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 14px;
+}
+
+.contentEditorHtmlOutput .mermaid .section {
+  stroke: none;
+  opacity: 0.2;
+}
+
+.contentEditorHtmlOutput .mermaid .section0 {
+  fill: #80b3e6;
+}
+
+.contentEditorHtmlOutput .mermaid .section2 {
+  fill: #80b3e6;
+}
+
+.contentEditorHtmlOutput .mermaid .section1,
+.contentEditorHtmlOutput .mermaid .section3 {
+  fill: white;
+  opacity: 0.2;
+}
+
+.contentEditorHtmlOutput .mermaid .sectionTitle0 {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .sectionTitle1 {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .sectionTitle2 {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .sectionTitle3 {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+}
+
+.contentEditorHtmlOutput .mermaid .grid .tick {
+  stroke: #e6e6e6;
+  opacity: 0.3;
+  shape-rendering: crispEdges;
+}
+
+.contentEditorHtmlOutput .mermaid .grid path {
+  stroke-width: 0;
+}
+
+.contentEditorHtmlOutput .mermaid .today {
+  fill: none;
+  stroke: #d42;
+  stroke-width: 2px;
+}
+
+.contentEditorHtmlOutput .mermaid .task {
+  stroke-width: 2;
+}
+
+.contentEditorHtmlOutput .mermaid .taskText {
+  text-anchor: middle;
+  font-size: 11px;
+}
+
+.contentEditorHtmlOutput .mermaid .taskTextOutsideRight {
+  fill: #333;
+  text-anchor: start;
+  font-size: 11px;
+}
+
+.contentEditorHtmlOutput .mermaid .taskTextOutsideLeft {
+  fill: #333;
+  text-anchor: end;
+  font-size: 11px;
+}
+
+.contentEditorHtmlOutput .mermaid .taskText0,
+.contentEditorHtmlOutput .mermaid .taskText1,
+.contentEditorHtmlOutput .mermaid .taskText2,
+.contentEditorHtmlOutput .mermaid .taskText3 {
+  fill: white;
+}
+
+.contentEditorHtmlOutput .mermaid .task0,
+.contentEditorHtmlOutput .mermaid .task1,
+.contentEditorHtmlOutput .mermaid .task2,
+.contentEditorHtmlOutput .mermaid .task3 {
+  fill: #26a;
+  stroke: #1a4d80;
+}
+
+.contentEditorHtmlOutput .mermaid .taskTextOutside0,
+.contentEditorHtmlOutput .mermaid .taskTextOutside2 {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .taskTextOutside1,
+.contentEditorHtmlOutput .mermaid .taskTextOutside3 {
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid .active0,
+.contentEditorHtmlOutput .mermaid .active1,
+.contentEditorHtmlOutput .mermaid .active2,
+.contentEditorHtmlOutput .mermaid .active3 {
+  fill: #eee;
+  stroke: #1a4d80;
+}
+
+.contentEditorHtmlOutput .mermaid .activeText0,
+.contentEditorHtmlOutput .mermaid .activeText1,
+.contentEditorHtmlOutput .mermaid .activeText2,
+.contentEditorHtmlOutput .mermaid .activeText3 {
+  fill: #333 !important;
+}
+
+.contentEditorHtmlOutput .mermaid .done0,
+.contentEditorHtmlOutput .mermaid .done1,
+.contentEditorHtmlOutput .mermaid .done2,
+.contentEditorHtmlOutput .mermaid .done3 {
+  stroke: #666;
+  fill: #bbb;
+  stroke-width: 2;
+}
+
+.contentEditorHtmlOutput .mermaid .doneText0,
+.contentEditorHtmlOutput .mermaid .doneText1,
+.contentEditorHtmlOutput .mermaid .doneText2,
+.contentEditorHtmlOutput .mermaid .doneText3 {
+  fill: #333 !important;
+}
+
+.contentEditorHtmlOutput .mermaid .crit0,
+.contentEditorHtmlOutput .mermaid .crit1,
+.contentEditorHtmlOutput .mermaid .crit2,
+.contentEditorHtmlOutput .mermaid .crit3 {
+  stroke: #b1361b;
+  fill: #d42;
+  stroke-width: 2;
+}
+
+.contentEditorHtmlOutput .mermaid .activeCrit0,
+.contentEditorHtmlOutput .mermaid .activeCrit1,
+.contentEditorHtmlOutput .mermaid .activeCrit2,
+.contentEditorHtmlOutput .mermaid .activeCrit3 {
+  stroke: #b1361b;
+  fill: #eee;
+  stroke-width: 2;
+}
+
+.contentEditorHtmlOutput .mermaid .doneCrit0,
+.contentEditorHtmlOutput .mermaid .doneCrit1,
+.contentEditorHtmlOutput .mermaid .doneCrit2,
+.contentEditorHtmlOutput .mermaid .doneCrit3 {
+  stroke: #b1361b;
+  fill: #bbb;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges;
+}
+
+.contentEditorHtmlOutput .mermaid .doneCritText0,
+.contentEditorHtmlOutput .mermaid .doneCritText1,
+.contentEditorHtmlOutput .mermaid .doneCritText2,
+.contentEditorHtmlOutput .mermaid .doneCritText3 {
+  fill: #333 !important;
+}
+
+.contentEditorHtmlOutput .mermaid .activeCritText0,
+.contentEditorHtmlOutput .mermaid .activeCritText1,
+.contentEditorHtmlOutput .mermaid .activeCritText2,
+.contentEditorHtmlOutput .mermaid .activeCritText3 {
+  fill: #333 !important;
+}
+
+.contentEditorHtmlOutput .mermaid .titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: #333;
+}
+
+.contentEditorHtmlOutput .mermaid g.classGroup text {
+  fill: #999;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 10px;
+}
+
+.contentEditorHtmlOutput .mermaid g.classGroup rect {
+  fill: #eee;
+  stroke: #999;
+}
+
+.contentEditorHtmlOutput .mermaid g.classGroup line {
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid .classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #eee;
+  opacity: 0.5;
+}
+
+.contentEditorHtmlOutput .mermaid .classLabel .label {
+  fill: #999;
+  font-size: 10px;
+}
+
+.contentEditorHtmlOutput .mermaid .relation {
+  stroke: #999;
+  stroke-width: 1;
+  fill: none;
+}
+
+.contentEditorHtmlOutput .mermaid #compositionStart {
+  fill: #999;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #compositionEnd {
+  fill: #999;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #aggregationStart {
+  fill: #eee;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #aggregationEnd {
+  fill: #eee;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #dependencyStart {
+  fill: #999;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #dependencyEnd {
+  fill: #999;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #extensionStart {
+  fill: #999;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid #extensionEnd {
+  fill: #999;
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.contentEditorHtmlOutput .mermaid .commit-id,
+.contentEditorHtmlOutput .mermaid .commit-msg,
+.contentEditorHtmlOutput .mermaid .branch-label {
+  fill: lightgrey;
+  color: lightgrey;
+}

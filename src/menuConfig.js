@@ -10,7 +10,7 @@ const asideMenuConfig = [
   },
   {
     name: '比赛细则',
-    path: '/home',
+    path: '/rule',
 
   },
   {
@@ -86,7 +86,10 @@ const asideMenuConfig = [
   {
     name: '往届风采',
     path: '/home',
-
+  },
+  {
+    name: '关于我们',
+    path: '/home',
   },
 ];
 
