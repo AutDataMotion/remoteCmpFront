@@ -85,7 +85,9 @@ const asideMenuConfig = [
   },
   {
     name: '往届风采',
-    path: '/home',
+    path: 'http://sin.xintongconference.com',
+    external:true,
+    newWindow:true,
   },
   {
     name: '关于我们',

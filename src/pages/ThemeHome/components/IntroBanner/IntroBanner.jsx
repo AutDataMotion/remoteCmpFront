@@ -53,11 +53,11 @@ const style = {
 
 const imgIcons = [
   require('./images/theme-banner-1.png'),
-  require('./images/theme-banner-2.png'),
-  require('./images/theme-banner-3.png'),
-  require('./images/theme-banner-4.png'),
-  require('./images/theme-banner-5.png'),
-  require('./images/theme-banner-6.png'),
+  require('./images/theme-banner-1.png'),
+  require('./images/theme-banner-1.png'),
+  require('./images/theme-banner-1.png'),
+  require('./images/theme-banner-1.png'),
+  require('./images/theme-banner-1.png'),
 ];
 
 export default class IntroBanner extends Component {

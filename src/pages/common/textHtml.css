@@ -1,6 +1,9 @@
 .whiteText{
  background: white;
 }
+.white {
+  color: #fff;
+}
 /*组织结构*/
 table.org {
   border-width: 0px;
