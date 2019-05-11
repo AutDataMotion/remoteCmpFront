@@ -2,6 +2,9 @@
 import React from 'react';
 
 const globalConf={
+  baseUrl:'https://2c6dc8ce-562b-4058-9c50-ae8bf9f6267e.mock.pstmn.io/',
+  uploadTips:'提示：每日限制上传【5】次，取最高分作为最终成绩',
+  dashboardTips:'公告：排行榜每日上午8:00更新一次',
   themeConf : [
     {
       condition: '主题一',

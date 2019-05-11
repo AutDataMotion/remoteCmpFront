@@ -43,7 +43,6 @@ class HotItem extends Component {
         </span>
         <span style={styles.keyword}>{data.keyword}</span>
         <span style={styles.total}>{ this.changeTwoDecimal(data.total)}</span>
-        <span style={styles.link}>2019-04-01</span>
       </a>
     );
   }

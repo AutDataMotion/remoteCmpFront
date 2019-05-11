@@ -3,6 +3,7 @@ import { Table, Pagination, Dialog, Button } from '@alifd/next';
 import IceContainer from '@icedesign/container';
 import TableHead from './TableHead';
 import styles from './table.module.scss';
+import globalConf from "../../../../../globalConfig";
 
 // MOCK 数据，实际业务按需进行替换
 const getData = (length = 10) => {
@@ -10,9 +11,7 @@ const getData = (length = 10) => {
     return {
       uploadTime: '2019-04-09',
       fileName: 'results20190409.zip',
-      remark: '提高精度',
       score: '98',
-      state: '已评分',
     };
   });
 };
@@ -85,27 +84,9 @@ export default class ModelTable extends Component {
     });
   };
 
-  renderOper = () => {
-    return (
-      <div>
-        <Button
-          type="primary"
-          style={{ marginRight: '5px' }}
-          onClick={this.handlePublish}
-        >
-          发布
-        </Button>
-        <Button type="primary" warning onClick={this.handleDelete}>
-          删除
-        </Button>
-      </div>
-    );
-  };
-
   renderState = (value) => {
     return (
       <span className={styles.state}>
-        <i className={styles.dot} />
         {value}
       </span>
     );
@@ -118,7 +99,7 @@ export default class ModelTable extends Component {
       <IceContainer className={styles.container}>
         <div style={inStyles.headerTips}>
           <h3 style={{ fontSize: 16, color: '#333', margin: 0 }}>
-            提示：每日限制上传【5】次，取最高分作为最终成绩
+            {globalConf.uploadTips}
           </h3>
         </div>
         <TableHead onChange={this.handleFilterChange} />
@@ -130,15 +111,11 @@ export default class ModelTable extends Component {
         >
           <Table.Column title="上传时间" dataIndex="uploadTime" />
           <Table.Column title="结果文件" dataIndex="fileName" />
-          <Table.Column title="算法模型" dataIndex="fileName" />
-          <Table.Column title="得分" dataIndex="score" />
-          <Table.Column title="备注" dataIndex="remark" />
           <Table.Column
-            title="评分状态"
-            dataIndex="state"
+            title="得分"
+            dataIndex="score"
             cell={this.renderState}
           />
-          {/*<Table.Column title="操作" cell={this.renderOper} />*/}
         </Table>
         <Pagination
           className={styles.pagination}

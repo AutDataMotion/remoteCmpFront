@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Grid, Pagination } from '@alifd/next';
 
 import HotItem from './HotItem';
+import globalConf from "../../../../globalConfig";
 
 const { Row, Col } = Grid;
 
@@ -37,7 +38,7 @@ export default class HotRank extends Component {
       <Container>
         <div style={styles.header}>
           <h3 style={{ fontSize: 16, color: '#333', margin: 0 }}>
-            公告：排行榜每日上午8:00更新一次
+            {globalConf.dashboardTips}
           </h3>
         </div>
 
