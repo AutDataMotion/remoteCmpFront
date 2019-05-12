@@ -2,6 +2,8 @@ import Container from '@icedesign/container';
 import React, { Component } from 'react';
 import { Grid, Pagination } from '@alifd/next';
 
+import DataBinder from '@icedesign/data-binder';
+
 import HotItem from './HotItem';
 import globalConf from "../../../../globalConfig";
 
@@ -19,6 +21,20 @@ function mockData(page = 1) {
   });
 }
 
+@DataBinder({
+  account: {
+    url: globalConf.baseUrl,
+    // ajax 参数参见：https://github.com/axios/axios
+    defaultBindingData: {
+      pagination: {
+        page: 1,
+        total: 0,
+        pageSize: 10
+      },
+      table: []
+    }
+  }
+})
 export default class HotRank extends Component {
   static displayName = 'HotRank';
 

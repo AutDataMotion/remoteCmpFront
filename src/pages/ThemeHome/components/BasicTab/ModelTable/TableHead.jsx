@@ -1,14 +1,31 @@
 /* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
-import { Grid, Input, Select, Button } from '@alifd/next';
+import { Grid, Input, Select, Button, Upload, Message } from '@alifd/next';
+import DataBinder from '@icedesign/data-binder';
+
 import {
   FormBinderWrapper as IceFormBinderWrapper,
   FormBinder as IceFormBinder,
   FormError as IceFormError,
 } from '@icedesign/form-binder';
+import globalConf from "../../../../../globalConfig";
 
 const { Row, Col } = Grid;
 
+@DataBinder({
+  account: {
+    url: globalConf.baseUrl,
+    // ajax 参数参见：https://github.com/axios/axios
+    defaultBindingData: {
+      pagination: {
+        page: 1,
+        total: 0,
+        pageSize: 10
+      },
+      table: []
+    }
+  }
+})
 export default class TableHead extends Component {
   state = {
     value: {},
@@ -16,6 +33,19 @@ export default class TableHead extends Component {
 
   formChange = (value) => {
     this.props.onChange(value);
+  };
+
+  beforeUpload = (info) => {
+    console.log('beforeUpload : ', info);
+  };
+
+  onChange = (info) =>{
+    console.log('onChange : ', info);
+  };
+
+  onSuccess= (info) => {
+    Message.success('上传成功');
+    console.log('onSuccess : ', info);
   };
 
   render() {
@@ -28,19 +58,16 @@ export default class TableHead extends Component {
         <Row wrap gutter="24" style={styles.formRow}>
           <Col l="6">
             <div style={styles.formItem}>
-              <span style={styles.formLabel}>结果文件</span>
-              <IceFormBinder name="resultFile" triggerType="onBlur">
-                <Input placeholder="请选择上传结果文件" />
-              </IceFormBinder>
-              <div style={styles.formError}>
-                <IceFormError name="resultFile" />
-              </div>
-            </div>
-          </Col>
+              <Upload
+                action="https://www.easy-mock.com/mock/5b713974309d0d7d107a74a3/alifd/upload"
+                beforeUpload={this.beforeUpload}
+                onChange={this.onChange}
+                onSuccess={this.onSuccess}
+                defaultValue={[]}
+              >
+                <Button type="primary">上传文件（ZIP格式）</Button>
+              </Upload>
 
-          <Col l="6">
-            <div style={styles.formItem}>
-            <Button type="primary" style={{width:'80px'}}>上传</Button>
             </div>
           </Col>
         </Row>

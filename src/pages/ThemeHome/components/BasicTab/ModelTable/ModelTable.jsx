@@ -5,6 +5,8 @@ import TableHead from './TableHead';
 import styles from './table.module.scss';
 import globalConf from "../../../../../globalConfig";
 
+import DataBinder from '@icedesign/data-binder';
+
 // MOCK 数据，实际业务按需进行替换
 const getData = (length = 10) => {
   return Array.from({ length }).map((item, index) => {
@@ -16,9 +18,33 @@ const getData = (length = 10) => {
   });
 };
 
+
+@DataBinder({
+  ajaxResult: {
+    url: 'https://2c6dc8ce-562b-4058-9c50-ae8bf9f6267e.mock.pstmn.io/results',
+    method:'get',
+    param:{
+      page:1,
+      number:30,
+    },
+    defaultBindingData:{},
+
+    responseFromatter:(rspHandler, res, orgRsp)=>{
+        res = globalConf.formatResponseComm(res);
+        rspHandler(res, orgRsp);
+    },
+
+    success:(res, defaultCallBack, orgResponse)=>{
+        console.log("success res", res, "orgResponse", orgResponse);
+    },
+    error:(res, defaultCallBack, orgResponse)=>{
+        defaultCallBack();
+    },
+  }
+})
 export default class ModelTable extends Component {
   state = {
-    current: 1,
+    page: 1,
     isLoading: false,
     data: [],
   };
@@ -49,6 +75,10 @@ export default class ModelTable extends Component {
         });
       }
     );
+
+    // 获取数据
+   // const {defaultData}
+
   };
 
   handlePaginationChange = (current) => {
