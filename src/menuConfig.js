@@ -2,6 +2,8 @@
 // headerMenuConfig：头部导航配置
 // asideMenuConfig：侧边导航配置
 
+import globalConf from "./globalConfig";
+
 const asideMenuConfig = [
   {
     name: '网站首页',
@@ -9,42 +11,43 @@ const asideMenuConfig = [
 
   },
   {
+    name: '机构设置',
+    path: '/org',
+
+  },
+  {
     name: '比赛细则',
     path: '/rule',
 
   },
-  {
-    name: '组织机构',
-    path: '/org',
 
-  },
   {
     name: '竞赛主题',
     path: '/theme/group',
     icon: 'home2',
     children: [
       {
-      name: '主题一：遥感图像场景分类',
+      name:globalConf.themeConf[0].bannerTitle+globalConf.themeConf[0].title,
       path: '/theme/1',
       icon: 'cascades',
       },
       {
-        name: '主题二：光学遥感图像目标检测',
+        name:globalConf.themeConf[1].bannerTitle+globalConf.themeConf[1].title,
         path: '/theme/2',
         icon: 'cascades',
       },
       {
-        name: '主题三：遥感图像语义分割',
+        name:globalConf.themeConf[2].bannerTitle+globalConf.themeConf[2].title,
         path: '/theme/3',
         icon: 'cascades',
       },
       {
-        name: '主题四：遥感图像变化检测',
+        name:globalConf.themeConf[3].bannerTitle+globalConf.themeConf[3].title,
         path: '/theme/4',
         icon: 'cascades',
       },
       {
-        name: '主题五：遥感卫星视频目标自动跟踪',
+        name:globalConf.themeConf[4].bannerTitle+globalConf.themeConf[4].title,
         path: '/theme/5',
         icon: 'cascades',
       },
@@ -78,16 +81,28 @@ const asideMenuConfig = [
     newWindow: true,
   },
   {
-    name: '比赛论坛',
+    name: '竞赛论坛',
     path: 'http://sin.xintongconference.com',
     external:true,
     newWindow:true,
   },
   {
     name: '往届风采',
-    path: 'http://sin.xintongconference.com',
-    external:true,
-    newWindow:true,
+    path: 'history/group',
+    children: [
+      {
+        name:'2017-“眼神杯”遥感影像大赛',
+        path: 'http://www.cww.net.cn/article?id=412929',
+        external:true,
+        newWindow:true,
+      },
+      {
+        name:'2018-“眼神杯”遥感影像大赛',
+        path: 'http://www.prnews.cn/press_release/369017.htm',
+        external:true,
+        newWindow:true,
+      },
+    ]
   },
   {
     name: '关于我们',

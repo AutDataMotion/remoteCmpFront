@@ -16,49 +16,14 @@ export default class ThemeInfo1 extends React.Component {
           （1） 竞赛说明
         </h2>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 竞赛任务：遥感图像场景分类是指从多幅遥感图像中区分出具有相似场
-          景特征的图像，并对这些图像进行分类，为每一幅遥感图像赋予场景类
-          别标签。本项竞赛针对包含典型的遥感图像场景对象，参赛队伍使用主
-          办方提供的数据对指定的遥感图像进行场景分类，主办方依据评分标准
-          对遥感图像场景分类结果进行综合评价。
+          &nbsp; &nbsp; &nbsp;&nbsp;遥感图像场景分类是指从多幅遥感图像中区分出具有相似场景特征的图像，并对这些图像进行分类，为每一幅遥感图像赋予场景类别标签。本项竞赛针对包含典型的遥感图像场景对象，参赛队伍使用主办方提供的数据对指定的遥感图像进行场景分类，主办方依据评分标准对遥感图像场景分类结果进行综合评价。
         </p>
-        <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 竞赛目的：遥感图像场景分类竞赛任务旨在对空间信息网络中场景级的
-          遥感图像进行内容解译，高效地对遥感图像中的感兴趣及非感兴趣场景
-          进行自动化的识别和区分，进而针对场景类别有选择性的压缩遥感图像，
-          减少待传输图像数据的容量，有效缓解数据链路传输压力。
-        </p>
+
         <h2>
           （2） 竞赛数据
         </h2>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 数据类型：谷歌地球遥感图像，空间分辨率为 0.12 ~ 12.4 米&nbsp;
-        </p>
-        <p>
-          &nbsp; &nbsp; &nbsp; ◼ 场景类型：农业用地，商业用地，工业用地，公共服务区， 居民区，交
-          通用地，水域，未利用土地 （8 大类 57 小类）&nbsp;
-        </p>
-        <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 数据准备：已完成百万级遥感图像场景分类数据集的构建，参考国家土
-          地分类标准进行遥感地物场景类别标签组织，面向真实的应用场景，数
-          据规模大，场景类别多。竞赛中将提供若干覆盖各类土地利用类型的遥
-          感场景图像，其中包含场景的遥感图像数据不少于 30 万幅。
-        </p>
-        <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 图像尺寸：256 × 256，512&nbsp;×&nbsp;512&nbsp;
-        </p>
-        <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 图像格式：PNG 格式
-        </p>
-        <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 数据质量：经过辐射校正和几何校正
-        </p>
-        <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 数据样本：如图 1 所示，展示了本项竞赛数据集部分场景类别（机场、
-          裸地、棒球场、山地、公园、停车场、沙滩、(活动中心、桥梁、运动场、
-          池塘、港口、教堂、商业区、高密度住宅区、火车站、游乐场、河流、
-          沙漠、农田、森林、学校、低密度住宅区、广场、工业区、草地、中密
-          度住宅区、体育场、存储罐、高架桥）
+          &nbsp; &nbsp; &nbsp;&nbsp;竞赛中将提供包含多类典型场景的遥感图像数据集。如图 1 所示，展示了本项竞赛数据集部分场景类别（机场、 裸地、棒球场、山地、公园、停车场、沙滩、活动中心、桥梁、运动场、 池塘、港口、教堂、商业区、高密度住宅区、火车站、游乐场、河流、 沙漠、农田、森林、学校、低密度住宅区、广场、工业区、草地、中密 度住宅区、体育场、存储罐、高架桥）。
         </p>
         <div className={'info-paragraph-text-center'}>
           <img
@@ -75,11 +40,27 @@ export default class ThemeInfo1 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 需要对测试集每一幅图像进行分类并给出top-5类别标签和对应的置信度
+          &nbsp; &nbsp; &nbsp;&nbsp;◼参赛者需对测试集每一幅图像进行分类并给出前5个预测类别的标签。
         </p>
         <p>
           &nbsp; &nbsp; &nbsp;&nbsp;◼ 结果输出：txt格式，每个类别场景的判别结果均需建立一个文本文件。文件每一行代表判定属于该类别的遥感图像名称以及属于该类别的置信度。
         </p>
+        <table>
+          <thead>
+          <tr><th colSpan="3">文件范例：water.txt</th></tr>
+          <tr>
+            <th style={styles.textCenter} width="60px">序号</th>
+            <th style={styles.textCenter} width="60px">置信度</th>
+            <th style={styles.textCenter} width="100px">图像名称</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr><td style={styles.textCenter}>1  </td><td style={styles.textCenter}>0.85    </td><td style={styles.textCenter}>1034.png</td> </tr>
+          <tr><td style={styles.textCenter}>2  </td><td style={styles.textCenter}>0.93    </td><td style={styles.textCenter}>0298.png</td> </tr>
+          <tr> <th colSpan="3">... </th> </tr>
+          <tr> <td style={styles.textCenter}>n  </td><td style={styles.textCenter}>0.80    </td><td style={styles.textCenter}>2301.png</td></tr>
+          </tbody>
+        </table>
         <p>
           &nbsp; &nbsp; &nbsp;&nbsp;◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交：① 遥感图像场景分类算法模型；② 竞赛对应测试数据集的场景分类文本输出结果；③ 算法模型介绍，源代码说明及运行测试相关文档。
         </p>
@@ -90,3 +71,13 @@ export default class ThemeInfo1 extends React.Component {
     );
   };
 }
+
+
+  const styles = {
+    sOverview: {
+    marginTop: '20px',
+  },
+    textCenter: {
+    textAlign: 'center',
+  },
+  }

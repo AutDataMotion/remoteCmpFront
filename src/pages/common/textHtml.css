@@ -31,7 +31,7 @@ table.org td {
 #rules-header {
   width: 100%;
   height: 180px;
-  background-image: url('text-banner.jpg');
+  background-image: url('https://raw.githubusercontent.com/AutDataMotion/remoteCmpFront/master/src/pages/common/text-banner.jpg');
   background-position: top;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,6 @@ table.org td {
   background-color: #F8F8F8;
   padding-top: 20px;
   padding-bottom: 240px;
-  background-image: url('rule-bg.png');
 }
 #rules-content .wrapper {
   margin-bottom: 15px;

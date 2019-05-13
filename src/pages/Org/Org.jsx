@@ -31,11 +31,11 @@ export default class Org extends Component {
   renderText = () => {
     return (
       <div className="contentEditorHtmlOutput">
-        <h2>组织机构</h2>
+        <h2>大赛组织机构</h2>
         <table className="org">
           <thead>
           <tr>
-            <th style={styles.textCenter} width="100px"></th>
+            <th style={styles.textCenter} width="130px"></th>
             <th style={styles.textCenter} width="400px"></th>
             <th style={styles.textCenter} width="100px"></th>
             <th style={styles.textCenter} width="120px"></th>
@@ -43,7 +43,7 @@ export default class Org extends Component {
           </thead>
           <tbody>
           <tr>
-            <td valign="top" style={styles.textRight}>主办：
+            <td valign="top" style={styles.textRight}>主办单位：
             </td>
             <td style={styles.textLeft}>
               国家自然科学基金委信息科学部 <br/>
@@ -51,14 +51,14 @@ export default class Org extends Component {
             </td>
           </tr>
           <tr>
-            <td valign="top" style={styles.textRight}>承办：</td>
+            <td valign="top" style={styles.textRight}>承办单位：</td>
             <td style={styles.textLeft}>
               武汉大学测绘遥感信息工程国家重点实验室<br/>
               中国科学院空间应用工程与技术中心
             </td>
           </tr>
           <tr>
-            <td valign="top" style={styles.textRight}> 赞助：<br/></td>
+            <td valign="top" style={styles.textRight}> 赞助单位：<br/></td>
             <td style={styles.textLeft}>华为技术有限公司</td>
           </tr>
           </tbody>
@@ -69,7 +69,7 @@ export default class Org extends Component {
         <table className="org">
           <thead>
           <tr>
-            <th style={styles.textCenter} width="100px"></th>
+            <th style={styles.textCenter} width="130px"></th>
             <th style={styles.textCenter} width="400px"></th>
             <th style={styles.textCenter} width="100px"></th>
             <th style={styles.textCenter} width="120px"></th>
@@ -164,7 +164,7 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 中国科学院空间应用工程与技术中心</td>
             <td style={styles.textJustify}> 高 铭</td>
-            <td style={styles.textJustify}> 院 士</td>
+            <td style={styles.textJustify}> 研究员</td>
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
@@ -174,7 +174,7 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 华为技术有限公司</td>
+            <td style={styles.textLeft}> 华为中国智能计算业务部</td>
             <td style={styles.textJustify}> 张英梗</td>
             <td style={styles.textJustify}> 副总裁</td>
           </tr>
@@ -186,7 +186,7 @@ export default class Org extends Component {
         <table className="org">
           <thead>
           <tr>
-            <th style={styles.textCenter} width="100px"></th>
+            <th style={styles.textCenter} width="130px"></th>
             <th style={styles.textCenter} width="400px"></th>
             <th style={styles.textCenter} width="100px"></th>
             <th style={styles.textCenter} width="120px"></th>
@@ -249,18 +249,6 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 雄安眼神科技有限公司</td>
-            <td style={styles.textJustify}> 周 军</td>
-            <td style={styles.textJustify}> 董事长</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 北京眼神人工智能技术研究院</td>
-            <td style={styles.textJustify}> 江武明</td>
-            <td style={styles.textJustify}> 研发总监</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 长光卫星技术有限公司</td>
             <td style={styles.textJustify}> 钟 兴</td>
             <td style={styles.textJustify}> 研究员</td>
@@ -278,7 +266,7 @@ export default class Org extends Component {
       <Row gutter="20" wrap>
         <Col l="24" xxs="24">
           <header id="rules-header" className="text-center">
-            <div className="cn-header white">组 织 机 构</div>
+            <div className="cn-header white">大 赛 组 织 机 构</div>
             <div className="en-header white">Organization</div>
           </header>
         </Col>

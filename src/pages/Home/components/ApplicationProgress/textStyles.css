@@ -1,0 +1,36 @@
+
+.contentText {
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 0px auto;
+  padding: 20px 40px;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.contentText h2 {
+  text-align: center;
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.contentText h2::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 0.33em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.33);
+}
+
+
+.contentText p{
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 37px;
+  text-indent: 0.8cm;
+}

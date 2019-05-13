@@ -32,21 +32,22 @@ export default class Rule extends Component {
     return (
       <div className="contentEditorHtmlOutput" data-spm-anchor-id="5176.12281976.0.i1.34164c2ajQFYls">
         <h2>赛事简介</h2>
-        <p>本赛事遵循"开放、公平、创新、引领"的原则，面向全国乃至全球相关领域研究团队，
-          以推动空间信息技术领域进步、培养锻炼专业人才和研究团队为目标，并为重大研究计划在轨集成验证征集优秀算法。</p>
+        <p>本次竞赛将遵循"开放、公平、创新、引领"的原则，面向全国乃至全球相关领域研究团队，
+          以推动空间信息技术领域进步、培养锻炼专业人才和研究团队为目标，
+          并为重大研究计划在轨集成验证征集优秀算法。</p>
         <p>
-          本届大赛拟设置遥感图像场景分类、光学遥感图像目标自动检测识别、高光谱遥感图像目标检测、
-          遥感卫星视频目标自动跟踪和遥感图像变化检测等六个竞赛单元。
+          本届大赛拟设置遥感图像场景分类、遥感图像目标检测、
+          遥感图像语义分割、遥感图像变化检测和遥感卫星视频目标跟踪五个竞赛单元。
           组织方将提供面向各竞赛单元的大规模遥感图像精确标注数据集与标准规范的多平台多载荷调试测试数据，
           制定可量化的算法评测标准，构建遥感图像与卫星视频智能分析计算云平台并提供专业的测试评估环境，
-          通过初赛、决赛和复审答辩等多个阶段的评比，最终遴选出优秀算法，决胜出优胜团队。
-          本次大赛设置四类奖项（特等奖、一等奖、二等奖及三等奖），
-          获奖队伍将受邀参加国家自然科学基金委空间信息网络重大研究计划指导专家组
-          2019年9月15日在浙江乌镇举办的颁奖仪式和学术交流活动。
+          通过初赛、决赛和复审答辩等多个阶段的评比，最终遴选出优秀算法，
+          决胜出优胜团队。本次大赛设置四类奖项（特等奖、一等奖、二等奖及三等奖），
+          获奖队伍将受邀参加国家自然科学基金“空间信息网络”重大研究计划指导专家组于
+          2019年9月19日在浙江乌镇举办的第四届“空间信息网络”论坛颁奖仪式和学术交流活动。
         </p>
 
         <br/>
-        <h2>竞赛主题</h2>
+        <h2>主题设置</h2>
         <ol>
           <li>
             <p><strong><Link
@@ -110,7 +111,7 @@ export default class Rule extends Component {
           <tr>
             <td style={styles.textCenter}>发布邀请</td>
             <td style={styles.textCenter}>6月15日至6月30日</td>
-            <td>邀请国内外未进行线上报名的相关高校、企业、研究团体等发布竞赛邀请。</td>
+            <td>邀请国内外未进行线上报名的相关高校、企业、研究团体等参与竞赛，并发布竞赛邀请。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>发布数据</td>
@@ -125,34 +126,28 @@ export default class Rule extends Component {
           <tr>
             <td style={styles.textCenter}>决赛阶段</td>
             <td style={styles.textCenter}>9月1日至9月15日</td>
-            <td>组织竞赛现场答辩，演示验证工作，专家评委对参赛团队进行综合评定、打分和排名。</td>
+            <td>根据初赛成绩遴选优秀队伍参加现场决赛，开展算法演示验证与答辩工作，专家评委对参赛团队进行综合评定、打分和排名。</td>
           </tr>
           <tr>
-            <td style={styles.textCenter}>成绩公布</td>
-            <td style={styles.textCenter}>9月20日</td>
+            <td style={styles.textCenter}>颁奖活动</td>
+            <td style={styles.textCenter}>9月16日至9月19日</td>
             <td>组委会公布获奖队伍名单和成绩，邀请获奖参加第四届“空间信息网络”学术论坛颁奖典礼。</td>
           </tr>
           </tbody>
         </table>
 
         <br/>
-        <h2>竞赛开发与测试平台</h2>
+        <h2>竞赛机制</h2>
 
-        <p><strong>1.	初赛评测平台</strong></p>
-        <ul>
-          <li>初赛由参赛者线下设计模型，在线提交参赛模型及对应运行结果。</li>
-        </ul>
+        <p><strong>1.	竞赛初赛</strong></p>
+        <p>
+          竞赛初赛由参赛队伍线下设计模型，对竞赛组织方发布的相应测试数据进行解译，并通过竞赛官网进行在线提交代码与解译结果。开放评测后，每支参赛团每天最多可提交5次程序文件，平台经计算后，成绩将以邮件方式发送至参赛团队邮箱，也可在竞赛官网查看个人成绩及评分排行榜。
+        </p>
 
-        <p><strong>1.	决赛评测平台</strong></p>
-        <ul>
-          <li>测试平台：华为弹性云高性能GPU服务器<br/></li>
-          <li>CPU：8核,<br/></li>
-          <li>内存：64G<br/></li>
-          <li>硬盘：1T机械硬盘<br/></li>
-          <li>显卡：NVIDIA Tesla P100<br/></li>
-          <li>显存：16GB<br/></li>
-          <li>操作系统：Ubuntu 16.06 64bit/CentOS 7.3 64bit<br/></li>
-        </ul>
+        <p><strong>1.	竞赛决赛</strong></p>
+        <p>
+          初赛阶段，各赛题成绩排名前20支团队，经审核后，进入决赛。竞赛决赛要求各参赛队伍基于竞赛组织方提供的云服务器和相应测试数据进行算法现场测试，并进行方案路演展示，由赛组织方将对模型现场解译和处理结果进行审查，并依据评分标准对解译结果进行综合评价。
+        </p>
 
         <br/>
 
@@ -167,20 +162,14 @@ export default class Rule extends Component {
         </p>
         <br/>
 
-        <h2>参赛方式</h2>
+        <h2>报名须知</h2>
 
         <ol>
           <li>
-            <strong>报名方式：大赛采用在线及邮件双通道报名方式</strong>
+            <strong>报名方式</strong>
             <ul>
               <li>
-                <p>在线报名：参赛队伍可登陆遥感图像稀疏表征与智能分析竞赛官网
-                （http://RSCup.eyecool.cn）在线报名，提交信息后显示“收到报名申请”即为报名成功。</p>
-              </li>
-              <li>
-                <p>邮件报名：参赛队伍也可在竞赛官网及第四届“空间信息网络”论坛官网（http://sin.xintongconference.com）下载报名表，
-                于2019年6月20日前将报名表发送到指定报名邮箱（rscup@eyecool.cn），
-                邮件主题“单位+团队名称”。报名后2个工作日内收到主办方回复邮件即为报名成功。</p>
+                <p>大赛采用在线注册的方式进行报名参赛。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http://RSCup.eyecool.cn）进行注册与报名，提交报名信息后2个工作日内收到主办方回复邮件即为报名成功。</p>
               </li>
             </ul>
           </li>
@@ -189,23 +178,16 @@ export default class Rule extends Component {
             <strong>联系方式</strong>
             <ul>
               <li>
-                <p>网&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;址：http://RSCup.eyecool.cn &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; http://sin.xintongconference.com
+                <p>网&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;址：http://sin.xintongconference.com &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; http://RSCup.eyecool.cn
                 </p>
               </li>
               <li>
-                <p>通讯邮箱：ygyxds2019@163.com &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;rscup@eyecool.cn
+                <p>通讯邮箱：ygyxds2019@163.com &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;rscup@eyecool.cn
                 </p>
               </li>
               <li>
-                <p>联&nbsp;系&nbsp;人：龙&nbsp; &nbsp;洋 &nbsp; &nbsp; &nbsp;189-0862-7409
-                  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 丁&nbsp; &nbsp;健&nbsp; &nbsp; &nbsp;134-0712-7109
-                  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 易&nbsp; &nbsp;环&nbsp; &nbsp; &nbsp;131-6467-6010
+                <p>联&nbsp;系&nbsp;人&nbsp;：龙&nbsp; &nbsp;洋 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;189-0862-7409
                 </p>
-              </li>
-              <li>
-                <p>邮件报名：参赛队伍也可在竞赛官网及第四届“空间信息网络”论坛官网（http://sin.xintongconference.com）下载报名表，
-                  于2019年6月20日前将报名表发送到指定报名邮箱（rscup@eyecool.cn），
-                  邮件主题“单位+团队名称”。报名后2个工作日内收到主办方回复邮件即为报名成功。</p>
               </li>
             </ul>
           </li>
@@ -218,13 +200,13 @@ export default class Rule extends Component {
         <p><strong>报名与组队要求</strong></p>
         <ol>
           <li>
-            每个团队组成人数不超过4人；
+            每个参赛团队组成人数不得超过4人；
           </li>
           <li>
             团队名称不得包含不文明字词，不可侵犯任何第三方的知识产权、隐私权、宣传权，或其他适用的法律法规；
           </li>
           <li>
-            每只参赛团队需有一名队长，负责与竞赛主办方沟通；
+            每个参赛团队需有一名队长，负责与竞赛主办方沟通；
           </li>
           <li>
             一个竞赛主题仅限同一单位、同一课题组一支队伍报名参赛；
@@ -239,7 +221,13 @@ export default class Rule extends Component {
             测试团队将提交算法软件代码及可执行程序，代码需要在竞赛主办方提供的竞赛服务器上编译执行，竞赛主办方将严格保护参赛者的知识产权；
           </li>
           <li>
-            算法软件不得违反国家相关法律法规，不得侵犯他人知识产权。软件若违反上述规定引起知识产权异议和纠纷，其责任由参赛者承担。
+            算法软件不得违反国家相关法律法规，不得侵犯他人知识产权。软件若违反上述规定引起知识产权异议和纠纷，其责任由参赛者承担;
+          </li>
+          <li>
+            各参赛团队参加本次竞赛所提交的所有软件及相关成果，组委会有权用于后期大赛相关宣传工作;
+          </li>
+          <li>
+            各参赛团队从竞赛组委会获取的样本数据仅限于在本团队内部使用，不得出售或租赁、不得泄露或外传，不使用到与本次竞赛无关项目中。
           </li>
         </ol>
       </div>
