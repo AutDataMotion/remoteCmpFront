@@ -1,28 +1,177 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Balloon, Icon, Nav } from '@alifd/next';
+import { Balloon, Button, Icon, Nav } from '@alifd/next';
 import FoundationSymbol from '@icedesign/foundation-symbol';
 import IceImg from '@icedesign/img';
+import DataBinder from '@icedesign/data-binder';
+import PropTypes from 'prop-types';
 import headerMenuConfig from '../../../../menuConfig';
 import Logo from '../Logo';
 import './Header.scss';
+import globalConf from "../../../../globalConfig";
 
 const { SubNav: SubMenu, Item: MenuItem } = Nav;
 
+@DataBinder({
+  ajaxUserInfo: {
+    url: globalConf.genUrl('user/info'),
+    method:'get',
+    param:{},
+    defaultBindingData:{
+      user_info: globalConf.userInfo
+    },
+    responseFormatter:(rspHandler, res, orgRsp)=>{
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+    success:(res, defaultCallBack, orgResponse)=>{
+      console.log("ajaxUserInfo success res", res, "orgResponse", orgResponse);
+    },
+    error:(res, defaultCallBack, orgResponse)=>{
+      defaultCallBack();
+    },
+    ...globalConf.headerCOR,
+  },
+  ajaxLogout: {
+    url: globalConf.genUrl('user/logout'),
+    method:'post',
+    success:(res, defaultCallBack, orgResponse)=>{
+      console.log("ajaxLogout success res", res, "orgResponse", orgResponse);
+    },
+    error:(res, defaultCallBack, orgResponse)=>{
+      defaultCallBack();
+    },
+    ...globalConf.headerCOR,
+  }
+})
 @withRouter
 export default class Header extends Component {
-  static propTypes = {};
+  static propTypes = {
+    match:PropTypes.object.isRequired,
+    location:PropTypes.object.isRequired,
+    history:PropTypes.object.isRequired,
+  };
 
   static defaultProps = {};
 
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.fetchData();
   }
+
+
+  fetchData = () => {
+    this.setState(
+      {
+        isLoading: true,
+      },
+    );
+    this.props.updateBindingData('ajaxUserInfo',{
+      params:{}
+    },()=>{
+
+    });
+    this.setState({
+      isLoading: false,
+    });
+  };
+
+  onLogOut =()=> {
+    this.setState(
+      {
+        isLoading: true,
+      },
+    );
+    this.props.updateBindingData('ajaxLogout',{
+      data:{}
+    });
+
+    // 退出系统 设置全局
+    globalConf.logout();
+    this.fetchData();
+    this.setState({
+      isLoading: false,
+    });
+  };
+
+  onLogin=()=>{
+    const{history} = this.props;
+    history.push('/user/login');
+  };
+
+  onRegist=()=>{
+    const{history} = this.props;
+    history.push('/user/register');
+  };
+
+  renderLogout= ()=>{
+    return (
+      <Balloon
+      trigger={
+        <div
+          className="ice-design-header-userpannel"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: 12,
+          }}
+        >
+          <div className="user-profile">
+                  <span className="user-name" style={{ fontSize: '13px' }}>
+                    {globalConf.userInfo.name}
+                  </span>
+            <br />
+            <span className="user-department">{globalConf.userInfo.team_name}</span>
+          </div>
+          <Icon
+            type="arrow-down-filling"
+            size="xxs"
+            className="icon-down"
+          />
+        </div>
+      }
+      closable={false}
+      className="user-profile-menu"
+    >
+      <ul>
+        {/*<li className="user-profile-menu-item">*/}
+        {/*<Link to="/setting">*/}
+        {/*<FoundationSymbol type="repair" size="small" />*/}
+        {/*个人信息*/}
+        {/*</Link>*/}
+        {/*</li>*/}
+        <li className="user-profile-menu-item">
+          <Button
+            onClick={this.onLogOut}
+          >
+            <FoundationSymbol type="compass" size="small" />
+            退出
+          </Button>
+        </li>
+      </ul>
+    </Balloon>
+    )
+  };
+
+  renderLogin= ()=>{
+    return (<div>
+      <Button onClick={this.onLogin} type="secondary">登录</Button>
+      <Button onClick={this.onRegist} type="secondary">注册</Button>
+    </div>)
+  };
+
 
   render() {
     const { location = {} } = this.props;
     const { pathname } = location;
+
+    const {ajaxUserInfo} = this.props.bindingData;
+    console.log('user info ajax ', ajaxUserInfo);
+
+    // 获取用户信息 赋值到全局
+    globalConf.login(ajaxUserInfo);
+
+    console.log('global userInfo', globalConf.userInfo);
+
     return (
       <div className="header-container">
         <div className="header-content">
@@ -110,57 +259,10 @@ export default class Header extends Component {
                 })}
             </Nav>
           </div>
-
-          <Balloon
-            trigger={
-              <div
-                className="ice-design-header-userpannel"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  fontSize: 12,
-                }}
-              >
-                <IceImg
-                  height={40}
-                  width={40}
-                  src={require('./images/avatar.png')}
-                  className="user-avatar"
-                />
-                <div className="user-profile">
-                  <span className="user-name" style={{ fontSize: '13px' }}>
-                    用户名
-                  </span>
-                  <br />
-                  <span className="user-department">队伍名称</span>
-                </div>
-                <Icon
-                  type="arrow-down-filling"
-                  size="xxs"
-                  className="icon-down"
-                />
-              </div>
-            }
-            closable={false}
-            className="user-profile-menu"
-          >
-            <ul>
-              {/*<li className="user-profile-menu-item">*/}
-                {/*<Link to="/setting">*/}
-                  {/*<FoundationSymbol type="repair" size="small" />*/}
-                  {/*个人信息*/}
-                {/*</Link>*/}
-              {/*</li>*/}
-              <li className="user-profile-menu-item">
-                <Link to="/user/login">
-                  <FoundationSymbol type="compass" size="small" />
-                  退出
-                </Link>
-              </li>
-            </ul>
-          </Balloon>
+          {globalConf.userInfo.login==true?this.renderLogout():this.renderLogin()}
         </div>
       </div>
     );
   }
+
 }

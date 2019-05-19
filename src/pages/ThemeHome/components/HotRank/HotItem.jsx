@@ -36,13 +36,13 @@ class HotItem extends Component {
         <span
           style={{
             ...styles.index,
-            ...rankStyle[Number(data.index) - 1],
+            ...rankStyle[Number(data.rankNum) - 1],
           }}
         >
-          {data.index}
+          {data.rankNum}
         </span>
-        <span style={styles.keyword}>{data.keyword}</span>
-        <span style={styles.total}>{ this.changeTwoDecimal(data.total)}</span>
+        <span style={styles.keyword}>{data.team_name}</span>
+        <span style={styles.total}>{ this.changeTwoDecimal(data.score)}</span>
       </a>
     );
   }

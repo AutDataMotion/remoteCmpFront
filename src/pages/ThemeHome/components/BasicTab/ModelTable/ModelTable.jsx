@@ -1,35 +1,41 @@
 import React, { Component } from 'react';
+import cloneDeep from 'lodash.clonedeep';
 import { Table, Pagination, Dialog, Button } from '@alifd/next';
 import IceContainer from '@icedesign/container';
+import DataBinder from '@icedesign/data-binder';
+
 import TableHead from './TableHead';
 import styles from './table.module.scss';
 import globalConf from "../../../../../globalConfig";
 
-import DataBinder from '@icedesign/data-binder';
+
 
 // MOCK 数据，实际业务按需进行替换
 const getData = (length = 10) => {
   return Array.from({ length }).map((item, index) => {
     return {
-      uploadTime: '2019-04-09',
-      fileName: 'results20190409.zip',
+      time_stamp: '2019-04-09',
+      file_name: 'results20190409.zip',
       score: '98',
     };
   });
 };
 
+const defaultQueryMdl = globalConf.genPageModel({});
 
 @DataBinder({
   ajaxResult: {
-    url: 'https://2c6dc8ce-562b-4058-9c50-ae8bf9f6267e.mock.pstmn.io/results',
+    url: globalConf.genUrl('results'),
     method:'get',
-    param:{
-      page:1,
-      number:30,
+    param:defaultQueryMdl,
+    defaultBindingData:{
+      "total": 0,
+      "pageId": 1,
+      "pageSize": 30,
+      "today_remain": 5,
+      "results": [],
     },
-    defaultBindingData:{},
-
-    responseFromatter:(rspHandler, res, orgRsp)=>{
+    responseFormatter:(rspHandler, res, orgRsp)=>{
         res = globalConf.formatResponseComm(res);
         rspHandler(res, orgRsp);
     },
@@ -40,12 +46,14 @@ const getData = (length = 10) => {
     error:(res, defaultCallBack, orgResponse)=>{
         defaultCallBack();
     },
+    withCredentials: true,
   }
 })
 export default class ModelTable extends Component {
   state = {
-    page: 1,
+    pageId: 1,
     isLoading: false,
+    searchQuery:cloneDeep(defaultQueryMdl),
     data: [],
   };
 
@@ -61,30 +69,46 @@ export default class ModelTable extends Component {
     });
   };
 
-  fetchData = (len) => {
+  fetchData = () => {
     this.setState(
       {
         isLoading: true,
       },
-      () => {
-        this.mockApi(len).then((data) => {
-          this.setState({
-            data,
-            isLoading: false,
-          });
-        });
-      }
+      // mock data
+      // () => {
+      //   this.mockApi(len).then((data) => {
+      //     this.setState({
+      //       data,
+      //       isLoading: false,
+      //     });
+      //   });
+      // }
     );
 
-    // 获取数据
-   // const {defaultData}
+   // get data
+    const {searchQuery, pageId} = this.state;
+    const {ajaxResult} = this.props.bindingData;
+    this.props.updateBindingData('ajaxResult',{
+        params:{
+          ...searchQuery,
+          pageId: pageId
+        },
+        defaultBindingData: {
+          ...ajaxResult,
+          pageId:pageId
+        }
+      });
+
+    this.setState({
+      isLoading: false,
+    });
 
   };
 
-  handlePaginationChange = (current) => {
+  handlePaginationChange = (pageId) => {
     this.setState(
       {
-        current,
+        pageId,
       },
       () => {
         this.fetchData();
@@ -105,15 +129,6 @@ export default class ModelTable extends Component {
     });
   };
 
-  handleDelete = () => {
-    Dialog.confirm({
-      content: '确认删除该模型吗',
-      onOk: () => {
-        this.fetchData();
-      },
-    });
-  };
-
   renderState = (value) => {
     return (
       <span className={styles.state}>
@@ -123,7 +138,10 @@ export default class ModelTable extends Component {
   };
 
   render() {
-    const { isLoading, data, current } = this.state;
+    const { pageId, isLoading } = this.state;
+
+    const {ajaxResult} = this.props.bindingData;
+    console.log('ajaxResult', ajaxResult);
 
     return (
       <IceContainer className={styles.container}>
@@ -135,12 +153,12 @@ export default class ModelTable extends Component {
         <TableHead onChange={this.handleFilterChange} />
         <Table
           loading={isLoading}
-          dataSource={data}
+          dataSource={ajaxResult.results}
           hasBorder={false}
           className={styles.table}
         >
-          <Table.Column title="上传时间" dataIndex="uploadTime" />
-          <Table.Column title="结果文件" dataIndex="fileName" />
+          <Table.Column title="上传时间" dataIndex="time_stamp" />
+          <Table.Column title="结果文件" dataIndex="file_name" />
           <Table.Column
             title="得分"
             dataIndex="score"
@@ -149,7 +167,9 @@ export default class ModelTable extends Component {
         </Table>
         <Pagination
           className={styles.pagination}
-          current={current}
+          current={pageId}
+          pageSize={ajaxResult.pageSize}
+          total={ajaxResult.total}
           onChange={this.handlePaginationChange}
         />
       </IceContainer>

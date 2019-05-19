@@ -8,7 +8,24 @@ import {
   FormError as IceFormError,
 } from '@icedesign/form-binder';
 import IceIcon from '@icedesign/foundation-symbol';
+import DataBinder from '@icedesign/data-binder';
+import globalConf from "../../globalConfig";
 
+
+@DataBinder({
+  ajaxLogin: {
+    url: globalConf.genUrl('user/login'),
+    method:'POST',
+    data:{},
+    success:(res, defaultCallBack, orgResponse)=>{
+      console.log("success res", res, "orgResponse", orgResponse);
+    },
+    error:(res, defaultCallBack, orgResponse)=>{
+      defaultCallBack();
+    },
+   ...globalConf.headerCOR,
+  }
+})
 @withRouter
 class UserLogin extends Component {
   static displayName = 'UserLogin';
@@ -21,9 +38,8 @@ class UserLogin extends Component {
     super(props);
     this.state = {
       value: {
-        username: '',
+        phone_number: '',
         password: '',
-        checkbox: false,
       },
     };
   }
@@ -41,9 +57,19 @@ class UserLogin extends Component {
         console.log('errors', errors);
         return;
       }
-      console.log(values);
-      Message.success('登录成功');
-      this.props.history.push('/');
+      console.log('values:',values);
+      this.props.updateBindingData('ajaxLogin', {
+        data: {
+            phone_number:values.phone_number,
+            password:values.password,
+          }
+        },(rsp)=>{
+          console.log("login rsp", rsp);
+          // 获取返回数据 判断是否登录成功
+          Message.success('登录成功');
+          this.props.history.push('/');
+        });
+
     });
   };
 
@@ -59,7 +85,7 @@ class UserLogin extends Component {
           <div style={styles.formItems}>
             <div style={styles.formItem}>
               <IceIcon type="person" size="small" style={styles.inputIcon} />
-              <IceFormBinder name="username" required message="必填">
+              <IceFormBinder name="phone_number" required message="必填">
                 <Input
                   size="large"
                   maxLength={20}
@@ -67,7 +93,7 @@ class UserLogin extends Component {
                   style={styles.inputCol}
                 />
               </IceFormBinder>
-              <IceFormError name="username" />
+              <IceFormError name="phone_number" />
             </div>
 
             <div style={styles.formItem}>

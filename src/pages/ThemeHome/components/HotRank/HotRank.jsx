@@ -1,5 +1,6 @@
 import Container from '@icedesign/container';
 import React, { Component } from 'react';
+import cloneDeep from 'lodash.clonedeep';
 import { Grid, Pagination } from '@alifd/next';
 
 import DataBinder from '@icedesign/data-binder';
@@ -21,35 +22,91 @@ function mockData(page = 1) {
   });
 }
 
+const defaultQueryMdl = globalConf.genPageModel({competition_id:1});
+
 @DataBinder({
-  account: {
-    url: globalConf.baseUrl,
-    // ajax 参数参见：https://github.com/axios/axios
-    defaultBindingData: {
-      pagination: {
-        page: 1,
-        total: 0,
-        pageSize: 10
-      },
-      table: []
-    }
+  ajaxRank: {
+    url: globalConf.genUrl('results/leaderboard'),
+    method:'get',
+    param:defaultQueryMdl,
+    defaultBindingData:{
+      "total": 0,
+      "pageId": 1,
+      "pageSize": 30,
+      "results": [],
+    },
+    responseFormatter:(rspHandler, res, orgRsp)=>{
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+
+    success:(res, defaultCallBack, orgResponse)=>{
+      console.log("success res", res, "orgResponse", orgResponse);
+    },
+    error:(res, defaultCallBack, orgResponse)=>{
+      defaultCallBack();
+    },
   }
 })
 export default class HotRank extends Component {
   static displayName = 'HotRank';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataSource: mockData(1),
-    };
+  state = {
+    pageId: 1,
+    isLoading: false,
+    searchQuery:cloneDeep(defaultQueryMdl),
+    dataSource: mockData(1),
+  };
+
+  componentDidMount() {
+    this.fetchData();
   }
 
-  handlePageChange = (page) => {
-    this.setState({ dataSource: mockData(page) });
+  fetchData = () => {
+    this.setState(
+      {
+        isLoading: true,
+      },
+    );
+
+    // get data
+    const {searchQuery, pageId} = this.state;
+    const {ajaxRank} = this.props.bindingData;
+    this.props.updateBindingData('ajaxRank',{
+      params:{
+        ...searchQuery,
+        pageId: pageId
+      },
+      defaultBindingData: {
+        ...ajaxRank,
+        pageId:pageId
+      }
+    });
+
+    this.setState({
+      isLoading: false,
+    });
+
+  };
+
+  handlePageChange = (pageId) => {
+    // this.setState({ dataSource: mockData(page) });
+    this.setState(
+      {
+        pageId,
+      },
+      () => {
+        this.fetchData();
+      }
+    );
   };
 
   render() {
+
+    const { pageId, isLoading } = this.state;
+    const {ajaxRank} = this.props.bindingData;
+    console.log('ajaxRank', ajaxRank);
+
     return (
       <Container>
         <div style={styles.header}>
@@ -60,7 +117,7 @@ export default class HotRank extends Component {
 
         <Row wrap>
           <Col style={{ borderRight: '1px solid #eee' }}>
-            {this.state.dataSource
+            {ajaxRank.results
               .filter((item, index) => {
                 return Math.floor(index / 10) % 3 == 0; // 前10个
               })
@@ -69,7 +126,7 @@ export default class HotRank extends Component {
               })}
           </Col>
           <Col style={{ borderRight: '1px solid #eee' }}>
-            {this.state.dataSource
+            {ajaxRank.results
               .filter((item, index) => {
                 return Math.floor(index / 10) % 3 == 1; // 前20个
               })
@@ -78,7 +135,7 @@ export default class HotRank extends Component {
               })}
           </Col>
           <Col>
-            {this.state.dataSource
+            {ajaxRank.results
               .filter((item, index) => {
                 return Math.floor(index / 10) % 3 == 2; // 前30个
               })
@@ -88,7 +145,11 @@ export default class HotRank extends Component {
           </Col>
         </Row>
         <div style={{ textAlign: 'right', marginTop: 10 }}>
-          <Pagination onChange={this.handlePageChange} />
+          <Pagination
+            current={pageId}
+            pageSize={ajaxRank.pageSize}
+            total={ajaxRank.total}
+            onChange={this.handlePageChange} />
         </div>
       </Container>
     );

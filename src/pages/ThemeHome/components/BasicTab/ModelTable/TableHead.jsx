@@ -12,20 +12,6 @@ import globalConf from "../../../../../globalConfig";
 
 const { Row, Col } = Grid;
 
-@DataBinder({
-  account: {
-    url: globalConf.baseUrl,
-    // ajax 参数参见：https://github.com/axios/axios
-    defaultBindingData: {
-      pagination: {
-        page: 1,
-        total: 0,
-        pageSize: 10
-      },
-      table: []
-    }
-  }
-})
 export default class TableHead extends Component {
   state = {
     value: {},
@@ -59,7 +45,7 @@ export default class TableHead extends Component {
           <Col l="6">
             <div style={styles.formItem}>
               <Upload
-                action="https://www.easy-mock.com/mock/5b713974309d0d7d107a74a3/alifd/upload"
+                action={globalConf.genUrl('results/upload')}
                 beforeUpload={this.beforeUpload}
                 onChange={this.onChange}
                 onSuccess={this.onSuccess}

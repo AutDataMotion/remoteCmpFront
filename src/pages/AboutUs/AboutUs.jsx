@@ -1,24 +1,9 @@
 import React, {Component} from 'react';
-import IntroBanner from '../ThemeHome/components/IntroBanner';
 import BlackFooter from '../ThemeHome/components/BlackFooter';
-import BasicTab from "../ThemeHome/components/BasicTab";
-import Overview from "../ThemeHome/components/Overview";
 import {Col, Row} from "@alifd/next/lib/grid";
-import globalConf from "../../globalConfig";
-import {Link} from "react-router-dom";
 
 require('../common/textHtml.css');
 
-const introBannerProp = {
-  themeId: 2,
-  cmpInfoConf: {},
-  dataDownloadConf: {
-    dataUrl: 'http://pan.baidu.com',
-    fetchCode: '888-666',
-  },
-  commitResConf: {},
-  hotRankConf: {},
-};
 
 export default class AboutUs extends Component {
   static displayName = 'AboutUs';

@@ -2,10 +2,52 @@
 import React from 'react';
 
 const globalConf={
-  baseUrl:'https://2c6dc8ce-562b-4058-9c50-ae8bf9f6267e.mock.pstmn.io/',
+  defaultUserInfo: {
+      login:false,
+      name: "未登录",
+      team_name: "",
+      competition_id: 0,
+  },
+  userInfo: {
+    login:false,
+    name: "未登录",
+    team_name: "",
+    competition_id: 0,
+  },
+  login:(ajaxUserInfo)=>{
+    if(ajaxUserInfo.hasOwnProperty('user_info') && ajaxUserInfo.user_info.hasOwnProperty('name') && ajaxUserInfo.user_info.name != globalConf.defaultUserInfo.name){
+      console.log('global login ');
+      globalConf.userInfo.login = true;
+      globalConf.userInfo.name = ajaxUserInfo.user_info.name;
+      globalConf.userInfo.team_name = ajaxUserInfo.user_info.team_name;
+      globalConf.userInfo.competition_id = ajaxUserInfo.user_info.competition_id;
+    } else {
+      globalConf.userInfo = {
+        ...globalConf.defaultUserInfo,
+      };
+    }
+  },
+  logout: ()=>{
+    globalConf.userInfo = {
+      ...globalConf.defaultUserInfo
+    };
+  },
+  // baseUrl:'https://www.easy-mock.com/mock/5cdadc3dfb3e4604b7673bae/rsc/',
+  baseUrl:'http://119.3.202.35/',
   uploadTips:'提示：每日限制上传【5】次，取最高分作为最终成绩',
   dashboardTips:'公告：排行榜每日上午8:00更新一次',
 
+  genUrl: (path)=>{
+    return globalConf.baseUrl + path;
+  },
+  headerCOR:{
+    header:{
+      'Content-Type':'application/json',
+      'X-Requested-With':'XMLHttpRequest',
+      'Cache-Control':'no-cache,no-store',
+    },
+    withCredentials: true,
+  },
   defaultPageMdl:{
     pageId:1,
     pageSize:30,
@@ -18,9 +60,17 @@ const globalConf={
     };
   },
 
+  genPageModel:(m)=>{
+    return {
+      ...m,
+      ...globalConf.defaultPageMdl
+    }
+  },
+
   formatResponseComm:(res, funCvtData=(data)=>{})=>{
 
     funCvtData(res.data);
+    console.log("before format response", res.data);
     return {
       success: res.status ===1 ? true:false,
       message: res.message,
