@@ -53,6 +53,9 @@ export default class Header extends Component {
   };
 
   static defaultProps = {};
+  state = {
+    userInfo:globalConf.userInfo
+  };
 
   componentDidMount() {
     this.fetchData();
@@ -60,37 +63,28 @@ export default class Header extends Component {
 
 
   fetchData = () => {
-    this.setState(
-      {
-        isLoading: true,
-      },
-    );
+
     this.props.updateBindingData('ajaxUserInfo',{
       params:{}
     },()=>{
-
     });
+
     this.setState({
-      isLoading: false,
+      userInfo:globalConf.userInfo
     });
   };
 
   onLogOut =()=> {
-    this.setState(
-      {
-        isLoading: true,
-      },
-    );
+
     this.props.updateBindingData('ajaxLogout',{
       data:{}
+    },()=>{
+      this.fetchData();
     });
 
     // 退出系统 设置全局
     globalConf.logout();
-    this.fetchData();
-    this.setState({
-      isLoading: false,
-    });
+
   };
 
   onLogin=()=>{
@@ -163,6 +157,7 @@ export default class Header extends Component {
   render() {
     const { location = {} } = this.props;
     const { pathname } = location;
+    const {isLogin} = this.state;
 
     const {ajaxUserInfo} = this.props.bindingData;
     console.log('user info ajax ', ajaxUserInfo);
@@ -179,7 +174,6 @@ export default class Header extends Component {
             <Logo isDark />
             <Nav
               className="header-navbar-menu"
-              onClick={this.handleNavClick}
               selectedKeys={[pathname]}
               defaultSelectedKeys={[pathname]}
               type="secondary"

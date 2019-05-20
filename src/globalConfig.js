@@ -14,7 +14,7 @@ const globalConf={
     team_name: "",
     competition_id: 0,
   },
-  login:(ajaxUserInfo)=>{
+  login:(ajaxUserInfo, callback=()=>{})=>{
     if(ajaxUserInfo.hasOwnProperty('user_info') && ajaxUserInfo.user_info.hasOwnProperty('name') && ajaxUserInfo.user_info.name != globalConf.defaultUserInfo.name){
       console.log('global login ');
       globalConf.userInfo.login = true;
@@ -26,11 +26,14 @@ const globalConf={
         ...globalConf.defaultUserInfo,
       };
     }
+
+    callback();
   },
-  logout: ()=>{
+  logout: (callback=()=>{})=>{
     globalConf.userInfo = {
       ...globalConf.defaultUserInfo
     };
+    callback();
   },
   // baseUrl:'https://www.easy-mock.com/mock/5cdadc3dfb3e4604b7673bae/rsc/',
   baseUrl:'http://119.3.202.35/',
