@@ -9,10 +9,15 @@ import {
   FormError as IceFormError,
 } from '@icedesign/form-binder';
 import globalConf from "../../../../../globalConfig";
+import PropTypes from "prop-types";
 
 const { Row, Col } = Grid;
 
 export default class TableHead extends Component {
+
+  propTypes = {
+    superCallback:PropTypes.func.isRequired,
+  };
   state = {
     value: {},
   };
@@ -31,10 +36,21 @@ export default class TableHead extends Component {
 
   onSuccess= (info) => {
     Message.success('上传成功');
-    console.log('onSuccess : ', info);
+
+    const {superCallback} = this.props;
+
+    console.log('onSuccess : ', info, 'callback ', superCallback);
+
+    if(superCallback != undefined){
+      superCallback();
+    } else {
+      console.log('no callback')
+    }
+
   };
 
   render() {
+
     return (
       <IceFormBinderWrapper
         value={this.state.value}

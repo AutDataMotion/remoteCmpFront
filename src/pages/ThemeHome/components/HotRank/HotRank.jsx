@@ -7,6 +7,7 @@ import DataBinder from '@icedesign/data-binder';
 
 import HotItem from './HotItem';
 import globalConf from "../../../../globalConfig";
+import PropTypes from "prop-types";
 
 const { Row, Col } = Grid;
 
@@ -22,7 +23,7 @@ function mockData(page = 1) {
   });
 }
 
-const defaultQueryMdl = globalConf.genPageModel({competition_id:1});
+const defaultQueryMdl = globalConf.genPageModel({competition_id:0});
 
 @DataBinder({
   ajaxRank: {
@@ -51,6 +52,10 @@ const defaultQueryMdl = globalConf.genPageModel({competition_id:1});
 export default class HotRank extends Component {
   static displayName = 'HotRank';
 
+  propTypes = {
+    themeId:PropTypes.number.isRequired,
+  };
+
   state = {
     pageId: 1,
     isLoading: false,
@@ -71,6 +76,8 @@ export default class HotRank extends Component {
 
     // get data
     const {searchQuery, pageId} = this.state;
+    const {themeId} = this.props;
+    searchQuery.competition_id = themeId;
     const {ajaxRank} = this.props.bindingData;
     this.props.updateBindingData('ajaxRank',{
       params:{

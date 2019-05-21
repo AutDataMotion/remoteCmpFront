@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import cloneDeep from 'lodash.clonedeep';
-import { Table, Pagination, Dialog, Button } from '@alifd/next';
+import {Table, Pagination, Dialog, Button} from '@alifd/next';
 import IceContainer from '@icedesign/container';
 import DataBinder from '@icedesign/data-binder';
 
@@ -9,10 +9,9 @@ import styles from './table.module.scss';
 import globalConf from "../../../../../globalConfig";
 
 
-
 // MOCK 数据，实际业务按需进行替换
 const getData = (length = 10) => {
-  return Array.from({ length }).map((item, index) => {
+  return Array.from({length}).map((item, index) => {
     return {
       time_stamp: '2019-04-09',
       file_name: 'results20190409.zip',
@@ -26,25 +25,25 @@ const defaultQueryMdl = globalConf.genPageModel({});
 @DataBinder({
   ajaxResult: {
     url: globalConf.genUrl('results'),
-    method:'get',
-    param:defaultQueryMdl,
-    defaultBindingData:{
+    method: 'get',
+    param: defaultQueryMdl,
+    defaultBindingData: {
       "total": 0,
       "pageId": 1,
       "pageSize": 30,
       "today_remain": 5,
       "results": [],
     },
-    responseFormatter:(rspHandler, res, orgRsp)=>{
-        res = globalConf.formatResponseComm(res);
-        rspHandler(res, orgRsp);
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
     },
 
-    success:(res, defaultCallBack, orgResponse)=>{
-        console.log("success res", res, "orgResponse", orgResponse);
+    success: (res, defaultCallBack, orgResponse) => {
+      console.log("success res", res, "orgResponse", orgResponse);
     },
-    error:(res, defaultCallBack, orgResponse)=>{
-        defaultCallBack();
+    error: (res, defaultCallBack, orgResponse) => {
+      defaultCallBack();
     },
     withCredentials: true,
   }
@@ -53,12 +52,15 @@ export default class ModelTable extends Component {
   state = {
     pageId: 1,
     isLoading: false,
-    searchQuery:cloneDeep(defaultQueryMdl),
+    searchQuery: cloneDeep(defaultQueryMdl),
     data: [],
   };
 
   componentDidMount() {
-    this.fetchData();
+    if (globalConf.userInfo.login === true) {
+      // 已登录
+      this.fetchData();
+    }
   }
 
   mockApi = (len) => {
@@ -70,34 +72,26 @@ export default class ModelTable extends Component {
   };
 
   fetchData = () => {
+
     this.setState(
       {
         isLoading: true,
       },
-      // mock data
-      // () => {
-      //   this.mockApi(len).then((data) => {
-      //     this.setState({
-      //       data,
-      //       isLoading: false,
-      //     });
-      //   });
-      // }
     );
 
-   // get data
+    // get data
     const {searchQuery, pageId} = this.state;
     const {ajaxResult} = this.props.bindingData;
-    this.props.updateBindingData('ajaxResult',{
-        params:{
-          ...searchQuery,
-          pageId: pageId
-        },
-        defaultBindingData: {
-          ...ajaxResult,
-          pageId:pageId
-        }
-      });
+    this.props.updateBindingData('ajaxResult', {
+      params: {
+        ...searchQuery,
+        pageId: pageId
+      },
+      defaultBindingData: {
+        ...ajaxResult,
+        pageId: pageId
+      }
+    });
 
     this.setState({
       isLoading: false,
@@ -117,7 +111,7 @@ export default class ModelTable extends Component {
   };
 
   handleFilterChange = () => {
-    this.fetchData(5);
+    this.fetchData();
   };
 
   handlePublish = () => {
@@ -137,43 +131,61 @@ export default class ModelTable extends Component {
     );
   };
 
-  render() {
-    const { pageId, isLoading } = this.state;
-
+  renderResult = () => {
+    const {pageId, isLoading} = this.state;
     const {ajaxResult} = this.props.bindingData;
     console.log('ajaxResult', ajaxResult);
 
+    return (<IceContainer className={styles.container}>
+      <div style={inStyles.headerTips}>
+        <h3 style={{fontSize: 16, color: '#333', margin: 0}}>
+          {globalConf.uploadTips}
+        </h3>
+      </div>
+      <TableHead superCallback={this.fetchData} onChange={this.handleFilterChange}/>
+      <Table
+        loading={isLoading}
+        dataSource={ajaxResult.results}
+        hasBorder={false}
+        className={styles.table}
+      >
+        <Table.Column title="上传时间" dataIndex="time_stamp"/>
+        <Table.Column title="结果文件" dataIndex="file_name"/>
+        <Table.Column
+          title="得分"
+          dataIndex="score"
+          cell={this.renderState}
+        />
+      </Table>
+      <Pagination
+        className={styles.pagination}
+        current={pageId}
+        pageSize={ajaxResult.pageSize}
+        total={ajaxResult.total}
+        onChange={this.handlePaginationChange}
+      />
+    </IceContainer>);
+  };
+
+  renderNoLogin = () => {
     return (
       <IceContainer className={styles.container}>
         <div style={inStyles.headerTips}>
-          <h3 style={{ fontSize: 16, color: '#333', margin: 0 }}>
-            {globalConf.uploadTips}
+          <h3 style={{fontSize: 16, color: '#333', margin: 0}}>
+            请先登录，然后提交结果
           </h3>
         </div>
-        <TableHead onChange={this.handleFilterChange} />
-        <Table
-          loading={isLoading}
-          dataSource={ajaxResult.results}
-          hasBorder={false}
-          className={styles.table}
-        >
-          <Table.Column title="上传时间" dataIndex="time_stamp" />
-          <Table.Column title="结果文件" dataIndex="file_name" />
-          <Table.Column
-            title="得分"
-            dataIndex="score"
-            cell={this.renderState}
-          />
-        </Table>
-        <Pagination
-          className={styles.pagination}
-          current={pageId}
-          pageSize={ajaxResult.pageSize}
-          total={ajaxResult.total}
-          onChange={this.handlePaginationChange}
-        />
       </IceContainer>
-    );
+    )
+  };
+
+  render() {
+
+    if (globalConf.userInfo.login == true) {
+      return this.renderResult();
+    }else {
+      return this.renderNoLogin();
+    }
   }
 }
 
