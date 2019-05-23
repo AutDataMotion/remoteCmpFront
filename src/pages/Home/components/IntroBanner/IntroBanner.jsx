@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 const style = {
   introBannerWrapStyles: {
     width: '100%',
-    height: '450px',
+    maxHeight: '342px',
+    minHeight:'270px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -12,8 +13,7 @@ const style = {
     top: '0',
     left: '50%',
     display: 'block',
-    width: '1920px',
-    height: '100%',
+    width: '100%',
     transform: 'translateX(-50%)',
     zIndex: '10',
   },
@@ -29,7 +29,7 @@ const style = {
   },
   introBannerTextStyles: {
     position: 'absolute',
-    top: '112px',
+    top: '50px',
     zIndex: '15',
     width: '100%',
     boxSizing: 'border-box',
@@ -38,7 +38,7 @@ const style = {
   },
   organizationBannerTextStyles: {
     position: 'absolute',
-    top: '250px',
+    top: '150px',
     zIndex: '15',
     width: '100%',
     boxSizing: 'border-box',
@@ -49,15 +49,14 @@ const style = {
   introBannerTitleStyles: {
     fontWeight: '400',
     fontSize: '50px',
-    lineHeight: '70px',
     textAlign:'center',
   },
   introBannerSubtitleStyles: {
-    fontSize: '16px',
+    fontSize: '13px',
     lineHeight: '25px',
     margin:'0 auto',
     maxWidth:'1000px',
-    minWidth:'900px',
+    minWidth:'1000px',
   },
 };
 
@@ -105,34 +104,34 @@ export default class IntroBanner extends Component {
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-            <table className="org">
+            <table style={{width:'100%'}}>
               <thead>
               <tr>
-                <th style={styleTable.textCenter} width="100px"></th>
-                <th style={styleTable.textCenter} width="300px"></th>
-                <th style={styleTable.textCenter} width="100px"></th>
-                <th style={styleTable.textCenter} width="300px"></th>
-                <th style={styleTable.textCenter} width="100px"></th>
-                <th style={styleTable.textCenter} width="300px"></th>
+                <th style={styleTable.textCenter} width="10%"></th>
+                <th style={styleTable.textCenter} width="25%"></th>
+                <th style={styleTable.textCenter} width="10%"></th>
+                <th style={styleTable.textCenter} width="30%"></th>
+                <th style={styleTable.textCenter} width="10%"></th>
+                <th style={styleTable.textCenter} width="15%"></th>
               </tr>
               </thead>
               <tbody>
               <tr>
-                <td valign="top" style={styleTable.textRight}>主办单位
+                <td valign="top" style={styleTable.textRight}>主办单位：
                 </td>
                 <td style={styleTable.textLeft}>
                   国家自然科学基金委信息科学部 <br/>
                   空间信息网络重大研究计划指导专家组
                 </td>
 
-                <td valign="top" style={styleTable.textRight}>承办单位</td>
+                <td valign="top" style={styleTable.textRight}>承办单位：</td>
                 <td style={styleTable.textLeft}>
                   武汉大学测绘遥感信息工程国家重点实验室<br/>
                   中国科学院空间应用工程与技术中心
                 </td>
 
-                <td valign="top" style={styleTable.textRight}> 赞助单位<br/></td>
-                <td style={styleTable.textLeft}>华为技术有限公司</td>
+                <td valign="top" style={styleTable.textRight}> 赞助单位：<br/></td>
+                <td valign="top" style={styleTable.textLeft}>华为技术有限公司</td>
               </tr>
               </tbody>
             </table>
@@ -153,9 +152,11 @@ const styleTable = {
   },
   textRight: {
     textAlign: 'right',
+    color: '#c8c6c9',
   },
   textLeft: {
     textAlign: 'left',
+    color: '#e1dfe2',
   },
   textJustify: {
     textAlign: 'justify',

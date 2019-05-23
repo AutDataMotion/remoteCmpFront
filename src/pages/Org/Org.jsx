@@ -70,7 +70,7 @@ export default class Org extends Component {
           <thead>
           <tr>
             <th style={styles.textCenter} width="130px"></th>
-            <th style={styles.textCenter} width="400px"></th>
+            <th style={styles.textCenter} width="450px"></th>
             <th style={styles.textCenter} width="100px"></th>
             <th style={styles.textCenter} width="120px"></th>
           </tr>
@@ -78,7 +78,7 @@ export default class Org extends Component {
           <tbody>
           <tr>
             <td valign="top" style={styles.textRight}>主 席：</td>
-            <td style={styles.textLeft}> 中国电子系统设备工程公司</td>
+            <td style={styles.textLeft}> 鹏城实验室（深圳网络空间科学与技术广东省实验室）</td>
             <td style={styles.textJustify}> 于 全</td>
             <td style={styles.textJustify}> 院 士</td>
           </tr>
@@ -187,7 +187,7 @@ export default class Org extends Component {
           <thead>
           <tr>
             <th style={styles.textCenter} width="130px"></th>
-            <th style={styles.textCenter} width="400px"></th>
+            <th style={styles.textCenter} width="450px"></th>
             <th style={styles.textCenter} width="100px"></th>
             <th style={styles.textCenter} width="120px"></th>
           </tr>

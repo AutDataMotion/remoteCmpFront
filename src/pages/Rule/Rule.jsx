@@ -54,7 +54,7 @@ export default class Rule extends Component {
               to={globalConf.themeConf[0].url}>{globalConf.themeConf[0].bannerTitle}{globalConf.themeConf[0].title}  &nbsp; &nbsp; &nbsp;&nbsp;  (查看详情)</Link></strong>
             </p>
             <p>
-              {globalConf.themeConf[0].description}
+              {globalConf.themeConf[0].descriptionRule}
             </p>
           </li>
 
@@ -63,28 +63,34 @@ export default class Rule extends Component {
               to={globalConf.themeConf[1].url}>{globalConf.themeConf[1].bannerTitle}{globalConf.themeConf[1].title}  &nbsp; &nbsp; &nbsp;&nbsp;  (查看详情)</Link></strong>
             </p>
             <p>
-              {globalConf.themeConf[1].description}
+              {globalConf.themeConf[1].descriptionRule}
             </p>
           </li>
           <li>
             <p><strong><Link to={globalConf.themeConf[2].url}>{globalConf.themeConf[2].bannerTitle}
               {globalConf.themeConf[2].title}  &nbsp; &nbsp; &nbsp;&nbsp;  (查看详情)</Link></strong></p>
             <p>
-              {globalConf.themeConf[2].description}
+              {globalConf.themeConf[2].descriptionRule}
             </p>
           </li>
           <li>
             <p><strong><Link to={globalConf.themeConf[3].url}>{globalConf.themeConf[3].bannerTitle}
               {globalConf.themeConf[3].title}  &nbsp; &nbsp; &nbsp;&nbsp;  (查看详情)</Link></strong></p>
             <p>
-              {globalConf.themeConf[3].description}
+              {globalConf.themeConf[3].descriptionRule}
             </p>
           </li>
           <li>
             <p><strong><Link to={globalConf.themeConf[4].url}>{globalConf.themeConf[4].bannerTitle}
               {globalConf.themeConf[4].title}  &nbsp; &nbsp; &nbsp;&nbsp;  (查看详情)</Link></strong></p>
             <p>
-              {globalConf.themeConf[4].description}
+              {globalConf.themeConf[4].descriptionRule}
+            </p>
+          </li>
+          <li>
+            <p><strong>决赛加分赛：基于华为智能处理器的遥感图像解译</strong></p>
+            <p>
+              空间信息网络数据量大，信息丰富，基于地面处理系统的遥感图像解译受到空间信息网络传输能力限制，解译效率低、成本高。利用智能处理器进行嵌入式开发，实现遥感图像内容的在轨智能解译，可以大幅降低空间信息网络信息传输压力，同时大幅提升空间信息网络中遥感图像在轨实时信息提取与分析应用能力。
             </p>
           </li>
         </ol>
@@ -120,13 +126,18 @@ export default class Rule extends Component {
           </tr>
           <tr>
             <td style={styles.textCenter}>初赛阶段</td>
-            <td style={styles.textCenter}>7月1日至8月31日</td>
+            <td style={styles.textCenter}>7月1日至8月25日</td>
             <td>根据报名情况组织竞赛初赛，对参赛队伍提交算法模型进行测试、评估、审查、遴选工作。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>决赛阶段</td>
-            <td style={styles.textCenter}>9月1日至9月15日</td>
-            <td>根据初赛成绩遴选优秀队伍参加现场决赛，开展算法演示验证与答辩工作，专家评委对参赛团队进行综合评定、打分和排名。</td>
+            <td style={styles.textCenter}>8月26日至9月10日</td>
+            <td>根据初赛成绩遴选优秀队伍参加现场决赛，开展算法演示验证，算法评估工作。</td>
+          </tr>
+          <tr>
+            <td style={styles.textCenter}>复审答辩</td>
+            <td style={styles.textCenter}>9月11日至9月15日</td>
+            <td>遴选决赛成绩优秀队伍参加竞赛答辩，专家评委对参赛团队算法成绩和答辩成绩进行综合评定、打分和排名。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>颁奖活动</td>
@@ -139,14 +150,38 @@ export default class Rule extends Component {
         <br/>
         <h2>竞赛机制</h2>
 
-        <p><strong>1.	竞赛初赛</strong></p>
+        <p><strong>（1）竞赛初赛</strong></p>
         <p>
-          竞赛初赛由参赛队伍线下设计模型，对竞赛组织方发布的相应测试数据进行解译，并通过竞赛官网进行在线提交代码与解译结果。开放评测后，每支参赛团每天最多可提交5次程序文件，平台经计算后，成绩将以邮件方式发送至参赛团队邮箱，也可在竞赛官网查看个人成绩及评分排行榜。
+          参赛队员注册报名成功后，通过竞赛云平台下载数据，在本地进行算法设计与模型调试，通过在线方式提交算法模型与竞赛任务结果。开放评测后，每支参赛团队每天最多可提交5次解译结果，平台经计算后，成绩将以邮件方式发送至参赛团队邮箱，也可在竞赛官网查看个人成绩及评分排行榜。若参赛队伍在一天内多次提交结果，新结果版本将覆盖旧版本。
         </p>
 
-        <p><strong>1.	竞赛决赛</strong></p>
+        <p><strong>（2）竞赛决赛</strong></p>
         <p>
-          初赛阶段，各赛题成绩排名前20支团队，经审核后，进入决赛。竞赛决赛要求各参赛队伍基于竞赛组织方提供的云服务器和相应测试数据进行算法现场测试，并进行方案路演展示，由赛组织方将对模型现场解译和处理结果进行审查，并依据评分标准对解译结果进行综合评价。
+          决赛阶段将遴选初赛中各赛题成绩排名前20的参赛队伍（具体数量由竞赛组委会视参赛情况确定），经审核合格后参加决赛，包括现场算法模型测试和加分赛两个环节。
+        </p>
+        <p>
+          现场算法模型测试环节中，要求各参赛队伍携带笔记本电脑，基于竞赛组织方提供的云服务器和相应测试数据现场测试算法模型，并进行方案效果展示。竞赛组织方将对模型现场解译和处理结果进行审查，并基于算法效率、模型精度、模型大小等指标加权，对算法模型性能进行综合评估与排名，具体评价方式将在决赛阶段公布。决赛加分赛环节中，由竞赛组织方提供华为Atlas
+          200 Developer Kit智能开发套件，参赛队伍将决赛算法模型移植于为Atlas 200 Developer Kit智能开发平台，实现算法模型的推理计算。
+        </p>
+        <p>
+          决赛阶段最终成绩由大赛评委会专家根据参赛队伍现场算法模型测试成绩和加分赛成绩进行加权综合评价，作为决赛阶段最终成绩。
+        </p>
+        <p><strong>（3）复审答辩</strong></p>
+        <p>
+          根据竞赛决赛的队伍成绩，遴选各竞赛单元中选排名前10的参赛队伍（具体数量由竞赛组委会视参赛情况确定），经审核合格后进入复审答辩阶段。
+        </p>
+        <p>
+          答辩形式：复审答辩将以现场答辩的方式进行
+        </p>
+        <p>
+          材料提交：① 晋级复审答辩的团队需提前准备答辩材料，包括答辩PPT、算法模型源代码和说明文档、参赛总结以及其他相关材料；② 决赛将邀请每支队伍2位代表参加，由组委会承担差旅费用。
+        </p>
+        <p>
+          答辩规则：① 每支参赛队伍面对评委有15分钟的陈述时间和10分钟的问答时间；② 评委根据选手的技术思路、理论深度和现场表现等进行综合评分；③
+          复审答辩分数由大赛评委会专家根据参赛队伍的决赛成绩和答辩成绩加权得出，具体方案将在决赛阶段公布。
+        </p>
+        <p>
+          竞赛颁奖：依据复审答辩最终分数评选出大赛奖项并举行颁奖典礼。
         </p>
 
         <br/>
@@ -155,10 +190,10 @@ export default class Rule extends Component {
         <p>竞赛将根据测试得分情况，对参赛队伍进行排名，
           拟设立特等奖、一等奖、二等奖和三等奖（根据竞赛情况，部分奖项可能空缺），奖励金额如下：</p>
         <p>
-          <strong>&nbsp; &nbsp; &nbsp;&nbsp;特等奖  &nbsp; &nbsp; &nbsp;&nbsp; 奖金100000元人民币<br/></strong>
-          <strong>&nbsp; &nbsp; &nbsp;&nbsp;一等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金30000元人民币<br/></strong>
-          <strong>&nbsp; &nbsp; &nbsp;&nbsp;二等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金20000元人民币<br/></strong>
-          <strong>&nbsp; &nbsp; &nbsp;&nbsp;三等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金10000元人民币<br/></strong>
+          <strong>特等奖  &nbsp; &nbsp; &nbsp;&nbsp; 奖金100000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;一等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金30000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;二等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金20000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;三等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金10000元人民币<br/></strong>
         </p>
         <br/>
 
@@ -167,29 +202,31 @@ export default class Rule extends Component {
         <ol>
           <li>
             <strong>报名方式</strong>
-            <ul>
-              <li>
-                <p>大赛采用在线注册的方式进行报名参赛。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http://RSCup.eyecool.cn）进行注册与报名，提交报名信息后2个工作日内收到主办方回复邮件即为报名成功。</p>
-              </li>
-            </ul>
+
+            <p>大赛采用在线注册的方式进行报名参赛。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http://RSCup.eyecool.cn）进行注册与报名，提交报名信息后2个工作日内收到主办方回复邮件即为报名成功。</p>
+
           </li>
 
           <li>
             <strong>联系方式</strong>
-            <ul>
-              <li>
-                <p>网&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;址：http://sin.xintongconference.com &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; http://RSCup.eyecool.cn
-                </p>
-              </li>
-              <li>
-                <p>通讯邮箱：ygyxds2019@163.com &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;rscup@eyecool.cn
-                </p>
-              </li>
-              <li>
-                <p>联&nbsp;系&nbsp;人&nbsp;：龙&nbsp; &nbsp;洋 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;189-0862-7409
-                </p>
-              </li>
-            </ul>
+
+            <p>
+              官方网站：http:// rssrai2019.cn
+            </p>
+            <p>
+              竞赛论坛：http://sin.xintongconference.com
+            </p>
+
+            <p>通讯邮箱：rssrai2019@163.com
+            </p>
+
+            <p>
+              大赛交流QQ群：660-926-708
+            </p>
+
+            <p>联&nbsp;系&nbsp;人&nbsp;：龙&nbsp; &nbsp;洋（189-0862-7409）
+            </p>
+
           </li>
 
         </ol>

@@ -16,7 +16,7 @@ const asideMenuConfig = [
 
   },
   {
-    name: '比赛细则',
+    name: '竞赛细则',
     path: '/rule',
 
   },

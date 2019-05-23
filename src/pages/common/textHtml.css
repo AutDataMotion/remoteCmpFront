@@ -200,9 +200,12 @@ table.org td {
 }
 
 .contentEditorHtmlOutput p{
+  line-height: 2.0;
   font-size: 14px;
-  font-weight: normal;
-  line-height: 26px;
+  margin: 0px auto;
+  justify-content: space-between;
+  background-color: #fff;
+  text-indent: 0.8cm;
 }
 .contentEditorHtmlOutput ol {
   display: block;

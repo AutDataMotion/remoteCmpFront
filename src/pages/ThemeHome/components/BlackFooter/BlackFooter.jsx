@@ -31,7 +31,7 @@ export default () => {
 const styles = {
   container: {
     background: '#0e0e0e',
-    padding: '54px 0 70px',
+    padding: '20px 50px 30px',
   },
   content: {
     maxWidth: '1200px',

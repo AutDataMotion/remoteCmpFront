@@ -10,11 +10,10 @@ const { Row, Col } = Grid;
 
 const imgIcons = [
   require('./images/theme1.png'),
-  require('./images/theme2.png'),
+  require('./images/theme2.jpg'),
   require('./images/theme3.png'),
   require('./images/theme4.png'),
   require('./images/theme5.png'),
-  require('./images/theme6.png'),
 ];
 
 export default class ApplicationProgress extends Component {
@@ -39,16 +38,7 @@ export default class ApplicationProgress extends Component {
       <div className="contentText">
         <h2>大赛背景</h2>
         <p>
-          本届“华为杯”遥感图像稀疏表征与智能分析竞赛由国家自然科学基金委信息科学部、
-          “空间信息网络基础理论与关键技术”重大研究计划指导专家组主办，
-          针对重大研究计划中的“空间信息稀疏表征与融合处理”关键科学问题，
-          设置遥感图像稀疏表征、快速信息提取与知识发现等竞赛任务，
-          发现和汇聚优秀的遥感图像智能分析人才团队，
-          遴选和沉淀出一批遥感图像稀疏表征与智能分析的实用模型和高效算法，
-          为重大研究计划的在轨集成验证服务。
-          同时，通过打造大规模遥感图像稀疏表征与智能分析的国际化竞赛平台，
-          进一步深化人工智能理论与方法在遥感图像智能分析中的应用，
-          引领全球遥感图像稀疏表征和智能分析研究与发展的潮流。
+          本届“华为杯”遥感图像稀疏表征与智能分析竞赛由国家自然科学基金委信息科学部、“空间信息网络基础理论与关键技术”重大研究计划指导专家组主办，旨在推动“空间信息网络基础理论与关键技术”重大研究计划科学问题之一“空间信息稀疏表征与融合处理”的相关理论与技术的发展，解决空间信息稀疏表征、多维时空数据的融合处理、空间信息的快速提取与知识发现等技术问题，牵引该技术领域的创新发展，为实现空间信息处理与应用能力的大幅提升提供支撑。
         </p>
         <br/>
       </div>
@@ -99,13 +89,11 @@ export default class ApplicationProgress extends Component {
                             src={imgIcons[index]}
                             alt="condition"
                           />
-                          <br />
-                          <span>{item.condition}</span>
                         </div>
                       </Col>
                       <Col
                         xxs="24"
-                        s="16"
+                        s="18"
                         style={{
                           ...styles.itemBody,
                           ...(isMobile && styles.mobileContentCenter),
@@ -118,7 +106,7 @@ export default class ApplicationProgress extends Component {
                       >
                         <Icon type="success" />
                         <span style={styles.itemStatusText}>
-                          {item.title}
+                          {item.bannerTitle + item.title}
                         </span>
                       </span>
                         <div
@@ -130,7 +118,7 @@ export default class ApplicationProgress extends Component {
                           {item.description}
                         </div>
                       </Col>
-                      <Col xxs="24" s="4">
+                      <Col xxs="24" s="2">
                         <div style={styles.operationWrap}>
                           <Link to={item.url}>
                             {item.operation}
@@ -162,10 +150,9 @@ const styles = {
   },
   imageWrap: {
     textAlign: 'center',
+    marginTop:'15px',
   },
   image: {
-    width: '64px',
-    height: '64px',
     borderRadius: '50',
     marginBottom: '12px',
   },
@@ -177,7 +164,7 @@ const styles = {
     marginTop: '20px',
   },
   operationWrap: {
-    marginTop: '40px',
+    marginTop: '65px',
     textAlign: 'center',
   },
   itemFooter: {
