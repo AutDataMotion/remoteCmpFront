@@ -87,7 +87,7 @@ const globalConf={
       condition: '主题一',
       validate: true,
       title: '遥感图像场景分类',
-      bannerId: 1,
+      bannerId: 0,
       bannerTitle: '主题一: ',
       bannerTitleSecond: '介绍文字',
       operation: '查看详情',
@@ -103,7 +103,7 @@ const globalConf={
       validate: true,
       title: '遥感图像目标检测 ',
 
-      bannerId: 2,
+      bannerId: 1,
       bannerTitle: '主题二: ',
       bannerTitleSecond: '介绍文字',
 
@@ -124,7 +124,7 @@ const globalConf={
       validate: false,
       title: '遥感图像语义分割 ',
 
-      bannerId: 3,
+      bannerId: 2,
       bannerTitle: '主题三: ',
       bannerTitleSecond: '介绍文字',
 
@@ -147,7 +147,7 @@ const globalConf={
       validate: false,
       title: '遥感图像变化检测 ',
 
-      bannerId: 4,
+      bannerId: 3,
       bannerTitle: '主题四: ',
       bannerTitleSecond: '介绍文字',
 
@@ -160,8 +160,8 @@ const globalConf={
     {
       condition: '主题五',
       validate: false,
-      title: '遥感卫星视频目标跟踪 ',
-      bannerId: 5,
+      title: '遥感卫星视频跟踪 ',
+      bannerId: 4,
       bannerTitle: '主题五: ',
       bannerTitleSecond: '介绍文字',
 
@@ -178,7 +178,7 @@ const globalConf={
         '实现空间信息网络对地物目标的在线实时跟踪，' +
         '同时将跟踪结果经链路直接传回，提高空间信息网络在轨实时处理能力和链路传输效率。',
     },
-  ]
+  ],
 };
 
 export default globalConf;

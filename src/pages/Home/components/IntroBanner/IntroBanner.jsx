@@ -38,11 +38,11 @@ const style = {
   },
   organizationBannerTextStyles: {
     position: 'absolute',
-    top: '20px',
+    top: '250px',
     zIndex: '15',
     width: '100%',
     boxSizing: 'border-box',
-    paddingLeft: '40px',
+    textAlign:'center',
     color: '#fff',
     pointerEvents: 'none',
   },
@@ -53,11 +53,11 @@ const style = {
     textAlign:'center',
   },
   introBannerSubtitleStyles: {
-    marginTop: '8px',
-    marginBottom: '48px',
-    maxWidth: '768px',
     fontSize: '16px',
     lineHeight: '25px',
+    margin:'0 auto',
+    maxWidth:'1000px',
+    minWidth:'900px',
   },
 };
 
@@ -101,16 +101,65 @@ export default class IntroBanner extends Component {
 
         </div>
         <div className="intro-banner-text" style={style.organizationBannerTextStyles}>
-          <p
+          <div
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-            国家自然科学基金委信息科学部<br/>
-            空间信息网络重大研究计划指导专家组
-          </p>
+            <table className="org">
+              <thead>
+              <tr>
+                <th style={styleTable.textCenter} width="100px"></th>
+                <th style={styleTable.textCenter} width="300px"></th>
+                <th style={styleTable.textCenter} width="100px"></th>
+                <th style={styleTable.textCenter} width="300px"></th>
+                <th style={styleTable.textCenter} width="100px"></th>
+                <th style={styleTable.textCenter} width="300px"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td valign="top" style={styleTable.textRight}>主办单位
+                </td>
+                <td style={styleTable.textLeft}>
+                  国家自然科学基金委信息科学部 <br/>
+                  空间信息网络重大研究计划指导专家组
+                </td>
+
+                <td valign="top" style={styleTable.textRight}>承办单位</td>
+                <td style={styleTable.textLeft}>
+                  武汉大学测绘遥感信息工程国家重点实验室<br/>
+                  中国科学院空间应用工程与技术中心
+                </td>
+
+                <td valign="top" style={styleTable.textRight}> 赞助单位<br/></td>
+                <td style={styleTable.textLeft}>华为技术有限公司</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
 
         </div>
       </div>
     );
   }
+}
+
+const styleTable = {
+  sOverview: {
+    marginTop: '20px',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  textRight: {
+    textAlign: 'right',
+  },
+  textLeft: {
+    textAlign: 'left',
+  },
+  textJustify: {
+    textAlign: 'justify',
+    textJustify: 'distribute-all-lines',
+    textAlignLast: 'justify',
+  },
 }

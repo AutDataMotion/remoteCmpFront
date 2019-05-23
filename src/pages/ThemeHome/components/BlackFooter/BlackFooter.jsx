@@ -8,25 +8,19 @@ export default () => {
     <div style={styles.container}>
       <div style={styles.content}>
         <Row wrap>
-          <Col l="18">
-            <p style={styles.title}>关于大赛</p>
-            <p style={styles.desc}>
-              关于大赛，大赛的举办介绍等内容。
-            </p>
+          <Col l="10">
+            <p style={styles.subtit}>竞赛论坛：http://sin.xintongconference.com</p>
           </Col>
-          <Col l="6">
-            <div style={styles.rightContent}>
-              <img
-                src={require('./images/TB1fQ48QFXXXXc7XVXXXXXXXXXX-94-94.png')}
-                alt=""
-                style={styles.qrcode}
-              />
-              <div style={styles.textBox}>
-                <p style={styles.text}>
-                  参会二维码
-                </p>
-              </div>
-            </div>
+          <Col l="10">
+            <p style={styles.subtit}>大赛交流QQ群：660-926-708</p>
+          </Col>
+        </Row>
+        <Row wrap>
+          <Col l="10">
+            <p style={styles.subtit}>通讯邮箱：rssrai2019@163.com</p>
+          </Col>
+          <Col l="10">
+            <p style={styles.subtit}>联系人：龙  洋 （189-0862-7409）</p>
           </Col>
         </Row>
       </div>

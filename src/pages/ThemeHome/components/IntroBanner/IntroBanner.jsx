@@ -12,7 +12,7 @@ const style = {
     top: '0',
     left: '50%',
     display: 'block',
-    width: '1920px',
+    width: '100%',
     height: '100%',
     transform: 'translateX(-50%)',
     zIndex: '10',
@@ -53,11 +53,10 @@ const style = {
 
 const imgIcons = [
   require('./images/theme-banner-1.png'),
-  require('./images/theme-banner-1.png'),
-  require('./images/theme-banner-1.png'),
-  require('./images/theme-banner-1.png'),
-  require('./images/theme-banner-1.png'),
-  require('./images/theme-banner-1.png'),
+  require('./images/theme-banner-2.png'),
+  require('./images/theme-banner-3.png'),
+  require('./images/theme-banner-4.png'),
+  require('./images/theme-banner-5.png'),
 ];
 
 export default class IntroBanner extends Component {

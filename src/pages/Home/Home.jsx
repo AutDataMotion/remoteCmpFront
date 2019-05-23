@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import IntroBanner from './components/IntroBanner';
 import ApplicationProgress from './components/ApplicationProgress';
-import BlackFooter from './components/BlackFooter';
+import BlackFooter from "../ThemeHome/components/BlackFooter";
+
 
 export default class Home extends Component {
   static displayName = 'Home';
