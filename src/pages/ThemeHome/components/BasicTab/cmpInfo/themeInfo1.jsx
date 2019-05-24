@@ -1,5 +1,6 @@
 import React from "react";
 import './InfomStyle.css'
+import globalConf from "../../../../../globalConfig";
 
 
 export default class ThemeInfo1 extends React.Component {
@@ -10,20 +11,20 @@ export default class ThemeInfo1 extends React.Component {
     return (
       <div className={'info-paragraph'}>
         <h1>
-          主题一：遥感图像场景分类&nbsp;
+          {globalConf.themeConf[0].bannerTitle+globalConf.themeConf[0].title}
         </h1>
         <h2>
           （1） 竞赛说明
         </h2>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;遥感图像场景分类是指从多幅遥感图像中区分出具有相似场景特征的图像，并对这些图像进行分类，为每一幅遥感图像赋予场景类别标签。本项竞赛针对包含典型的遥感图像场景对象，参赛队伍使用主办方提供的数据对指定的遥感图像进行场景分类，主办方依据评分标准对遥感图像场景分类结果进行综合评价。
+          遥感图像场景分类是指从多幅遥感图像中区分出具有相似场景特征的图像，并对这些图像进行分类，为每一幅遥感图像赋予场景类别标签。本项竞赛针对包含典型的遥感图像场景对象，参赛队伍使用主办方提供的数据对指定的遥感图像进行场景分类，主办方依据评分标准对遥感图像场景分类结果进行综合评价。
         </p>
 
         <h2>
           （2） 竞赛数据
         </h2>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;竞赛中将提供包含多类典型场景的遥感图像数据集。如图 1 所示，展示了本项竞赛数据集部分场景类别（机场、 裸地、棒球场、山地、公园、停车场、沙滩、活动中心、桥梁、运动场、 池塘、港口、教堂、商业区、高密度住宅区、火车站、游乐场、河流、 沙漠、农田、森林、学校、低密度住宅区、广场、工业区、草地、中密 度住宅区、体育场、存储罐、高架桥）。
+          竞赛中将提供包含多类典型场景的遥感图像数据集，场景类型和标签包括：旱地（1）、水田（2）、梯田（3）、草地（4）、林地（5）、商业区（6）、油田（7）、油罐区（8）、工厂（9）、矿区（10）、太阳能发电厂（11）、风力发电站（12）、公园（13）、游泳池（14）、教堂（15）、墓地（16）、棒球场（17）、篮球场（18）、高尔夫球场（19）、足球场（20）、体育馆（21）、网球场（22）、密集居民区（23）、稀疏居民区（24）、河流（25）、停机坪（26）、直升机场（27）、机场跑道（28）、桥梁（29）、停车场（30）、公路（31）、路边停车区（32）、转盘（33）、立交桥（34）、港口（35）、铁路（36）、火车站（37）、裸地（38）、沙漠（39）、冰岛（40）、山地（41）、石质地（42）、稀疏灌木地（43）、海滩（44）、湖泊（45）。如图 1 所示，展示了本项竞赛数据集场景各类别样本。
         </p>
         <div className={'info-paragraph-text-center'}>
           <img
@@ -32,7 +33,7 @@ export default class ThemeInfo1 extends React.Component {
             alt=""
           />
           <p >
-            图1 遥感图像场景分类数据集样本示例
+            图1 {globalConf.themeConf[0].title}数据集样本示例
           </p>
         </div>
 
@@ -40,29 +41,44 @@ export default class ThemeInfo1 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼参赛者需对测试集每一幅图像进行分类并给出前5个预测类别的标签。
+          ◼参赛者需对测试集每一幅图像进行分类并给出前5个预测类别的标签。
         </p>
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 结果输出：txt格式，每个类别场景的判别结果均需建立一个文本文件。文件每一行代表判定属于该类别的遥感图像名称以及属于该类别的置信度。
+         ◼ 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交。
+        </p>
+        <p>
+          图片名称与场景预测类别标签以空格隔开，格式示例(提交范例：classification.zip)如下：
         </p>
         <table>
           <thead>
-          <tr><th colSpan="3">文件范例：water.txt</th></tr>
+          <tr><th colSpan="3"></th></tr>
           <tr>
-            <th style={styles.textCenter} width="60px">序号</th>
-            <th style={styles.textCenter} width="60px">置信度</th>
-            <th style={styles.textCenter} width="100px">图像名称</th>
+            <th style={styles.textCenter} width="200px"></th>
           </tr>
           </thead>
           <tbody>
-          <tr><td style={styles.textCenter}>1  </td><td style={styles.textCenter}>0.85    </td><td style={styles.textCenter}>1034.png</td> </tr>
-          <tr><td style={styles.textCenter}>2  </td><td style={styles.textCenter}>0.93    </td><td style={styles.textCenter}>0298.png</td> </tr>
-          <tr> <th colSpan="3">... </th> </tr>
-          <tr> <td style={styles.textCenter}>n  </td><td style={styles.textCenter}>0.80    </td><td style={styles.textCenter}>2301.png</td></tr>
+          <tr> <td style={styles.textCenter}>1034.png  3</td>  </tr>
+          <tr> <td style={styles.textCenter}>0298.png  12</td>  </tr>
+          <tr> <td style={styles.textCenter}>...</td></tr>
+          <tr> <td style={styles.textCenter}>2301.png  4</td>  </tr>
           </tbody>
         </table>
+
         <p>
-          &nbsp; &nbsp; &nbsp;&nbsp;◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交：① 遥感图像场景分类算法模型；② 竞赛对应测试数据集的场景分类文本输出结果；③ 算法模型介绍，源代码说明及运行测试相关文档。
+          ◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的场景分类输出结果；决赛阶段需同时提交遥感图像场景分类算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
+        </p>
+
+        <h2>
+          （4） 评分规则
+        </h2>
+        <p>
+          本竞赛单元算法评价主要采用整体分类精度（Overall Accuracy ，OA ），选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为 ，分类正确的图像数为 ，则整体分类精度为：
+        </p>
+        <p>
+
+        </p>
+        <p>
+          比赛初赛成绩由大赛评委会专家根据整体分类精度作为得分进行排名，整体分类精度越高，遥感图像场景分类结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
         </p>
         <p>
           <br/>
@@ -72,12 +88,16 @@ export default class ThemeInfo1 extends React.Component {
   };
 }
 
-
-  const styles = {
-    sOverview: {
+const styles = {
+  sOverview: {
     marginTop: '20px',
   },
-    textCenter: {
+  textCenter: {
     textAlign: 'center',
+    whiteSpace:'pre',
   },
-  }
+  textRight: {
+    textAlign: 'right',
+    whiteSpace:'pre',
+  },
+}

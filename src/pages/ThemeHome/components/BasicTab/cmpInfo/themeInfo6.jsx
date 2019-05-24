@@ -74,3 +74,17 @@ export default class ThemeInfo6 extends React.Component {
   );
   };
 }
+
+const styles = {
+  sOverview: {
+    marginTop: '20px',
+  },
+  textCenter: {
+    textAlign: 'center',
+    whiteSpace:'pre',
+  },
+  textRight: {
+    textAlign: 'right',
+    whiteSpace:'pre',
+  },
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import './InfomStyle.css'
+import globalConf from "../../../../../globalConfig";
 
 
 
@@ -11,7 +12,7 @@ export default class ThemeInfo4 extends React.Component {
     return (
       <div className={'info-paragraph'}>
         <h1>
-          主题四：遥感图像变化检测
+          {globalConf.themeConf[3].bannerTitle+globalConf.themeConf[3].title}
         </h1>
         <h2>
           （1）&nbsp;&nbsp; 竞赛说明
@@ -25,7 +26,7 @@ export default class ThemeInfo4 extends React.Component {
         </h2>
 
         <p>
-          竞赛中将提供两个不同时间获取的大尺度高分辨率遥感图像（包含蓝、绿、红和近红外四个波段），以及图像中变化区域的二值化标注数据集。如图4所示，展示了本项竞赛数据集部分遥感图像变化检测数据样本。
+          竞赛中将提供两个不同时间获取的大尺度高分辨率遥感图像（包含蓝、绿、红和近红外四个波段），以及图像中变化区域的二值化标注数据集。如图1所示，展示了本项竞赛数据集部分遥感图像变化检测数据样本。
         </p>
         <div className={'info-paragraph-text-center'}>
           <img
@@ -34,9 +35,59 @@ export default class ThemeInfo4 extends React.Component {
             alt=""
           />
           <p >
-            图1 遥感图像变化检测样本示例
+            图1 {globalConf.themeConf[3].title}样本示例
           </p>
         </div>
+
+
+        <h2>
+          （3）	处理/提交结果
+        </h2>
+        <p>
+          ◼ 参赛者需要在测试集图像上每个像素位置分配一个变化检测类别标签。
+        </p>
+        <p>
+          ◼ 结果输出：TIF格式二值化分类图像；最终结果以zip压缩文件格式提交。
+        </p>
+        <p>
+          二值化分类图标记要求（提交范例：change.zip）如下：
+        </p>
+        <table>
+          <thead>
+          <tr><th colSpan="3"></th></tr>
+          <tr>
+            <th style={styles.textCenter} width="200px"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr> <td style={styles.textCenter}>无变化区域像素值：0</td>  </tr>
+          <tr> <td style={styles.textCenter}>变化区域像素值：255</td>  </tr>
+          </tbody>
+        </table>
+
+        <p>
+          ◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的变化检测输出结果（TIF格式二值化图像）；决赛阶段需同时提交遥感图像变化检测算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
+        </p>
+
+        <h2>
+          （4） 评分规则
+        </h2>
+        <p>
+          变化检测算法评价采用指标主要包括检测率（Precision），召回率（Recall）和 F1得分。其中：
+        </p>
+        <p>
+          Precision = 检出的正确变化地物面积 / 检出的变化地物面积
+        </p>
+        <p>
+          Recall = 检出的正确变化地物面积 / 影像中实际变化地物面积
+        </p>
+        <p>
+
+        </p>
+        <p>
+          比赛初赛成绩由大赛评委会专家根据 F1得分进行排名， F1值越高，遥感图像语变化检测结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+        </p>
+
         <p>
           <br/>
         </p>
@@ -44,4 +95,18 @@ export default class ThemeInfo4 extends React.Component {
 
     );
   };
+}
+
+const styles = {
+  sOverview: {
+    marginTop: '20px',
+  },
+  textCenter: {
+    textAlign: 'center',
+    whiteSpace:'pre',
+  },
+  textRight: {
+    textAlign: 'right',
+    whiteSpace:'pre',
+  },
 }
