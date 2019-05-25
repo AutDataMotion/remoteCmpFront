@@ -56,7 +56,7 @@ const imgIcons = [
   require('./images/theme-banner-2.png'),
   require('./images/theme-banner-3.png'),
   require('./images/theme-banner-4.png'),
-  require('./images/theme-banner-5.png'),
+  require('./images/theme-banner-5.jpg'),
 ];
 
 export default class IntroBanner extends Component {

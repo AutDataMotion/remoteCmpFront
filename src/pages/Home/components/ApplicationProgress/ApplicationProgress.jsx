@@ -13,7 +13,7 @@ const imgIcons = [
   require('./images/theme2.jpg'),
   require('./images/theme3.png'),
   require('./images/theme4.png'),
-  require('./images/theme5.png'),
+  require('./images/thumb5.jpg'),
 ];
 
 export default class ApplicationProgress extends Component {
@@ -155,6 +155,7 @@ const styles = {
   image: {
     borderRadius: '50',
     marginBottom: '12px',
+    maxWidth: '150px',
   },
   itemBody: {
     padding: '10px 50px 0',

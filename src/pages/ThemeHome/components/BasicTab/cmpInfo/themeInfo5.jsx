@@ -1,5 +1,7 @@
 import React from "react";
 import './InfomStyle.css'
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 import globalConf from "../../../../../globalConfig";
 
 
@@ -77,13 +79,15 @@ export default class ThemeInfo5 extends React.Component {
           遥感卫星视频目标跟踪算法评价主要采用从跟踪质量和跟踪速度两方面来进行评价，主要涉及指标如下：
         </p>
         <p className='textIndent'>
-          ① 重叠率，跟踪器从第一帧开始，连续不断地对一段视频序列进行跟踪，直到最后一帧，每一帧产生一个矩形框记录当前帧的跟踪结果  ，而真实的跟踪结果也由一个矩形框  表示。重叠率定义为：
+          ① 重叠率，跟踪器从第一帧开始，连续不断地对一段视频序列进行跟踪，直到最后一帧，每一帧产生一个矩形框记录当前帧的跟踪结果<InlineMath math={'r_a'}/>，而真实的跟踪结果也由一个矩形框<InlineMath math={'r_t'}/>。重叠率定义为：
         </p>
         <p>
-
+          <BlockMath math={'S=\\frac{|r_a \\bigcap r_t|}{|r_a \\bigcup r_t|}'}/>
         </p>
         <p className='textIndent'>
-          其中， 和 分别代表预测区域和实际区域的交集和并集，绝对值符号代表区域内的像素总数。定义重叠率 大于某一阈值 的帧为成功帧，统计阈值在 之间变化时成功帧数占总帧数的比例并画出曲线图，以曲线下面积 作为本次竞赛中对跟踪器性能的评价。 越高，自动跟踪效果越好。
+          其中，<InlineMath math={'\\bigcap'}/>和<InlineMath math={'\\bigcup'}/>分别代表预测区域和实际区域的交集和并集，
+          绝对值符号代表区域内的像素总数。定义重叠率<InlineMath math={'S'}/>大于某一阈值<InlineMath math={'t'}/>的帧为成功帧，统计阈值在<InlineMath math={'0-1'}/>之间变化时成功帧数占总帧数的比例并画出曲线图，
+          以曲线下面积<InlineMath math={'AUC(AREA \\quad UNDER \\quad CURVE)'}/>作为本次竞赛中对跟踪器性能的评价。<InlineMath math={'AUC'}/>越高，自动跟踪效果越好。
         </p>
         <p className='textIndent'>
           ② 中心误差成功率，中心误差是指算法预测得到的结果中心与真实的目标位置中心的欧式距离（像素距离），中心误差成功率是指中心误差小于5的帧数在总帧数中的比例。中心误差成功率越高，自动跟踪效果越好。

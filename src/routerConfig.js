@@ -16,6 +16,8 @@ import Dashboard from "./pages/Dashboard";
 import Rule from "./pages/Rule";
 import Org from "./pages/Org";
 import AboutUs from "./pages/AboutUs";
+import History1 from "./pages/Ohistory/history1";
+import History2 from "./pages/Ohistory/history2";
 
 const routerConfig = [
   {
@@ -58,6 +60,14 @@ const routerConfig = [
   {
     path: '/theme/6',
     component: Theme6,
+  },
+  {
+    path: '/history/1',
+    component: History1,
+  },
+  {
+    path: '/history/2',
+    component: History2,
   },
   {
     path: '/dashboard',

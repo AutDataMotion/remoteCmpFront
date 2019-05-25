@@ -1,5 +1,8 @@
 import React from "react";
-import './InfomStyle.css'
+import './InfomStyle.css';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
+
 import globalConf from "../../../../../globalConfig";
 
 
@@ -73,7 +76,7 @@ export default class ThemeInfo4 extends React.Component {
           （4） 评分规则
         </h2>
         <p>
-          变化检测算法评价采用指标主要包括检测率（Precision），召回率（Recall）和 F1得分。其中：
+          变化检测算法评价采用指标主要包括检测率（Precision），召回率（Recall）和 F<sub>1</sub>得分。其中：
         </p>
         <p>
           Precision = 检出的正确变化地物面积 / 检出的变化地物面积
@@ -82,10 +85,10 @@ export default class ThemeInfo4 extends React.Component {
           Recall = 检出的正确变化地物面积 / 影像中实际变化地物面积
         </p>
         <p>
-
+          <BlockMath math={'F_1=2 \\times \\frac{precision \\times recall}{precision+recall}'}/>
         </p>
         <p>
-          比赛初赛成绩由大赛评委会专家根据 F1得分进行排名， F1值越高，遥感图像语变化检测结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+          比赛初赛成绩由大赛评委会专家根据 F<sub>1</sub>得分进行排名， F<sub>1</sub>值越高，遥感图像语变化检测结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
         </p>
 
         <p>
