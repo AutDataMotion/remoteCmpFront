@@ -92,7 +92,7 @@ const globalConf={
       bannerTitleSecond: '介绍文字',
       operation: '查看详情',
       url:'/theme/1',
-      regist: '报名注册',
+      zipUrl: ()=>{ return  globalConf.genUrl('classification.zip')},
       description:
         '遥感图像场景分类竞赛任务旨在对空间信息网络中场景级的遥感图像进行内容解译，' +
         '高效地对遥感图像中的感兴趣及非感兴趣场景进行自动化的识别和区分，' +
@@ -110,7 +110,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/2',
-      regist: '报名注册',
+      zipUrl:  ()=>{ return  globalConf.genUrl('detection.zip')},
       description:
         '针对空间信息网络多维、多尺度空间信息链路传输与处理瓶颈，' +
         '通过本项竞赛遴选优秀的遥感图像目标自动检测识别算法模型，' +
@@ -132,7 +132,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/3',
-      regist: '报名注册',
+      zipUrl: ()=>{ return  globalConf.genUrl('segmentation.zip')},
       description:
         '通过对遥感图像的语义分割，可方便快捷地获取土地利用/覆' +
         '盖信息，并作为精准农业、城市规划、环境保护、土地资源管理等应用' +
@@ -157,7 +157,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/4',
-      regist: '报名注册',
+      zipUrl: ()=>{ return  globalConf.genUrl('change.zip')},
       description:
         '遥感图像变化检测可以对同一地点的不同时相数据进行变化检测处理，在资源和环境监测、地理国情监测、自然灾害评估等领域具有高度的实用价值。目前遥感图像变化检测的前沿算法在数据层面以及算法设计层面均具有一定局限性。针对遥感图像变化检测在实际应用中的不足，通过本项竞赛遴选出泛化性能强大的高效变化检测算法，可以提高空间信息网络建设中的遥感图像自动化解译能力。',
       descriptionRule:'遥感图像变化检测可以对同一地点的不同时相数据进行变化检测处理，在资源和环境监测、地理国情监测、自然灾害评估等领域具有高度的实用价值。目前遥感图像变化检测的前沿算法在数据层面以及算法设计层面均具有一定局限性。针对遥感图像变化检测在实际应用中的不足，通过本项竞赛遴选出泛化性能强大的高效变化检测算法，可以提高空间信息网络建设中的遥感图像自动化解译能力。',
@@ -172,7 +172,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/5',
-      regist: '报名注册',
+      zipUrl: ()=>{ return  globalConf.genUrl('classification.zip')},
       description:
         '利用光学遥感卫星视频可以实现指定目标监控，' +
         '在机场、商场、道路流量监测等方面具有重要的应用价值，' +

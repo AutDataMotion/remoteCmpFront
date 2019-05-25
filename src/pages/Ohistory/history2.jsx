@@ -34,42 +34,177 @@ export default class History2 extends React.Component {
         </p>
 
         <p>
-          8月8日，大赛组委会在长春举行了决赛阶段的现场答辩，对各个队伍的算法设计理念、创新点、团队研究基础等进行了考察，而后打乱四个竞赛单元的分类，对20支队伍进行了综合排名。最终，来自中国科学院和北京理工大学的两支队伍摘得一等奖；来自哈尔滨工业大学、电子科技大学、武汉大学、银河航天（北京）科技有限公司的四支队伍获得二等奖；来自东北大学、北京理工雷科电子信息技术有限公司、中科拓视（北京）科技有限公司、西北工业大学、中国科学院自动化研究所的6支队伍获得三等奖。另外，组委会还评选出了多支优胜团队。
+          8月8日，大赛组委会在长春举行了决赛阶段的现场答辩，对各个队伍的算法设计理念、创新点、团队研究基础等进行了考察，而后打乱四个竞赛单元的分类，对20支队伍进行了综合排，大赛最终产生了一等奖2项、二等奖4项、三等奖6项、优秀奖8项。
         </p>
         <div className={'info-paragraph-text-center'}>
+
+          <h2>
+            一等奖的获得者有
+          </h2>
+          <table align="center">
+            <thead>
+            <tr><th colSpan="3"></th></tr>
+            <tr>
+              <th style={styles.textLeft} width="100px"></th>
+              <th style={styles.textLeft} width="120px"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td valign="top" style={styles.textLeft}>中国科学院空间应用工程与技术中心</td>
+              <td style={styles.textLeft}> Duc-Vision团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>北京理工大学</td>
+              <td style={styles.textLeft}> 星空团队</td>
+            </tr>
+
+            </tbody>
+          </table>
 
           <img
             className="info-paragraph-img"
             src={require('./imgs/h2_2.jpg')}
             alt=""
           />
-          <p>
-            眼神科技CTO沈昕阳（右一）为一等奖获得者颁奖
-          </p>
+
         </div>
 
         <div className={'info-paragraph-text-center'}>
+          <h2>二等奖的获得者有 </h2>
+
+          <table align="center">
+            <thead>
+            <tr><th colSpan="3"></th></tr>
+            <tr>
+              <th style={styles.textLeft} width="100px"></th>
+              <th style={styles.textLeft} width="120px"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td valign="top" style={styles.textLeft}>哈尔滨工业大学</td>
+              <td style={styles.textLeft}>始于足下团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>电子科技大学</td>
+              <td style={styles.textLeft}> IVIPC-DET团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>武汉大学电子信息学院</td>
+              <td style={styles.textLeft}>十万队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>银河航天(北京)科技有限公司</td>
+              <td style={styles.textLeft}>Galaxy-AI团队</td>
+            </tr>
+
+            </tbody>
+          </table>
 
           <img
             className="info-paragraph-img"
             src={require('./imgs/h2_3.jpg')}
             alt=""
           />
-          <p>
-            二等奖颁奖现场
-          </p>
+
         </div>
 
         <div className={'info-paragraph-text-center'}>
+
+          <h2>三等奖的获得者有</h2>
+
+          <table align="center">
+            <thead>
+            <tr><th colSpan="3"></th></tr>
+            <tr>
+              <th style={styles.textLeft} width="100px"></th>
+              <th style={styles.textLeft} width="120px"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td valign="top" style={styles.textLeft}>东北大学数学系</td>
+              <td style={styles.textLeft}>SAR-Compress 进取团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>北京理工雷科电子信息技术有限公司</td>
+              <td style={styles.textLeft}> 天鹰队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>中科视拓(北京)科技有限公司</td>
+              <td style={styles.textLeft}> Seeta-KD团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>东北大学理学院</td>
+              <td style={styles.textLeft}>Eyesight团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>西北工业大学 </td>
+              <td style={styles.textLeft}>502团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>中国科学院自动化研究所</td>
+              <td style={styles.textLeft}>二三六团队</td>
+            </tr>
+            </tbody>
+          </table>
 
           <img
             className="info-paragraph-img"
             src={require('./imgs/h2_4.jpg')}
             alt=""
           />
-          <p>
-            三等奖颁奖现场
-          </p>
+        </div>
+
+        <div className={'info-paragraph-text-center'}>
+
+          <h2>优秀奖的获得者有</h2>
+
+          <table align="center">
+            <thead>
+            <tr><th colSpan="3"></th></tr>
+            <tr>
+              <th style={styles.textLeft} width="100px"></th>
+              <th style={styles.textLeft} width="120px"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td valign="top" style={styles.textLeft}>东北大学</td>
+              <td style={styles.textLeft}>Betaeye智能压缩团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>国防科技大学</td>
+              <td style={styles.textLeft}> ATR4团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>复旦大学</td>
+              <td style={styles.textLeft}>遥鹞相团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>东北大学数学系</td>
+              <td style={styles.textLeft}>SAR-Compress进取团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>北京理工大学 </td>
+              <td style={styles.textLeft}>追踪者团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>东北大学</td>
+              <td style={styles.textLeft}>Betaeye智能检测团队团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>东北大学数学系</td>
+              <td style={styles.textLeft}>INFINITY团队</td>
+            </tr>
+            <tr>
+              <td valign="top" style={styles.textLeft}>中科视拓(北京)科技有限公司</td>
+              <td style={styles.textLeft}>Seeta-KD团队</td>
+            </tr>
+            </tbody>
+          </table>
+
         </div>
         <p>
           随着人工智能技术的快速升级，遥感技术也取得了明显的进步和突破。遥感影像智能解译将视觉人工智能深度学习技术引入遥感数据的解译中，获得了更加自动化的数据处理与分析能力，可应用于包括目标检测、变化检测、路网提取、云雪检测、水体提取、土地利用类型分类、建筑物提取等多个应用场景。
@@ -96,5 +231,11 @@ const styles = {
   textRight: {
     textAlign: 'right',
     whiteSpace:'pre',
+    fontSize: '16px',
+  },
+  textLeft: {
+    textAlign: 'left',
+    whiteSpace:'pre',
+    fontSize: '16px',
   },
 }

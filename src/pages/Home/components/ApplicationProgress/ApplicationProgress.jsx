@@ -13,7 +13,7 @@ const imgIcons = [
   require('./images/theme2.jpg'),
   require('./images/theme3.png'),
   require('./images/theme4.png'),
-  require('./images/thumb5.jpg'),
+  require('./images/theme5.jpg'),
 ];
 
 export default class ApplicationProgress extends Component {

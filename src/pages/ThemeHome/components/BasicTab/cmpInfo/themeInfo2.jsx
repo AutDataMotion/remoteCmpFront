@@ -22,7 +22,7 @@ export default class ThemeInfo2 extends React.Component {
           （2）竞赛数据
         </h2>
         <p>
-          竞赛中将提供包含多类目标的大规模遥感图像样本数据集，目标样本采用四边形边界框的形式进行标注。如图2所示，展示了本项竞赛数据集样本实例（大型车辆、游泳池、直升机、桥梁、飞机、船舶、足球场、篮球场、机场、集装箱起重机、田径场、小汽车、码头、棒球场、网球场、转盘、储存罐、直升机场）。
+          竞赛中将提供包含多类目标的大规模遥感图像样本数据集，目标样本采用四边形边界框的形式进行标注。如图1所示，展示了本项竞赛数据集样本实例（大型车辆、游泳池、直升机、桥梁、飞机、船舶、足球场、篮球场、机场、集装箱起重机、田径场、小汽车、码头、棒球场、网球场、转盘、储存罐、直升机场）。
         </p>
         <div className={'info-paragraph-text-center'}>
           <img
@@ -45,7 +45,7 @@ export default class ThemeInfo2 extends React.Component {
           ◼ 结果输出：txt格式，每个类别目标的检测结果均需建立一个文本文件。文件每一行代表判定属于该类检测目标的遥感图像名称、属于该类别的置信度以及检测到的目标四边形顶点坐标；最终结果以zip压缩文件格式提交。
         </p>
         <p>
-          图像名称、目标类别置信度和目标范围四个顶点坐标以空格隔开，格式示例(提交范例：detection.zip)如下：
+          图像名称、目标类别置信度和目标范围四个顶点坐标以空格隔开，格式示例(提交范例：detection.zip<a href={globalConf.themeConf[1].zipUrl()}>【点击下载】</a>)如下：
         </p>
         <table>
           <thead>
@@ -55,10 +55,10 @@ export default class ThemeInfo2 extends React.Component {
           </tr>
           </thead>
           <tbody>
-          <tr> <td style={styles.textCenter}>0125     0.99     x1  y1  x2  y2  x3  y3  x4  y4</td>  </tr>
-          <tr> <td style={styles.textCenter}>2563     0.95     x1  y1  x2  y2  x3  y3  x4  y4</td>  </tr>
+          <tr> <td style={styles.textCenter}>P0125     0.99     x1  y1  x2  y2  x3  y3  x4  y4</td>  </tr>
+          <tr> <td style={styles.textCenter}>P2563     0.95     x1  y1  x2  y2  x3  y3  x4  y4</td>  </tr>
           <tr> <td style={styles.textCenter}>  ...  </td></tr>
-          <tr> <td style={styles.textCenter}>1608     0.90     x1  y1  x2  y2  x3  y3  x4  y4</td>  </tr>
+          <tr> <td style={styles.textCenter}>P1608     0.90     x1  y1  x2  y2  x3  y3  x4  y4</td>  </tr>
           </tbody>
         </table>
 

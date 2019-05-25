@@ -51,7 +51,7 @@ export default class ThemeInfo5 extends React.Component {
           ◼ 结果输出：txt格式，每一段卫星视频检测结果均需建立一个文本文件。文件每一行代表检测视频对应目标检测结果的帧号、目标类别、属于该类别的置信度以及检测到的边界矩形框左上角和右下角坐标；最终结果以zip压缩文件格式提交。
         </p>
         <p>
-          帧号、目标类别、置信度和目标边界矩形框坐标以空格隔开，格式示例(提交范例：tracking.zip)如下：
+          帧号、目标类别、置信度和目标边界矩形框坐标以空格隔开，格式示例(提交范例：tracking.zip<a href={globalConf.themeConf[4].zipUrl()}>【点击下载】</a>)如下：
         </p>
         <table>
           <thead>
@@ -61,10 +61,10 @@ export default class ThemeInfo5 extends React.Component {
           </tr>
           </thead>
           <tbody>
-          <tr> <td style={styles.textCenter}>1      飞机       0.99    Xmin    Ymin    Xmax    Ymax</td>  </tr>
-          <tr> <td style={styles.textCenter}>2      飞机       0.95    Xmin    Ymin    Xmax    Ymax</td>  </tr>
+          <tr> <td style={styles.textCenter}>1      飞机       0.99    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
+          <tr> <td style={styles.textCenter}>2      飞机       0.95    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
           <tr> <td style={styles.textCenter}>...</td></tr>
-          <tr> <td style={styles.textCenter}>n      舰船       0.90    Xmin    Ymin    Xmax    Ymax</td>  </tr>
+          <tr> <td style={styles.textCenter}>n      舰船       0.90    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
           </tbody>
         </table>
 

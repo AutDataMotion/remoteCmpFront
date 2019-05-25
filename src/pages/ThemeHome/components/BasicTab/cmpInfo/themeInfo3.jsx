@@ -25,7 +25,8 @@ export default class ThemeInfo3 extends React.Component {
         </h2>
 
         <p>
-          竞赛中将提供包含典型土地利用类型（水田、水浇地、旱耕地、园地、乔木林地、灌木林地、天然草地、人工草地、工业用地、城市住宅、村镇住宅、交通运输、河流、湖泊、坑塘以及其他类别）的遥感图像语义分割数据集（TIF格式）。如图1所示，展示了本项竞赛遥感图像语义分割数据集部分样本及标注数据。
+          竞赛中将提供包含典型土地利用类型（水田、水浇地、旱耕地、园地、乔木林地、灌木林地、天然草地、人工草地、工业用地、城市住宅、村镇住宅、交通运输、河流、湖泊、坑塘以及其他类别）
+          的遥感图像语义分割数据集（TIF格式）。如图1所示，展示了本项竞赛遥感图像语义分割数据集部分样本及标注数据。
         </p>
         <div className={'info-paragraph-text-center'}>
           <img
@@ -49,7 +50,7 @@ export default class ThemeInfo3 extends React.Component {
           ◼ 结果输出：TIF格式的分类图；最终结果以zip压缩文件格式提交。
         </p>
         <p>
-          TIF格式分类图标记要求(提交范例：segmentation.zip)如下：
+          TIF格式分类图标记要求(提交范例：segmentation.zip<a href={globalConf.themeConf[2].zipUrl()}>【点击下载】</a>)如下：
         </p>
         <table>
           <thead>

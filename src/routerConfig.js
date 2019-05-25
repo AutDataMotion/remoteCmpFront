@@ -11,13 +11,13 @@ import Theme2 from "./pages/Theme2";
 import Theme3 from "./pages/Theme3";
 import Theme4 from "./pages/Theme4";
 import Theme5 from "./pages/Theme5";
-import Theme6 from "./pages/Theme6";
 import Dashboard from "./pages/Dashboard";
 import Rule from "./pages/Rule";
 import Org from "./pages/Org";
 import AboutUs from "./pages/AboutUs";
 import History1 from "./pages/Ohistory/history1";
 import History2 from "./pages/Ohistory/history2";
+import Theme6 from "./pages/Ohistory/theme6";
 
 const routerConfig = [
   {

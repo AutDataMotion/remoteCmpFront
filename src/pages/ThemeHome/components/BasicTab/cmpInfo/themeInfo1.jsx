@@ -3,6 +3,7 @@ import './InfomStyle.css'
 import globalConf from "../../../../../globalConfig";
 
 
+const themeId=0;
 export default class ThemeInfo1 extends React.Component {
   static displayName = 'ThemeInfo1';
 
@@ -11,7 +12,7 @@ export default class ThemeInfo1 extends React.Component {
     return (
       <div className={'info-paragraph'}>
         <h1>
-          {globalConf.themeConf[0].bannerTitle+globalConf.themeConf[0].title}
+          {globalConf.themeConf[themeId].bannerTitle+globalConf.themeConf[themeId].title}
         </h1>
         <h2>
           （1） 竞赛说明
@@ -24,16 +25,16 @@ export default class ThemeInfo1 extends React.Component {
           （2） 竞赛数据
         </h2>
         <p>
-          竞赛中将提供包含多类典型场景的遥感图像数据集，场景类型和标签包括：旱地（1）、水田（2）、梯田（3）、草地（4）、林地（5）、商业区（6）、油田（7）、油罐区（8）、工厂（9）、矿区（10）、太阳能发电厂（11）、风力发电站（12）、公园（13）、游泳池（14）、教堂（15）、墓地（16）、棒球场（17）、篮球场（18）、高尔夫球场（19）、足球场（20）、体育馆（21）、网球场（22）、密集居民区（23）、稀疏居民区（24）、河流（25）、停机坪（26）、直升机场（27）、机场跑道（28）、桥梁（29）、停车场（30）、公路（31）、路边停车区（32）、转盘（33）、立交桥（34）、港口（35）、铁路（36）、火车站（37）、裸地（38）、沙漠（39）、冰岛（40）、山地（41）、石质地（42）、稀疏灌木地（43）、海滩（44）、湖泊（45）。如图 1 所示，展示了本项竞赛数据集场景各类别样本。
+          竞赛中将提供包含多类典型场景的遥感图像数据集，场景类型和标签包括：旱地（1）、水田（2）、梯田（3）、草地（4）、林地（5）、商业区（6）、油田（7）、油罐区（8）、工厂（9）、矿区（10）、太阳能发电厂（11）、风力发电站（12）、公园（13）、游泳池（14）、教堂（15）、墓地（16）、棒球场（17）、篮球场（18）、高尔夫球场（19）、足球场（20）、温室（21）、网球场（22）、居民区（23）、岛屿（24）、河流（25）、停机坪（26）、直升机场（27）、机场跑道（28）、桥梁（29）、停车场（30）、公路（31）、路边停车区（32）、转盘（33）、立交桥（34）、港口（35）、铁路（36）、火车站（37）、裸地（38）、沙漠（39）、冰岛（40）、山地（41）、石质地（42）、稀疏灌木地（43）、海滩（44）、湖泊（45）。如图 1 所示，展示了本项竞赛数据集场景各类别样本。
         </p>
         <div className={'info-paragraph-text-center'}>
           <img
             className="info-paragraph-img"
-            src={require('./imgs/t1_1.png')}
+            src={require('./imgs/t1.png')}
             alt=""
           />
           <p >
-            图1 {globalConf.themeConf[0].title}数据集样本示例
+            图1 {globalConf.themeConf[themeId].title}数据集样本示例
           </p>
         </div>
 
@@ -41,13 +42,13 @@ export default class ThemeInfo1 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          ◼参赛者需对测试集每一幅图像进行分类并给出前5个预测类别的标签。
+          ◼	参赛者需对测试集每一幅图像进行分类并给出其预测类别的标签。
         </p>
         <p>
          ◼ 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交。
         </p>
         <p>
-          图片名称与场景预测类别标签以空格隔开，格式示例(提交范例：classification.zip)如下：
+          图片名称与场景预测类别标签以空格隔开，格式示例(提交范例：classification.zip<a href={globalConf.themeConf[themeId].zipUrl()}>【点击下载】</a>)如下：
         </p>
         <table>
           <thead>
@@ -72,10 +73,7 @@ export default class ThemeInfo1 extends React.Component {
           （4） 评分规则
         </h2>
         <p>
-          本竞赛单元算法评价主要采用整体分类精度（Overall Accuracy ，OA ），选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为 ，分类正确的图像数为 ，则整体分类精度为：
-        </p>
-        <p>
-
+          本竞赛单元算法评价主要采用整体分类精度（Overall Accuracy ，OA ），选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为N，分类正确的图像数为M，则整体分类精度为：<span style={styles.whiteSpaceKeeper}> OA = M / N </span>
         </p>
         <p>
           比赛初赛成绩由大赛评委会专家根据整体分类精度作为得分进行排名，整体分类精度越高，遥感图像场景分类结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
@@ -100,4 +98,7 @@ const styles = {
     textAlign: 'right',
     whiteSpace:'pre',
   },
+  whiteSpaceKeeper:{
+    whiteSpace:'pre'
+  }
 }

@@ -220,7 +220,7 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 中国电子设备系统工程公司</td>
+            <td style={styles.textLeft}>鹏城实验室（深圳网络空间科学与技术广东省实验室）</td>
             <td style={styles.textJustify}> 王敬超</td>
             <td style={styles.textJustify}> 高 工</td>
           </tr>

@@ -53,7 +53,7 @@ export default class ThemeInfo4 extends React.Component {
           ◼ 结果输出：TIF格式二值化分类图像；最终结果以zip压缩文件格式提交。
         </p>
         <p>
-          二值化分类图标记要求（提交范例：change.zip）如下：
+          二值化分类图标记要求（提交范例：change.zip<a href={globalConf.themeConf[3].zipUrl()}>【点击下载】</a>）如下：
         </p>
         <table>
           <thead>

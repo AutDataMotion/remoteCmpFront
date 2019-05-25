@@ -23,7 +23,7 @@ const style = {
     height: '100%',
     top: '0',
     left: '0',
-    background: '#000',
+    background: 'rgb(57, 56, 100)',
     opacity: '.45',
     zIndex: '15',
   },

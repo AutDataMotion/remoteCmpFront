@@ -4,6 +4,7 @@ import NotFound from '../../components/NotFound';
 import routerData from '../../routerConfig';
 
 class MainRoutes extends Component {
+
   /**
    * 渲染路由组件
    */

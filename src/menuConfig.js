@@ -51,6 +51,11 @@ const asideMenuConfig = [
         path: '/theme/5',
         icon: 'cascades',
       },
+      {
+        name:'决赛加分赛：基于华为智能处理器的遥感图像解译',
+        path: '/theme/6',
+        icon: 'cascades',
+      },
     ],
   },
 
