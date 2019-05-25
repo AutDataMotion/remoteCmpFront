@@ -11,6 +11,10 @@ import {
   FormError as IceFormError,
 } from '@icedesign/form-binder';
 import IceIcon from '@icedesign/foundation-symbol';
+import {pca} from 'area-data'; // v3 or higher
+import 'react-area-linkage/dist/index.css'; // v2 or higher
+import { AreaSelect, AreaCascader } from 'react-area-linkage';
+
 import globalConf from "../../globalConfig";
 
 const {Row, Col} = Grid;
@@ -23,31 +27,39 @@ const userTypeEnum = [{key: 'member', value: '队员'}, {key: 'leader', value: '
 
 const countryEnum = [
   {
-    value: 1,
+    value: 0,
     label: '中国',
   },
   {
-    value: 2,
+    value: 1,
     label: '其他国家',
   },
 ];
 
-const statusEnum = [
+const orgEnum = [
+  {
+    value: 0,
+    label: '高校',
+    org1Label:'学校名称',
+    org2Label:'专业',
+  },
   {
     value: 1,
-    label: '高校',
+    label: '科研院所',
+    org1Label:'单位名称',
+    org2Label:'研究方向',
   },
   {
     value: 2,
-    label: '科研院所',
+    label: '企业',
+    org1Label:'公司名称',
+    org2Label:'研究方向',
   },
   {
     value: 3,
-    label: '企业',
-  },
-  {
-    value: 4,
     label: '其他',
+    org1Label:'单位名称',
+    org2Label:'研究方向',
   },
 ];
 const themeEnum = [
@@ -81,33 +93,33 @@ class UserRegister extends Component {
 
   static defaultProps = {};
 
+  static isChina = countryEnum[0].value;
+  static defaultOrgSelect = orgEnum[0];
+
   constructor(props) {
     super(props);
     this.state = {
       isLeader: false,
-      isChina: true,
       value: {
-        userTypeId: 0,  // 用户类别
-        realName: '', // 姓名
-        idNum: '', // 身份证
-        userName: '', // 昵称
-        passwd: '', // 密码
-        rePasswd: '', // 确认密码
-        phone: '', // 手机号
-        email: '', // 邮箱
+        "name": "xx",
+        "password": "123",
+        "country": "",
+        "province": "",
+        "city": "",
+        "workId": 0,
+        "workPlaceTop": "",
+        "workPlaceSecond": "",
+        "workPlaceThird": "",
+        "phoneNumber": "",
+        "IDCard": "",
+        "email": "",
+        "isCaptain": true,
+        "teamId": 77,
+        "competitionId": 1,
 
         inviteCode: '', // 邀请码
         theme: '', // 赛题
         teamName: '', // 队伍名称
-
-        identity: '', // 身份
-        organ1: '', // 单位1
-        organ2: '', // 单位2
-        organ3: '', // 单位3
-
-        address1: '', // 国家
-        address2: '', // 省
-        address3: '', // 市
 
       }
     };
@@ -137,7 +149,7 @@ class UserRegister extends Component {
 
   formChange = (value) => {
     this.setState({
-      value,
+      value : value,
     });
   };
 
@@ -168,37 +180,46 @@ class UserRegister extends Component {
     }
     this.setState({
       isLeader: isLead,
-      value: {userTypeId: index}
+      value: {isCaptain: isLead}
     });
     const {value} = this.state;
-
     console.log("handleUserTypeChange value", value);
   }
 
 
   onCountryChange(value) {
-    let isChina = true;
     console.log('onCountryChange', value);
-    if (value === 2) {
-      isChina = false;
-      console.log("onCountryChange china false")
-    }
+    UserRegister.isChina = value;
     this.setState({
-      isChina: isChina,
+      selectCountry: value,
+      value:{
+        country:countryEnum[value].label,
+      }
     })
   }
 
   onProvinceChange(value) {
     console.log('onProvinceChange', value);
     // 根据省份 设置 城市
+    this.setState({
+      value: {
+        province: value[0],
+        city:value[1],
+      }
+    });
+  }
+
+  onSelectOrg(value) {
+    console.log('onSelectOrg', value);
+    UserRegister.defaultOrgSelect = orgEnum[value];
+    this.setState({
+      value: {
+        country:UserRegister.defaultOrgSelect.label
+      }
+    });
   }
 
   renderOtherCountry = ()=>{
-    const {isChina} = this.state;
-    console.log('renderOtherCountry', isChina);
-    if (isChina===false){
-      return null;
-    }
     return (
       <Col>
         <div style={styles.formItem}>
@@ -215,38 +236,13 @@ class UserRegister extends Component {
     );
   };
   renderProvince= ()=>{
-    const {isChina} = this.state;
-    console.log('renderProvince', isChina);
-    if (isChina === false){
-      console.log("not china province");
-      return null;
-    }
     return(
       <Col>
         <div style={styles.formItem}>
           <IceFormBinder name="selectProvince" required message="省份">
-            <Select dataSource={countryEnum} onChange={this.onProvinceChange} defaultValue='北京' placeholder="省份"
-                    style={styles.selectStatus} showSearch hasClear  style={{width: '100%', height: 40}}/>
+            <AreaSelect type={'text'} onChange={this.onProvinceChange} data={pca} defaultValue='北京' placeholder="省份"/>
           </IceFormBinder>
           <IceFormError name="selectProvince"/>
-        </div>
-      </Col>
-    );
-  };
-  renderCity= ()=>{
-    const {isChina} = this.state;
-    console.log('renderCity', isChina);
-    if (isChina === false){
-      console.log("not china city");
-      return null;
-    }
-    return(
-      <Col>
-        <div style={styles.formItem}>
-          <IceFormBinder name="selectCity" required message="城市">
-            <Select dataSource={countryEnum} placeholder="城市" style={styles.selectStatus} showSearch hasClear  style={{width: '100%', height: 40}}/>
-          </IceFormBinder>
-          <IceFormError name="selectCity"/>
         </div>
       </Col>
     );
@@ -265,7 +261,9 @@ class UserRegister extends Component {
   }
 
   renderTeamLeader = () => {
-
+    const {selectCountry} = this.state;
+    console.log('render selectCountry', selectCountry);
+    let divCountry = UserRegister.isChina === countryEnum[0].value ? this.renderProvince() : this.renderOtherCountry();
     return (
       <div style={styles.container}>
         <h4 style={styles.title}>注 册</h4>
@@ -411,36 +409,32 @@ class UserRegister extends Component {
           </Row>
 
           <Row gutter="24">
-            <Col>
-              <div style={styles.formItem}>
-                <IceFormBinder name="identity" required message="单位类型">
-                  <Select dataSource={statusEnum} placeholder="单位类型" style={styles.selectStatus}/>
-                </IceFormBinder>
-                <IceFormError name="identity"/>
-              </div>
-            </Col>
-          </Row>
-          <Row gutter="24">
-            <Col>
+            <Col l={'8'}>
               <div style={styles.formItem}>
                 <IceFormBinder name="selectCountry" required message="国家">
-                  <Select dataSource={countryEnum} onChange={this.onCountryChange} defaultValue={countryEnum[0]}
-                          placeholder="我来自" style={styles.selectStatus} showSearch hasClear/>
+                  <Select dataSource={countryEnum} onChange={this.onCountryChange}
+                          placeholder="我来自" style={styles.selectStatus} style={{width:'100%'}}/>
                 </IceFormBinder>
                 <IceFormError name="selectCountry"/>
               </div>
             </Col>
-            {this.renderOtherCountry()}
-            {this.renderProvince()}
-            {this.renderCity()}
+            {divCountry}
           </Row>
           <Row gutter="24">
             <Col>
               <div style={styles.formItem}>
-                <IceFormBinder name="organ1" required message="学校">
+                <IceFormBinder name="identity" required message="单位类型">
+                  <Select dataSource={orgEnum} onChange={this.onSelectOrg} placeholder="单位类型" style={styles.selectStatus} style={{width:'100%'}}/>
+                </IceFormBinder>
+                <IceFormError name="identity"/>
+              </div>
+            </Col>
+            <Col>
+              <div style={styles.formItem}>
+                <IceFormBinder name="organ1" required message={UserRegister.defaultOrgSelect.org1Label}>
                   <Input
                     size="large"
-                    placeholder="学校"
+                    placeholder={UserRegister.defaultOrgSelect.org1Label}
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -449,67 +443,14 @@ class UserRegister extends Component {
             </Col>
             <Col>
               <div style={styles.formItem}>
-                <IceFormBinder name="organ2" required message="学院">
+                <IceFormBinder name="organ2" required message={UserRegister.defaultOrgSelect.org2Label}>
                   <Input
                     size="large"
-                    placeholder="学院"
+                    placeholder={UserRegister.defaultOrgSelect.org2Label}
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
                 <IceFormError name="organ2"/>
-              </div>
-            </Col>
-
-            <Col>
-              <div style={styles.formItem}>
-                <IceFormBinder name="organ3" required message="专业(系)">
-                  <Input
-                    size="large"
-                    placeholder="专业/系"
-                    style={styles.inputCol}
-                  />
-                </IceFormBinder>
-                <IceFormError name="organ3"/>
-              </div>
-            </Col>
-
-          </Row>
-
-          <Row gutter="24">
-            <Col>
-              <div style={styles.formItem}>
-                <IceFormBinder name="address1" required message="国家">
-                  <Input
-                    size="large"
-                    placeholder="国家"
-                    style={styles.inputCol}
-                  />
-                </IceFormBinder>
-                <IceFormError name="address1"/>
-              </div>
-            </Col>
-            <Col>
-              <div style={styles.formItem}>
-                <IceFormBinder name="address2" required message="省份">
-                  <Input
-                    size="large"
-                    placeholder="院系"
-                    style={styles.inputCol}
-                  />
-                </IceFormBinder>
-                <IceFormError name="address2"/>
-              </div>
-            </Col>
-            <Col>
-              <div style={styles.formItem}>
-                <IceFormBinder name="address3" required message="市">
-                  <Input
-                    size="large"
-                    placeholder="市"
-                    style={styles.inputCol}
-                  />
-                </IceFormBinder>
-                <IceFormError name="address3"/>
               </div>
             </Col>
           </Row>
@@ -714,7 +655,7 @@ class UserRegister extends Component {
             <Col>
               <div style={styles.formItem}>
                 <IceFormBinder name="identity" required message="单位类型">
-                  <Select dataSource={statusEnum} placeholder="单位类型" style={styles.selectStatus}/>
+                  <Select dataSource={orgEnum} placeholder="单位类型" style={styles.selectStatus}/>
                 </IceFormBinder>
                 <IceFormError name="identity"/>
               </div>
@@ -821,13 +762,15 @@ class UserRegister extends Component {
   }
 
   render() {
-    const {isLeader} = this.state;
+    const {isLeader, selectCountry} = this.state;
+    console.log('render boot isLeander', isLeader, 'selectCountry',selectCountry,"isChina", UserRegister.isChina);
     if (isLeader) {
       return this.renderTeamLeader();
     } else {
       return this.renderTeamMember()
     }
   };
+
 
 }
 

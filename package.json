@@ -35,18 +35,20 @@
     "@icedesign/img": "^1.x",
     "@icedesign/layout": "^1.x",
     "@icedesign/theme": "^0.1.2",
+    "area-data": "^5.0.6",
     "bizcharts": "^3.2.2",
     "classnames": "^2.2.5",
     "echarts": "^4.2.1",
     "echarts-for-react": "^2.0.14",
     "enquire.js": "^2.1.6",
+    "lodash.clonedeep": "latest",
     "moment": "^2.23.0",
     "prop-types": "^15.5.8",
     "react": "^16.4.1",
+    "react-area-linkage": "^3.0.0",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.2.2",
-    "react-text-loop": "^1.1.0",
-    "lodash.clonedeep": "latest"
+    "react-text-loop": "^1.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",

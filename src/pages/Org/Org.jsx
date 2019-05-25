@@ -96,7 +96,7 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 北京航空航天大学</td>
+            <td style={styles.textLeft}> 北京理工大学</td>
             <td style={styles.textJustify}> 张 军</td>
             <td style={styles.textJustify}> 院 士</td>
           </tr>
@@ -118,12 +118,7 @@ export default class Org extends Component {
             <td style={styles.textJustify}> 吴海涛</td>
             <td style={styles.textJustify}> 研究员</td>
           </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 自然科学基金委信息科学部</td>
-            <td style={styles.textJustify}> 秦玉文</td>
-            <td style={styles.textJustify}>研究员</td>
-          </tr>
+
           <tr>
             <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 自然科学基金委信息科学部</td>
@@ -134,12 +129,6 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 自然科学基金委地球科学部</td>
             <td style={styles.textJustify}> 王岐东</td>
-            <td style={styles.textJustify}> 研究员</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 自然科学基金委信息科学部</td>
-            <td style={styles.textJustify}> 李建军</td>
             <td style={styles.textJustify}> 研究员</td>
           </tr>
           <tr>
@@ -243,7 +232,7 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 中科院空间应用工程与技术中心</td>
+            <td style={styles.textLeft}> 中国科学院空间应用工程与技术中心</td>
             <td style={styles.textJustify}> 李盛阳</td>
             <td style={styles.textJustify}> 研究员</td>
           </tr>
