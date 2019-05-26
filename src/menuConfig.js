@@ -79,12 +79,12 @@ const asideMenuConfig = [
   //   path: '/demo',
   //   icon: 'home2',
   // },
-  // {
-  //   name: '团队分布',
-  //   path: '/dashboard',
-  //   // icon: 'cascades',
-  //   newWindow: true,
-  // },
+  {
+    name: '团队分布',
+    path: '/dashboard',
+    // icon: 'cascades',
+    newWindow: true,
+  },
   {
     name: '竞赛论坛',
     path: 'http://sin.xintongconference.com',

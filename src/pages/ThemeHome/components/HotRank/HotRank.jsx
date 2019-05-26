@@ -108,6 +108,20 @@ export default class HotRank extends Component {
     );
   };
 
+  renderTitle=()=>{
+    return (<a className="hot-rank-item" style={styles.item}>
+        <span
+          style={{
+            ...styles.rank,
+          }}
+        >
+          排名
+        </span>
+      <span style={styles.teamName}>队伍名称</span>
+      <span style={styles.score}>得分</span>
+    </a>)
+  };
+
   render() {
 
     const { pageId, isLoading } = this.state;
@@ -123,7 +137,8 @@ export default class HotRank extends Component {
         </div>
 
         <Row wrap>
-          <Col style={{ borderRight: '1px solid #eee' }}>
+          <Col style={{ borderRight: '1px solid rgb(227, 97, 97)' }}>
+            {this.renderTitle()}
             {ajaxRank.results
               .filter((item, index) => {
                 return Math.floor(index / 10) % 3 == 0; // 前10个
@@ -132,7 +147,7 @@ export default class HotRank extends Component {
                 return <HotItem key={index} data={item} />;
               })}
           </Col>
-          <Col style={{ borderRight: '1px solid #eee' }}>
+          <Col style={{ borderRight: '1px solid rgb(227, 97, 97)' }}>
             {ajaxRank.results
               .filter((item, index) => {
                 return Math.floor(index / 10) % 3 == 1; // 前20个
@@ -167,5 +182,23 @@ const styles = {
   header: {
     marginBottom: 20,
   },
-  hotrankList: {},
+  item: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+  },
+  rank: {
+    marginRight: 40,
+    fontSize: 14,
+  },
+  teamName: {
+    fontSize: 14,
+    flex: 'auto',
+  },
+  score: {
+    fontSize: 14,
+    paddingLeft: 10,
+    width: 40,
+  },
 };

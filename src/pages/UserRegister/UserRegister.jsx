@@ -28,39 +28,39 @@ const userTypeEnum = [{key: 'member', value: '队员'}, {key: 'leader', value: '
 
 const countryEnum = [
   {
-    value: 0,
+    value: '中国',
     label: '中国',
   },
   {
-    value: 1,
+    value: '其他国家',
     label: '其他国家',
   },
 ];
 
 const orgEnum = [
   {
-    value: 0,
+    value: 1,
     label: '高校',
     org1Label:'学校名称',
     org2Label:'院系名称',
     org3Label:'专业名称',
   },
   {
-    value: 1,
+    value: 2,
     label: '科研院所',
     org1Label:'单位名称',
     org2Label:'科室名称',
     org3Label:'研究方向',
   },
   {
-    value: 2,
+    value: 3,
     label: '企业',
     org1Label:'公司名称',
     org2Label:'部门名称',
     org3Label:'研究方向',
   },
   {
-    value: 3,
+    value: 4,
     label: '其他',
     org1Label:'单位名称',
     org2Label:'部门名称',
@@ -90,19 +90,44 @@ const themeEnum = [
   },
 ];
 
+const defInviteCodeRes={
+  result:false,
+  competition_id: 1,
+  team_id:0,
+  team_name:'队伍名称自动获得',
+};
 
 @DataBinder({
   ajaxRegist: {
     url: globalConf.genUrl('user/register'),
-    method:'POST',
-    data:{},
-    success:(res, defaultCallBack, orgResponse)=>{
+    method: 'POST',
+    data: {},
+    success: (res, defaultCallBack, orgResponse) => {
       console.log("success res", res, "orgResponse", orgResponse);
     },
-    error:(res, defaultCallBack, orgResponse)=>{
+    error: (res, defaultCallBack, orgResponse) => {
       defaultCallBack();
     },
     ...globalConf.headerCOR,
+  },
+  ajaxInviteCode: {
+    url: globalConf.genUrl('invitecode'),
+    method: 'get',
+    param: {invite_code: ''},
+    defaultBindingData: {
+      ...defInviteCodeRes
+    },
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+
+    success: (res, defaultCallBack, orgResponse) => {
+      console.log("success res", res, "orgResponse", orgResponse);
+    },
+    error: (res, defaultCallBack, orgResponse) => {
+      defaultCallBack();
+    },
   }
 })
 
@@ -123,13 +148,14 @@ class UserRegister extends Component {
       isLeader: false,
       userTypeId: 0,
       theme: '', // 赛题
+      inviteCode : '',
       value: {
-        "name": "xx",
-        "password": "123",
+        "name": "",
+        "password": "",
         "country": "",
-        "province": "",
-        "city": "",
-        "workId": 0,
+        // "province": "",
+        // "city": "",
+        "work_id": 1,
         "work_place_top": "",
         "work_place_second": "",
         "work_place_third": "",
@@ -137,9 +163,8 @@ class UserRegister extends Component {
         "ID_card": "",
         "email": "",
         "is_captain": 0,
-        "teamId": 77,
+        // "teamId": 0,
         "competition_id": 1,
-
         team_name: '', // 队伍名称
         invite_code: '', // 邀请码
       }
@@ -170,7 +195,7 @@ class UserRegister extends Component {
 
   formChange = (value) => {
     this.setState({
-      value : value,
+      value
     });
   };
 
@@ -180,88 +205,102 @@ class UserRegister extends Component {
         console.log('errors', errors);
         return;
       }
-      const {value} = this.state;
-      console.log('submit value',values, "state value", value);
+      const {value, userTypeId} = this.state;
+      console.log('submit value',values, "state value", value, "userTypeId", userTypeId);
+      value.is_captain = userTypeId;
+
       this.props.updateBindingData('ajaxRegist', {
         data: {
           ...value
         }
       },(rsp)=>{
         console.log("login rsp", rsp);
+        if (rsp && rsp.status === 1) {
+          Message.success('注册成功');
+          // this.props.history.push('/user/login');
+        } else {
+          Message.warning(rsp.message);
+        }
         // 获取返回数据 判断是否成功
-        Message.success('注册成功');
-        // this.props.history.push('/user/login');
+
       });
 
     });
   };
 
   onInviteCode = () => {
-
+    // 发送邀请码
+    const{value}=this.state;
+    let inviteCode = value.invite_code;
+    if (!inviteCode || inviteCode.length != 4) {
+      Message.warning('邀请码不正确');
+      return ;
+    }
+    this.props.updateBindingData('ajaxInviteCode',{
+      params:{invite_code:inviteCode}
+    },(rsp)=>{
+      console.log("inviteCode rsp", rsp);
+      if (rsp && rsp.data && rsp.data.result ==='true') {
+        Message.success("验证成功");
+      } else {
+        Message.warning("邀请码不正确");
+      }
+    });
+    this.setState({
+      isLoading:false,
+    });
   };
 
-  onTeamName = () => {
-
-  };
-
-  handleUserTypeChange(index) {
+  handleUserTypeChange=(index)=> {
     let isLead = false;
+    const {value} = this.state;
+
     if (index === 1) {
       isLead = true;
+      value.team_name = "";
+      value.competition_id = 1;
     }
+
     this.setState({
       isLeader: isLead,
       userTypeId: index,
-      value: {is_captain: index}
     });
-    const {value} = this.state;
-    console.log("handleUserTypeChange value", value);
+    console.log("userTypeId", index);
   }
 
 
-  onCountryChange(value) {
-    console.log('onCountryChange', value);
-    UserRegister.isChina = value;
+  onCountryChange=(selValue)=> {
+    console.log('onCountryChange', selValue);
+    UserRegister.isChina = selValue;
     this.setState({
-      value:{
-        country:countryEnum[value].label,
-      }
+      country:selValue,
     })
   }
 
-  onProvinceChange(value) {
-    console.log('onProvinceChange', value);
+  onProvinceChange=(selValue)=> {
+    console.log('onProvinceChange', selValue);
     // 根据省份 设置 城市
-    this.setState({
-      value: {
-        province: value[0],
-        city:value[1],
-      }
-    });
+
   }
 
-  onSelectOrg(value) {
-    console.log('onSelectOrg', value);
-    UserRegister.defaultOrgSelect = orgEnum[value];
-    this.setState({
-      value: {
-        country:UserRegister.defaultOrgSelect.label
-      }
-    });
+  onSelectOrg(selValue) {
+    console.log('onSelectOrg', selValue);
+    UserRegister.defaultOrgSelect = orgEnum[selValue-1];
+
   }
 
   renderOtherCountry = ()=>{
     return (
       <Col>
         <div style={styles.formItem}>
-          <IceFormBinder name="countryName" required message="国家名称">
+          <IceFormBinder name="provinceCity" required message="国家名称">
             <Input
               size="large"
               placeholder="请输入国家名称"
               style={styles.inputCol}
             />
           </IceFormBinder>
-          <IceFormError name="teamName"/>
+          <IceFormError name="provinceCity"/>
         </div>
       </Col>
     );
@@ -270,10 +309,10 @@ class UserRegister extends Component {
     return(
       <Col>
         <div style={styles.formItem}>
-          <IceFormBinder name="selectProvince" required message="省份">
+          <IceFormBinder name="provinceCity" required message="省份">
             <AreaSelect type={'text'} onChange={this.onProvinceChange} data={pca} defaultValue='北京' placeholder="省份"/>
           </IceFormBinder>
-          <IceFormError name="selectProvince"/>
+          <IceFormError name="provinceCity"/>
         </div>
       </Col>
     );
@@ -292,8 +331,11 @@ class UserRegister extends Component {
   }
 
   render() {
-    const {isLeader} = this.state;
-    console.log('render boot isLeander', isLeader, "isChina", UserRegister.isChina);
+    const {isLeader,value} = this.state;
+    // competition_id, team_name
+    const {ajaxInviteCode}  = this.props.bindingData;
+    console.log('render value', value, "ajaxInviteCode", ajaxInviteCode);
+
     let divInviteCode = isLeader? null : (
       <Col l={12}>
         <div style={styles.formItem}>
@@ -318,7 +360,19 @@ class UserRegister extends Component {
 
       </Col>
     );
-   let divCountry = UserRegister.isChina === countryEnum[0].value ? this.renderProvince() : this.renderOtherCountry();
+
+    let teamNameInputPop = {};
+    let themeSelectPop = {};
+    if (isLeader){
+      teamNameInputPop = {readOnly:false};
+      themeSelectPop = {readOnly:false};
+    } else {
+      value.team_name = ajaxInviteCode.team_name;
+      value.competition_id = ajaxInviteCode.competition_id;
+      teamNameInputPop = {readOnly:true};
+      themeSelectPop = {readOnly:true};
+    };
+    let divCountry = UserRegister.isChina === countryEnum[0].value ? this.renderProvince() : this.renderOtherCountry();
     return (
       <div style={styles.container}>
         <h4 style={styles.title}>注 册</h4>
@@ -414,6 +468,7 @@ class UserRegister extends Component {
                   <Input
                     size="large"
                     placeholder="手机号"
+                    maxLength={11}
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -441,8 +496,9 @@ class UserRegister extends Component {
                 <IceFormBinder name="team_name" required message="队伍名称">
                   <Input
                     size="large"
-                    placeholder="队伍名称"
+                    placeholder="队伍名称(中英文或数字)"
                     style={styles.inputCol}
+                    {...teamNameInputPop}
                   />
                 </IceFormBinder>
                 <IceFormError name="team_name"/>
@@ -452,7 +508,7 @@ class UserRegister extends Component {
             <Col>
               <div style={styles.formItem}>
                 <IceFormBinder name="competition_id" required message="赛题">
-                  <Select dataSource={themeEnum} placeholder="选择赛题" style={{width: '100%', height: 40}}/>
+                  <Select dataSource={themeEnum} placeholder="选择赛题" style={{width: '100%', height: 40}} {...themeSelectPop}/>
                 </IceFormBinder>
                 <IceFormError name="competition_id"/>
               </div>
@@ -462,11 +518,11 @@ class UserRegister extends Component {
           <Row gutter="24">
             <Col l={'8'}>
               <div style={styles.formItem}>
-                <IceFormBinder name="selectCountry" required message="国家">
-                  <Select dataSource={countryEnum} onChange={this.onCountryChange}
+                <IceFormBinder name="country" required message="国家">
+                  <Select dataSource={countryEnum} onChange={this.onCountryChange} defaultValue={{...countryEnum[0]}}
                           placeholder="我来自" style={styles.selectStatus} style={{width:'100%'}}/>
                 </IceFormBinder>
-                <IceFormError name="selectCountry"/>
+                <IceFormError name="country"/>
               </div>
             </Col>
             {divCountry}
@@ -474,10 +530,10 @@ class UserRegister extends Component {
           <Row gutter="24">
             <Col>
               <div style={styles.formItem}>
-                <IceFormBinder name="workId" required message="单位类型">
+                <IceFormBinder name="work_id" required message="单位类型">
                   <Select dataSource={orgEnum} onChange={this.onSelectOrg} placeholder="单位类型" style={styles.selectStatus} style={{width:'100%'}}/>
                 </IceFormBinder>
-                <IceFormError name="workId"/>
+                <IceFormError name="work_id"/>
               </div>
             </Col>
             <Col>

@@ -56,7 +56,7 @@ const styles = {
     padding: 10,
   },
   index: {
-    minWidth: 22,
+    minWidth: 35,
     height: 22,
     padding: '0 4px',
     border: '2px solid #eee',
@@ -65,7 +65,7 @@ const styles = {
     textAlign: 'center',
     borderRadius: 11,
     backgroundColor: '#c6c6c6',
-    marginRight: 10,
+    marginRight: 40,
     fontSize: 12,
   },
   keyword: {

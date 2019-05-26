@@ -9,16 +9,6 @@ import styles from './table.module.scss';
 import globalConf from "../../../../../globalConfig";
 
 
-// MOCK 数据，实际业务按需进行替换
-const getData = (length = 10) => {
-  return Array.from({length}).map((item, index) => {
-    return {
-      time_stamp: '2019-04-09',
-      file_name: 'results20190409.zip',
-      score: '98',
-    };
-  });
-};
 
 const defaultQueryMdl = globalConf.genPageModel({});
 
@@ -62,14 +52,6 @@ export default class ModelTable extends Component {
       this.fetchData();
     }
   }
-
-  mockApi = (len) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(getData(len));
-      }, 600);
-    });
-  };
 
   fetchData = () => {
 
@@ -123,15 +105,48 @@ export default class ModelTable extends Component {
     });
   };
 
+  add0=(m)=>{return m<10?'0'+m:m }
+  format=(timestamp)=>
+  {
+    let time = new Date(timestamp);
+    let y = time.getFullYear();
+    let m = time.getMonth()+1;
+    let d = time.getDate();
+    let h = time.getHours();
+    let mm = time.getMinutes();
+    let s = time.getSeconds();
+    return y+'-'+this.add0(m)+'-'+this.add0(d)+' '+this.add0(h)+':'+this.add0(mm)+':'+this.add0(s);
+  };
+
   renderState = (value) => {
+    console.log('value', value);
+    let text = '--';
+    if (value == -1){
+      text = '评分处理中';
+    } else if(value == -2){
+      text = '文件错误';
+    } else {
+      text = value.toFixed(2);
+    }
     return (
       <span className={styles.state}>
-        {value}
+        {text}
+      </span>
+    );
+  };
+  renderDate = (value) => {
+    return (
+      <span className={styles.state}>
+        {this.format(value)}
       </span>
     );
   };
 
-  renderResult = () => {
+  renderResult = (themeId) => {
+
+    if (themeId != globalConf.userInfo.competition_id){
+      return this.renderNotTheme();
+    }
     const {pageId, isLoading} = this.state;
     const {ajaxResult} = this.props.bindingData;
     console.log('ajaxResult', ajaxResult);
@@ -149,8 +164,8 @@ export default class ModelTable extends Component {
         hasBorder={false}
         className={styles.table}
       >
-        <Table.Column title="上传时间" dataIndex="time_stamp"/>
-        <Table.Column title="结果文件" dataIndex="file_name"/>
+        <Table.Column title="上传时间" dataIndex="time_stamp" cell={this.renderDate}/>
+        <Table.Column title="结果文件" dataIndex="file_name" />
         <Table.Column
           title="得分"
           dataIndex="score"
@@ -172,7 +187,19 @@ export default class ModelTable extends Component {
       <IceContainer className={styles.container}>
         <div style={inStyles.headerTips}>
           <h3 style={{fontSize: 16, color: '#333', margin: 0}}>
-            请先登录，然后提交结果
+            请先登录，然后提交结果。
+          </h3>
+        </div>
+      </IceContainer>
+    )
+  };
+
+  renderNotTheme = () => {
+    return (
+      <IceContainer className={styles.container}>
+        <div style={inStyles.headerTips}>
+          <h3 style={{fontSize: 16, color: '#333', margin: 0}}>
+            您没有注册改主题，无法操作。
           </h3>
         </div>
       </IceContainer>
@@ -180,9 +207,9 @@ export default class ModelTable extends Component {
   };
 
   render() {
-
+    const {themeId} = this.props;
     if (globalConf.userInfo.login == true) {
-      return this.renderResult();
+      return this.renderResult(themeId);
     }else {
       return this.renderNoLogin();
     }

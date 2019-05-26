@@ -50,7 +50,7 @@ export default class TableHead extends Component {
   };
 
   render() {
-
+    const {superCallback} = this.props;
     return (
       <IceFormBinderWrapper
         value={this.state.value}
@@ -58,7 +58,7 @@ export default class TableHead extends Component {
         ref="form"
       >
         <Row wrap gutter="24" style={styles.formRow}>
-          <Col l="6">
+          <Col l="20">
             <div style={styles.formItem}>
               <Upload
                 action={globalConf.genUrl('results/upload')}
@@ -70,6 +70,11 @@ export default class TableHead extends Component {
                 <Button type="primary">上传文件（ZIP格式）</Button>
               </Upload>
 
+            </div>
+          </Col>
+          <Col >
+            <div style={styles.formItemFresh}>
+             <Button type="primary" onClick={superCallback}>刷新列表</Button>
             </div>
           </Col>
         </Row>
@@ -101,6 +106,12 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     margin: '10px 0',
+  },
+  formItemFresh: {
+    display: 'flex',
+    alignItems: 'center',
+    margin: '10px 0',
+    float:'right'
   },
   formLabel: {
     minWidth: '70px',

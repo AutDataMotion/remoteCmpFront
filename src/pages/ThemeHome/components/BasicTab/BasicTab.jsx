@@ -47,7 +47,7 @@ export default class BasicTab extends Component {
           <Tab shape="wrapped" tabPosition="left" onChange={this.handleChange}  contentClassName="custom-tab-content">
             <Tab.Item title="竞赛说明" key="1">{this.renderThemeInfo(themeId)}</Tab.Item>
             <Tab.Item title="数据下载" key="2"><DataDownload { ...dataDownloadConf}/></Tab.Item>
-            <Tab.Item title="提交结果" key="3"><ModelTable {...commitResConf}/></Tab.Item>
+            <Tab.Item title="提交结果" key="3"><ModelTable themeId={themeId} {...commitResConf}/></Tab.Item>
             <Tab.Item title="排行榜单" key="4"><HotRank {...hotRankConf} themeId={themeId}/></Tab.Item>
           </Tab>
 

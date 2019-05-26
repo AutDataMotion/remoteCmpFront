@@ -82,6 +82,8 @@ const globalConf={
       success: res.status ===1 ? true:false,
       message: res.message,
       data:{
+        resStatus:res.status,
+        resMessage:res.message,
         ...res.data
       }
     };
