@@ -1,5 +1,7 @@
 import React from "react";
 import './InfomStyle.css'
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 import globalConf from "../../../../../globalConfig";
 
 
@@ -90,7 +92,7 @@ export default class ThemeInfo3 extends React.Component {
           （4） 评分规则
         </h2>
         <p>
-          比赛初赛成绩主要采用Kappa系数指标。比赛最终成绩由大赛评委会专家根据Kappa系数作为得分进行排名，Kappa系数越高，遥感图像语义分割结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+          比赛初赛成绩主要采用<InlineMath math={'Kappa'}/>系数指标。比赛最终成绩由大赛评委会专家根据<InlineMath math={'Kappa'}/>系数作为得分进行排名，<InlineMath math={'Kappa'}/>系数越高，遥感图像语义分割结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
         </p>
 
 

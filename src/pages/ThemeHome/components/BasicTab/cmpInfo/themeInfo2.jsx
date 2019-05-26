@@ -1,5 +1,7 @@
 import React from "react";
 import './InfomStyle.css'
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 import globalConf from "../../../../../globalConfig";
 
 export default class ThemeInfo2 extends React.Component {
@@ -70,7 +72,12 @@ export default class ThemeInfo2 extends React.Component {
           （4） 评分规则
         </h2>
         <p>
-          比赛初赛成绩主要采用平均精度均值（mAP）指标。首先计算预测目标窗口和真实标记窗口的交并比IoU(Intersection-over-Union)，若交并比大于0.5则预测正确。然后计算不同类别目标检测的平均精度（AP），最后对所有目标类别的平均精度进行均值计算，即为平均精度均值。 mAP值越高，模型对各类别目标检测的性能越好，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+          比赛初赛成绩主要采用平均精度均值（<InlineMath math={'mAP'}/>）指标。
+          首先计算预测目标窗口和真实标记窗口的交并比<InlineMath math={'IoU(Intersection-over-Union)'}/> ，
+          若交并比大于0.5则预测正确。然后计算不同类别目标检测的平均精度（<InlineMath math={'AP'}/>），
+          最后对所有目标类别的平均精度进行均值计算，即为平均精度均值。
+          <InlineMath math={'mAP'}/>值越高，模型对各类别目标检测的性能越好，排名越靠前。
+          比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
         </p>
         <p>
           <br/>

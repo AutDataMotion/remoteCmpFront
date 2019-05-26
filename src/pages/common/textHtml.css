@@ -30,16 +30,17 @@ table.org td {
 
 #rules-header {
   width: 100%;
-  height: 180px;
-  background-image: url('https://raw.githubusercontent.com/AutDataMotion/remoteCmpFront/master/src/pages/common/text-banner.jpg');
+  height: 250px;
+  background-image: url('https://raw.githubusercontent.com/AutDataMotion/remoteCmpFront/master/public/home-banner.png');
+  background-size: 100%;
   background-position: top;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 #rules-header .cn-header {
-  font-size: 36px;
-  margin-top: 46px;
+  font-size: 45px;
+  margin-top: 89px;
 }
 #rules-header .en-header {
   font-size: 20px;

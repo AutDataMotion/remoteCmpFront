@@ -1,5 +1,7 @@
 import React from "react";
 import './InfomStyle.css'
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 import globalConf from "../../../../../globalConfig";
 
 
@@ -73,7 +75,7 @@ export default class ThemeInfo1 extends React.Component {
           （4） 评分规则
         </h2>
         <p>
-          本竞赛单元算法评价主要采用整体分类精度（Overall Accuracy ，OA ），选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为N，分类正确的图像数为M，则整体分类精度为：<span style={styles.whiteSpaceKeeper}> OA = M / N </span>
+          本竞赛单元算法评价主要采用整体分类精度（<InlineMath math={'Overall \\quad Accuracy \\quad , \\quad OA'}/> ），选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为<InlineMath math={'N'}/>，分类正确的图像数为<InlineMath math={'M'}/>，则整体分类精度为：<InlineMath math={' OA = M / N'}/>
         </p>
         <p>
           比赛初赛成绩由大赛评委会专家根据整体分类精度作为得分进行排名，整体分类精度越高，遥感图像场景分类结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。

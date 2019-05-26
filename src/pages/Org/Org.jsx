@@ -255,7 +255,7 @@ export default class Org extends Component {
       <Row gutter="20" wrap>
         <Col l="24" xxs="24">
           <header id="rules-header" className="text-center">
-            <div className="cn-header white">大 赛 组 织 机 构</div>
+            <div className="cn-header white">机 构 设 置</div>
             <div className="en-header white">Organization</div>
           </header>
         </Col>
