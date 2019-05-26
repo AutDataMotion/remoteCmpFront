@@ -58,10 +58,10 @@ export default class ThemeInfo1 extends React.Component {
           </tr>
           </thead>
           <tbody>
-          <tr> <td style={styles.textCenter}>1034.png  3</td>  </tr>
-          <tr> <td style={styles.textCenter}>0298.png  12</td>  </tr>
+          <tr> <td style={styles.textCenter}>1034.jpg  3</td>  </tr>
+          <tr> <td style={styles.textCenter}>0298.jpg  12</td>  </tr>
           <tr> <td style={styles.textCenter}>...</td></tr>
-          <tr> <td style={styles.textCenter}>2301.png  4</td>  </tr>
+          <tr> <td style={styles.textCenter}>2301.jpg  4</td>  </tr>
           </tbody>
         </table>
 

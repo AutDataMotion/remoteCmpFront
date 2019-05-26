@@ -115,7 +115,7 @@ export default class ApplicationProgress extends Component {
                             ...(isMobile && styles.removeContentWidth),
                           }}
                         >
-                          {item.description}
+                          {item.descriptionRule}
                         </div>
                       </Col>
                       <Col xxs="24" s="2">

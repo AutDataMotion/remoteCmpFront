@@ -37,11 +37,15 @@ const globalConf={
   },
   // baseUrl:'https://www.easy-mock.com/mock/5cdadc3dfb3e4604b7673bae/rsc/',
   baseUrl:'http://119.3.202.35/',
+  baseUrlFront:'http://119.3.202.35:8000/',
   uploadTips:'',//'提示：每日限制上传【5】次，取最高分作为最终成绩',
   dashboardTips:'公告：排行榜每日上午8:00更新一次',
 
   genUrl: (path)=>{
     return globalConf.baseUrl + path;
+  },
+  genUrlFront: (path)=>{
+    return globalConf.baseUrlFront + path;
   },
   headerCOR:{
     header:{
@@ -92,11 +96,9 @@ const globalConf={
       bannerTitleSecond: '介绍文字',
       operation: '查看详情',
       url:'/theme/1',
-      zipUrl: ()=>{ return  globalConf.genUrl('classification.zip')},
+      zipUrl: ()=>{ return  globalConf.genUrlFront('classification.zip')},
       description:
-        '遥感图像场景分类竞赛任务旨在对空间信息网络中场景级的遥感图像进行内容解译，' +
-        '高效地对遥感图像中的感兴趣及非感兴趣场景进行自动化的识别和区分，' +
-        '进而针对场景类别有选择性的压缩遥感图像，减少待传输图像数据的容量，有效缓解数据链路传输压力。',
+        '遥感图像场景分类竞赛任务旨在对空间信息网络中的遥感图像进行场景级内容解译，对遥感图像中的感兴趣场景及非感兴趣场景进行自动化识别和区分。现有遥感图像场景解译方法往往局限于有限的场景类别和单一数据源，难以满足实际应用需求。通过本项竞赛遴选高效的遥感图像场景解译算法模行，对空间信息网络中遥感图像复杂场景信息进行高效挖掘，提高空间信息网络建设中遥感图像快速信息提取能力。',
       descriptionRule:'遥感图像场景分类竞赛任务旨在对空间信息网络中的遥感图像进行场景级内容解译，对遥感图像中的感兴趣场景及非感兴趣场景进行自动化识别和区分。现有遥感图像场景解译方法往往局限于有限的场景类别和单一数据源，难以满足实际应用需求。通过本项竞赛遴选高效的遥感图像场景解译算法模行，对空间信息网络中遥感图像复杂场景信息进行高效挖掘，提高空间信息网络建设中遥感图像快速信息提取能力。',
     },
     {
@@ -110,15 +112,9 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/2',
-      zipUrl:  ()=>{ return  globalConf.genUrl('detection.zip')},
+      zipUrl:  ()=>{ return  globalConf.genUrlFront('detection.zip')},
       description:
-        '针对空间信息网络多维、多尺度空间信息链路传输与处理瓶颈，' +
-        '通过本项竞赛遴选优秀的遥感图像目标自动检测识别算法模型，' +
-        '对遥感图像中感兴趣的目标对象进行检测识别，' +
-        '并依据检测结果对遥感图像进行基于目标内容的智能压缩，' +
-        '实现对目标区域无损压缩，对非目标区域进行大幅压缩，' +
-        '从而保留数据中感兴趣区域的信息，同时去除背景等冗余信息，' +
-        '提高空间信息网络链路传输的效率。',
+        '通过遥感图像目标检测，可以快速的获取大范围区域内目标分布信息，对于资源勘探、环境监测、信息侦察等都具有重要的意义。针对空间信息网络多维、多尺度空间信息链路传输与处理瓶颈，通过本项竞赛遴选优秀的遥感图像目标自动检测识别算法模型，对遥感图像中感兴趣的目标对象进行检测识别，并将目标检测识别结果经链路传回，提高空间信息网络链路传输效率和实时分析应用能力。',
       descriptionRule:'通过遥感图像目标检测，可以快速的获取大范围区域内目标分布信息，对于资源勘探、环境监测、信息侦察等都具有重要的意义。针对空间信息网络多维、多尺度空间信息链路传输与处理瓶颈，通过本项竞赛遴选优秀的遥感图像目标自动检测识别算法模型，对遥感图像中感兴趣的目标对象进行检测识别，并将目标检测识别结果经链路传回，提高空间信息网络链路传输效率和实时分析应用能力。',
     },
     {
@@ -132,7 +128,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/3',
-      zipUrl: ()=>{ return  globalConf.genUrl('segmentation.zip')},
+      zipUrl: ()=>{ return  globalConf.genUrlFront('segmentation.zip')},
       description:
         '通过对遥感图像的语义分割，可方便快捷地获取土地利用/覆' +
         '盖信息，并作为精准农业、城市规划、环境保护、土地资源管理等应用' +
@@ -157,7 +153,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/4',
-      zipUrl: ()=>{ return  globalConf.genUrl('change.zip')},
+      zipUrl: ()=>{ return  globalConf.genUrlFront('change.zip')},
       description:
         '遥感图像变化检测可以对同一地点的不同时相数据进行变化检测处理，在资源和环境监测、地理国情监测、自然灾害评估等领域具有高度的实用价值。目前遥感图像变化检测的前沿算法在数据层面以及算法设计层面均具有一定局限性。针对遥感图像变化检测在实际应用中的不足，通过本项竞赛遴选出泛化性能强大的高效变化检测算法，可以提高空间信息网络建设中的遥感图像自动化解译能力。',
       descriptionRule:'遥感图像变化检测可以对同一地点的不同时相数据进行变化检测处理，在资源和环境监测、地理国情监测、自然灾害评估等领域具有高度的实用价值。目前遥感图像变化检测的前沿算法在数据层面以及算法设计层面均具有一定局限性。针对遥感图像变化检测在实际应用中的不足，通过本项竞赛遴选出泛化性能强大的高效变化检测算法，可以提高空间信息网络建设中的遥感图像自动化解译能力。',
@@ -172,7 +168,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/5',
-      zipUrl: ()=>{ return  globalConf.genUrl('classification.zip')},
+      zipUrl: ()=>{ return  globalConf.genUrlFront('classification.zip')},
       description:
         '利用光学遥感卫星视频可以实现指定目标监控，' +
         '在机场、商场、道路流量监测等方面具有重要的应用价值，' +

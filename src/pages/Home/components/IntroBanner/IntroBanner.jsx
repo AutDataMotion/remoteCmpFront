@@ -120,18 +120,18 @@ export default class IntroBanner extends Component {
                 <td valign="top" style={styleTable.textRight}>主办单位：
                 </td>
                 <td style={styleTable.textLeft}>
-                  国家自然科学基金委信息科学部 <br/>
+                  <img style={styleTable.logoImgSmall} src={require('./images/NSFC1.png')}/>国家自然科学基金委信息科学部 <br/>
                   空间信息网络重大研究计划指导专家组
                 </td>
 
                 <td valign="top" style={styleTable.textRight}>承办单位：</td>
                 <td style={styleTable.textLeft}>
-                  武汉大学测绘遥感信息工程国家重点实验室<br/>
-                  中国科学院空间应用工程与技术中心
+                  <img style={styleTable.logoImgSmall} src={require('./images/wuda.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
+                  <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心
                 </td>
 
                 <td valign="top" style={styleTable.textRight}> 赞助单位：<br/></td>
-                <td valign="top" style={styleTable.textLeft}>华为技术有限公司</td>
+                <td valign="top" style={styleTable.textLeft}> <img style={styleTable.logoImg} src={require('./images/huawei.png')}/>华为技术有限公司</td>
               </tr>
               </tbody>
             </table>
@@ -152,15 +152,28 @@ const styleTable = {
   },
   textRight: {
     textAlign: 'right',
-    color: '#c8c6c9',
+    color: 'rgb(233, 233, 233)',
   },
   textLeft: {
     textAlign: 'left',
-    color: '#e1dfe2',
+    color: 'rgb(233, 233, 233)',
+
   },
   textJustify: {
     textAlign: 'justify',
     textJustify: 'distribute-all-lines',
     textAlignLast: 'justify',
   },
+  logoImg:{
+    width:'30px',
+    display: 'inline',
+    verticalAlign:'middle',
+    marginRight:'5px'
+  },
+  logoImgSmall:{
+    width:'33px',
+    display: 'inline',
+    verticalAlign:'middle',
+    marginRight:'5px'
+  }
 }

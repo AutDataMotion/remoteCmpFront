@@ -4,8 +4,7 @@ const LoginIntro = () => {
   return (
     <div style={styles.container}>
       <div style={styles.content}>
-        <div style={styles.title}>2019年遥感图像竞赛系统</div>
-        <div style={styles.title}>【稀疏表征与智能分析】</div>
+        <div style={styles.title}>遥感图像【稀疏表征与智能分析】竞赛</div>
       </div>
     </div>
   );
@@ -29,6 +28,7 @@ const styles = {
     fontWeight: '600',
     fontSize: '36px',
     lineHeight: '1.5',
+    whiteSpace:'pre'
   },
   description: {
     margin: '0',
