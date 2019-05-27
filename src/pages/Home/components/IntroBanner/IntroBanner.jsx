@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 const style = {
   introBannerWrapStyles: {
     width: '100%',
-    maxHeight: '342px',
-    minHeight:'270px',
+    maxHeight: '450px',
+    minHeight:'450px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -77,7 +77,7 @@ export default class IntroBanner extends Component {
       <div className="intro-banner-wrap" style={style.introBannerWrapStyles}>
         <img
           className="intro-banner-img"
-          src={require('./images/home-banner.png')}
+          src={require('./images/main-banner.png')}
           style={style.introBannerImgStyles}
           alt=""
         />
@@ -90,7 +90,7 @@ export default class IntroBanner extends Component {
             className="intro-banner-title"
             style={style.introBannerTitleStyles}
           >
-            2019-遥感图像【稀疏表征与智能分析】竞赛
+            遥感图像稀疏表征与智能分析竞赛
           </h2>
           <p
             className="intro-banner-subtitle"
@@ -126,7 +126,7 @@ export default class IntroBanner extends Component {
 
                 <td valign="top" style={styleTable.textRight}>承办单位：</td>
                 <td style={styleTable.textLeft}>
-                  <img style={styleTable.logoImgSmall} src={require('./images/wuda.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
+                  <img style={styleTable.logoImgSmall} src={require('./images/LIESMARS.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
                   <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心
                 </td>
 

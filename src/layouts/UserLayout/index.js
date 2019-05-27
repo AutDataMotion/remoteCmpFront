@@ -47,7 +47,8 @@ const styles = {
     minWidth: '1200px',
     height: '100vh',
     backgroundImage:
-      'url(https://raw.githubusercontent.com/AutDataMotion/remoteCmpFront/master/public/home-banner.png)',
+      'url(https://raw.githubusercontent.com/AutDataMotion/remoteCmpFront/master/public/login-back.png)',
+	
     backgroundSize: 'cover',
     display: 'flex',
     flexDirection: 'column',

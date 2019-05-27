@@ -5,7 +5,7 @@ import BasicTab from "./components/BasicTab";
 import Overview from "./components/Overview";
 import {Col, Row} from "@alifd/next/lib/grid";
 import globalConf from "../../globalConfig";
-
+//require('./components/BasicTab/BasicTab.css');
 const introBannerProp={
   themeId: 1,
   cmpInfoConf:{},

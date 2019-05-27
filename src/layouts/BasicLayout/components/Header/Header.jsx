@@ -185,6 +185,7 @@ export default class Header extends Component {
                   if (nav.children && nav.children.length > 0) {
                     return (
                       <SubMenu
+						className="header-navbar-lyf"
                         triggerType="hover"
                         key={index}
                         label={nav.name}
@@ -225,7 +226,9 @@ export default class Header extends Component {
                     }
                     linkProps.href = nav.path;
                     return (
-                      <MenuItem key={nav.path}>
+                      <MenuItem 
+					  className="header-navbar-lyf"
+					  key={nav.path}>
                         <a {...linkProps}>
                           <span>
                             {nav.icon ? (
@@ -239,7 +242,9 @@ export default class Header extends Component {
                   }
                   linkProps.to = nav.path;
                   return (
-                    <MenuItem key={nav.path}>
+                    <MenuItem 
+					className="header-navbar-lyf"
+					key={nav.path}>
                       <Link {...linkProps}>
                         <span>
                           {nav.icon ? (

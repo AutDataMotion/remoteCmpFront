@@ -19,6 +19,8 @@ import History1 from "./pages/Ohistory/history1";
 import History2 from "./pages/Ohistory/history2";
 import Theme6 from "./pages/Ohistory/theme6";
 
+
+
 const routerConfig = [
   {
     path: '/home',
@@ -97,6 +99,7 @@ const routerConfig = [
     path: '/setting',
     component: Setting,
   },
+  
 ];
 
 export default routerConfig;

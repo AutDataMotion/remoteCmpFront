@@ -4,7 +4,7 @@ const LoginIntro = () => {
   return (
     <div style={styles.container}>
       <div style={styles.content}>
-        <div style={styles.title}>遥感图像【稀疏表征与智能分析】竞赛</div>
+        <div style={styles.title}>遥感图像稀疏表征与智能分析竞赛</div>
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ export default class ThemeInfo1 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          ◼	参赛者需对测试集每一幅图像进行分类并给出其预测类别的标签。
+        ◼ 参赛者需对测试集每一幅图像进行分类并给出其预测类别的标签。
         </p>
         <p>
          ◼ 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交。
@@ -60,10 +60,10 @@ export default class ThemeInfo1 extends React.Component {
           </tr>
           </thead>
           <tbody>
-          <tr> <td style={styles.textCenter}>1034.jpg  3</td>  </tr>
-          <tr> <td style={styles.textCenter}>0298.jpg  12</td>  </tr>
-          <tr> <td style={styles.textCenter}>...</td></tr>
-          <tr> <td style={styles.textCenter}>2301.jpg  4</td>  </tr>
+          <tr> <td style={styles.textCenter}>1034.jpg</td><td style={styles.textCenter}>3</td>  </tr>
+          <tr> <td style={styles.textCenter}>0298.jpg</td><td style={styles.textCenter}>12</td>  </tr>
+          <tr> <td style={styles.textCenter}>...</td><td style={styles.textCenter}>...</td></tr>
+          <tr> <td style={styles.textCenter}>2301.jpg</td><td style={styles.textCenter}>4</td>  </tr>
           </tbody>
         </table>
 

@@ -37,8 +37,8 @@ export default class ApplicationProgress extends Component {
     return (
       <div className="contentText">
         <h2>大赛背景</h2>
-        <p>
-          本届“华为杯”遥感图像稀疏表征与智能分析竞赛由国家自然科学基金委信息科学部、“空间信息网络基础理论与关键技术”重大研究计划指导专家组主办，旨在推动“空间信息网络基础理论与关键技术”重大研究计划科学问题之一“空间信息稀疏表征与融合处理”的相关理论与技术的发展，解决空间信息稀疏表征、多维时空数据的融合处理、空间信息的快速提取与知识发现等技术问题，牵引该技术领域的创新发展，为实现空间信息处理与应用能力的大幅提升提供支撑。
+        <p className="contentTextP">
+          本届遥感图像稀疏表征与智能分析竞赛由国家自然科学基金委信息科学部、“空间信息网络基础理论与关键技术”重大研究计划指导专家组主办，旨在推动“空间信息网络基础理论与关键技术”重大研究计划科学问题之一“空间信息稀疏表征与融合处理”的相关理论与技术的发展，解决空间信息稀疏表征、多维时空数据的融合处理、空间信息的快速提取与知识发现等技术问题，牵引该技术领域的创新发展，为实现空间信息处理与应用能力的大幅提升提供支撑。
         </p>
         <br/>
       </div>
@@ -56,7 +56,7 @@ export default class ApplicationProgress extends Component {
             {this.renderText()}
           </IceContainer>
         </div>
-
+		
         <div className="application-progress">
           <IceContainer>
             <div className="contentText">
@@ -161,8 +161,9 @@ const styles = {
     padding: '10px 50px 0',
   },
   itemDescription: {
-    color: '#666',
+    color: '#000',
     marginTop: '20px',
+	fontSize: '15px',
   },
   operationWrap: {
     marginTop: '65px',
@@ -185,7 +186,7 @@ const styles = {
   },
   itemStatusText: {
     marginLeft: '10px',
-    fontSize: '14px',
+    fontSize: '16px',
     lineHeight: '18px',
     fontWeight: 'bold',
     color: 'rgb(51, 51, 51)',
@@ -200,4 +201,48 @@ const styles = {
   operBtn: {
     marginLeft: '10px',
   },
+  organizationBannerTextStyles: {
+    position: 'absolute',
+    top: '150px',
+    zIndex: '15',
+    width: '100%',
+    boxSizing: 'border-box',
+    textAlign:'center',
+    color: '#fff',
+    pointerEvents: 'none',
+  },
 };
+const styleTable = {
+  sOverview: {
+    marginTop: '20px',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  textRight: {
+    textAlign: 'right',
+    color: 'rgb(233, 233, 233)',
+  },
+  textLeft: {
+    textAlign: 'left',
+    color: 'rgb(233, 233, 233)',
+
+  },
+  textJustify: {
+    textAlign: 'justify',
+    textJustify: 'distribute-all-lines',
+    textAlignLast: 'justify',
+  },
+  logoImg:{
+    width:'30px',
+    display: 'inline',
+    verticalAlign:'middle',
+    marginRight:'5px'
+  },
+  logoImgSmall:{
+    width:'33px',
+    display: 'inline',
+    verticalAlign:'middle',
+    marginRight:'5px'
+  }
+}
