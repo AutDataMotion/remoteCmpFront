@@ -2,6 +2,7 @@
 import React from 'react';
 
 const globalConf={
+
   defaultUserInfo: {
       login:false,
       name: "未登录",
@@ -40,6 +41,14 @@ const globalConf={
   baseUrlFront:'http://119.3.202.35:8000/',
   uploadTips:'',//'提示：每日限制上传【5】次，取最高分作为最终成绩',
   dashboardTips:'公告：排行榜每日上午8:00更新一次',
+
+  getRegistTips:(isLeader)=>{
+    if(isLeader){
+      return '提示：队长注册成功后，邀请码会发到您的邮箱，或登录后右上角查看！';
+    } else {
+      return '提示：请先由队长通过注册获取邀请码，队员通过队长邀请码验证注册！';
+    }
+  },
 
   genUrl: (path)=>{
     return globalConf.baseUrl + path;

@@ -577,7 +577,7 @@ class UserRegister extends Component {
           </Row>
 
           <Row gutter="24">
-            <div className="footer">
+            <Col l={6}>
               <Button
                 type="primary"
                 onClick={this.handleSubmit}
@@ -589,7 +589,12 @@ class UserRegister extends Component {
               <Link to="/user/login" style={styles.tips}>
                 使用已有账户登录
               </Link>
-            </div>
+            </Col>
+            <Col>
+              <p style={{color:'red'}}>
+                {globalConf.getRegistTips(isLeader)}
+              </p>
+            </Col>
           </Row>
         </IceFormBinderWrapper>
       </div>

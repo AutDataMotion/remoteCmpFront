@@ -199,7 +199,7 @@ export default class ModelTable extends Component {
       <IceContainer className={styles.container}>
         <div style={inStyles.headerTips}>
           <h3 style={{fontSize: 16, color: '#333', margin: 0}}>
-            您没有注册改主题，无法操作。
+            这不是您的竞赛主题。
           </h3>
         </div>
       </IceContainer>
