@@ -20,7 +20,7 @@ export default () => {
             <p style={styles.subtit}>通讯邮箱：rssrai2019@hotmail.com</p>
           </Col>
           <Col l="10">
-            <p style={styles.subtit}>联系人：龙  洋 （189-0862-7409） 董志鹏 （189-6396-5044）</p>
+            <p style={styles.subtit}>联系人：龙  （189-0862-7409） 董志鹏 （189-6396-5044）</p>
           </Col>
         </Row>
       </div>
