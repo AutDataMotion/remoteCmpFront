@@ -34,7 +34,9 @@ export default class Theme3 extends Component {
 
         </Col>
         <Col l="24" xxs="24">
-          <BasicTab {...introBannerProp}/>
+          <div style = {styles.sOverview}>
+            <BasicTab {...introBannerProp}/>
+          </div>
         </Col>
 
         <Col l="24" xxs="24">
@@ -48,5 +50,8 @@ export default class Theme3 extends Component {
 const styles = {
   sOverview: {
     marginTop: '20px',
+    marginLeft:'25px',
+    marginRight:'25px',
+    borderBottom:'1px solid rgba(130, 129, 129, 0.32)'
   },
 }

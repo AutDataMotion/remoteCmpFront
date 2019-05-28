@@ -45,6 +45,44 @@ export default class ApplicationProgress extends Component {
     );
   };
 
+  renderOrg = ()=>{
+    return <div className="contentText">
+      <h2>组织机构</h2>
+      <table style={{width:'100%'}}>
+        <thead>
+        <tr>
+          <th style={styleTable.textCenter} width="33%"></th>
+          <th style={styleTable.textCenter} width="37%"></th>
+          <th style={styleTable.textCenter} width="30%"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td style={styleTable.textLeft}>
+            主办单位：<br/>
+            <img style={styleTable.logoImgSmall} src={require('./images/NSFC1.png')}/>国家自然科学基金委信息科学部 <br/>
+            空间信息网络重大研究计划指导专家组
+          </td>
+
+          <td style={styleTable.textLeft}>
+            承办单位：<br/>
+            <img style={styleTable.logoImgSmall} src={require('./images/LIESMARS.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
+            <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心
+          </td>
+
+          <td valign="top" style={styleTable.textLeft}>
+            赞助单位：<br/>
+            <img style={styleTable.logoImg} src={require('./images/huawei.png')}/>华为技术有限公司<br/>
+            <img style={styleTable.logoImgMin} src={require('./images/eyecool.png')}/>北京眼神科技有限公司
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <br/>
+    </div>
+  }
+
   render() {
     const data = globalConf.themeConf;
 
@@ -93,7 +131,7 @@ export default class ApplicationProgress extends Component {
                       </Col>
                       <Col
                         xxs="24"
-                        s="18"
+                        s="20"
                         style={{
                           ...styles.itemBody,
                           ...(isMobile && styles.mobileContentCenter),
@@ -108,6 +146,9 @@ export default class ApplicationProgress extends Component {
                         <span style={styles.itemStatusText}>
                           {item.bannerTitle + item.title}
                         </span>
+                        <Link to={item.url} style={{float:'right'}}>
+                            {item.operation}
+                          </Link>
                       </span>
                         <div
                           style={{
@@ -118,13 +159,7 @@ export default class ApplicationProgress extends Component {
                           {item.descriptionRule}
                         </div>
                       </Col>
-                      <Col xxs="24" s="2">
-                        <div style={styles.operationWrap}>
-                          <Link to={item.url}>
-                            {item.operation}
-                          </Link>
-                        </div>
-                      </Col>
+
                     </Row>
                   </div>
                 );
@@ -132,6 +167,13 @@ export default class ApplicationProgress extends Component {
             </div>
           </IceContainer>
         </div>
+
+        <div className="application-progress">
+          <IceContainer>
+            {this.renderOrg()}
+          </IceContainer>
+        </div>
+
       </div>
 
 
@@ -163,7 +205,7 @@ const styles = {
   itemDescription: {
     color: '#000',
     marginTop: '20px',
-	fontSize: '15px',
+	  fontSize: '15px',
   },
   operationWrap: {
     marginTop: '65px',
@@ -221,11 +263,9 @@ const styleTable = {
   },
   textRight: {
     textAlign: 'right',
-    color: 'rgb(233, 233, 233)',
   },
   textLeft: {
     textAlign: 'left',
-    color: 'rgb(233, 233, 233)',
 
   },
   textJustify: {
@@ -234,15 +274,21 @@ const styleTable = {
     textAlignLast: 'justify',
   },
   logoImg:{
-    width:'30px',
+    width:'45px',
+    display: 'inline',
+    verticalAlign:'middle',
+    marginRight:'18px'
+  },
+  logoImgSmall:{
+    width:'60px',
     display: 'inline',
     verticalAlign:'middle',
     marginRight:'5px'
   },
-  logoImgSmall:{
-    width:'33px',
+  logoImgMin:{
+    width:'122px',
     display: 'inline',
     verticalAlign:'middle',
-    marginRight:'5px'
+    marginRight:'18px'
   }
 }

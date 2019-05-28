@@ -27,6 +27,7 @@ export default class BasicLayout extends Component {
 const styles = {
   mainContent: {
     marginTop: '62px',
+    backgroundColor:'white'
     /*padding: '0 20px',*/
   },
 };

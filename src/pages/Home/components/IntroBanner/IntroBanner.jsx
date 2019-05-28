@@ -4,7 +4,7 @@ const style = {
   introBannerWrapStyles: {
     width: '100%',
     maxHeight: '450px',
-    minHeight:'450px',
+    minHeight:'280px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -23,8 +23,7 @@ const style = {
     height: '100%',
     top: '0',
     left: '0',
-    background: '#000',
-    opacity: '.45',
+    background: 'rgba(0, 0, 0, 0.15)',
     zIndex: '15',
   },
   introBannerTextStyles: {
@@ -48,15 +47,16 @@ const style = {
   },
   introBannerTitleStyles: {
     fontWeight: '400',
-    fontSize: '50px',
+    fontSize: '40px',
     textAlign:'center',
   },
   introBannerSubtitleStyles: {
-    fontSize: '13px',
-    lineHeight: '25px',
-    margin:'0 auto',
+    fontSize: '26px',
+    lineHeight: '28px',
+    margin:'20px auto',
     maxWidth:'1000px',
     minWidth:'1000px',
+    textAlign:'center',
   },
 };
 
@@ -96,6 +96,7 @@ export default class IntroBanner extends Component {
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
+            2019年6月15日 ~ 9月19日
           </p>
 
         </div>
@@ -104,37 +105,6 @@ export default class IntroBanner extends Component {
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-            <table style={{width:'100%'}}>
-              <thead>
-              <tr>
-                <th style={styleTable.textCenter} width="10%"></th>
-                <th style={styleTable.textCenter} width="25%"></th>
-                <th style={styleTable.textCenter} width="10%"></th>
-                <th style={styleTable.textCenter} width="30%"></th>
-                <th style={styleTable.textCenter} width="10%"></th>
-                <th style={styleTable.textCenter} width="15%"></th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td valign="top" style={styleTable.textRight}>主办单位：
-                </td>
-                <td style={styleTable.textLeft}>
-                  <img style={styleTable.logoImgSmall} src={require('./images/NSFC1.png')}/>国家自然科学基金委信息科学部 <br/>
-                  空间信息网络重大研究计划指导专家组
-                </td>
-
-                <td valign="top" style={styleTable.textRight}>承办单位：</td>
-                <td style={styleTable.textLeft}>
-                  <img style={styleTable.logoImgSmall} src={require('./images/LIESMARS.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
-                  <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心
-                </td>
-
-                <td valign="top" style={styleTable.textRight}> 赞助单位：<br/></td>
-                <td valign="top" style={styleTable.textLeft}> <img style={styleTable.logoImg} src={require('./images/huawei.png')}/>华为技术有限公司</td>
-              </tr>
-              </tbody>
-            </table>
           </div>
 
         </div>

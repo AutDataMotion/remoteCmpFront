@@ -59,7 +59,10 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}> 赞助单位：<br/></td>
-            <td style={styles.textLeft}>华为技术有限公司</td>
+            <td style={styles.textLeft}>
+              华为技术有限公司<br/>
+              北京眼神科技有限公司
+            </td>
           </tr>
           </tbody>
         </table>

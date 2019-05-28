@@ -23,8 +23,7 @@ const style = {
     height: '100%',
     top: '0',
     left: '0',
-    background: 'rgb(57, 56, 100)',
-    opacity: '.45',
+    background: 'rgba(0, 0, 0, 0.37)',
     zIndex: '15',
   },
   introBannerTextStyles: {

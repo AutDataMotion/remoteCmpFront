@@ -34,8 +34,11 @@ export default class ThemeHome extends Component {
           <div  style = {styles.sOverview}> <Overview /></div>
 
         </Col>
-        <Col l="24" xxs="24">
-          <BasicTab {...introBannerProp}/>
+        <Col l="24" xxs="24" >
+          <div style = {styles.sOverview}>
+            <BasicTab {...introBannerProp}/>
+          </div>
+
         </Col>
 
         <Col l="24" xxs="24">
@@ -49,5 +52,8 @@ export default class ThemeHome extends Component {
 const styles = {
   sOverview: {
     marginTop: '20px',
+    marginLeft:'25px',
+    marginRight:'25px',
+    borderBottom:'1px solid rgba(130, 129, 129, 0.32)'
   },
 }

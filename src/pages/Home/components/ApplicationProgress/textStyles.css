@@ -1,12 +1,12 @@
 
 .contentText {
-  line-height: 1.8;
-  font-size: 14px;
-  margin: 0px auto;
-  padding: 20px 40px;
-  justify-content: space-between;
-  background-color: #fff;
-}
+   line-height: 1.8;
+   font-size: 16px;
+   margin: 0px auto;
+   padding: 20px 40px;
+   justify-content: space-between;
+   background-color: #fff;
+ }
 
 .contentText h2 {
   text-align: center;
@@ -27,12 +27,9 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.33);
 }
 
-
 .contentText p{
   font-size: 16px;
   font-weight: normal;
   line-height: 37px;
   text-indent: 0.8cm;
-  font-family: 宋体;
-    font-weight: bold;
 }
