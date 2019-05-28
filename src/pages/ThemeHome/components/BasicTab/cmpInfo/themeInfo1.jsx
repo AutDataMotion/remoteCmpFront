@@ -44,10 +44,10 @@ export default class ThemeInfo1 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-        ◼ 参赛者需对测试集每一幅图像进行分类并给出其预测类别的标签。
+        ◼&nbsp; 参赛者需对测试集每一幅图像进行分类并给出其预测类别的标签。
         </p>
         <p>
-         ◼ 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交。
+         ◼&nbsp; 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交。
         </p>
         <p>
           图片名称与场景预测类别标签以空格隔开，格式示例(提交范例：classification.zip<a href={globalConf.themeConf[themeId].zipUrl()}>【点击下载】</a>)如下：
@@ -68,14 +68,18 @@ export default class ThemeInfo1 extends React.Component {
         </table>
 
         <p>
-          ◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的场景分类输出结果；决赛阶段需同时提交遥感图像场景分类算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
+          ◼&nbsp; 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的场景分类输出结果；决赛阶段需同时提交遥感图像场景分类算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
         </p>
 
         <h2>
           （4） 评分规则
         </h2>
         <p>
+          {/* 
           本竞赛单元算法评价主要采用整体分类精度（<InlineMath math={'Overall \\quad Accuracy \\quad , \\quad OA'}/> ），选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为<InlineMath math={'N'}/>，分类正确的图像数为<InlineMath math={'M'}/>，则整体分类精度为：<InlineMath math={' OA = M / N'}/>
+          */}
+
+          本竞赛单元算法评价主要采用整体分类精度(Overall Accuracy，OA)，选手模型预测的标签与真实标签一致即为场景分类正确。设总测试图像数为N，分类正确的图像数为M，则整体分类精度为：OA = M/N
         </p>
         <p>
           比赛初赛成绩由大赛评委会专家根据整体分类精度作为得分进行排名，整体分类精度越高，遥感图像场景分类结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
@@ -95,6 +99,8 @@ const styles = {
   textCenter: {
     textAlign: 'center',
     whiteSpace:'pre',
+    fontSize: '13px',
+    fontFamily: 'Times New Roman',
   },
   textRight: {
     textAlign: 'right',
