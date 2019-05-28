@@ -5,7 +5,6 @@ import { InlineMath, BlockMath } from 'react-katex';
 import globalConf from "../../../../../globalConfig";
 
 
-
 export default class ThemeInfo5 extends React.Component {
   static displayName = 'ThemeInfo5';
 
@@ -45,10 +44,10 @@ export default class ThemeInfo5 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          ◼ 参赛者需在测试集每段视频上对指定的目标进行跟踪，给出后续视频帧中跟踪到的目标最小水平包围矩形框左上角和右下角坐标以确定目标位置。
+          ◼&nbsp; 参赛者需在测试集每段视频上对指定的目标进行跟踪，给出后续视频帧中跟踪到的目标最小水平包围矩形框左上角和右下角坐标以确定目标位置。
         </p>
         <p>
-          ◼ 结果输出：txt格式，每一段卫星视频检测结果均需建立一个文本文件。文件每一行代表检测视频对应目标检测结果的帧号、目标类别、属于该类别的置信度以及检测到的边界矩形框左上角和右下角坐标；最终结果以zip压缩文件格式提交。
+          ◼&nbsp; 结果输出：txt格式，每一段卫星视频检测结果均需建立一个文本文件。文件每一行代表检测视频对应目标检测结果的帧号、目标类别、属于该类别的置信度以及检测到的边界矩形框左上角和右下角坐标；最终结果以zip压缩文件格式提交。
         </p>
         <p>
           帧号、目标类别、置信度和目标边界矩形框坐标以空格隔开，格式示例(提交范例：tracking.zip<a href={globalConf.themeConf[4].zipUrl()}>【点击下载】</a>)如下：
@@ -60,16 +59,28 @@ export default class ThemeInfo5 extends React.Component {
             <th style={styles.textCenter} width="400px"></th>
           </tr>
           </thead>
+        
           <tbody>
           <tr> <td style={styles.textCenter}>1      飞机       0.99    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
           <tr> <td style={styles.textCenter}>2      飞机       0.95    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
           <tr> <td style={styles.textCenter}>...</td></tr>
           <tr> <td style={styles.textCenter}>n      舰船       0.90    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
           </tbody>
+          
+          
+          {/*
+          <tbody>
+          <tr> <td style={styles.textLeft}>1    </td><td style={styles.textLeft}>飞机    </td><td style={styles.textLeft}>0.99    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
+          <tr> <td style={styles.textCenter}>2 </td><td style={styles.textCenter}>     飞机 </td><td style={styles.textCenter}>      0.95    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
+          <tr> <td style={styles.textCenter}>...</td></tr>
+          <tr> <td style={styles.textCenter}>n      舰船       0.90    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
+          </tbody>
+          */}
+
         </table>
 
         <p>
-          ◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的动态目标跟踪输出结果；决赛阶段需同时提交遥感图像卫星视频目标跟踪算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
+          ◼&nbsp; 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的动态目标跟踪输出结果；决赛阶段需同时提交遥感图像卫星视频目标跟踪算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
         </p>
 
         <h2>
@@ -85,9 +96,15 @@ export default class ThemeInfo5 extends React.Component {
           <BlockMath math={'S=\\frac{|r_a \\bigcap r_t|}{|r_a \\bigcup r_t|}'}/>
         </p>
         <p className='textIndent'>
+          {/*
           其中，<InlineMath math={'\\bigcap'}/>和<InlineMath math={'\\bigcup'}/>分别代表预测区域和实际区域的交集和并集，
           绝对值符号代表区域内的像素总数。定义重叠率<InlineMath math={'S'}/>大于某一阈值<InlineMath math={'t'}/>的帧为成功帧，统计阈值在<InlineMath math={'0-1'}/>之间变化时成功帧数占总帧数的比例并画出曲线图，
           以曲线下面积<InlineMath math={'AUC(AREA \\quad UNDER \\quad CURVE)'}/>作为本次竞赛中对跟踪器性能的评价。<InlineMath math={'AUC'}/>越高，自动跟踪效果越好。
+          */}
+
+          其中，&cap;和&cup;分别代表预测区域和实际区域的交集和并集，
+          绝对值符号代表区域内的像素总数。定义重叠S大于某一阈值 t 的帧为成功帧，统计阈值在0-1之间变化时成功帧数占总帧数的比例并画出曲线图，
+          以曲线下面积AUC(Area Under Cure)作为本次竞赛中对跟踪器性能的评价。AUC越高，自动跟踪效果越好。
         </p>
         <p className='textIndent'>
           ② 中心误差成功率，中心误差是指算法预测得到的结果中心与真实的目标位置中心的欧式距离（像素距离），中心误差成功率是指中心误差小于5的帧数在总帧数中的比例。中心误差成功率越高，自动跟踪效果越好。
@@ -114,9 +131,15 @@ const styles = {
   textCenter: {
     textAlign: 'center',
     whiteSpace:'pre',
+    fontSize: '13px',
+    fontFamily: 'Times New Roman',
   },
   textRight: {
     textAlign: 'right',
+    whiteSpace:'pre',
+  },
+  textLeft: {
+    textAlign: 'left',
     whiteSpace:'pre',
   },
 }

@@ -46,10 +46,10 @@ export default class ThemeInfo3 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          ◼ 参赛者需在测试集图像上每个像素位置分配一个土地利用语义类别标签
+          ◼&nbsp; 参赛者需在测试集图像上每个像素位置分配一个土地利用语义类别标签
         </p>
         <p>
-          ◼ 结果输出：TIF格式的分类图；最终结果以zip压缩文件格式提交。
+          ◼&nbsp; 结果输出：TIF格式的分类图；最终结果以zip压缩文件格式提交。
         </p>
         <p>
           TIF格式分类图标记要求(提交范例：segmentation.zip<a href={globalConf.themeConf[2].zipUrl()}>【点击下载】</a>)如下：
@@ -85,14 +85,18 @@ export default class ThemeInfo3 extends React.Component {
         </table>
 
         <p>
-          ◼ 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的语义分割输出结果（TIF格式图像）；决赛阶段需同时提交遥感图像语义分割算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
+          ◼&nbsp; 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的语义分割输出结果（TIF格式图像）；决赛阶段需同时提交遥感图像语义分割算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
         </p>
 
         <h2>
           （4） 评分规则
         </h2>
         <p>
+          {/*
           比赛初赛成绩主要采用<InlineMath math={'Kappa'}/>系数指标。比赛最终成绩由大赛评委会专家根据<InlineMath math={'Kappa'}/>系数作为得分进行排名，<InlineMath math={'Kappa'}/>系数越高，遥感图像语义分割结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+          */}
+
+          比赛初赛成绩主要采用Kappa系数指标。比赛最终成绩由大赛评委会专家根据Kappa系数作为得分进行排名Kappa系数越高，遥感图像语义分割结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
         </p>
 
 
@@ -116,9 +120,12 @@ const styles = {
   textRight: {
     textAlign: 'right',
     whiteSpace:'pre',
+    fontSize: '13px',
   },
   textLeft: {
     textAlign: 'left',
     whiteSpace:'pre',
+    fontSize: '13px',
+    fontFamily: 'Times New Roman',
   },
 }
