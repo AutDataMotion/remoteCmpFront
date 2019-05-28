@@ -30,7 +30,7 @@ export default class Theme5 extends Component {
           <IntroBanner themeConf={globalConf.themeConf[4]} />
         </Col>
         <Col l="24" xxs="24">
-          <div  style = {styles.sOverview}> <Overview /></div>
+          <div  style = {styles.sOverview}> <Overview themeConf={globalConf.themeConf[4]}/></div>
 
         </Col>
         <Col l="24" xxs="24">

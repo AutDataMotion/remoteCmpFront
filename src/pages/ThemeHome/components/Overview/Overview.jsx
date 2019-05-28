@@ -80,11 +80,11 @@ export default class Overview extends Component {
     );
 
     // get data
-    const {searchQuery} = this.state;
+    const { themeConf } = this.props;
     const {ajaxCount} = this.props.bindingData;
     this.props.updateBindingData('ajaxCount',{
       params:{
-        ...searchQuery
+        competition_id:themeConf.themeId
       },
       defaultBindingData: {
         ...ajaxCount
@@ -98,9 +98,6 @@ export default class Overview extends Component {
   };
 
   render() {
-
-    const { pageId, isLoading } = this.state;
-
     const {ajaxCount} = this.props.bindingData;
     console.log('ajaxCount', ajaxCount);
     mockData[0].count = ajaxCount.current_stage;

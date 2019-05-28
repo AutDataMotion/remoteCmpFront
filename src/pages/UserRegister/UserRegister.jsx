@@ -209,6 +209,18 @@ class UserRegister extends Component {
       console.log('submit value',values, "state value", value, "userTypeId", userTypeId);
       value.is_captain = userTypeId;
 
+      if (value.provinceCity instanceof Array){
+        switch (value.provinceCity[0]) {
+          case '北京市':
+          case '天津市':
+          case '上海市':
+          case '重庆市':
+          case '台湾省':
+          case '香港特别行政区':
+          case '澳门特别行政区':
+            value.provinceCity[1] = value.provinceCity[0];
+        }
+      }
       this.props.updateBindingData('ajaxRegist', {
         data: {
           ...value
@@ -221,8 +233,6 @@ class UserRegister extends Component {
         } else {
           Message.warning(rsp.message);
         }
-        // 获取返回数据 判断是否成功
-
       });
 
     });
@@ -398,6 +408,7 @@ class UserRegister extends Component {
                   <Input
                     size="large"
                     placeholder="姓名"
+                    trim = {true }
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -411,6 +422,8 @@ class UserRegister extends Component {
                   <Input
                     size="large"
                     placeholder="身份证号码"
+                    trim = {true }
+                    maxLength={18}
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -468,7 +481,9 @@ class UserRegister extends Component {
                   <Input
                     size="large"
                     placeholder="手机号"
+                    minLength={11}
                     maxLength={11}
+                    trim = {true }
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -480,8 +495,10 @@ class UserRegister extends Component {
                 <IceFormBinder type="email" name="email" required message="请输入正确的邮箱">
                   <Input
                     size="large"
-                    maxLength={20}
+                    minLength={5}
+                    maxLength={64}
                     placeholder="邮箱"
+                    trim = {true }
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -497,6 +514,7 @@ class UserRegister extends Component {
                   <Input
                     size="large"
                     placeholder="队伍名称(中英文或数字)"
+                    trim = {true }
                     style={styles.inputCol}
                     {...teamNameInputPop}
                   />
@@ -541,6 +559,7 @@ class UserRegister extends Component {
                 <IceFormBinder name="work_place_top" required message={UserRegister.defaultOrgSelect.org1Label}>
                   <Input
                     size="large"
+                    trim = {true }
                     placeholder={UserRegister.defaultOrgSelect.org1Label}
                     style={styles.inputCol}
                   />
@@ -553,6 +572,7 @@ class UserRegister extends Component {
                 <IceFormBinder name="work_place_second" required message={UserRegister.defaultOrgSelect.org2Label}>
                   <Input
                     size="large"
+                    trim = {true }
                     placeholder={UserRegister.defaultOrgSelect.org2Label}
                     style={styles.inputCol}
                   />
@@ -567,6 +587,7 @@ class UserRegister extends Component {
                 <IceFormBinder name="work_place_third" required message={UserRegister.defaultOrgSelect.org3Label}>
                   <Input
                     size="large"
+                    trim = {true }
                     placeholder={UserRegister.defaultOrgSelect.org3Label}
                     style={styles.inputCol}
                   />

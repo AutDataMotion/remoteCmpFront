@@ -7,12 +7,16 @@ const globalConf={
       login:false,
       name: "未登录",
       team_name: "",
+      isCaptain: false,
+      inviteCode: "",
       competition_id: 0,
   },
   userInfo: {
     login:false,
     name: "未登录",
     team_name: "",
+    isCaptain: false,
+    inviteCode: "",
     competition_id: 0,
   },
   login:(ajaxUserInfo, callback=()=>{})=>{
@@ -21,6 +25,8 @@ const globalConf={
       globalConf.userInfo.login = true;
       globalConf.userInfo.name = ajaxUserInfo.user_info.name;
       globalConf.userInfo.team_name = ajaxUserInfo.user_info.team_name;
+      globalConf.userInfo.isCaptain = ajaxUserInfo.user_info.is_captain;
+      globalConf.userInfo.inviteCode = ajaxUserInfo.user_info.invite_code;
       globalConf.userInfo.competition_id = ajaxUserInfo.user_info.competition_id;
     } else {
       globalConf.userInfo = {
@@ -99,6 +105,7 @@ const globalConf={
   },
   themeConf : [
     {
+      themeId:1,
       condition: '主题一',
       validate: true,
       title: '遥感图像场景分类',
@@ -113,6 +120,7 @@ const globalConf={
       descriptionRule:'遥感图像场景分类竞赛任务旨在对空间信息网络中的遥感图像进行场景级内容解译，对遥感图像中的感兴趣场景及非感兴趣场景进行自动化识别和区分。现有遥感图像场景解译方法往往局限于有限的场景类别和单一数据源，难以满足实际应用需求。通过本项竞赛遴选高效的遥感图像场景解译算法模行，对空间信息网络中遥感图像复杂场景信息进行高效挖掘，提高空间信息网络建设中遥感图像快速信息提取能力。',
     },
     {
+      themeId:2,
       condition: '主题二',
       validate: true,
       title: '遥感图像目标检测 ',
@@ -129,6 +137,7 @@ const globalConf={
       descriptionRule:'通过遥感图像目标检测，可以快速的获取大范围区域内目标分布信息，对于资源勘探、环境监测、信息侦察等都具有重要的意义。针对空间信息网络多维、多尺度空间信息链路传输与处理瓶颈，通过本项竞赛遴选优秀的遥感图像目标自动检测识别算法模型，对遥感图像中感兴趣的目标对象进行检测识别，并将目标检测识别结果经链路传回，提高空间信息网络链路传输效率和实时分析应用能力。',
     },
     {
+      themeId:3,
       condition: '主题三',
       validate: false,
       title: '遥感图像语义分割 ',
@@ -154,6 +163,7 @@ const globalConf={
       descriptionRule:'通过对遥感图像的语义分割，可方便快捷地获取土地利用/覆盖信息，并作为精准农业、城市规划、环境保护、土地资源管理等应用的数据支撑。目前针对遥感图像像素级分类的前沿算法已能达到很高的精度，然而现有研究工作都局限于较小的地面区域和较为单一的遥感数据，造成这些算法对于多源图像的适应能力极为有限。因此，通过本项竞赛遴选出利用遥感数据向地学知识进行高效转化的算法模型，获取泛化能力强大的遥感语义分割算法，进而对多源数据、广域区域进行快速准确的土地利用/覆盖信息提取，从而提升空间信息网络建设中遥感图像解译的自动化程度和实际应用能力。',
     },
     {
+      themeId:4,
       condition: '主题四',
       validate: false,
       title: '遥感图像变化检测 ',
@@ -170,6 +180,7 @@ const globalConf={
       descriptionRule:'遥感图像变化检测可以对同一地点的不同时相数据进行变化检测处理，在资源和环境监测、地理国情监测、自然灾害评估等领域具有高度的实用价值。目前遥感图像变化检测的前沿算法在数据层面以及算法设计层面均具有一定局限性。针对遥感图像变化检测在实际应用中的不足，通过本项竞赛遴选出泛化性能强大的高效变化检测算法，可以提高空间信息网络建设中的遥感图像自动化解译能力。',
     },
     {
+      themeId:5,
       condition: '主题五',
       validate: false,
       title: '遥感卫星视频跟踪 ',
