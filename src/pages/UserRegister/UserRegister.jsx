@@ -192,6 +192,23 @@ class UserRegister extends Component {
       callback();
     }
   };
+  static regPhone = /^[1][3,4,5,7,8][0-9]{9}$/;
+  static regIDNumber = /^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X|x)$/;
+  checkIDNumber = (rule, values, callback) => {
+    if (!values || !UserRegister.regIDNumber.test(values)) {
+      callback('请输入正确的身份证号码');
+    } else {
+      callback();
+    }
+  };
+
+  checkPhone = (rule, values, callback) => {
+    if (!values || !UserRegister.regPhone.test(values)) {
+      callback('请输入正确的手机号码');
+    } else {
+      callback();
+    }
+  };
 
   formChange = (value) => {
     this.setState({
@@ -349,15 +366,15 @@ class UserRegister extends Component {
     let divInviteCode = isLeader? null : (
       <Col l={12}>
         <div style={styles.formItem}>
-          <IceFormBinder name="invite_code"  message="请输入正确的邀请码">
+          <IceFormBinder name="invite_code" max={4}  message="请输入正确的邀请码">
             <Input
               size="large"
               placeholder="邀请码"
+              maxLength={4}
               style={styles.inputCol}
               style={{width:'40%'}}
             />
           </IceFormBinder>
-          <IceFormError name="invite_code"/>
           <Button
             type="primary"
             size="large"
@@ -366,6 +383,7 @@ class UserRegister extends Component {
           >
             验证邀请码
           </Button>
+          <IceFormError name="invite_code"/>
         </div>
 
       </Col>
@@ -404,11 +422,12 @@ class UserRegister extends Component {
           <Row gutter="24">
             <Col l={12}>
               <div style={styles.formItem}>
-                <IceFormBinder name="name" required message="请输入正确的姓名">
+                <IceFormBinder name="name" required max={10} message="请输入正确的姓名">
                   <Input
                     size="large"
                     placeholder="姓名"
                     trim = {true }
+                    maxLength={10}
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -418,7 +437,13 @@ class UserRegister extends Component {
 
             <Col l={12}>
               <div style={styles.formItem}>
-                <IceFormBinder name="ID_card" required message="请输入正确的身份证号码">
+                <IceFormBinder name="ID_card"
+                               required
+                               message="请输入正确的身份证号码"
+                               min={18}
+                               max={18}
+                               validator={this.checkIDNumber}
+                >
                   <Input
                     size="large"
                     placeholder="身份证号码"
@@ -439,12 +464,15 @@ class UserRegister extends Component {
                 <IceFormBinder
                   name="password"
                   required
+                  min={8}
+                  max={16}
                   validator={this.checkPasswd}
                 >
                   <Input
                     htmlType="password"
                     size="large"
                     placeholder="至少8位密码"
+                    maxLength={16}
                     style={styles.inputCol}
                   />
                 </IceFormBinder>
@@ -477,11 +505,15 @@ class UserRegister extends Component {
           <Row gutter="24">
             <Col>
               <div style={styles.formItem}>
-                <IceFormBinder name="phone_number" required message="请输入正确的手机号">
+                <IceFormBinder name="phone_number"
+                               required
+                               message="请输入正确的手机号"
+                               max={11}
+                               validator={this.checkPhone}
+                >
                   <Input
                     size="large"
                     placeholder="手机号"
-                    minLength={11}
                     maxLength={11}
                     trim = {true }
                     style={styles.inputCol}
@@ -495,7 +527,6 @@ class UserRegister extends Component {
                 <IceFormBinder type="email" name="email" required message="请输入正确的邮箱">
                   <Input
                     size="large"
-                    minLength={5}
                     maxLength={64}
                     placeholder="邮箱"
                     trim = {true }
@@ -510,11 +541,14 @@ class UserRegister extends Component {
           <Row gutter="24">
             <Col>
               <div style={styles.formItem}>
-                <IceFormBinder name="team_name" required message="队伍名称">
+                <IceFormBinder name="team_name"
+                               max={32}
+                               required message="队伍名称">
                   <Input
                     size="large"
                     placeholder="队伍名称(中英文或数字)"
                     trim = {true }
+                    maxLength={32}
                     style={styles.inputCol}
                     {...teamNameInputPop}
                   />
