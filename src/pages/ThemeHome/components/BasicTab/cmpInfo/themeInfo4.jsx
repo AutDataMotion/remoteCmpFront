@@ -50,7 +50,7 @@ export default class ThemeInfo4 extends React.Component {
           ◼&nbsp; 参赛者需要在测试集图像上每个像素位置分配一个变化检测类别标签。
         </p>
         <p>
-          ◼&nbsp; 结果输出：TIF格式二值化分类图像；最终结果以zip压缩文件格式提交。
+          ◼&nbsp; 结果输出：TIF格式二值化分类图像；最终结果以zip压缩文件格式提交，TIF格式二值化分类图存放于zip压缩包根目录下。
         </p>
         <p>
           二值化分类图标记要求 (提交范例：change.zip<a href={globalConf.themeConf[3].zipUrl()}>【点击下载】</a>) 如下：

@@ -49,7 +49,7 @@ export default class ThemeInfo3 extends React.Component {
           ◼&nbsp; 参赛者需在测试集图像上每个像素位置分配一个土地利用语义类别标签。
         </p>
         <p>
-          ◼&nbsp; 结果输出：TIF格式的分类图；最终结果以zip压缩文件格式提交。
+          ◼&nbsp; 结果输出：TIF格式的分类图；最终结果以zip压缩文件格式提交，TIF格式分类图存放于zip压缩包根目录下。
         </p>
         <p>
           TIF格式分类图标记要求 (提交范例：segmentation.zip<a href={globalConf.themeConf[2].zipUrl()}>【点击下载】</a>) 如下：
