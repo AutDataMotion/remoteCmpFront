@@ -172,7 +172,7 @@ const globalConf={
     {
       condition: '主题五',
       validate: false,
-      title: '遥感卫星视频跟踪 ',
+      title: '遥感视频目标跟踪 ',
       bannerId: 4,
       bannerTitle: '主题五：',
       bannerTitleSecond: '介绍文字',
