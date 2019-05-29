@@ -103,7 +103,7 @@ const globalConf={
       validate: true,
       title: '遥感图像场景分类',
       bannerId: 0,
-      bannerTitle: '主题一: ',
+      bannerTitle: '主题一：',
       bannerTitleSecond: '介绍文字',
       operation: '查看详情',
       url:'/theme/1',
@@ -118,7 +118,7 @@ const globalConf={
       title: '遥感图像目标检测 ',
 
       bannerId: 1,
-      bannerTitle: '主题二: ',
+      bannerTitle: '主题二：',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
@@ -134,7 +134,7 @@ const globalConf={
       title: '遥感图像语义分割 ',
 
       bannerId: 2,
-      bannerTitle: '主题三: ',
+      bannerTitle: '主题三：',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
@@ -159,7 +159,7 @@ const globalConf={
       title: '遥感图像变化检测 ',
 
       bannerId: 3,
-      bannerTitle: '主题四: ',
+      bannerTitle: '主题四：',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
@@ -174,7 +174,7 @@ const globalConf={
       validate: false,
       title: '遥感卫星视频跟踪 ',
       bannerId: 4,
-      bannerTitle: '主题五: ',
+      bannerTitle: '主题五：',
       bannerTitleSecond: '介绍文字',
 
       operation: '查看详情',
