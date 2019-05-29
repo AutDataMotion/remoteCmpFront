@@ -36,7 +36,7 @@ export default class ThemeInfo1 extends React.Component {
             src={require('./imgs/t1.png')}
             alt=""
           />
-          <p >
+          <p id="figure-name">
             图1 {globalConf.themeConf[themeId].title}数据集样本示例
           </p>
         </div>

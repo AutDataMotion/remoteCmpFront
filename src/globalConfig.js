@@ -115,7 +115,7 @@ const globalConf={
     {
       condition: '主题二',
       validate: true,
-      title: '遥感图像目标检测 ',
+      title: '遥感图像目标检测',
 
       bannerId: 1,
       bannerTitle: '主题二：',
@@ -131,7 +131,7 @@ const globalConf={
     {
       condition: '主题三',
       validate: false,
-      title: '遥感图像语义分割 ',
+      title: '遥感图像语义分割',
 
       bannerId: 2,
       bannerTitle: '主题三：',
@@ -156,7 +156,7 @@ const globalConf={
     {
       condition: '主题四',
       validate: false,
-      title: '遥感图像变化检测 ',
+      title: '遥感图像变化检测',
 
       bannerId: 3,
       bannerTitle: '主题四：',
@@ -172,7 +172,7 @@ const globalConf={
     {
       condition: '主题五',
       validate: false,
-      title: '遥感视频目标跟踪 ',
+      title: '遥感视频目标跟踪',
       bannerId: 4,
       bannerTitle: '主题五：',
       bannerTitleSecond: '介绍文字',
