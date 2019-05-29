@@ -8,6 +8,9 @@ import LineChart from './LineChart';
 import Map from './Map';
 import Title from './Title';
 
+import DataBinder from '@icedesign/data-binder';
+import globalConf from "../../../../globalConfig";
+
 const data = {
   country: [
     {
@@ -31,6 +34,7 @@ const data = {
       name: '法国',
     },
   ],
+
   topCityForeign: [
     {
       name: '美国：纽约·华盛顿 ',
@@ -45,11 +49,13 @@ const data = {
       name: '俄罗斯：莫斯科·圣彼得堡 ',
     },
   ],
+
   topItem: [
     {
       name: '-----',
     },
   ],
+
   cityChina: [
     {
       value: 67,
@@ -68,6 +74,7 @@ const data = {
       name: '青岛',
     },
   ],
+
   cityMembers: [
     {
       value: 33,
@@ -86,8 +93,65 @@ const data = {
       name: '青岛市：2支队伍',
     },
   ],
+
 };
 
+
+@DataBinder({
+  ajaxAll: {
+    url: globalConf.genUrl('statistics/all'),
+    method:'get',
+    param:{},
+    defaultBindingData:{
+      "team_number": 0,
+      "country": 0,
+      "city": 0,
+    },
+    responseFormatter:(rspHandler, res, orgRsp)=>{
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  },
+  ajaxCountry: {
+    url: globalConf.genUrl('statistics/country'),
+    method:'get',
+    param:{},
+    defaultBindingData:{
+      "countries":[]
+    },
+    responseFormatter:(rspHandler, res, orgRsp)=>{
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  },
+  ajaxCity: {
+    url: globalConf.genUrl('statistics/city'),
+    method:'get',
+    param:{},
+    defaultBindingData:{
+      "cities":[]
+    },
+    responseFormatter:(rspHandler, res, orgRsp)=>{
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  },
+  ajaxCityDetail: {
+    url: globalConf.genUrl('statistics/city/detail'),
+    method:'get',
+    param:{city_name:'北京市'},
+    defaultBindingData:{
+      school: [],
+      academy: [],
+      company: [],
+      other: []
+    },
+    responseFormatter:(rspHandler, res, orgRsp)=>{
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  }
+})
 export default class DataAnalysis extends Component {
   static displayName = 'DataAnalysis';
 
