@@ -48,7 +48,7 @@ export default class ThemeInfo1 extends React.Component {
         ◼&nbsp; 参赛者需对测试集每一幅图像进行分类并给出其预测类别的标签。
         </p>
         <p>
-         ◼&nbsp; 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交。
+         ◼&nbsp; 结果输出：txt格式，每一幅遥感图像均需给出其预测类别标签，文件每一行代表测试集图像名称以及该图像的预测类别标签；最终结果以zip压缩文件格式提交，预测结果txt文件存放于zip压缩包根目录下，提交文件名称为“classification.zip”。
         </p>
         <p>
           图片名称与场景预测类别标签以空格隔开，格式示例 (提交范例：classification.zip<a href={globalConf.themeConf[themeId].zipUrl()}>【点击下载】</a>) 如下：
