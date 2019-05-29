@@ -50,10 +50,10 @@ export default class ThemeInfo4 extends React.Component {
           ◼&nbsp; 参赛者需要在测试集图像上每个像素位置分配一个变化检测类别标签。
         </p>
         <p>
-          ◼&nbsp; 结果输出：TIF格式二值化分类图像；最终结果以zip压缩文件格式提交。
+          ◼&nbsp; 结果输出：TIF格式二值化分类图像；最终结果以zip压缩文件格式提交，TIF格式二值化分类图存放于zip压缩包根目录下。
         </p>
         <p>
-          二值化分类图标记要求（提交范例：change.zip<a href={globalConf.themeConf[3].zipUrl()}>【点击下载】</a>）如下：
+          二值化分类图标记要求 (提交范例：change.zip<a href={globalConf.themeConf[3].zipUrl()}>【点击下载】</a>) 如下：
         </p>
         <table>
           <thead>
@@ -64,19 +64,19 @@ export default class ThemeInfo4 extends React.Component {
           </thead>
           <tbody>
           <tr> <td style={styles.textCenter}>无变化区域像素值： </td><td style={styles.textLeft}>0</td>  </tr>
-          <tr> <td style={styles.textCenter}>变化区域像素值： </td><td style={styles.textLeft}>0</td>  </tr>
+          <tr> <td style={styles.textCenter}>变化区域像素值： </td><td style={styles.textLeft}>255</td>  </tr>
           </tbody>
         </table>
 
         <p>
-          ◼&nbsp; 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的变化检测输出结果（TIF格式二值化图像）；决赛阶段需同时提交遥感图像变化检测算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
+          ◼&nbsp; 提交方式：初赛和决赛阶段均需在竞赛官网在线提交竞赛对应测试数据集的变化检测输出结果 (TIF格式二值化图像)；决赛阶段需同时提交遥感图像变化检测算法模型、算法模型介绍、源代码及运行测试说明等相关文档。
         </p>
 
         <h2>
           （4） 评分规则
         </h2>
         <p>
-          变化检测算法评价采用指标主要包括检测率（Precision），召回率（Recall）和 F<sub>1</sub>得分。其中：
+          变化检测算法评价采用指标主要包括检测率 (Precision)，召回率 (Recall) 和 F<sub>1</sub>得分。其中：
         </p>
         <p>
           Precision = 检出的正确变化地物面积 / 检出的变化地物面积

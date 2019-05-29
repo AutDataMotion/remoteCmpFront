@@ -13,7 +13,8 @@ export default class History1 extends React.Component {
           第一届“眼神杯”竞赛
         </h1>
         <p>
-          第二届“空间信息网络”学术论坛在宁夏银川如期举行，本次论坛以国家自然科学基金2013年度启动的“空间信息网络基础理论与关键技术”重大研究计划为依托，展示了最新技术及学术研究成果。本次论坛还同步（4月8日）开展了"眼神杯"遥感影像处理比赛，面向遥感影像稀疏表征及目标识别，通过提供数据集的方式征集处理算法软件进行评比，共有85位报名参加遥感影像，14位参加智能处理算法产生了特等奖一项、一等奖一项、二等奖三项、三等奖三项、优秀奖七项。
+          {/* 第二届“空间信息网络”学术论坛在宁夏银川如期举行，本次论坛以国家自然科学基金2013年度启动的“空间信息网络基础理论与关键技术”重大研究计划为依托，展示了最新技术及学术研究成果。本次论坛还同步(4月8日)开展了"眼神杯"遥感影像处理比赛，面向遥感影像稀疏表征及目标识别，通过提供数据集的方式征集处理算法软件进行评比，共有85位报名参加遥感影像，14位参加智能处理算法产生了特等奖1项、一等奖1项、二等奖3项、三等奖3项、优秀奖7项。 */}
+          第二届“空间信息网络”学术论坛在宁夏银川如期举行，本次论坛以国家自然科学基金2013年度启动的“空间信息网络基础理论与关键技术”重大研究计划为依托，展示了最新技术及学术研究成果。本次论坛还同步(4月8日)开展了“眼神杯”遥感影像智能处理算法竞赛，竞赛包括影像目标检测和智能压缩两个主题。共有85支队伍报名参加此次竞赛，通过提供数据集对算法进行测试的方式，有14支队伍获得竞赛奖项，其中特等奖1项、一等奖1项、二等奖3项、三等奖3项和优秀奖7项。
         </p>
 
         <div className={'info-paragraph-text-center'}>
@@ -126,30 +127,30 @@ export default class History1 extends React.Component {
             <tbody>
             <tr>
               <td valign="top" style={styles.textLeft}>中国科学院遥感与数字地球研究所</td>
-              <td style={styles.textLeft}> 图像室</td>
+              <td style={styles.textLeft}> 图像室团队</td>
             </tr>
             <tr>
               <td valign="top" style={styles.textLeft}>北京化工大学</td>
-              <td style={styles.textLeft}> EYE-LAB517</td>
+              <td style={styles.textLeft}> EYE-LAB517团队</td>
             </tr>
             <tr>
-              <td valign="top" style={styles.textLeft}>国防科学技术大学（上海交大）</td>
-              <td style={styles.textLeft}> Insight-NUDT</td>
+              <td valign="top" style={styles.textLeft}>国防科学技术大学 (上海交大)</td>
+              <td style={styles.textLeft}> Insight-NUDT团队</td>
             </tr>
             <tr>
               <td valign="top" style={styles.textLeft}>智能感知与计算国际联合研究中心</td>
-              <td style={styles.textLeft}> Sunshine</td>
+              <td style={styles.textLeft}> Sunshine团队</td>
             </tr>
             <tr>
-              <td valign="top" style={styles.textLeft}>上海交通大学（西安测绘研究所、上海北斗导航创新研究院）</td>
-              <td style={styles.textLeft}> YuRocks-SJTU</td>
+              <td valign="top" style={styles.textLeft}>上海交通大学 (西安测绘研究所、上海北斗导航创新研究院)</td>
+              <td style={styles.textLeft}> YuRocks-SJTU团队</td>
             </tr>
             <tr>
               <td valign="top" colSpan="2" style={styles.textLeft}>中国科学院遥感与数字地球研究所高光谱模型算法研究组</td>
             </tr>
             <tr>
               <td valign="top" style={styles.textLeft}>西安电子科技大学</td>
-              <td style={styles.textLeft}> SPACE-I2C</td>
+              <td style={styles.textLeft}> SPACE-I2C团队</td>
             </tr>
             </tbody>
           </table>

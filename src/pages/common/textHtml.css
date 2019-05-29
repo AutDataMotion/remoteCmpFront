@@ -201,6 +201,7 @@ table.org td {
 }
 
 .contentEditorHtmlOutput p{
+  text-align: justify;
   line-height: 2.0;
   font-size: 15px;
   margin: 0px auto;
@@ -1062,7 +1063,12 @@ table.org td {
   padding: 8px 12px;
 }
 
-.contentEditorHtmlOutput td:last-child,
+.contentEditorHtmlOutput td:last-child {
+  border-right: 0;
+  text-align: justify;
+
+}
+
 .contentEditorHtmlOutput th:last-child {
   border-right: 0;
 }
