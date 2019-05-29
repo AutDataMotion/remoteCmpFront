@@ -28,6 +28,7 @@
 }
 
 .contentText p{
+  text-align: justify;
   font-size: 16px;
   font-weight: normal;
   line-height: 37px;
