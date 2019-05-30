@@ -32,7 +32,7 @@ export default class Rule extends Component {
     return (
       <div className="contentEditorHtmlOutput" data-spm-anchor-id="5176.12281976.0.i1.34164c2ajQFYls">
         <h2>赛事简介</h2>
-        <p style={styles.letterSpace}>本次竞赛将遵循“开放、公平、创新、引领”的原则，面向全国乃至全球相关领域研究团队，
+        <p>本次竞赛将遵循“开放、公平、创新、引领”的原则，面向全国乃至全球相关领域研究团队，
           以推动空间信息技术领域进步、培养锻炼专业人才和研究团队为目标，
           并为重大研究计划在轨集成验证征集优秀算法。</p>
         <p>
