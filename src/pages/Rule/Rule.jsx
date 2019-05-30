@@ -188,7 +188,7 @@ export default class Rule extends Component {
         <p>竞赛将根据测试得分情况，对参赛队伍进行排名，
           拟设立特等奖、一等奖、二等奖和三等奖 (根据竞赛情况，部分奖项可能空缺)，奖励金额如下：</p>
         <p>
-          <strong> &nbsp; &nbsp; 特等奖 &nbsp; &nbsp; &nbsp;&nbsp; 奖金100000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; 特等奖 &nbsp; &nbsp; &nbsp;奖金100000元人民币<br/></strong>
           <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;一等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金30000元人民币<br/></strong>
           <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;二等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金20000元人民币<br/></strong>
           <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;三等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金10000元人民币<br/></strong>
