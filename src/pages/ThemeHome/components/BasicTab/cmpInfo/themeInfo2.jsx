@@ -102,7 +102,7 @@ const styles = {
   textCenter: {
     textAlign: 'center',
     whiteSpace:'pre',
-    fontSize: '13px',
+    fontSize: '14px',
     fontFamily: 'Times New Roman',
   },
   textRight: {

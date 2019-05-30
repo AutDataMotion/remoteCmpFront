@@ -58,7 +58,7 @@ export default class ThemeInfo3 extends React.Component {
           <thead>
           <tr><th colSpan="2"></th></tr>
           <tr>
-            <th style={styles.textCenter} width="100px"></th>
+            <th style={styles.textCenter} width="125px"></th>
             <th style={styles.textCenter} width="200px"></th>
           </tr>
           </thead>

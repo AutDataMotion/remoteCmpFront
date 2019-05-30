@@ -47,3 +47,11 @@
 .textIndent{
   text-indent: 0.8cm;
 }
+
+p {
+	letter-spacing: 0.05em;
+}
+
+td {
+	letter-spacing: 0.05em;
+}
