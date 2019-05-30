@@ -246,7 +246,7 @@ class UserRegister extends Component {
         console.log("login rsp", rsp);
         if (rsp && rsp.status === 1) {
           Message.success('注册成功');
-          // this.props.history.push('/user/login');
+          this.props.history.push('/user/login');
         } else {
           Message.warning(rsp.message);
         }

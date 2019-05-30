@@ -19,6 +19,17 @@ table.org td {
   padding: 8px 20px;
 }
 
+p {
+	letter-spacing: 0.05em;
+}
+
+td {
+  letter-spacing: 0.05em;
+}
+
+li {
+  letter-spacing: 0.05em;
+}
 /*======================*/
 
 #contentEditorHtmlOutput table {

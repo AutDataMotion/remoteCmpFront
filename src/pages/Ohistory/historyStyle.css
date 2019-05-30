@@ -2,6 +2,7 @@
   padding: 10px 100px 50px 100px;
   line-height: 24px;
   max-width: 1200px;
+  min-height: 500px;
   margin:0 auto;
 }
 .info-paragraph-history h1 {
@@ -46,4 +47,12 @@
 
 .textIndent{
   text-indent: 0.8cm;
+}
+
+p {
+	letter-spacing: 0.05em;
+}
+
+td {
+	letter-spacing: 0.05em;
 }

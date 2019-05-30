@@ -32,7 +32,7 @@ export default class ThemeInfo2 extends React.Component {
             src={require('./imgs/t2_1.png')}
             alt=""
           />
-          <p >
+          <p id='figure-name'>
             图1 {globalConf.themeConf[1].title}样本示例
           </p>
         </div>
@@ -102,7 +102,7 @@ const styles = {
   textCenter: {
     textAlign: 'center',
     whiteSpace:'pre',
-    fontSize: '13px',
+    fontSize: '14px',
     fontFamily: 'Times New Roman',
   },
   textRight: {

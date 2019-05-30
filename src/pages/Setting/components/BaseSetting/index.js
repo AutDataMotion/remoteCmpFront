@@ -1,15 +1,17 @@
 /* eslint  react/no-string-refs: 0 */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import IceContainer from '@icedesign/container';
-import { Input, Button, Radio, Switch, Upload, Grid } from '@alifd/next';
+import {Input, Button, Radio, Switch, Upload, Grid, Select} from '@alifd/next';
 import {
   FormBinderWrapper as IceFormBinderWrapper,
   FormBinder as IceFormBinder,
   FormError as IceFormError,
 } from '@icedesign/form-binder';
+import globalConf from "../../../../globalConfig";
+import DataBinder from "@icedesign/data-binder";
 
-const { Row, Col } = Grid;
-const { Group: RadioGroup } = Radio;
+const {Row, Col} = Grid;
+const {Group: RadioGroup} = Radio;
 
 function beforeUpload(info) {
   console.log('beforeUpload callback : ', info);
@@ -27,6 +29,93 @@ function onError(file) {
   console.log('onError callback : ', file);
 }
 
+const userTypeEnum = [{key: 'member', value: '队员'}, {key: 'leader', value: '队长'}];
+
+const countryEnum = [
+  {
+    value: '中国',
+    label: '中国',
+  },
+  {
+    value: '其他国家',
+    label: '其他国家',
+  },
+];
+
+const orgEnum = [
+  {
+    value: 1,
+    label: '高校',
+    org1Label: '学校名称：',
+    org2Label: '院系名称：',
+    org3Label: '专业名称：',
+  },
+  {
+    value: 2,
+    label: '科研院所',
+    org1Label: '单位名称：',
+    org2Label: '科室名称：',
+    org3Label: '研究方向：',
+  },
+  {
+    value: 3,
+    label: '企业',
+    org1Label: '公司名称：',
+    org2Label: '部门名称：',
+    org3Label: '研究方向：',
+  },
+  {
+    value: 4,
+    label: '其他',
+    org1Label: '单位名称：',
+    org2Label: '部门名称：',
+    org3Label: '研究方向：',
+  },
+];
+
+const themeEnum = [
+  {
+    value: 1,
+    label: globalConf.themeConf[0].title,
+  },
+  {
+    value: 2,
+    label: globalConf.themeConf[1].title,
+  },
+  {
+    value: 3,
+    label: globalConf.themeConf[2].title,
+  },
+  {
+    value: 4,
+    label: globalConf.themeConf[3].title,
+  },
+  {
+    value: 5,
+    label: globalConf.themeConf[4].title,
+  },
+];
+@DataBinder({
+  ajaxUserInfo: {
+    url: globalConf.genUrl('user/info'),
+    method: 'get',
+    param: {},
+    defaultBindingData: {
+      user_info: globalConf.userInfo
+    },
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+    success: (res, defaultCallBack, orgResponse) => {
+      console.log("ajaxUserInfo success res", res, "orgResponse", orgResponse);
+    },
+    error: (res, defaultCallBack, orgResponse) => {
+      defaultCallBack();
+    },
+    ...globalConf.headerCOR,
+  },
+})
 export default class BaseSetting extends Component {
   static displayName = 'BaseSetting';
 
@@ -38,15 +127,7 @@ export default class BaseSetting extends Component {
     super(props);
     this.state = {
       value: {
-        name: '',
-        gender: 'male',
-        notice: false,
-        email: '',
-        avatar: [],
-        siteUrl: '',
-        githubUrl: '',
-        twitterUrl: '',
-        description: '',
+        ...globalConf.userInfo
       },
     };
   }
@@ -65,12 +146,34 @@ export default class BaseSetting extends Component {
     });
   };
 
+  static regPhone = /^[1][3,4,5,7,8][0-9]{9}$/;
+  static regIDNumber = /^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X|x)$/;
+  checkIDNumber = (rule, values, callback) => {
+    if (!values || !UserRegister.regIDNumber.test(values)) {
+      callback('请输入正确的身份证号码');
+    } else {
+      callback();
+    }
+  };
+
+  checkPhone = (rule, values, callback) => {
+    if (!values || !UserRegister.regPhone.test(values)) {
+      callback('请输入正确的手机号码');
+    } else {
+      callback();
+    }
+  };
+
+
   render() {
+
+    let themeSelectPop = {readOnly: true};
+    let organization = orgEnum[0];
     return (
       <IceContainer>
         <IceFormBinderWrapper value={this.state.value} ref="form">
           <div style={styles.formContent}>
-            <h2 style={styles.formTitle}>个人设置</h2>
+            <h2 style={styles.formTitle}>个人信息</h2>
 
             <Row style={styles.formItem}>
               <Col xxs="6" s="3" l="3" style={styles.label}>
@@ -80,174 +183,197 @@ export default class BaseSetting extends Component {
                 <IceFormBinder name="name" required max={10} message="必填">
                   <Input
                     style={styles.inputItem}
-                    placeholder="淘小宝"
                   />
                 </IceFormBinder>
-                <IceFormError name="name" />
+                <IceFormError name="name"/>
               </Col>
             </Row>
 
             <Row style={styles.formItem}>
               <Col xxs="6" s="3" l="3" style={styles.label}>
-                头像：
+                身份证：
               </Col>
               <Col s="12" l="10">
-                <IceFormBinder name="avatar" required message="必填">
-                  <Upload.Card
-                    listType="card"
-                    action=""
-                    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-                    beforeUpload={beforeUpload}
-                    onChange={onChange}
-                    onSuccess={onSuccess}
-                    onError={onError}
-                  />
-                </IceFormBinder>
-                <IceFormError name="avatar" />
-              </Col>
-            </Row>
 
-            <Row style={styles.formItem}>
-              <Col xxs="6" s="3" l="3" style={styles.label}>
-                性别：
-              </Col>
-              <Col s="12" l="10">
-                <IceFormBinder name="gender" required message="必填">
-                  <RadioGroup>
-                    <Radio value="male">男</Radio>
-                    <Radio value="female">女</Radio>
-                  </RadioGroup>
-                </IceFormBinder>
-                <IceFormError name="gender" />
-              </Col>
-            </Row>
-
-            <Row style={styles.formItem}>
-              <Col xxs="6" s="3" l="3" style={styles.label}>
-                通知：
-              </Col>
-              <Col s="12" l="10">
-                <IceFormBinder type="boolean" name="notice">
-                  <Switch
-                    style={{ background: '#2077ff', borderColor: '#2077ff' }}
-                  />
-                </IceFormBinder>
-                <IceFormError name="notice" />
-              </Col>
-            </Row>
-
-            <Row style={styles.formItem}>
-              <Col xxs="6" s="3" l="3" style={styles.label}>
-                邮件：
-              </Col>
-              <Col s="12" l="10">
-                <IceFormBinder
-                  type="email"
-                  name="email"
-                  required
-                  message="请输入正确的邮件"
+                <IceFormBinder name="ID_card"
+                               required
+                               message="请输入正确的身份证号码"
+                               min={18}
+                               max={18}
+                               validator={this.checkIDNumber}
                 >
                   <Input
+                    size="large"
+                    placeholder="身份证号码"
+                    trim={true}
+                    maxLength={18}
                     style={styles.inputItem}
-                    placeholder="ice-admin@alibaba-inc.com"
                   />
                 </IceFormBinder>
-                <IceFormError name="email" />
+                <IceFormError name="ID_card"/>
+
               </Col>
             </Row>
 
             <Row style={styles.formItem}>
               <Col xxs="6" s="3" l="3" style={styles.label}>
-                网站地址 ：
+                手机号：
               </Col>
               <Col s="12" l="10">
-                <IceFormBinder
-                  type="url"
-                  name="siteUrl"
-                  required
-                  message="请输入正确的网站地址"
-                >
+                  <IceFormBinder name="phone_number"
+                                 required
+                                 message="请输入正确的手机号"
+                                 max={11}
+                                 validator={this.checkPhone}
+                  >
+                    <Input
+                      size="large"
+                      placeholder="手机号"
+                      maxLength={11}
+                      trim={true}
+                      style={styles.inputItem}
+                    />
+                  </IceFormBinder>
+                  <IceFormError name="phone_number"/>
+              </Col>
+            </Row>
+
+            <Row style={styles.formItem}>
+              <Col xxs="6" s="3" l="3" style={styles.label}>
+                邮箱：
+              </Col>
+              <Col s="12" l="10">
+                <IceFormBinder type="email" name="email" required message="请输入正确的邮箱">
                   <Input
+                    size="large"
+                    maxLength={64}
+                    placeholder="邮箱"
+                    trim={true}
                     style={styles.inputItem}
-                    type="url"
-                    placeholder="https://alibaba.github.io/ice"
                   />
                 </IceFormBinder>
-                <IceFormError
-                  style={{ marginLeft: 10 }}
-                  name="siteUrl"
-                  required
-                  message="请输入正确的网站地址"
-                />
+                <IceFormError name="email"/>
               </Col>
             </Row>
 
             <Row style={styles.formItem}>
               <Col xxs="6" s="3" l="3" style={styles.label}>
-                Github：
+                队伍名称 ：
               </Col>
               <Col s="12" l="10">
-                <IceFormBinder
-                  type="url"
-                  name="githubUrl"
-                  required
-                  message="请输入正确的 Github 地址"
-                >
+                <IceFormBinder name="team_name"
+                               max={32}
+                               required message="队伍名称">
                   <Input
+                    size="large"
+                    placeholder="队伍名称(中英文或数字)"
+                    trim={true}
+                    maxLength={32}
                     style={styles.inputItem}
-                    placeholder="https://github.com/alibaba/ice"
                   />
                 </IceFormBinder>
-                <IceFormError name="githubUrl" />
+                <IceFormError name="team_name"/>
               </Col>
             </Row>
 
             <Row style={styles.formItem}>
               <Col xxs="6" s="3" l="3" style={styles.label}>
-                Twitter：
+                赛题：
               </Col>
               <Col s="12" l="10">
-                <IceFormBinder
-                  type="url"
-                  name="twitterUrl"
-                  required
-                  message="请输入正确的 Twitter 地址"
-                >
+                <IceFormBinder name="competition_id" required message="赛题">
+                  <Select dataSource={themeEnum} placeholder="选择赛题"
+                          style={{width: '100%', height: 40}} {...themeSelectPop}/>
+                </IceFormBinder>
+                <IceFormError name="competition_id"/>
+              </Col>
+            </Row>
+
+            <Row style={styles.formItem}>
+              <Col xxs="6" s="3" l="3" style={styles.label}>
+                国家：
+              </Col>
+              <Col s="12" l="10">
+                <IceFormBinder name="country" required message="国家">
+                  <Select dataSource={countryEnum} defaultValue={{...countryEnum[0]}}
+                          placeholder="我来自" style={styles.selectStatus} style={{width: '100%'}}/>
+                </IceFormBinder>
+                <IceFormError name="country"/>
+              </Col>
+            </Row>
+
+            <Row style={styles.formItem}>
+              <Col xxs="6" s="3" l="3" style={styles.label}>
+                单位类型：
+              </Col>
+              <Col s="12" l="10">
+                <IceFormBinder name="work_id" required message="单位类型">
+                  <Select dataSource={orgEnum} onChange={this.onSelectOrg} placeholder="单位类型"
+                          style={styles.selectStatus} style={{width: '100%'}}/>
+                </IceFormBinder>
+                <IceFormError name="work_id"/>
+              </Col>
+            </Row>
+
+            <Row style={styles.formItem}>
+              <Col xxs="6" s="3" l="3" style={styles.label}>
+                {organization.org1Label}
+              </Col>
+              <Col s="12" l="10">
+                <IceFormBinder name="work_place_top" required>
                   <Input
+                    size="large"
+                    trim={true}
                     style={styles.inputItem}
-                    placeholder="https://twitter.com"
                   />
                 </IceFormBinder>
-                <IceFormError name="twitterUrl" />
+                <IceFormError name="work_place_top"/>
               </Col>
             </Row>
 
             <Row style={styles.formItem}>
               <Col xxs="6" s="3" l="3" style={styles.label}>
-                自我描述：
+                {organization.org2Label}
               </Col>
               <Col s="12" l="10">
-                <IceFormBinder name="description">
-                  <Input.TextArea
+                <IceFormBinder name="work_place_second" required>
+                  <Input
+                    size="large"
+                    trim={true}
                     style={styles.inputItem}
-                    placeholder="请输入描述..."
                   />
                 </IceFormBinder>
-                <IceFormError name="description" />
+                <IceFormError name="work_place_second"/>
+              </Col>
+            </Row>
+
+            <Row style={styles.formItem}>
+              <Col xxs="6" s="3" l="3" style={styles.label}>
+                {organization.org3Label}
+              </Col>
+              <Col s="12" l="10">
+                <IceFormBinder name="work_place_third" required>
+                  <Input
+                    size="large"
+                    trim={true}
+                    style={styles.inputItem}
+                  />
+                </IceFormBinder>
+                <IceFormError name="work_place_third"/>
               </Col>
             </Row>
           </div>
         </IceFormBinderWrapper>
 
-        <Row style={{ marginTop: 20 }}>
+        <Row style={{marginTop: 20}}>
           <Col offset="3">
-            <Button
-              type="primary"
-              style={{ width: 100 }}
-              onClick={this.validateAllFormField}
-            >
-              更新设置
-            </Button>
+            {/*<Button*/}
+            {/*type="primary"*/}
+            {/*style={{ width: 100 }}*/}
+            {/*onClick={this.validateAllFormField}*/}
+            {/*>*/}
+            {/*更新设置*/}
+            {/*</Button>*/}
           </Col>
         </Row>
       </IceContainer>

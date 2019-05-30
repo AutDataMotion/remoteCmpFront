@@ -37,7 +37,7 @@ export default class ThemeInfo4 extends React.Component {
             src={require('./imgs/t4_1.png')}
             alt=""
           />
-          <p >
+          <p id='figure-name'>
             图1 {globalConf.themeConf[3].title}样本示例
           </p>
         </div>
@@ -59,7 +59,7 @@ export default class ThemeInfo4 extends React.Component {
           <thead>
           <tr><th colSpan="3"></th></tr>
           <tr>
-            <th style={styles.textCenter} width="200px"></th>
+            <th style={styles.textCenter} width="250px"></th>
           </tr>
           </thead>
           <tbody>
@@ -116,7 +116,7 @@ const styles = {
   textLeft: {
   textAlign: 'left',
   whiteSpace: 'pre',
-  fontSize: '13px',
+  fontSize: '14px',
   fontFamily: 'Times New Roman',
   }
 }

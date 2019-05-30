@@ -15,7 +15,6 @@ export default class Home extends Component {
       <div className="demo-show-page">
         <IntroBanner />
         <ApplicationProgress />
-        <BlackFooter />
       </div>
     );
   }

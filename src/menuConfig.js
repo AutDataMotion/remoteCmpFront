@@ -107,6 +107,10 @@ const asideMenuConfig = [
     ]
   },
   {
+    name: '竞赛通知',
+    path: '/notify',
+  },
+  {
     name: '关于我们',
     path: '/about',
   },

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import IntroBanner from '../ThemeHome/components/IntroBanner';
-import BlackFooter from '../ThemeHome/components/BlackFooter';
 import BasicTab from "../ThemeHome/components/BasicTab";
 import Overview from "../ThemeHome/components/Overview";
 import {Col, Row} from "@alifd/next/lib/grid";
@@ -36,10 +35,6 @@ export default class Theme6 extends Component {
           <div style = {styles.sOverview}>
             <BasicTab {...introBannerProp}/>
           </div>
-        </Col>
-
-        <Col l="24" xxs="24">
-          <BlackFooter />
         </Col>
       </Row>
     );

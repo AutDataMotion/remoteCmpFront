@@ -1,6 +1,6 @@
 /* eslint react/no-children-prop:0 */
-import React, { Component } from 'react';
-import { Icon } from '@alifd/next';
+import React, {Component} from 'react';
+import {Icon} from '@alifd/next';
 import TextLoop from 'react-text-loop';
 import PieChart from './PieChart';
 import TopList from './TopList';
@@ -100,53 +100,53 @@ const data = {
 @DataBinder({
   ajaxAll: {
     url: globalConf.genUrl('statistics/all'),
-    method:'get',
-    param:{},
-    defaultBindingData:{
+    method: 'get',
+    param: {},
+    defaultBindingData: {
       "team_number": 0,
       "country": 0,
       "city": 0,
     },
-    responseFormatter:(rspHandler, res, orgRsp)=>{
+    responseFormatter: (rspHandler, res, orgRsp) => {
       res = globalConf.formatResponseComm(res);
       rspHandler(res, orgRsp);
     },
   },
   ajaxCountry: {
     url: globalConf.genUrl('statistics/country'),
-    method:'get',
-    param:{},
-    defaultBindingData:{
-      "countries":[]
+    method: 'get',
+    param: {},
+    defaultBindingData: {
+      "countries": []
     },
-    responseFormatter:(rspHandler, res, orgRsp)=>{
+    responseFormatter: (rspHandler, res, orgRsp) => {
       res = globalConf.formatResponseComm(res);
       rspHandler(res, orgRsp);
     },
   },
   ajaxCity: {
     url: globalConf.genUrl('statistics/city'),
-    method:'get',
-    param:{},
-    defaultBindingData:{
-      "cities":[]
+    method: 'get',
+    param: {},
+    defaultBindingData: {
+      "cities": []
     },
-    responseFormatter:(rspHandler, res, orgRsp)=>{
+    responseFormatter: (rspHandler, res, orgRsp) => {
       res = globalConf.formatResponseComm(res);
       rspHandler(res, orgRsp);
     },
   },
   ajaxCityDetail: {
     url: globalConf.genUrl('statistics/city/detail'),
-    method:'get',
-    param:{city_name:'北京市'},
-    defaultBindingData:{
+    method: 'get',
+    param: {city_name: '北京市'},
+    defaultBindingData: {
       school: [],
       academy: [],
       company: [],
       other: []
     },
-    responseFormatter:(rspHandler, res, orgRsp)=>{
+    responseFormatter: (rspHandler, res, orgRsp) => {
       res = globalConf.formatResponseComm(res);
       rspHandler(res, orgRsp);
     },
@@ -177,66 +177,71 @@ export default class DataAnalysis extends Component {
     this.setState({
       date: `${year}-${month + 1}-${day} ${hour}:${
         minute < 10 ? `0${minute}` : minute
-      }:${second < 10 ? `0${second}` : second}`,
+        }:${second < 10 ? `0${second}` : second}`,
     });
   };
 
   componentDidMount() {
+    this.updateChartData();
     setInterval(this.updateDate, 1000);
-    setInterval(this.updateCountry, 5*1000);
-    // 先初始化一次
-    this.updateCountry();
+
+    //setInterval(this.updateChartData, 5 * 1000);
   }
 
-  updateCountry = ()=>{
+  updateChartData = () => {
     this.props.updateBindingData('ajaxAll');
     this.props.updateBindingData('ajaxCountry');
     this.props.updateBindingData('ajaxCity');
-  };
+  }
 
 
   render() {
+    const {ajaxAll, ajaxCountry, ajaxCity} = this.props.bindingData;
+    console.log("ajaxAll", ajaxAll, "ajaxCountry", ajaxCountry, "ajaxCity", ajaxCity);
+    let chartTitle = ajaxAll.country + "个国家 " + ajaxAll.city + "个城市 " + ajaxAll.team_number + "支队伍";
+    let countries = ajaxCountry.countries;
+    //console.log("countries "+countries[0])
+    let cities = ajaxCity.cities;
+    // 转换数据格式 以国家为例
+    data.country = []; // 清空
+    data.topCityForeign = [];
+    for (let ic = 0; ic < countries.length; ic++) {
+      data.country.push({value: countries[ic].team_number, name: countries[ic].name});
+      data.topCityForeign.push({value: countries[ic].team_number + '支队伍', name: countries[ic].name});
+    }
+    // 转换数据格式 中国每个城市队伍情况  {"team_number": 5, "name": "武汉市", "rankNum": 2}
+    data.cityChina = []; // 清空
+    data.cityMembers = [];
+    for (let ic = 0; ic < cities.length; ic++) {
+      data.cityChina.push({value: cities[ic].team_number, name: cities[ic].name});
+      data.cityMembers.push({value: cities[ic].team_number + '支队伍', name: cities[ic].name});
+    }
 
-    const{ajaxAll, ajaxCountry, ajaxCity} = this.props.bindingData;
-    console.log('ajaxAll', ajaxAll, 'ajaxCountry', ajaxCountry, 'ajaCity', ajaxCity);
-    let titleStr = ajaxAll.country+"个国家   "+ajaxAll.city+"个城市   "+ajaxAll.team_number+"支队伍";
-    // data.country=[];
-    // let countries = ajaxCountry.countries;
-    // for (let ic=0; ic < countries.length; ic++){
-    //   data.country.push({value:countries[ic].team_number, name:countries[ic].name})
-    // }
-    console.log('data.country', data.country);
+    console.log("country " + data.country)
     return (
       <div style={styles.container}>
         <div style={styles.main}>
           <div style={styles.side}>
-            <PieChart data={data.country} title="国家队伍分布" />
-            <TopList data={data.topCityForeign} title="国外主要城市" />
+            <PieChart id="left_pie" data={data.country} title="国家队伍分布"/>
+            <TopList data={data.topCityForeign} title="国家队伍分布信息"/>
             {/*<LineChart data={data.source} title="队伍分布" />*/}
           </div>
           <div style={styles.middle}>
             <div style={styles.header}>
               <h1 style={styles.pageTitle}>大赛队伍分布</h1>
               <p style={styles.time}>
-                <Icon type="clock" size="xs" /> {this.state.date}
+                <Icon type="clock" size="xs"/> {this.state.date}
               </p>
-              <Title data= {titleStr}/>
-              {/*<h2 style={styles.sum}>*/}
-                {/*<TextLoop*/}
-                  {/*speed={1000}*/}
-                  {/*children={['1242.12', '5356.32', '6518.28', '8739.69']}*/}
-                {/*/>*/}
-              {/*</h2>*/}
+              <Title data={chartTitle}/>
             </div>
           </div>
           <div style={styles.side}>
-            <PieChart data={data.cityChina} title="国内分布情况" />
-            <TopList data={data.cityMembers} title="国内主要城市" />
-            {/*<PieChart data={data.member} title="占比" />*/}
+            <PieChart id="right_pie" data={data.cityChina} title="国内队伍分布"/>
+            <TopList data={data.cityMembers} title="国内城市队伍分布信息"/>
           </div>
         </div>
         <div style={styles.bg}>
-          <Map />
+          <Map id='mapContainer'/>
         </div>
       </div>
     );

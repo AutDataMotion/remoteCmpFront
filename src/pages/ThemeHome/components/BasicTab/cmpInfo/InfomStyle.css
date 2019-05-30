@@ -39,3 +39,7 @@
 .textIndent{
   text-indent: 0.8cm;
 }
+
+#figure-name {
+  text-align: center
+}

@@ -40,10 +40,6 @@ export default class ThemeHome extends Component {
           </div>
 
         </Col>
-
-        <Col l="24" xxs="24">
-          <BlackFooter />
-        </Col>
       </Row>
     );
   }

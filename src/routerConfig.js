@@ -18,6 +18,7 @@ import AboutUs from "./pages/AboutUs";
 import History1 from "./pages/Ohistory/history1";
 import History2 from "./pages/Ohistory/history2";
 import Theme6 from "./pages/Ohistory/theme6";
+import Notify from "./pages/Ohistory/Notify";
 
 
 
@@ -70,6 +71,10 @@ const routerConfig = [
   {
     path: '/history/2',
     component: History2,
+  },
+  {
+    path: '/notify',
+    component: Notify,
   },
   {
     path: '/dashboard',

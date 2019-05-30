@@ -38,10 +38,6 @@ export default class Theme2 extends Component {
             <BasicTab {...introBannerProp}/>
           </div>
         </Col>
-
-        <Col l="24" xxs="24">
-          <BlackFooter />
-        </Col>
       </Row>
     );
   }

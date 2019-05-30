@@ -6,18 +6,40 @@ const globalConf={
   defaultUserInfo: {
       login:false,
       name: "未登录",
-      team_name: "",
-      isCaptain: false,
-      inviteCode: "",
-      competition_id: 0,
+    "country": "",
+    // "province": "",
+    // "city": "",
+    "work_id": 1,
+    "work_place_top": "",
+    "work_place_second": "",
+    "work_place_third": "",
+    "phone_number": "",
+    "ID_card": "",
+    "email": "",
+    "is_captain": false,
+    // "teamId": 0,
+    "competition_id": 1,
+    team_name: '', // 队伍名称
+    invite_code: '', // 邀请码
   },
   userInfo: {
     login:false,
     name: "未登录",
-    team_name: "",
-    isCaptain: false,
-    inviteCode: "",
-    competition_id: 0,
+    "country": "",
+    // "province": "",
+    // "city": "",
+    "work_id": 1,
+    "work_place_top": "",
+    "work_place_second": "",
+    "work_place_third": "",
+    "phone_number": "",
+    "ID_card": "",
+    "email": "",
+    "is_captain": false,
+    // "teamId": 0,
+    "competition_id": 1,
+    team_name: '', // 队伍名称
+    invite_code: '', // 邀请码
   },
   login:(ajaxUserInfo, callback=()=>{})=>{
     if(ajaxUserInfo.hasOwnProperty('user_info') && ajaxUserInfo.user_info.hasOwnProperty('name') && ajaxUserInfo.user_info.name != globalConf.defaultUserInfo.name){
@@ -25,8 +47,8 @@ const globalConf={
       globalConf.userInfo.login = true;
       globalConf.userInfo.name = ajaxUserInfo.user_info.name;
       globalConf.userInfo.team_name = ajaxUserInfo.user_info.team_name;
-      globalConf.userInfo.isCaptain = ajaxUserInfo.user_info.is_captain;
-      globalConf.userInfo.inviteCode = ajaxUserInfo.user_info.invite_code;
+      globalConf.userInfo.is_captain = ajaxUserInfo.user_info.is_captain;
+      globalConf.userInfo.invite_code = ajaxUserInfo.user_info.invite_code;
       globalConf.userInfo.competition_id = ajaxUserInfo.user_info.competition_id;
     } else {
       globalConf.userInfo = {
@@ -123,7 +145,7 @@ const globalConf={
       themeId:2,
       condition: '主题二',
       validate: true,
-      title: '遥感图像目标检测 ',
+      title: '遥感图像目标检测',
 
       bannerId: 1,
       bannerTitle: '主题二：',
@@ -140,7 +162,7 @@ const globalConf={
       themeId:3,
       condition: '主题三',
       validate: false,
-      title: '遥感图像语义分割 ',
+      title: '遥感图像语义分割',
 
       bannerId: 2,
       bannerTitle: '主题三：',
@@ -166,7 +188,7 @@ const globalConf={
       themeId:4,
       condition: '主题四',
       validate: false,
-      title: '遥感图像变化检测 ',
+      title: '遥感图像变化检测',
 
       bannerId: 3,
       bannerTitle: '主题四：',
@@ -183,7 +205,7 @@ const globalConf={
       themeId:5,
       condition: '主题五',
       validate: false,
-      title: '遥感视频目标跟踪 ',
+      title: '遥感视频目标跟踪',
       bannerId: 4,
       bannerTitle: '主题五：',
       bannerTitleSecond: '介绍文字',
