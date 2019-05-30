@@ -182,16 +182,48 @@ export default class DataAnalysis extends Component {
   };
 
   componentDidMount() {
+	this.updateChartData();
     setInterval(this.updateDate, 1000);
+	
+	//setInterval(this.updateChartData, 5 * 1000);
   }
+  
+  updateChartData = ()=>{
+    this.props.updateBindingData('ajaxAll');
+    this.props.updateBindingData('ajaxCountry');
+    this.props.updateBindingData('ajaxCity');
+  }
+  
 
   render() {
+	const {ajaxAll, ajaxCountry, ajaxCity} = this.props.bindingData;
+    console.log("ajaxAll", ajaxAll, "ajaxCountry", ajaxCountry, "ajaxCity", ajaxCity);
+    let chartTitle = ajaxAll.country + "个国家 " + ajaxAll.city+ "个城市 " + ajaxAll.team_number+ "支队伍";
+    let countries = ajaxCountry.countries;
+	//console.log("countries "+countries[0])
+    let cities = ajaxCity.cities;
+    // 转换数据格式 以国家为例
+    data.country = []; // 清空
+	data.topCityForeign = [];
+    for(let ic=0; ic<countries.length; ic++){
+      data.country.push({value:countries[ic].team_number, name:countries[ic].name});
+	  data.topCityForeign.push({value:countries[ic].team_number+'支队伍', name:countries[ic].name});
+    }
+	// 转换数据格式 中国每个城市队伍情况  {"team_number": 5, "name": "武汉市", "rankNum": 2}
+    data.cityChina = []; // 清空
+	data.cityMembers = [];
+    for(let ic=0; ic<cities.length; ic++){
+      data.cityChina.push({value:cities[ic].team_number, name:cities[ic].name});
+	  data.cityMembers.push({value:cities[ic].team_number+'支队伍', name:cities[ic].name});
+    }
+	
+	console.log("country "+data.country)
     return (
       <div style={styles.container}>
         <div style={styles.main}>
           <div style={styles.side}>
-            <PieChart data={data.country} title="国家队伍分布" />
-            <TopList data={data.topCityForeign} title="国外主要城市" />
+            <PieChart id="left_pie" data={data.country} title="国家队伍分布" />
+            <TopList data={data.topCityForeign} title="国家队伍分布信息" />
             {/*<LineChart data={data.source} title="队伍分布" />*/}
           </div>
           <div style={styles.middle}>
@@ -200,7 +232,7 @@ export default class DataAnalysis extends Component {
               <p style={styles.time}>
                 <Icon type="clock" size="xs" /> {this.state.date}
               </p>
-              <Title data="5个国家   40个城市   100支队伍" />
+              <Title data={chartTitle} />
               {/*<h2 style={styles.sum}>*/}
                 {/*<TextLoop*/}
                   {/*speed={1000}*/}
@@ -210,13 +242,13 @@ export default class DataAnalysis extends Component {
             </div>
           </div>
           <div style={styles.side}>
-            <PieChart data={data.cityChina} title="国内分布情况" />
-            <TopList data={data.cityMembers} title="国内主要城市" />
+            <PieChart id="right_pie" data={data.cityChina} title="国内分布情况" />
+            <TopList data={data.cityMembers} title="国内队伍分布信息" />
             {/*<PieChart data={data.member} title="占比" />*/}
           </div>
         </div>
         <div style={styles.bg}>
-          <Map />
+          <Map id='mapContainer'/>
         </div>
       </div>
     );

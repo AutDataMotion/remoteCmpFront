@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import Title from './Title';
+import echarts from 'echarts/lib/echarts';
 
 export default class PicChart extends Component {
   static displayName = 'PicChart';
@@ -11,7 +12,9 @@ export default class PicChart extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+		
+	};
 
     this.option = {
       tooltip: {
@@ -40,15 +43,25 @@ export default class PicChart extends Component {
       ],
     };
   }
-
+componentDidUpdate(prevProps, prevState) {
+        console.log('Component DID UPDATE!')
+		const { id, data, title } = this.props;
+		const myChart = echarts.init(document.getElementById(id));
+		this.option.series[0].data = data;
+		myChart.setOption(this.option);
+}
+ //<ReactEcharts 
+		//option={this.option} 
+		//style={{ height: '100%' }} />
   render() {
-    const { data, title } = this.props;
-
-    this.option.series[0].data = data;
+    const { id, data, title } = this.props;
+	console.log(data);
+    //this.option.series[0].data = data;
     return (
       <div style={{ height: '33%' }}>
         <Title data={title} />
-        <ReactEcharts option={this.option} style={{ height: '100%' }} />
+       
+		<div style={{width: '100%', height: '100%'}} id={id} />
       </div>
     );
   }

@@ -25,6 +25,7 @@ export default class TopList extends Component {
                 <li style={styles.item}>
                   <span style={styles.idx}>No.{index + 1}</span>
                   <span style={styles.name}>{data.name}</span>
+				  <span style={styles.name}>{data.value}</span>
                 </li>
               </TextLoop>
             );
