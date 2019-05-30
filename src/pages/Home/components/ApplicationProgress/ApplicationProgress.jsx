@@ -156,7 +156,8 @@ export default class ApplicationProgress extends Component {
                             ...(isMobile && styles.removeContentWidth),
                           }}
                         >
-                          {item.descriptionRule}
+                          {/* {item.descriptionRule} */}
+                          <p id="theme-background">{item.descriptionRule}</p>
                         </div>
                       </Col>
 

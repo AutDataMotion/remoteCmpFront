@@ -32,7 +32,7 @@ export default class Rule extends Component {
     return (
       <div className="contentEditorHtmlOutput" data-spm-anchor-id="5176.12281976.0.i1.34164c2ajQFYls">
         <h2>赛事简介</h2>
-        <p>本次竞赛将遵循“开放、公平、创新、引领”的原则，面向全国乃至全球相关领域研究团队，
+        <p style={styles.letterSpace}>本次竞赛将遵循“开放、公平、创新、引领”的原则，面向全国乃至全球相关领域研究团队，
           以推动空间信息技术领域进步、培养锻炼专业人才和研究团队为目标，
           并为重大研究计划在轨集成验证征集优秀算法。</p>
         <p>
@@ -87,7 +87,7 @@ export default class Rule extends Component {
             </p>
           </li>
           <li>
-            <p><strong><Link to={'/theme/6'}>决赛加分赛：基于华为智能处理器的遥感图像解译</Link></strong></p>
+            <p><strong><Link to={'/theme/6'}>决赛加分赛：基于华为智能处理器的遥感图像解译  &nbsp; &nbsp; &nbsp;&nbsp;  (查看详情)</Link></strong></p>
             <p>
               空间信息网络数据量大，信息丰富，基于地面处理系统的遥感图像解译受到空间信息网络传输能力限制，解译效率低、成本高。利用智能处理器进行嵌入式开发，实现遥感图像内容的在轨智能解译，可以大幅降低空间信息网络信息传输压力，同时大幅提升空间信息网络中遥感图像在轨实时信息提取与分析应用能力。
             </p>
@@ -188,7 +188,7 @@ export default class Rule extends Component {
         <p>竞赛将根据测试得分情况，对参赛队伍进行排名，
           拟设立特等奖、一等奖、二等奖和三等奖 (根据竞赛情况，部分奖项可能空缺)，奖励金额如下：</p>
         <p>
-          <strong>&nbsp;特等奖 &nbsp; &nbsp; &nbsp;&nbsp; 奖金100000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; 特等奖 &nbsp; &nbsp; &nbsp;&nbsp; 奖金100000元人民币<br/></strong>
           <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;一等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金30000元人民币<br/></strong>
           <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;二等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金20000元人民币<br/></strong>
           <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;三等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金10000元人民币<br/></strong>
@@ -302,5 +302,5 @@ const styles = {
   },
   whiteSpaceKeeper:{
     whiteSpace:'pre',
-  }
+  },
 }
