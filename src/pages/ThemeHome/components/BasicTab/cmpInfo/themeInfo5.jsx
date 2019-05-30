@@ -44,29 +44,28 @@ export default class ThemeInfo5 extends React.Component {
           （3）	处理/提交结果
         </h2>
         <p>
-          ◼&nbsp; 参赛者需在测试集每段视频上对指定的目标进行跟踪，给出后续视频帧中跟踪到的目标最小水平包围矩形框左上角和右下角坐标以确定目标位置。
+          ◼&nbsp; 参赛者需在测试集每段视频上对指定的目标进行跟踪，给出后续视频帧中跟踪到的目标边界矩形框的左上角坐标及其宽高。
         </p>
         <p>
-          ◼&nbsp; 结果输出：txt格式，每一段卫星视频检测结果均需建立一个文本文件。文件每一行代表检测视频对应目标检测结果的帧号、目标类别、属于该类别的置信度以及检测到的边界矩形框左上角和右下角坐标；最终结果以zip压缩文件格式提交。
+          ◼&nbsp; 结果输出：txt格式，每一段卫星视频检测结果均需建立一个以视频文件名命名的文本文件。文件的每一行代表检测视频对应每帧追踪结果的目标边界矩形框左上角坐标及其宽高；最终结果以zip压缩文件格式提交。
         </p>
         <p>
-          帧号、目标类别、置信度和目标边界矩形框坐标以空格隔开，格式示例 (提交范例：tracking.zip<a href={globalConf.themeConf[4].zipUrl()}>【点击下载】</a>) 如下：
+            目标边界矩形框的左上角x坐标、左上角y坐标、宽度、高度以","隔开，格式示例 (提交范例：tracking.zip<a href={globalConf.themeConf[4].zipUrl()}>【点击下载】</a>) 如下：
         </p>
         <table>
           <thead>
           <tr><th colSpan="3"></th></tr>
           <tr>
-            <th style={styles.textCenter} width="400px"></th>
+            <th style={styles.textCenter} width="325px"></th>
           </tr>
           </thead>
         
           <tbody>
-          <tr> <td style={styles.textCenter}>1      飞机       0.99    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
-          <tr> <td style={styles.textCenter}>2      飞机       0.95    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
-          <tr> <td style={styles.textCenter}>...</td></tr>
-          <tr> <td style={styles.textCenter}>n      舰船       0.90    x<sub>min</sub>    y<sub>min</sub>    x<sub>max</sub>    y<sub>max</sub></td>  </tr>
+          <tr> <td style={styles.textCenter}>x<sub>min</sub>,y<sub>min</sub>,box-width,box-hight</td> </tr>
+          <tr> <td style={styles.textCenter}> x<sub>min</sub>,y<sub>min</sub>,box-width,box-height</td> </tr>
+          <tr> <td style={styles.textCenter}> ...</td></tr>
+          <tr> <td style={styles.textCenter}> x<sub>min</sub>,y<sub>min</sub>,box-width,box-height</td> </tr>
           </tbody>
-          
           
           {/*
           <tbody>
@@ -131,7 +130,7 @@ const styles = {
   textCenter: {
     textAlign: 'center',
     whiteSpace:'pre',
-    fontSize: '13px',
+    fontSize: '14px',
     fontFamily: 'Times New Roman',
   },
   textRight: {

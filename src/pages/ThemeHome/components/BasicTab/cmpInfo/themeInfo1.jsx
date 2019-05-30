@@ -57,7 +57,7 @@ export default class ThemeInfo1 extends React.Component {
           <thead>
           <tr><th colSpan="3"></th></tr>
           <tr>
-            <th style={styles.textCenter} width="200px"></th>
+            <th style={styles.textCenter} width="185px"></th>
           </tr>
           </thead>
           <tbody>
@@ -100,7 +100,7 @@ const styles = {
   textCenter: {
     textAlign: 'center',
     whiteSpace:'pre',
-    fontSize: '13px',
+    fontSize: '14px',
     fontFamily: 'Times New Roman',
   },
   textRight: {
