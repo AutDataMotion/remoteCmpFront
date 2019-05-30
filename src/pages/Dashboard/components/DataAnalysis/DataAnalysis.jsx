@@ -183,9 +183,29 @@ export default class DataAnalysis extends Component {
 
   componentDidMount() {
     setInterval(this.updateDate, 1000);
+    setInterval(this.updateCountry, 5*1000);
+    // 先初始化一次
+    this.updateCountry();
   }
 
+  updateCountry = ()=>{
+    this.props.updateBindingData('ajaxAll');
+    this.props.updateBindingData('ajaxCountry');
+    this.props.updateBindingData('ajaxCity');
+  };
+
+
   render() {
+
+    const{ajaxAll, ajaxCountry, ajaxCity} = this.props.bindingData;
+    console.log('ajaxAll', ajaxAll, 'ajaxCountry', ajaxCountry, 'ajaCity', ajaxCity);
+    let titleStr = ajaxAll.country+"个国家   "+ajaxAll.city+"个城市   "+ajaxAll.team_number+"支队伍";
+    // data.country=[];
+    // let countries = ajaxCountry.countries;
+    // for (let ic=0; ic < countries.length; ic++){
+    //   data.country.push({value:countries[ic].team_number, name:countries[ic].name})
+    // }
+    console.log('data.country', data.country);
     return (
       <div style={styles.container}>
         <div style={styles.main}>
@@ -200,7 +220,7 @@ export default class DataAnalysis extends Component {
               <p style={styles.time}>
                 <Icon type="clock" size="xs" /> {this.state.date}
               </p>
-              <Title data="5个国家   40个城市   100支队伍" />
+              <Title data= {titleStr}/>
               {/*<h2 style={styles.sum}>*/}
                 {/*<TextLoop*/}
                   {/*speed={1000}*/}

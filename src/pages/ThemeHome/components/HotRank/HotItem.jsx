@@ -16,14 +16,14 @@ class HotItem extends Component {
     if (isNaN(f_x1)) {
       return 0;
     }
-    let f_x = Math.round(x * 100) / 100;
+    let f_x = Math.round(x * 100000) / 100000;
     let s_x = f_x.toString();
     let pos_decimal = s_x.indexOf('.');
     if (pos_decimal < 0) {
       pos_decimal = s_x.length;
       s_x += '.';
     }
-    while (s_x.length <= pos_decimal + 2) {
+    while (s_x.length <= pos_decimal + 5) {
       s_x += '0';
     }
     return s_x;
@@ -70,11 +70,11 @@ const styles = {
   },
   keyword: {
     fontSize: 14,
-    flex: 'auto',
+    width:'70%',
   },
   total: {
     fontSize: 12,
-    paddingLeft: 10,
+    paddingLeft: 0,
     width: 40,
   },
   link: {

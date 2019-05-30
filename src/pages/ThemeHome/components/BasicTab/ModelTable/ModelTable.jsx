@@ -126,7 +126,7 @@ export default class ModelTable extends Component {
     } else if(value == -2){
       text = '文件错误';
     } else {
-      text = value.toFixed(2);
+      text = value.toFixed(5);
     }
     return (
       <span className={styles.state}>

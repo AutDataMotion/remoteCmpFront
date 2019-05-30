@@ -45,6 +45,7 @@ export default class PicChart extends Component {
     const { data, title } = this.props;
 
     this.option.series[0].data = data;
+    console.log("pieChart data", data);
     return (
       <div style={{ height: '33%' }}>
         <Title data={title} />
