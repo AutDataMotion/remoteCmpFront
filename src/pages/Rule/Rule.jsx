@@ -202,7 +202,7 @@ export default class Rule extends Component {
             <strong>报名方式</strong>
 
             {/* <p>大赛采用在线注册的方式进行报名参赛。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http:// rssrai2019.cn）进行注册与报名，提交报名信息后2个工作日内收到主办方回复邮件即为报名成功。</p> */}
-            <p>大赛采用在线注册的方式进行报名。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http:// rssrai2019.cn）进行注册与报名，提交报名信息后可登陆竞赛官网即为报名成功。</p>
+            <p>大赛采用在线注册的方式进行报名。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http://rscup.bjxintong.com.cn）进行注册与报名，提交报名信息后可登陆竞赛官网即为报名成功。</p>
 
           </li>
 
@@ -210,7 +210,7 @@ export default class Rule extends Component {
             <strong>联系方式</strong>
 
             <p>
-              官方网站：http://rssrai2019.cn
+              官方网站：http://rscup.bjxintong.com.cn
             </p>
             <p>
               竞赛论坛：http://sin.xintongconference.com
