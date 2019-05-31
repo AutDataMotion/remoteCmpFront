@@ -9,8 +9,8 @@ const introBannerProp={
   themeId: 4,
   cmpInfoConf:{},
   dataDownloadConf:{
-    dataUrl: 'http://pan.baidu.com',
-    fetchCode: '888-666',
+    dataUrl: 'https://pan.baidu.com/s/1zDQIyO176FJlYoFy3F-ClA',
+    fetchCode: 'lnp8',
   },
   commitResConf:{},
   hotRankConf:{},

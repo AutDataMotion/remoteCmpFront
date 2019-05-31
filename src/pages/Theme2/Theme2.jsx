@@ -10,8 +10,8 @@ const introBannerProp={
   themeId: 2,
   cmpInfoConf:{},
   dataDownloadConf:{
-    dataUrl: 'http://pan.baidu.com',
-    fetchCode: '888-666',
+    dataUrl: 'https://pan.baidu.com/s/1qRT3He79iWiey6E9paBp9Q',
+    fetchCode: 'evc1',
   },
   commitResConf:{},
   hotRankConf:{},

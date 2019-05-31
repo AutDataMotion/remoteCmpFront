@@ -108,39 +108,39 @@ export default class Rule extends Component {
           <tbody>
           <tr>
             <td style={styles.textCenter}>线上报名</td>
-            <td style={styles.textCenter}>6月15日至6月30日</td>
-            <td>大赛组委会在第四届“空间信息网络”论坛官网和遥感图像稀疏表征与智能分析竞赛官网公布竞赛通知，各参赛团队自愿报名参赛。
+            <td style={styles.textCenter}>6月1日至8月10日</td>
+            <td>大赛组委会发布竞赛通知，各参赛团队自愿注册报名参赛。
               鼓励小微企业、创业团队、高校研究所等组队参赛，按自愿报名的原则，在线填写报名信息。
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td style={styles.textCenter}>发布邀请</td>
             <td style={styles.textCenter}>6月15日至6月30日</td>
             <td>邀请国内外未进行线上报名的相关高校、企业、研究团体等参与竞赛，并发布竞赛邀请。</td>
-          </tr>
+          </tr> */}
           <tr>
             <td style={styles.textCenter}>发布数据</td>
-            <td style={styles.textCenter}>7月1日至7月5日</td>
-            <td>公布竞赛数据，向参赛队伍提供数据集样例。</td>
+            <td style={styles.textCenter}>6月15日</td>
+            <td>公布竞赛中各赛题数据集。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>初赛阶段</td>
-            <td style={styles.textCenter}>7月1日至8月25日</td>
+            <td style={styles.textCenter}>7月1日至8月10日</td>
             <td>根据报名情况组织竞赛初赛，对参赛队伍提交的算法模型结果开展测试、评估、审查和遴选工作。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>决赛阶段</td>
-            <td style={styles.textCenter}>8月26日至9月10日</td>
+            <td style={styles.textCenter}>8月16日至8月31日</td>
             <td>根据初赛成绩遴选优秀队伍参加现场决赛，开展算法演示验证，算法评估工作。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>复审答辩</td>
-            <td style={styles.textCenter}>9月11日至9月15日</td>
+            <td style={styles.textCenter}>9月6日至9月15日</td>
             <td>遴选决赛成绩优秀的队伍参加竞赛答辩，专家评委对参赛团队算法成绩和答辩成绩进行综合评定和排名。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>颁奖活动</td>
-            <td style={styles.textCenter}>9月16日至9月19日</td>
+            <td style={styles.textCenter}>9月19日至9月20日</td>
             <td>组委会公布获奖队伍名单和成绩，邀请获奖团队参加第四届“空间信息网络”学术论坛颁奖典礼。</td>
           </tr>
           </tbody>
@@ -188,10 +188,10 @@ export default class Rule extends Component {
         <p>竞赛将根据测试得分情况，对参赛队伍进行排名，
           拟设立特等奖、一等奖、二等奖和三等奖 (根据竞赛情况，部分奖项可能空缺)，奖励金额如下：</p>
         <p>
-          <strong> &nbsp; &nbsp; 特等奖 &nbsp; &nbsp; &nbsp;奖金100000元人民币<br/></strong>
-          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;一等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金30000元人民币<br/></strong>
-          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;二等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金20000元人民币<br/></strong>
-          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;三等奖   &nbsp; &nbsp; &nbsp;&nbsp;奖金10000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp;特等奖   &nbsp; &nbsp; &nbsp; &nbsp;奖金100000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;一等奖   &nbsp; &nbsp; &nbsp; &nbsp;奖金30000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;二等奖   &nbsp; &nbsp; &nbsp; &nbsp;奖金20000元人民币<br/></strong>
+          <strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;三等奖   &nbsp; &nbsp; &nbsp; &nbsp;奖金10000元人民币<br/></strong>
         </p>
         <br/>
 
@@ -202,7 +202,7 @@ export default class Rule extends Component {
             <strong>报名方式</strong>
 
             {/* <p>大赛采用在线注册的方式进行报名参赛。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http:// rssrai2019.cn）进行注册与报名，提交报名信息后2个工作日内收到主办方回复邮件即为报名成功。</p> */}
-            <p>大赛采用在线注册的方式进行报名。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http:// rssrai2019.cn）进行注册与报名，提交报名信息后可登陆竞赛官网即为报名成功。</p>
+            <p>大赛采用在线注册的方式进行报名。参赛队伍可登陆“遥感图像稀疏表征与智能分析竞赛”官方网站（http://rscup.bjxintong.com.cn）进行注册与报名，提交报名信息后可登陆竞赛官网即为报名成功。</p>
 
           </li>
 
@@ -210,13 +210,13 @@ export default class Rule extends Component {
             <strong>联系方式</strong>
 
             <p>
-              官方网站：http://rssrai2019.cn
+              官方网站：http://rscup.bjxintong.com.cn
             </p>
             <p>
               竞赛论坛：http://sin.xintongconference.com
             </p>
 
-            <p>通讯邮箱：rssrai2019@hotmail.com
+            <p>通讯邮箱：rscup2019@hotmail.com
             </p>
 
             <p>
