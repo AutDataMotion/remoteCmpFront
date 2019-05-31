@@ -154,10 +154,10 @@ export default class ModelTable extends Component {
     return (<IceContainer className={styles.container}>
       <div style={inStyles.headerTips}>
         <h3 style={{fontSize: 16, color: '#333', margin: 0}}>
-          {globalConf.uploadTips}
+          {globalConf.uploadTips}{ajaxResult.today_remain}
         </h3>
       </div>
-      <TableHead superCallback={this.fetchData} onChange={this.handleFilterChange}/>
+      <TableHead remain={ajaxResult.today_remain} superCallback={this.fetchData} onChange={this.handleFilterChange}/>
       <Table
         loading={isLoading}
         dataSource={ajaxResult.results}

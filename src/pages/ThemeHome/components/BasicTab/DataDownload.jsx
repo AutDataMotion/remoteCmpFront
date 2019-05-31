@@ -12,6 +12,7 @@ export default class DataDownload extends React.Component {
         <h3>
           {/* 竞赛数据发布时，取消下面一行注释 */}
           {/* 数据下载地址：{dataUrl}  */}
+          数据尚未公布，敬请期待
         </h3>
         <h3>
           {/* 竞赛数据发布时，取消下面一行注释 */}

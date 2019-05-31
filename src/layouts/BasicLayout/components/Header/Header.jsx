@@ -14,7 +14,7 @@ const { SubNav: SubMenu, Item: MenuItem } = Nav;
 
 @DataBinder({
   ajaxUserInfo: {
-    url: globalConf.genUrlFront('user/info'),
+    url: globalConf.genUrl('user/info'),
     method:'get',
     param:{},
     defaultBindingData:{
@@ -33,7 +33,7 @@ const { SubNav: SubMenu, Item: MenuItem } = Nav;
     ...globalConf.headerCOR,
   },
   ajaxLogout: {
-    url: globalConf.genUrlFront('user/logout'),
+    url: globalConf.genUrl('user/logout'),
     method:'post',
     success:(res, defaultCallBack, orgResponse)=>{
       console.log("ajaxLogout success res", res, "orgResponse", orgResponse);

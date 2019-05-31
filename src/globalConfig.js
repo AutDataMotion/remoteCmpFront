@@ -67,7 +67,7 @@ const globalConf={
   // baseUrl:'https://www.easy-mock.com/mock/5cdadc3dfb3e4604b7673bae/rsc/',
   baseUrl:'http://119.3.202.35:8000/',
   baseUrlFront:'http://119.3.202.35/',
-  uploadTips:'',//'提示：每日限制上传【5】次，取最高分作为最终成绩',
+  uploadTips:'今天还可提交结果次数:',//'提示：每日限制上传【5】次，取最高分作为最终成绩',
   dashboardTips:'公告：排行榜每日上午8:00更新一次',
 
   getRegistTips:(isLeader)=>{
