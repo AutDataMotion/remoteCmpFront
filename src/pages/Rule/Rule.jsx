@@ -109,7 +109,7 @@ export default class Rule extends Component {
           <tr>
             <td style={styles.textCenter}>线上报名</td>
             <td style={styles.textCenter}>6月1日至8月10日</td>
-            <td>大赛组委会在第四届“空间信息网络”论坛官网和遥感图像稀疏表征与智能分析竞赛官网公布竞赛通知，各参赛团队自愿报名参赛。
+            <td>大赛组委会发布竞赛通知，各参赛团队自愿注册报名参赛。
               鼓励小微企业、创业团队、高校研究所等组队参赛，按自愿报名的原则，在线填写报名信息。
             </td>
           </tr>
