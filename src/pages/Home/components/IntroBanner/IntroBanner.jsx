@@ -96,7 +96,7 @@ export default class IntroBanner extends Component {
             className="intro-banner-subtitle"
             style={style.introBannerSubtitleStyles}
           >
-            2019年6月15日 ~ 2019年9月19日
+            2019年6月1日 ~ 2019年9月20日
           </p>
 
         </div>
