@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import IntroBanner from '../ThemeHome/components/IntroBanner';
-import BlackFooter from '../ThemeHome/components/BlackFooter';
 import BasicTab from "../ThemeHome/components/BasicTab";
 import Overview from "../ThemeHome/components/Overview";
 import {Col, Row} from "@alifd/next/lib/grid";
@@ -30,17 +29,13 @@ export default class Theme4 extends Component {
           <IntroBanner themeConf={globalConf.themeConf[3]} />
         </Col>
         <Col l="24" xxs="24">
-          <div  style = {styles.sOverview}> <Overview /></div>
+          <div  style = {styles.sOverview}> <Overview themeConf={globalConf.themeConf[3]}/></div>
 
         </Col>
         <Col l="24" xxs="24">
           <div style = {styles.sOverview}>
             <BasicTab {...introBannerProp}/>
           </div>
-        </Col>
-
-        <Col l="24" xxs="24">
-          <BlackFooter />
         </Col>
       </Row>
     );

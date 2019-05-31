@@ -267,9 +267,6 @@ export default class Org extends Component {
             {this.renderText()}
           </div>
         </Col>
-        <Col l="24" xxs="24">
-          <BlackFooter/>
-        </Col>
       </Row>
 
     );

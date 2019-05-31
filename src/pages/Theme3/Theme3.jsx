@@ -30,17 +30,13 @@ export default class Theme3 extends Component {
           <IntroBanner themeConf={globalConf.themeConf[2]} />
         </Col>
         <Col l="24" xxs="24">
-          <div  style = {styles.sOverview}> <Overview /></div>
+          <div  style = {styles.sOverview}> <Overview themeConf={globalConf.themeConf[2]}/></div>
 
         </Col>
         <Col l="24" xxs="24">
           <div style = {styles.sOverview}>
             <BasicTab {...introBannerProp}/>
           </div>
-        </Col>
-
-        <Col l="24" xxs="24">
-          <BlackFooter />
         </Col>
       </Row>
     );

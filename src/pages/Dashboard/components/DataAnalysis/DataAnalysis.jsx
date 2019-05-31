@@ -1,12 +1,15 @@
 /* eslint react/no-children-prop:0 */
-import React, { Component } from 'react';
-import { Icon } from '@alifd/next';
+import React, {Component} from 'react';
+import {Icon} from '@alifd/next';
 import TextLoop from 'react-text-loop';
 import PieChart from './PieChart';
 import TopList from './TopList';
 import LineChart from './LineChart';
 import Map from './Map';
 import Title from './Title';
+
+import DataBinder from '@icedesign/data-binder';
+import globalConf from "../../../../globalConfig";
 
 const data = {
   country: [
@@ -31,6 +34,7 @@ const data = {
       name: '法国',
     },
   ],
+
   topCityForeign: [
     {
       name: '美国：纽约·华盛顿 ',
@@ -45,11 +49,13 @@ const data = {
       name: '俄罗斯：莫斯科·圣彼得堡 ',
     },
   ],
+
   topItem: [
     {
       name: '-----',
     },
   ],
+
   cityChina: [
     {
       value: 67,
@@ -68,6 +74,7 @@ const data = {
       name: '青岛',
     },
   ],
+
   cityMembers: [
     {
       value: 33,
@@ -86,8 +93,65 @@ const data = {
       name: '青岛市：2支队伍',
     },
   ],
+
 };
 
+
+@DataBinder({
+  ajaxAll: {
+    url: globalConf.genUrl('statistics/all'),
+    method: 'get',
+    param: {},
+    defaultBindingData: {
+      "team_number": 0,
+      "country": 0,
+      "city": 0,
+    },
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  },
+  ajaxCountry: {
+    url: globalConf.genUrl('statistics/country'),
+    method: 'get',
+    param: {},
+    defaultBindingData: {
+      "countries": []
+    },
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  },
+  ajaxCity: {
+    url: globalConf.genUrl('statistics/city'),
+    method: 'get',
+    param: {},
+    defaultBindingData: {
+      "cities": []
+    },
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  },
+  ajaxCityDetail: {
+    url: globalConf.genUrl('statistics/city/detail'),
+    method: 'get',
+    param: {city_name: '北京市'},
+    defaultBindingData: {
+      school: [],
+      academy: [],
+      company: [],
+      other: []
+    },
+    responseFormatter: (rspHandler, res, orgRsp) => {
+      res = globalConf.formatResponseComm(res);
+      rspHandler(res, orgRsp);
+    },
+  }
+})
 export default class DataAnalysis extends Component {
   static displayName = 'DataAnalysis';
 
@@ -113,46 +177,71 @@ export default class DataAnalysis extends Component {
     this.setState({
       date: `${year}-${month + 1}-${day} ${hour}:${
         minute < 10 ? `0${minute}` : minute
-      }:${second < 10 ? `0${second}` : second}`,
+        }:${second < 10 ? `0${second}` : second}`,
     });
   };
 
   componentDidMount() {
+    this.updateChartData();
     setInterval(this.updateDate, 1000);
+
+    //setInterval(this.updateChartData, 5 * 1000);
   }
 
+  updateChartData = () => {
+    this.props.updateBindingData('ajaxAll');
+    this.props.updateBindingData('ajaxCountry');
+    this.props.updateBindingData('ajaxCity');
+  }
+
+
   render() {
+    const {ajaxAll, ajaxCountry, ajaxCity} = this.props.bindingData;
+    console.log("ajaxAll", ajaxAll, "ajaxCountry", ajaxCountry, "ajaxCity", ajaxCity);
+    let chartTitle = ajaxAll.country + "个国家 " + ajaxAll.city + "个城市 " + ajaxAll.team_number + "支队伍";
+    let countries = ajaxCountry.countries;
+    //console.log("countries "+countries[0])
+    let cities = ajaxCity.cities;
+    // 转换数据格式 以国家为例
+    data.country = []; // 清空
+    data.topCityForeign = [];
+    for (let ic = 0; ic < countries.length; ic++) {
+      data.country.push({value: countries[ic].team_number, name: countries[ic].name});
+      data.topCityForeign.push({value: countries[ic].team_number + '支队伍', name: countries[ic].name});
+    }
+    // 转换数据格式 中国每个城市队伍情况  {"team_number": 5, "name": "武汉市", "rankNum": 2}
+    data.cityChina = []; // 清空
+    data.cityMembers = [];
+    for (let ic = 0; ic < cities.length; ic++) {
+      data.cityChina.push({value: cities[ic].team_number, name: cities[ic].name});
+      data.cityMembers.push({value: cities[ic].team_number + '支队伍', name: cities[ic].name});
+    }
+
+    console.log("country " + data.country)
     return (
       <div style={styles.container}>
         <div style={styles.main}>
           <div style={styles.side}>
-            <PieChart data={data.country} title="国家队伍分布" />
-            <TopList data={data.topCityForeign} title="国外主要城市" />
+            <PieChart id="left_pie" data={data.country} title="国家队伍分布"/>
+            <TopList data={data.topCityForeign} title="国家队伍分布信息"/>
             {/*<LineChart data={data.source} title="队伍分布" />*/}
           </div>
           <div style={styles.middle}>
             <div style={styles.header}>
               <h1 style={styles.pageTitle}>大赛队伍分布</h1>
               <p style={styles.time}>
-                <Icon type="clock" size="xs" /> {this.state.date}
+                <Icon type="clock" size="xs"/> {this.state.date}
               </p>
-              <Title data="5个国家   40个城市   100支队伍" />
-              {/*<h2 style={styles.sum}>*/}
-                {/*<TextLoop*/}
-                  {/*speed={1000}*/}
-                  {/*children={['1242.12', '5356.32', '6518.28', '8739.69']}*/}
-                {/*/>*/}
-              {/*</h2>*/}
+              <Title data={chartTitle}/>
             </div>
           </div>
           <div style={styles.side}>
-            <PieChart data={data.cityChina} title="国内分布情况" />
-            <TopList data={data.cityMembers} title="国内主要城市" />
-            {/*<PieChart data={data.member} title="占比" />*/}
+            <PieChart id="right_pie" data={data.cityChina} title="国内队伍分布"/>
+            <TopList data={data.cityMembers} title="国内城市队伍分布信息"/>
           </div>
         </div>
         <div style={styles.bg}>
-          <Map />
+          <Map propData={data.cityChina} id='mapContainer'/>
         </div>
       </div>
     );

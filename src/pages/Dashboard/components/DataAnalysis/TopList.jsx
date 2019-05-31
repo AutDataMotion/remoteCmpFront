@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import TextLoop from 'react-text-loop';
 import Title from './Title';
 
@@ -16,8 +16,8 @@ export default class TopList extends Component {
 
   render() {
     return (
-      <div style={{ height: '33%' }}>
-        <Title data={this.props.title} />
+      <div style={{height: '33%'}}>
+        <Title data={this.props.title}/>
         <ul style={styles.list}>
           {this.props.data.map((data, index) => {
             return (
@@ -25,6 +25,7 @@ export default class TopList extends Component {
                 <li style={styles.item}>
                   <span style={styles.idx}>No.{index + 1}</span>
                   <span style={styles.name}>{data.name}</span>
+                  <span style={styles.name}>{data.value}</span>
                 </li>
               </TextLoop>
             );

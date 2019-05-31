@@ -198,7 +198,7 @@ const styles = {
   },
   score: {
     fontSize: 14,
-    paddingLeft: 10,
-    width: 40,
+    paddingLeft: 15,
+    width: 60,
   },
 };

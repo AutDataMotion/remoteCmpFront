@@ -1,7 +1,7 @@
 /* eslint react/no-string-refs:0 */
-import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import { Input, Button, Checkbox, Message } from '@alifd/next';
+import React, {Component} from 'react';
+import {withRouter, Link} from 'react-router-dom';
+import {Input, Button, Checkbox, Message} from '@alifd/next';
 import {
   FormBinderWrapper as IceFormBinderWrapper,
   FormBinder as IceFormBinder,
@@ -15,15 +15,15 @@ import globalConf from "../../globalConfig";
 @DataBinder({
   ajaxLogin: {
     url: globalConf.genUrl('user/login'),
-    method:'POST',
-    data:{},
-    success:(res, defaultCallBack, orgResponse)=>{
+    method: 'POST',
+    data: {},
+    success: (res, defaultCallBack, orgResponse) => {
       console.log("success res", res, "orgResponse", orgResponse);
     },
-    error:(res, defaultCallBack, orgResponse)=>{
+    error: (res, defaultCallBack, orgResponse) => {
       defaultCallBack();
     },
-   ...globalConf.headerCOR,
+    ...globalConf.headerCOR,
   }
 })
 @withRouter
@@ -57,18 +57,22 @@ class UserLogin extends Component {
         console.log('errors', errors);
         return;
       }
-      console.log('values:',values);
+      console.log('values:', values);
       this.props.updateBindingData('ajaxLogin', {
         data: {
-            phone_number:values.phone_number,
-            password:values.password,
-          }
-        },(rsp)=>{
-          console.log("login rsp", rsp);
-          // 获取返回数据 判断是否登录成功
-          Message.success('登录成功');
+          phone_number: values.phone_number,
+          password: values.password,
+        }
+      }, (rsp) => {
+        console.log("login rsp", rsp);
+        if (rsp && rsp.status === 1) {
+          Message.success("登录成功");
           this.props.history.push('/');
-        });
+        } else {
+          Message.warning("登录失败，请重试");
+        }
+
+      });
 
     });
   };
@@ -84,7 +88,7 @@ class UserLogin extends Component {
         >
           <div style={styles.formItems}>
             <div style={styles.formItem}>
-              <IceIcon type="person" size="small" style={styles.inputIcon} />
+              <IceIcon type="person" size="small" style={styles.inputIcon}/>
               <IceFormBinder name="phone_number" required message="必填">
                 <Input
                   size="large"
@@ -93,11 +97,11 @@ class UserLogin extends Component {
                   style={styles.inputCol}
                 />
               </IceFormBinder>
-              <IceFormError name="phone_number" />
+              <IceFormError name="phone_number"/>
             </div>
 
             <div style={styles.formItem}>
-              <IceIcon type="lock" size="small" style={styles.inputIcon} />
+              <IceIcon type="lock" size="small" style={styles.inputIcon}/>
               <IceFormBinder name="password" required message="必填">
                 <Input
                   size="large"
@@ -106,7 +110,7 @@ class UserLogin extends Component {
                   style={styles.inputCol}
                 />
               </IceFormBinder>
-              <IceFormError name="password" />
+              <IceFormError name="password"/>
             </div>
 
             <div style={styles.footer}>

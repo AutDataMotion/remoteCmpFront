@@ -107,6 +107,7 @@ export default class Header extends Component {
             display: 'flex',
             alignItems: 'center',
             fontSize: 12,
+            marginRight:'50px'
           }}
         >
           <div className="user-profile">
@@ -127,12 +128,15 @@ export default class Header extends Component {
       className="user-profile-menu"
     >
       <ul>
-        {/*<li className="user-profile-menu-item">*/}
-        {/*<Link to="/setting">*/}
-        {/*<FoundationSymbol type="repair" size="small" />*/}
-        {/*个人信息*/}
-        {/*</Link>*/}
-        {/*</li>*/}
+        <li className="user-profile-menu-item">
+          <label> 邀请码：{globalConf.userInfo.invite_code}</label>
+        </li>
+        <li className="user-profile-menu-item">
+        <Link to="/setting">
+        个人信息
+        </Link>
+        </li>
+
         <li className="user-profile-menu-item">
           <Button
             onClick={this.onLogOut}

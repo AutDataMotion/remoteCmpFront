@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import Title from './Title';
+import echarts from 'echarts/lib/echarts';
 
 export default class PicChart extends Component {
   static displayName = 'PicChart';
@@ -41,14 +42,26 @@ export default class PicChart extends Component {
     };
   }
 
-  render() {
-    const { data, title } = this.props;
-
+  componentDidUpdate(prevProps, prevState) {
+    // console.log('Component DID UPDATE!')
+    const {id, data, title} = this.props;
+    const myChart = echarts.init(document.getElementById(id));
     this.option.series[0].data = data;
+    myChart.setOption(this.option);
+  }
+
+  //<ReactEcharts
+  //option={this.option}
+  //style={{ height: '100%' }} />
+  render() {
+    const {id, data, title} = this.props;
+    // console.log(data);
+    //this.option.series[0].data = data;
     return (
-      <div style={{ height: '33%' }}>
-        <Title data={title} />
-        <ReactEcharts option={this.option} style={{ height: '100%' }} />
+      <div style={{height: '33%'}}>
+        <Title data={title}/>
+
+        <div style={{width: '100%', height: '100%'}} id={id}/>
       </div>
     );
   }

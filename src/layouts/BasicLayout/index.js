@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import MainRoutes from './MainRoutes';
 
 import './index.scss';
+import BlackFooter from '../../pages/ThemeHome/components/BlackFooter';
+import {Col} from "@alifd/next/lib/grid";
 
 export default class BasicLayout extends Component {
   static propTypes = {};
@@ -18,7 +20,7 @@ export default class BasicLayout extends Component {
         <div style={styles.mainContent}>
           <MainRoutes />
         </div>
-        <Footer />
+        <BlackFooter />
       </Layout>
     );
   }
