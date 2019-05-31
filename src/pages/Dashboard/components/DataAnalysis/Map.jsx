@@ -434,7 +434,7 @@ function eConsole(params) {
 @DataBinder({
  
   ajaxCityDetail_map: {
-    url: globalConf.genUrl('statistics/city/detail'),
+    url: globalConf.genUrlFront('statistics/city/detail'),
     method:'get',
     params:{city_name:'北京市'},
     defaultBindingData:{

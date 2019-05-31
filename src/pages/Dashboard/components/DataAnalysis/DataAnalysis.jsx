@@ -99,7 +99,7 @@ const data = {
 
 @DataBinder({
   ajaxAll: {
-    url: globalConf.genUrl('statistics/all'),
+    url: globalConf.genUrlFront('statistics/all'),
     method: 'get',
     param: {},
     defaultBindingData: {
@@ -113,7 +113,7 @@ const data = {
     },
   },
   ajaxCountry: {
-    url: globalConf.genUrl('statistics/country'),
+    url: globalConf.genUrlFront('statistics/country'),
     method: 'get',
     param: {},
     defaultBindingData: {
@@ -125,7 +125,7 @@ const data = {
     },
   },
   ajaxCity: {
-    url: globalConf.genUrl('statistics/city'),
+    url: globalConf.genUrlFront('statistics/city'),
     method: 'get',
     param: {},
     defaultBindingData: {
@@ -137,7 +137,7 @@ const data = {
     },
   },
   ajaxCityDetail: {
-    url: globalConf.genUrl('statistics/city/detail'),
+    url: globalConf.genUrlFront('statistics/city/detail'),
     method: 'get',
     params: {city_name: '北京市'},
     defaultBindingData: {
