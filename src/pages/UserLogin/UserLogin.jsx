@@ -34,9 +34,11 @@ class UserLogin extends Component {
 
   static defaultProps = {};
 
+  flagReadOnly= true;
   constructor(props) {
     super(props);
     this.state = {
+
       value: {
         phone_number: '',
         password: '',
@@ -77,7 +79,17 @@ class UserLogin extends Component {
     });
   };
 
+  onFocus=()=>{
+    console.log("onFocus----");
+    this.flagReadOnly = false;
+    this.setState({
+     loading:false
+    })
+  }
+
   render() {
+
+    console.log("flagReadOnly", this.flagReadOnly);
     return (
       <div style={styles.container}>
         <h4 style={styles.title}>登 录</h4>
@@ -94,6 +106,9 @@ class UserLogin extends Component {
                   size="large"
                   maxLength={20}
                   placeholder="手机号码"
+                  readOnly = {this.flagReadOnly}
+                  onFocus={this.onFocus}
+                  onBlur={this.onFocus}
                   style={styles.inputCol}
                 />
               </IceFormBinder>
@@ -107,6 +122,9 @@ class UserLogin extends Component {
                   size="large"
                   htmlType="password"
                   placeholder="密码"
+                  readOnly = {this.flagReadOnly}
+                  onFocus={this.onFocus}
+                  onBlur={this.onFocus}
                   style={styles.inputCol}
                 />
               </IceFormBinder>
