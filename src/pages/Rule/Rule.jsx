@@ -216,7 +216,7 @@ export default class Rule extends Component {
               竞赛论坛：http://sin.xintongconference.com
             </p>
 
-            <p>通讯邮箱：rssrai2019@hotmail.com
+            <p>通讯邮箱：rscup2019@hotmail.com
             </p>
 
             <p>
