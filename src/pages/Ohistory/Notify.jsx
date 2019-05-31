@@ -6,7 +6,7 @@ import DataBinder from '@icedesign/data-binder';
 
 @DataBinder({
   ajaxMessage: {
-    url: globalConf.genUrl('message'),
+    url: globalConf.genUrl('notify'),
     method:'get',
     param:{},
     defaultBindingData:{
@@ -29,7 +29,7 @@ export default class Notify extends React.Component {
 
 
   componentDidMount() {
-   // this.props.updateBindingData('ajaxMessage');
+   this.props.updateBindingData('ajaxMessage');
   }
 
   render() {
@@ -42,13 +42,14 @@ export default class Notify extends React.Component {
          竞赛通知
         </h1>
         {
-          ajaxMessage.context.map((msg, index)=>{
+          ajaxMessage.context.map(function(msg){
             return (
               <p>
                 {msg}
               </p>
             );
           })
+		 
         }
         <p>
           <br/>

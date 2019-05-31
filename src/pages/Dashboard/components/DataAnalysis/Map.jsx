@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import 'echarts/lib/chart/map';
 import 'echarts/map/js/world';
+import 'echarts/map/js/china';
 import ecConfig from 'echarts/lib/config';
 import echarts from 'echarts/lib/echarts';
 
@@ -273,11 +274,7 @@ const data = [
   {
     name: '青岛市',
     value: 10,
-  },
-  {
-    name: '日本',
-    value: 1,
-  },
+  }
 ];
 
 function formtGCData(geoData, gcData, srcNam, dest) {
@@ -344,7 +341,7 @@ const option = {
   geo: {
     name: '团队分布',
     type: 'map',
-    map: 'world',
+    map: 'china',
     zoom: 1,
     roam: true,
     label: {
@@ -363,7 +360,8 @@ const option = {
     },
   },
   tooltip: {
-    trigger: 'item'
+    trigger: 'item',
+	formatter: '{b}'
   },
   series: [
     // {
@@ -398,7 +396,7 @@ const option = {
       },
       label: {
         normal: {
-          show: false,
+          show: true,
           position: 'right',
           formatter: '{b}',
         },
@@ -416,7 +414,7 @@ const option = {
 };
 
 function eConsole(params) {
-  alert(params.name);//点击获取的元素名称 如北京
+  console.log("map",params.name);//点击获取的元素名称 如北京
   /*var mes = '【' + param.type + '】';
   if (typeof param.seriesIndex != 'undefined') {
       mes += '  seriesIndex : ' + param.seriesIndex;
@@ -432,13 +430,13 @@ function eConsole(params) {
 
 }
 
-/*
+
 @DataBinder({
  
   ajaxCityDetail_map: {
     url: globalConf.genUrl('statistics/city/detail'),
     method:'get',
-    param:{city_name:'北京市'},
+    params:{city_name:'北京市'},
     defaultBindingData:{
       school: [],
       academy: [],
@@ -450,7 +448,7 @@ function eConsole(params) {
       rspHandler(res, orgRsp);
     },
   }
-})*/
+})
 export default class Map extends Component {
   static displayName = 'Map';
 
@@ -469,9 +467,17 @@ export default class Map extends Component {
       ]
     };
   }
+	getcityDetail = (city_name) => {
+		//console.log(city_name);
+		this.props.updateBindingData('ajaxCityDetail_map',{
+			params:{city_name:city_name},
+		});
+		
+	};
 
   //componentDidUpdate(prevProps, prevState) {
   componentDidMount() {
+	const obj = this;
     const {id, propData} = this.props;
     const {mapData} = this.state;
     // 比较是否相同
@@ -483,16 +489,27 @@ export default class Map extends Component {
       myChart._$handlers.click.length = 0;
     }
     myChart.on('click', function (params) {//地图点击事件
-      eConsole(params);
+      //eConsole(params);
+	  obj.getcityDetail(params.name);
+	  //console.log(this.props);
+	  /*this.props.updateBindingData('ajaxCityDetail_map', {
+		  param:{city_name:params.name},
+		});
       //console.log(params.name);
+	  const { ajaxCityDetail_map } = this.props.bindingData;
+	  console.log(ajaxCityDetail_map.school);
+	 */ 
     });
   }
 
   componentDidUpdate(prevProps, prevState) {
+	const { ajaxCityDetail_map } = this.props.bindingData;
+	//console.log("map",ajaxCityDetail_map);
+		
     const {id, propData} = this.props;
     const {mapData} = this.state;
     // 比较是否相同
-    console.log("componentDidUpdate map data", propData, "mapData", mapData);
+    //console.log("componentDidUpdate map data", propData, "mapData", mapData);
 
     if (!propData || propData.length == 0){
       return ;
@@ -519,11 +536,13 @@ export default class Map extends Component {
       })
     }
   }
-
-
+	
 //<ReactEcharts option={option} style={{height: '650px'}}/>
   render() {
     const {id, data} = this.props;
+	//const { ajaxCityDetail_map } = this.props.bindingData;
+	//console.log("map",ajaxCityDetail_map);
+	//eConsole(ajaxCityDetail_map);
     return (
       <div>
         <div style={{width: '100%', height: '900px'}} id={id}/>
