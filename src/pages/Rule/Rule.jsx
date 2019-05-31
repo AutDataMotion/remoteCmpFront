@@ -121,7 +121,7 @@ export default class Rule extends Component {
           <tr>
             <td style={styles.textCenter}>发布数据</td>
             <td style={styles.textCenter}>6月15日</td>
-            <td>公布竞赛数据，向参赛队伍提供数据集样例。</td>
+            <td>公布竞赛中各赛题数据集。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>初赛阶段</td>
