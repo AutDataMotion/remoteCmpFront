@@ -264,17 +264,9 @@ const geoCoordMap = {
 
 const data = [
   {
-    name: '杭州市',
-    value: 10,
-  },
-  {
     name: '北京市',
     value: 10,
   },
-  {
-    name: '青岛市',
-    value: 10,
-  }
 ];
 
 function formtGCData(geoData, gcData, srcNam, dest) {
@@ -434,7 +426,7 @@ function eConsole(params) {
 @DataBinder({
  
   ajaxCityDetail_map: {
-    url: globalConf.genUrlFront('statistics/city/detail'),
+    url: globalConf.genUrl('statistics/city/detail'),
     method:'get',
     params:{city_name:'北京市'},
     defaultBindingData:{
