@@ -108,39 +108,39 @@ export default class Rule extends Component {
           <tbody>
           <tr>
             <td style={styles.textCenter}>线上报名</td>
-            <td style={styles.textCenter}>6月15日至6月30日</td>
+            <td style={styles.textCenter}>6月1日至8月10日</td>
             <td>大赛组委会在第四届“空间信息网络”论坛官网和遥感图像稀疏表征与智能分析竞赛官网公布竞赛通知，各参赛团队自愿报名参赛。
               鼓励小微企业、创业团队、高校研究所等组队参赛，按自愿报名的原则，在线填写报名信息。
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td style={styles.textCenter}>发布邀请</td>
             <td style={styles.textCenter}>6月15日至6月30日</td>
             <td>邀请国内外未进行线上报名的相关高校、企业、研究团体等参与竞赛，并发布竞赛邀请。</td>
-          </tr>
+          </tr> */}
           <tr>
             <td style={styles.textCenter}>发布数据</td>
-            <td style={styles.textCenter}>7月1日至7月5日</td>
+            <td style={styles.textCenter}>6月15日</td>
             <td>公布竞赛数据，向参赛队伍提供数据集样例。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>初赛阶段</td>
-            <td style={styles.textCenter}>7月1日至8月25日</td>
+            <td style={styles.textCenter}>7月1日至8月10日</td>
             <td>根据报名情况组织竞赛初赛，对参赛队伍提交的算法模型结果开展测试、评估、审查和遴选工作。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>决赛阶段</td>
-            <td style={styles.textCenter}>8月26日至9月10日</td>
+            <td style={styles.textCenter}>8月16日至8月31日</td>
             <td>根据初赛成绩遴选优秀队伍参加现场决赛，开展算法演示验证，算法评估工作。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>复审答辩</td>
-            <td style={styles.textCenter}>9月11日至9月15日</td>
+            <td style={styles.textCenter}>9月6日至9月15日</td>
             <td>遴选决赛成绩优秀的队伍参加竞赛答辩，专家评委对参赛团队算法成绩和答辩成绩进行综合评定和排名。</td>
           </tr>
           <tr>
             <td style={styles.textCenter}>颁奖活动</td>
-            <td style={styles.textCenter}>9月16日至9月19日</td>
+            <td style={styles.textCenter}>9月19日至9月20日</td>
             <td>组委会公布获奖队伍名单和成绩，邀请获奖团队参加第四届“空间信息网络”学术论坛颁奖典礼。</td>
           </tr>
           </tbody>
