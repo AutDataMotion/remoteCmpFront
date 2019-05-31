@@ -48,7 +48,7 @@ export default class ApplicationProgress extends Component {
   renderOrg = ()=>{
     return <div className="contentText">
       <h2>组织机构</h2>
-      <table style={{width:'100%'}}>
+      <table style={{width:'100%', padding:'0 20px'}}>
         <thead>
         <tr>
           <th style={styleTable.textCenter} width="33%"></th>

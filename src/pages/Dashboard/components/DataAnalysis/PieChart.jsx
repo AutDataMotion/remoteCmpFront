@@ -43,7 +43,7 @@ export default class PicChart extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Component DID UPDATE!')
+    // console.log('Component DID UPDATE!')
     const {id, data, title} = this.props;
     const myChart = echarts.init(document.getElementById(id));
     this.option.series[0].data = data;
@@ -55,7 +55,7 @@ export default class PicChart extends Component {
   //style={{ height: '100%' }} />
   render() {
     const {id, data, title} = this.props;
-    console.log(data);
+    // console.log(data);
     //this.option.series[0].data = data;
     return (
       <div style={{height: '33%'}}>

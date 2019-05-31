@@ -241,7 +241,7 @@ export default class DataAnalysis extends Component {
           </div>
         </div>
         <div style={styles.bg}>
-          <Map id='mapContainer'/>
+          <Map propData={data.cityChina} id='mapContainer'/>
         </div>
       </div>
     );
