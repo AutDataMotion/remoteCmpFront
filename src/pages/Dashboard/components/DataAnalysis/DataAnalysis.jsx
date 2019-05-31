@@ -139,7 +139,7 @@ const data = {
   ajaxCityDetail: {
     url: globalConf.genUrl('statistics/city/detail'),
     method: 'get',
-    param: {city_name: '北京市'},
+    params: {city_name: '北京市'},
     defaultBindingData: {
       school: [],
       academy: [],
@@ -185,19 +185,20 @@ export default class DataAnalysis extends Component {
     this.updateChartData();
     setInterval(this.updateDate, 1000);
 
-    //setInterval(this.updateChartData, 5 * 1000);
+    //setInterval(this.updateChartData, 30 * 1000);
   }
 
   updateChartData = () => {
     this.props.updateBindingData('ajaxAll');
     this.props.updateBindingData('ajaxCountry');
     this.props.updateBindingData('ajaxCity');
+	//this.props.updateBindingData('ajaxCityDetail');
   }
 
 
   render() {
     const {ajaxAll, ajaxCountry, ajaxCity} = this.props.bindingData;
-    console.log("ajaxAll", ajaxAll, "ajaxCountry", ajaxCountry, "ajaxCity", ajaxCity);
+    //console.log("ajaxAll", ajaxAll, "ajaxCountry", ajaxCountry, "ajaxCity", ajaxCity);
     let chartTitle = ajaxAll.country + "个国家 " + ajaxAll.city + "个城市 " + ajaxAll.team_number + "支队伍";
     let countries = ajaxCountry.countries;
     //console.log("countries "+countries[0])
@@ -217,12 +218,13 @@ export default class DataAnalysis extends Component {
       data.cityMembers.push({value: cities[ic].team_number + '支队伍', name: cities[ic].name});
     }
 
-    console.log("country " + data.country)
+    //console.log("country " + data.country)
     return (
       <div style={styles.container}>
         <div style={styles.main}>
+		  
           <div style={styles.side}>
-            <PieChart id="left_pie" data={data.country} title="国家队伍分布"/>
+			<PieChart id="left_pie" data={data.country} title="国家队伍分布"/>
             <TopList data={data.topCityForeign} title="国家队伍分布信息"/>
             {/*<LineChart data={data.source} title="队伍分布" />*/}
           </div>
@@ -235,10 +237,12 @@ export default class DataAnalysis extends Component {
               <Title data={chartTitle}/>
             </div>
           </div>
+		  
           <div style={styles.side}>
             <PieChart id="right_pie" data={data.cityChina} title="国内队伍分布"/>
             <TopList data={data.cityMembers} title="国内城市队伍分布信息"/>
           </div>
+		  
         </div>
         <div style={styles.bg}>
           <Map propData={data.cityChina} id='mapContainer'/>
