@@ -5,7 +5,7 @@ export default () => {
     <div style={styles.footer}>
       <div style={styles.links}>
       </div>
-      <div style={styles.copyright}>版权所有 © xxxx <span>   备案号：京ICP备xxx号</span></div>
+      <div style={styles.copyright}>版权所有 © 中国科学院空间应用工程与技术中心 <span>   备案号：京ICP备09082226号-7</span></div>
     </div>
   );
 };

@@ -50,6 +50,16 @@ const globalConf={
       globalConf.userInfo.is_captain = ajaxUserInfo.user_info.is_captain;
       globalConf.userInfo.invite_code = ajaxUserInfo.user_info.invite_code;
       globalConf.userInfo.competition_id = ajaxUserInfo.user_info.competition_id;
+
+      globalConf.userInfo.work_id = ajaxUserInfo.user_info.work_id;
+      globalConf.userInfo.work_place_top = ajaxUserInfo.user_info.work_place_top;
+      globalConf.userInfo.work_place_second = ajaxUserInfo.user_info.work_place_second;
+      globalConf.userInfo.work_place_third = ajaxUserInfo.user_info.work_place_third;
+      globalConf.userInfo.phone_number = ajaxUserInfo.user_info.phone_number;
+      globalConf.userInfo.ID_card = ajaxUserInfo.user_info.ID_card;
+      globalConf.userInfo.email = ajaxUserInfo.user_info.email;
+      globalConf.userInfo.country = ajaxUserInfo.user_info.country;
+
     } else {
       globalConf.userInfo = {
         ...globalConf.defaultUserInfo,

@@ -131,6 +131,9 @@ export default class BaseSetting extends Component {
       },
     };
   }
+  componentDidMount() {
+    this.props.updateBindingData('ajaxUserInfo');
+  }
 
   onDragOver = () => {
     console.log('dragover callback');
@@ -166,12 +169,13 @@ export default class BaseSetting extends Component {
 
 
   render() {
-
+    const {ajaxUserInfo} = this.props.bindingData;
+    console.log("ajaxUserInfo", ajaxUserInfo.user_info);
     let themeSelectPop = {readOnly: true};
     let organization = orgEnum[0];
     return (
       <IceContainer>
-        <IceFormBinderWrapper value={this.state.value} ref="form">
+        <IceFormBinderWrapper value={ajaxUserInfo.user_info} ref="form">
           <div style={styles.formContent}>
             <h2 style={styles.formTitle}>个人信息</h2>
 
@@ -182,6 +186,7 @@ export default class BaseSetting extends Component {
               <Col s="12" l="10">
                 <IceFormBinder name="name" required max={10} message="必填">
                   <Input
+                    readOnly
                     style={styles.inputItem}
                   />
                 </IceFormBinder>
@@ -204,6 +209,7 @@ export default class BaseSetting extends Component {
                 >
                   <Input
                     size="large"
+                    readOnly
                     placeholder="身份证号码"
                     trim={true}
                     maxLength={18}
@@ -228,6 +234,7 @@ export default class BaseSetting extends Component {
                   >
                     <Input
                       size="large"
+                      readOnly
                       placeholder="手机号"
                       maxLength={11}
                       trim={true}
@@ -246,6 +253,7 @@ export default class BaseSetting extends Component {
                 <IceFormBinder type="email" name="email" required message="请输入正确的邮箱">
                   <Input
                     size="large"
+                    readOnly
                     maxLength={64}
                     placeholder="邮箱"
                     trim={true}
@@ -266,6 +274,7 @@ export default class BaseSetting extends Component {
                                required message="队伍名称">
                   <Input
                     size="large"
+                    readOnly
                     placeholder="队伍名称(中英文或数字)"
                     trim={true}
                     maxLength={32}
@@ -282,7 +291,9 @@ export default class BaseSetting extends Component {
               </Col>
               <Col s="12" l="10">
                 <IceFormBinder name="competition_id" required message="赛题">
-                  <Select dataSource={themeEnum} placeholder="选择赛题"
+                  <Select
+                    readOnly
+                    dataSource={themeEnum} placeholder="选择赛题"
                           style={{width: '100%', height: 40}} {...themeSelectPop}/>
                 </IceFormBinder>
                 <IceFormError name="competition_id"/>
@@ -295,8 +306,13 @@ export default class BaseSetting extends Component {
               </Col>
               <Col s="12" l="10">
                 <IceFormBinder name="country" required message="国家">
-                  <Select dataSource={countryEnum} defaultValue={{...countryEnum[0]}}
-                          placeholder="我来自" style={styles.selectStatus} style={{width: '100%'}}/>
+                  <Input
+                    size="large"
+                    readOnly
+                    trim={true}
+                    maxLength={32}
+                    style={styles.inputItem}
+                  />
                 </IceFormBinder>
                 <IceFormError name="country"/>
               </Col>
@@ -308,7 +324,9 @@ export default class BaseSetting extends Component {
               </Col>
               <Col s="12" l="10">
                 <IceFormBinder name="work_id" required message="单位类型">
-                  <Select dataSource={orgEnum} onChange={this.onSelectOrg} placeholder="单位类型"
+                  <Select
+                    readOnly
+                    dataSource={orgEnum} onChange={this.onSelectOrg} placeholder="单位类型"
                           style={styles.selectStatus} style={{width: '100%'}}/>
                 </IceFormBinder>
                 <IceFormError name="work_id"/>
@@ -322,6 +340,7 @@ export default class BaseSetting extends Component {
               <Col s="12" l="10">
                 <IceFormBinder name="work_place_top" required>
                   <Input
+                    readOnly
                     size="large"
                     trim={true}
                     style={styles.inputItem}
@@ -338,6 +357,7 @@ export default class BaseSetting extends Component {
               <Col s="12" l="10">
                 <IceFormBinder name="work_place_second" required>
                   <Input
+                    readOnly
                     size="large"
                     trim={true}
                     style={styles.inputItem}
@@ -354,6 +374,7 @@ export default class BaseSetting extends Component {
               <Col s="12" l="10">
                 <IceFormBinder name="work_place_third" required>
                   <Input
+                    readOnly
                     size="large"
                     trim={true}
                     style={styles.inputItem}
