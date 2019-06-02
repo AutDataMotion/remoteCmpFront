@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>contextEditor</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <script src="./jquery-1.8.3.min.js" charset=""></script>
+  <script type="text/javascript" charset="utf-8" src="./ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./editor_api.js"></script>
+  <script>
+    import globalConf from "../../src/globalConfig";
+
+    $(function () {
+      let editorName = 'context';
+      let ue = UE.getEditor(editorName);
+      $('#btn').click(function () {
+        //手动提交需要手动同步编辑器数据
+        ue.sync();
+
+        $.ajax({
+          type:"post",
+          url:globalConf.genMockUrl('/notify/edit'),
+          data:{ //【这里填写是传给服务端的数据 可传可不传 数据必须是json格式】
+            "a":"b",
+            "c":"d"
+          },
+          dataType:'json',  //【这里要小心啊，不要用jsonp，一定是json】
+          crossDomain: true,  //【这个很重要，一定要加】
+          success:function(result){
+            console.log(result);
+          },
+          error:function(result){
+            console.log(result);
+          }
+        });
+
+      });
+      //--自动切换提交地址----
+      // let form = $('#form')[0];
+      // form.action = globalConf.genMockUrl('/notify/edit');
+
+      let timestamp = new Date().getTime();
+      $.ajax({
+        type: "get",
+        url: globalConf.genMockUrl('notify'),
+        dataType: 'jsonp',
+        data: {t: timestamp},
+        success: function (data) {
+          console.log(data);
+          UE.getEditor(editorName).execCommand('insertHtml', data.data.context);
+        },
+        error: function (xhr, type) {
+          alert('通信失败，请联系管理员');
+        }
+      });
+
+    })
+  </script>
+</head>
+<body>
+<div>
+  <div>
+    <label>用户名：</label><input id="name" type="text">
+  </div>
+  <div>
+    <label>编辑码：</label><input id="cxtpwd" type="text">
+  </div>
+  <script type="text/plain" id="context" name="context">
+  </script>
+  <input type="button" id="btn" value="提交数据">
+</div>
+</body>
+</html>

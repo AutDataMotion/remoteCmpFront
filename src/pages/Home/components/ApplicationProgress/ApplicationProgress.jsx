@@ -101,7 +101,7 @@ export default class ApplicationProgress extends Component {
               <h2>竞赛阶段</h2>
               <div style={styles.stepMargin}>
                 <Step current={0} shape={isMobile ? 'dot' : 'circle'}>
-                  <Step.Item title="报名注册号" />
+                  <Step.Item title="报名注册" />
                   <Step.Item title="发布数据" />
                   <Step.Item title="初赛" />
                   <Step.Item title="决赛" />

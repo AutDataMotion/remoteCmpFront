@@ -172,7 +172,7 @@ export default class BaseSetting extends Component {
     const {ajaxUserInfo} = this.props.bindingData;
     console.log("ajaxUserInfo", ajaxUserInfo.user_info);
     let themeSelectPop = {readOnly: true};
-    let organization = orgEnum[0];
+    let organization = orgEnum[ajaxUserInfo.user_info.work_id - 1];
     return (
       <IceContainer>
         <IceFormBinderWrapper value={ajaxUserInfo.user_info} ref="form">

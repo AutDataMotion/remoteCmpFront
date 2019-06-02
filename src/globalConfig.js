@@ -74,7 +74,7 @@ const globalConf={
     };
     callback();
   },
-  // baseUrl:'https://www.easy-mock.com/mock/5cdadc3dfb3e4604b7673bae/rsc/',
+  mockUrl:'https://www.easy-mock.com/mock/5cf3950fab668e50becaa078/example/',
   baseUrl:'http://119.3.202.35:8000/',
   baseUrlFront:'http://119.3.202.35/',
   uploadTips:'今天还可提交结果次数:',//'提示：每日限制上传【5】次，取最高分作为最终成绩',
@@ -93,6 +93,9 @@ const globalConf={
   },
   genUrlFront: (path)=>{
     return globalConf.baseUrlFront + path;
+  },
+  genMockUrl: (path)=>{
+    return globalConf.mockUrl + path;
   },
   headerCOR:{
     header:{
