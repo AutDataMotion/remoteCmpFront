@@ -100,6 +100,12 @@
         error: function (xhr, type) {
           alert('通信失败，请联系管理员');
         },
+        headers:{
+          'Content-Type':'application/json',
+          'X-Requested-With':'XMLHttpRequest',
+          'Cache-Control':'no-cache,no-store',
+        },
+        xhrFields:{withCredentials:'true'},
       });
 
     })
