@@ -42,7 +42,7 @@
       UE.Editor.prototype.getActionUrl = function(action){
         console.log("action", action);
         if (action === 'config'){
-          return "'http://119.3.202.35:8000/publish/php/config.json"
+          return "php/config.json"
         }
         if(action=='uploadimage' || action=='uploadscrawl' || action=='uploadvideo'){
           return ""
@@ -69,10 +69,16 @@
           dataType:'json',  //【这里要小心啊，不要用jsonp，一定是json】
           crossDomain: true,  //【这个很重要，一定要加】
           success:function(result){
+	    if(result.status!=1){
+	    	alert(result.message);
+		return;
+		}
             console.log(result);
+	    alert("更新成功");
           },
           error:function(result){
             console.log(result);
+	    alert(result);
           },
           header:{
             'Content-Type':'application/json',
@@ -88,25 +94,26 @@
       // let form = $('#form')[0];
       // form.action = globalConf.genMockUrl('/notify/edit');
 
+	let initData = '';
       $.ajax({
         type: "get",
         url: 'http://119.3.202.35:8000/notify',
-        dataType: 'jsonp',
+        dataType: 'json',
         data: {},
         success: function (data) {
-          console.log(data);
-          UE.getEditor(editorName).execCommand('insertHtml', data.data.context);
+          console.log(data,'ue', ue);
+          // UE.getEditor(editorName).execCommand('insertHtml', data.data.context);
+          // ue.setContent(data.data.context);
+	  initData = data.data.context;
         },
         error: function (xhr, type) {
+	 console.log('xhr',xhr,'type', type);
           alert('通信失败，请联系管理员');
         },
-        headers:{
-          'Content-Type':'application/json',
-          'X-Requested-With':'XMLHttpRequest',
-          'Cache-Control':'no-cache,no-store',
-        },
-        xhrFields:{withCredentials:'true'},
       });
+	ue.ready(function(){
+	  ue.setContent(initData);
+	});
 
     })
   </script>
@@ -121,7 +128,7 @@
   </div>
   <script type="text/plain" id="context" name="context">
   </script>
-  <input id="buttonEditorM" type="button" id="btn" value="提交数据">
+  <input type="button" id="btn" value="提交数据">
 </div>
 </body>
 </html>

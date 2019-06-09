@@ -60,19 +60,19 @@ export default class ApplicationProgress extends Component {
         <tbody>
         <tr>
           <td style={styleTable.textLeft}>
-            主办单位：<br/>
+            <span style={styles.fontTable}>主办单位：</span><br/>
             <img style={styleTable.logoImgSmall} src={require('./images/NSFC1.png')}/>国家自然科学基金委信息科学部 <br/>
             空间信息网络重大研究计划指导专家组
           </td>
 
           <td style={styleTable.textLeft}>
-            承办单位：<br/>
+            <span style={styles.fontTable}>承办单位：</span><br/>
             <img style={styleTable.logoImgSmall} src={require('./images/LIESMARS.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
             <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心
           </td>
 
           <td valign="top" style={styleTable.textLeft}>
-            赞助单位：<br/>
+            <span style={styles.fontTable}>赞助单位：</span><br/>
             <img style={styleTable.logoImg} src={require('./images/huawei.png')}/>华为技术有限公司<br/>
             <img style={styleTable.logoImgMin} src={require('./images/eyecool.png')}/>北京眼神科技有限公司
           </td>
@@ -183,6 +183,10 @@ export default class ApplicationProgress extends Component {
 }
 
 const styles = {
+  fontTable:{
+    fontSize:18,
+    fontWeight: 'bold',
+  },
   stepMargin:{
     marginTop: '60px',
   },

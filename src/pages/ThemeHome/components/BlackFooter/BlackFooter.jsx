@@ -24,7 +24,7 @@ export default () => {
           </Col>
         </Row>
         <Row wrap>
-          <div style={styles.copyright}>版权所有 © 中国科学院空间应用工程与技术中心 <span>   备案号：京ICP备09082226号-7</span></div>
+          <div style={styles.copyright}>版权所有 © 中国科学院空间应用工程与技术中心 <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  备案号：京ICP备09082226号-7</span></div>
         </Row>
       </div>
     </div>
