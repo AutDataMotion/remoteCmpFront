@@ -183,7 +183,7 @@ export default class DataAnalysis extends Component {
 
   componentDidMount() {
     this.updateChartData();
-    setInterval(this.updateDate, 1000);
+    setInterval(this.updateDate, 20*1000);
 
     //setInterval(this.updateChartData, 30 * 1000);
   }
@@ -225,14 +225,14 @@ export default class DataAnalysis extends Component {
 		  
           <div style={styles.side}>
 			<PieChart id="left_pie" data={data.country} title="国家队伍分布"/>
-            <TopList data={data.topCityForeign} title="国家队伍分布信息"/>
+            <TopList style={{marginTop:15}} type={1} data={data.topCityForeign} title="国家队伍分布信息"/>
             {/*<LineChart data={data.source} title="队伍分布" />*/}
           </div>
           <div style={styles.middle}>
             <div style={styles.header}>
               <h1 style={styles.pageTitle}>大赛队伍分布</h1>
               <p style={styles.time}>
-                <Icon type="clock" size="xs"/> {this.state.date}
+                {/*<Icon type="clock" size="xs"/> {this.state.date}*/}
               </p>
               <Title data={chartTitle}/>
             </div>
@@ -240,7 +240,7 @@ export default class DataAnalysis extends Component {
 		  
           <div style={styles.side}>
             <PieChart id="right_pie" data={data.cityChina} title="国内队伍分布"/>
-            <TopList data={data.cityMembers} title="国内城市队伍分布信息"/>
+            <TopList style={{marginTop:15}} type={2} data={data.cityMembers} title="国内城市队伍分布信息"/>
           </div>
 		  
         </div>

@@ -225,7 +225,7 @@ const globalConf={
 
       operation: '查看详情',
       url:'/theme/5',
-      zipUrl: ()=>{ return  globalConf.genUrlFront('classification.zip')},
+      zipUrl: ()=>{ return  globalConf.genUrlFront('tracking.zip')},
       description:
         '利用光学遥感卫星视频可以实现指定目标监控，' +
         '在机场、商场、道路流量监测等方面具有重要的应用价值，' +

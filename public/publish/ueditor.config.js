@@ -20,7 +20,7 @@
      * window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
         //var URL = window.UEDITOR_HOME_URL || getUEBasePath();
-    var URL = 'http://localhost:4444/publish/';
+    var URL = 'http://119.3.202.35:8000/publish/';
 
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。

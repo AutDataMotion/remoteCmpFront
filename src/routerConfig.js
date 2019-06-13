@@ -6,30 +6,29 @@ import UserLogin from './pages/UserLogin';
 import UserRegister from './pages/UserRegister';
 import Setting from './pages/Setting';
 import Home from './pages/Home';
-import ThemeHome from "./pages/ThemeHome";
-import Theme2 from "./pages/Theme2";
-import Theme3 from "./pages/Theme3";
-import Theme4 from "./pages/Theme4";
-import Theme5 from "./pages/Theme5";
-import Dashboard from "./pages/Dashboard";
-import Rule from "./pages/Rule";
-import Org from "./pages/Org";
-import AboutUs from "./pages/AboutUs";
-import History1 from "./pages/Ohistory/history1";
-import History2 from "./pages/Ohistory/history2";
-import Theme6 from "./pages/Ohistory/theme6";
-import Notify from "./pages/Ohistory/Notify";
-
-
+import ThemeHome from './pages/ThemeHome';
+import Theme2 from './pages/Theme2';
+import Theme3 from './pages/Theme3';
+import Theme4 from './pages/Theme4';
+import Theme5 from './pages/Theme5';
+import Dashboard from './pages/Dashboard';
+import Rule from './pages/Rule';
+import Org from './pages/Org';
+import AboutUs from './pages/AboutUs';
+import History1 from './pages/Ohistory/history1';
+import History2 from './pages/Ohistory/history2';
+import Theme6 from './pages/Ohistory/theme6';
+import ResultShow from './pages/ResultShow';
+import Notify from './pages/Ohistory/Notify';
 
 const routerConfig = [
   {
-    path: '/home',
-    component: Home,
+    path: '/theme/6',
+    component: Theme6,
   },
   {
-    path: '/rule',
-    component: Rule,
+    path: '/home',
+    component: Home,
   },
   {
     path: '/org',
@@ -39,7 +38,6 @@ const routerConfig = [
     path: '/about',
     component: AboutUs,
   },
-
   {
     path: '/theme/1',
     component: ThemeHome,
@@ -61,8 +59,8 @@ const routerConfig = [
     component: Theme5,
   },
   {
-    path: '/theme/6',
-    component: Theme6,
+    path: '/rule',
+    component: Rule,
   },
   {
     path: '/history/1',
@@ -104,7 +102,10 @@ const routerConfig = [
     path: '/setting',
     component: Setting,
   },
-  
+  {
+    path: '/resultShow',
+    component: ResultShow,
+  },
 ];
 
 export default routerConfig;

@@ -51,7 +51,7 @@ export default class TableHead extends Component {
 
   render() {
     const {superCallback, remain} = this.props;
-    let canUse = remain > 0;
+    let disabled = remain <= 0;
     return (
       <IceFormBinderWrapper
         value={this.state.value}
@@ -66,7 +66,7 @@ export default class TableHead extends Component {
                 beforeUpload={this.beforeUpload}
                 onChange={this.onChange}
                 onSuccess={this.onSuccess}
-                disabled = {canUse}
+                disabled = {disabled}
                 defaultValue={[]}
               >
                 <Button type="primary">上传文件（ZIP格式）</Button>

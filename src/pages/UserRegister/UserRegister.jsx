@@ -192,7 +192,7 @@ class UserRegister extends Component {
       callback();
     }
   };
-  static regPhone = /^[1][3,4,5,7,8][0-9]{9}$/;
+  static regPhone = /^[1][3,4,5,7,8,9][0-9]{9}$/;
   static regIDNumber = /^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X|x)$/;
   checkIDNumber = (rule, values, callback) => {
     if (!values || !UserRegister.regIDNumber.test(values)) {
