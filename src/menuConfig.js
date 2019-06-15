@@ -2,58 +2,57 @@
 // headerMenuConfig：头部导航配置
 // asideMenuConfig：侧边导航配置
 
-import globalConf from './globalConfig';
+import globalConf from "./globalConfig";
 
 const asideMenuConfig = [
   {
     name: '网站首页',
     path: '/home',
+
   },
   {
     name: '机构设置',
     path: '/org',
+
   },
   {
     name: '竞赛细则',
     path: '/rule',
+
   },
+
   {
     name: '竞赛主题',
     path: '/theme/group',
     icon: 'home2',
     children: [
       {
-        name:
-          globalConf.themeConf[0].bannerTitle + globalConf.themeConf[0].title,
-        path: '/theme/1',
-        icon: 'cascades',
+      name:globalConf.themeConf[0].bannerTitle+globalConf.themeConf[0].title,
+      path: '/theme/1',
+      icon: 'cascades',
       },
       {
-        name:
-          globalConf.themeConf[1].bannerTitle + globalConf.themeConf[1].title,
+        name:globalConf.themeConf[1].bannerTitle+globalConf.themeConf[1].title,
         path: '/theme/2',
         icon: 'cascades',
       },
       {
-        name:
-          globalConf.themeConf[2].bannerTitle + globalConf.themeConf[2].title,
+        name:globalConf.themeConf[2].bannerTitle+globalConf.themeConf[2].title,
         path: '/theme/3',
         icon: 'cascades',
       },
       {
-        name:
-          globalConf.themeConf[3].bannerTitle + globalConf.themeConf[3].title,
+        name:globalConf.themeConf[3].bannerTitle+globalConf.themeConf[3].title,
         path: '/theme/4',
         icon: 'cascades',
       },
       {
-        name:
-          globalConf.themeConf[4].bannerTitle + globalConf.themeConf[4].title,
+        name:globalConf.themeConf[4].bannerTitle+globalConf.themeConf[4].title,
         path: '/theme/5',
         icon: 'cascades',
       },
       {
-        name: '决赛加分赛：基于华为智能处理器的遥感图像解译',
+        name:'决赛加分赛：基于华为昇腾人工智能处理器的遥感图像解译',
         path: '/theme/6',
         icon: 'cascades',
       },
@@ -89,21 +88,23 @@ const asideMenuConfig = [
   {
     name: '竞赛论坛',
     path: 'http://sin.xintongconference.com',
-    external: true,
-    newWindow: true,
+    external:true,
+    newWindow:true,
   },
   {
     name: '往届风采',
     children: [
       {
-        name: '第一届“眼神杯”竞赛',
+        name:'第一届“眼神杯”竞赛',
         path: '/history/1',
+
       },
       {
-        name: '第二届“眼神杯”竞赛',
+        name:'第二届“眼神杯”竞赛',
         path: '/history/2',
+
       },
-    ],
+    ]
   },
   {
     name: '竞赛通知',
