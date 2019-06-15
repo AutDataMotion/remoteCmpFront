@@ -11,7 +11,7 @@ export default class Theme6 extends React.Component {
     return (
       <div className={'info-paragraph-history'}>
         <h1>
-          决赛加分赛：基于华为昇腾人工智能处理器的遥感图像解译
+          决赛加分赛：基于华为昇腾AI处理器的遥感图像解译
         </h1>
         <h2>
           （1）竞赛说明

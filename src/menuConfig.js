@@ -52,7 +52,7 @@ const asideMenuConfig = [
         icon: 'cascades',
       },
       {
-        name:'决赛加分赛：基于华为昇腾人工智能处理器的遥感图像解译',
+        name:'决赛加分赛：基于华为昇腾AI处理器的遥感图像解译',
         path: '/theme/6',
         icon: 'cascades',
       },
