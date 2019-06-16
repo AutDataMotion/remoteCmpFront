@@ -69,7 +69,7 @@ export default class ThemeInfo3 extends React.Component {
           <tr> <td style={styles.textRight}>旱 耕 地     </td><td style={styles.textLeft}>（R:150, G:200, B:150）</td></tr>
           <tr> <td style={styles.textRight}>园    地     </td><td style={styles.textLeft}>（R:200, G:0, B:200）</td></tr>
           <tr> <td style={styles.textRight}>乔木林地     </td><td style={styles.textLeft}>（R:150, G:0, B:250）</td></tr>
-          <tr> <td style={styles.textRight}>灌木林地     </td><td style={styles.textLeft}>（R:150, G:250, B:250）</td></tr>
+          <tr> <td style={styles.textRight}>灌木林地     </td><td style={styles.textLeft}>（R:150, G:150, B:250）</td></tr>
           <tr> <td style={styles.textRight}>天然草地     </td><td style={styles.textLeft}>（R:250, G:200, B:0）</td></tr>
           <tr> <td style={styles.textRight}>人工草地     </td><td style={styles.textLeft}>（R:200, G:200, B:0）</td></tr>
           <tr> <td style={styles.textRight}>工业用地     </td><td style={styles.textLeft}>（R:200, G:0, B:0）</td></tr>
