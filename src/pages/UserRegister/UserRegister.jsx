@@ -565,7 +565,7 @@ class UserRegister extends Component {
                 <IceFormBinder name="competition_id" required message="赛题">
                   <Select
                           dataSource={themeEnum}
-                          placeholder="选择赛题"
+                          placeholder="请谨慎选择赛题，提交后无法更改"
                           onChange={this.onThemeChange}
                           style={{width: '100%', height: 40}}
                           {...themeSelectPop}/>
