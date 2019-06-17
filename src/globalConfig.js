@@ -82,7 +82,7 @@ const globalConf={
 
   getRegistTips:(isLeader)=>{
     if(isLeader){
-      return '提示：队长注册成功后，邀请码会发到您的邮箱，或登录后右上角查看！';
+      return '提示：队长注册成功后，邀请码会发到您的邮箱(请谨慎选择比赛题目，一经确定无法更改！)';
     } else {
       return '提示：请先由队长通过注册获取邀请码，队员通过队长邀请码验证注册！';
     }

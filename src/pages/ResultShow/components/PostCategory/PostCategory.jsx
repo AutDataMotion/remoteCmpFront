@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '@icedesign/layout';
-import { Table } from '@alifd/next';
+import { Table, Card } from '@alifd/next';
 import { Tab, Button } from '@alifd/next';
 import globalConf from "../../../../globalConfig";
 import MainData from "../MainData";
@@ -54,13 +54,43 @@ export default class PostCategory extends Component {
       teamName:'明火',
       score:99.9999,
     },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
+    {
+      teamName:'明火',
+      score:99.9999,
+    },
   ];
 
   slides = [
-    { url: 'https://img.alicdn.com/tps/TB1bewbNVXXXXc5XXXXXXXXXXXX-1000-300.png', text: 'Tape Player Skin Design Competition' },
-    { url: 'https://img.alicdn.com/tps/TB1xuUcNVXXXXcRXXXXXXXXXXXX-1000-300.jpg', text: 'Mobile Phone Taobao Skin Call' },
-    { url: 'https://img.alicdn.com/tps/TB1ikP.NVXXXXaYXpXXXXXXXXXX-1000-300.jpg', text: 'Design Enabling Public Welfare' },
-    { url: 'https://img.alicdn.com/tps/TB1s1_JNVXXXXbhaXXXXXXXXXXX-1000-300.jpg', text: 'Amoy Doll Design Competition' }
+    { url: 'http://rscup.bjxintong.com.cn/assets/73cf717975561d8258465f3703e4a903.png', text: '' },
+    { url: 'http://rscup.bjxintong.com.cn/assets/73cf717975561d8258465f3703e4a903.png', text: '' }
   ];
 
   renderSlide = ()=>{
@@ -120,18 +150,18 @@ export default class PostCategory extends Component {
               >
                 <Layout fixable={true}>
                   <Layout.Aside style={{
-                    width: '29%',
+                    width: '24%',
                     margin: '20px 30px 20px 20px'
                   }} >
                     <Table dataSource={this.teamTable}>
-                      <Table.Column title="队伍名称" dataIndex="teamName"/>
-                      <Table.Column title="得分" dataIndex="score" />
+                      <Table.Column style={{width:'70%'}} title="队伍名称" dataIndex="teamName"/>
+                      <Table.Column style={{width:'30%'}} title="得分" dataIndex="score" />
                     </Table>
 
                   </Layout.Aside>
                   <Layout.Section style={{
                     margin: '20px 10px ',
-                    width:'70%',
+                    width:'76%',
                   }} >
                     <Layout.Header style={{
                     }} >
