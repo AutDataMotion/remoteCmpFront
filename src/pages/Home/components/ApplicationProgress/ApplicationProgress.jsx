@@ -38,7 +38,7 @@ export default class ApplicationProgress extends Component {
       <div className="contentText">
         <h2>大赛背景</h2>
         <p className="contentTextP">
-          本届遥感图像稀疏表征与智能分析竞赛由国家自然科学基金委信息科学部、“空间信息网络基础理论与关键技术”重大研究计划指导专家组主办，旨在推动“空间信息网络基础理论与关键技术”重大研究计划科学问题之一“空间信息稀疏表征与融合处理”的相关理论与技术的发展，解决空间信息稀疏表征、多维时空数据的融合处理、空间信息的快速提取与知识发现等技术问题，牵引该技术领域的创新发展，为实现空间信息处理与应用能力的大幅提升提供支撑。
+          本届遥感图像稀疏表征与智能分析竞赛由国家自然科学基金委员会、“空间信息网络基础理论与关键技术”重大研究计划指导专家组主办，旨在推动“空间信息网络基础理论与关键技术”重大研究计划科学问题之一“空间信息稀疏表征与融合处理”的相关理论与技术的发展，解决空间信息稀疏表征、多维时空数据的融合处理、空间信息的快速提取与知识发现等技术问题，牵引该技术领域的创新发展，为实现空间信息处理与应用能力的大幅提升提供支撑。
         </p>
         <br/>
       </div>
@@ -61,7 +61,7 @@ export default class ApplicationProgress extends Component {
         <tr>
           <td valign="top" style={styleTable.textLeft}>
             <span style={styles.fontTable}>主办单位：</span><br/>
-            <img style={styleTable.logoImgSmall} src={require('./images/NSFC1.png')}/>国家自然科学基金委信息科学部 <br/>
+            <img style={styleTable.logoImgSmall} src={require('./images/NSFC1.png')}/>国家自然科学基金委员会 <br/>
             空间信息网络重大研究计划指导专家组
           </td>
 
