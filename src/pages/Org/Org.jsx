@@ -238,7 +238,13 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 中国科学院空间应用工程与技术中心</td>
             <td style={styles.textJustify}> 李盛阳</td>
-            <td style={styles.textJustify}> 研究员</td>
+            <td style={styles.textJustify}> 研究员</td> 
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 哈尔滨工业大学</td>
+            <td style={styles.textJustify}> 谷延锋</td>
+            <td style={styles.textJustify}> 教授</td>
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
