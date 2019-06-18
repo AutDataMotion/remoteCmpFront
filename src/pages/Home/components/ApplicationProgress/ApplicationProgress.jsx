@@ -74,8 +74,7 @@ export default class ApplicationProgress extends Component {
           <td valign="top" valign="top" style={styleTable.textLeft}>
             <span style={styles.fontTable}>赞助单位：</span><br/>
             <img style={styleTable.logoImg} src={require('./images/huawei.png')}/>华为技术有限公司<br/>
-            <img style={styleTable.logoImgMin} src={require('./images/eyecool.png')}/>北京眼神科技有限公司<br/>
-            <img style={styleTable.logoImg} src={require('./images/htht.png')}/>北京航天宏图信息技术股份有限公司
+            <img style={styleTable.logoImgMin} src={require('./images/eyecool.png')}/>北京眼神科技有限公司
           </td>
         </tr>
         </tbody>
