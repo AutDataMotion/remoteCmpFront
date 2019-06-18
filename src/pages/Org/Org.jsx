@@ -46,7 +46,7 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}>主办单位：
             </td>
             <td style={styles.textLeft}>
-              国家自然科学基金委员会<br/>
+              国家自然科学基金委信息科学部<br/>
               空间信息网络重大研究计划指导专家组
             </td>
           </tr>
