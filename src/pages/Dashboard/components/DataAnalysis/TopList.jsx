@@ -62,7 +62,7 @@ export default class TopList extends Component {
       );
     });
     return (
-      <div style={{height: '55%'}}>
+      <div style={{height: '50%'}}>
         <Title data={this.props.title}/>
         <ul style={styles.list}>
           {divLoopList}

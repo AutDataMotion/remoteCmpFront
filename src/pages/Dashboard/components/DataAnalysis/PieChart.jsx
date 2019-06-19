@@ -30,7 +30,7 @@ export default class PicChart extends Component {
         {
           type: 'pie',
           radius: ['40%', '50%'],
-          avoidLabelOverlap: false,
+          avoidLabelOverlap: true,
           selectedMode: 'single',
           label: {
             show: true,
@@ -58,7 +58,7 @@ export default class PicChart extends Component {
     // console.log(data);
     //this.option.series[0].data = data;
     return (
-      <div style={{height: '33%'}}>
+      <div style={{height: '50%'}}>
         <Title data={title}/>
 
         <div style={{width: '100%', height: '100%'}} id={id}/>
