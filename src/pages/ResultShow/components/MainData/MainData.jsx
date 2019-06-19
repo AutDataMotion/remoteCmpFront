@@ -16,26 +16,16 @@ export default class MainData extends Component {
     return (
       <div style={styles.wrapper}>
         <div style={styles.content}>
-          <div style={styles.contentItem}>
+          <div style={styles.contentItemLeft}>
             <div style={styles.contentNum}>
-              <span style={styles.bigNum}>55</span>
-              <span style={styles.symbol}>+</span>
+              <span style={styles.symbol}>总得分:</span>
+              <span style={styles.bigNum}>99.9999</span>
             </div>
-            <div style={styles.contentDesc}>— 精选组件 —</div>
           </div>
-          <div style={styles.contentItem}>
-            <div style={styles.contentNum}>
-              <span style={styles.bigNum}>120</span>
-              <span style={styles.symbol}>+</span>
-            </div>
-            <div style={styles.contentDesc}>— 精选区块 —</div>
-          </div>
-          <div style={styles.contentItem}>
-            <div style={styles.contentNum}>
-              <span style={styles.bigNum}>4</span>
-              <span style={styles.symbol}>+</span>
-            </div>
-            <div style={styles.contentDesc}>— 精选模板 —</div>
+          <div style={styles.contentItemRight}>
+            <div style={styles.contentDesc}>摘要信息说明文字</div>
+            <div style={styles.contentDesc}>摘要信息说明文字</div>
+            <div style={styles.contentDesc}>摘要信息说明文字</div>
           </div>
         </div>
       </div>
@@ -57,14 +47,20 @@ const styles = {
     alignItems: 'center',
     margin: '0 auto',
   },
-  contentItem: {},
+  contentItemLeft: {
+    width:'50%'
+  },
+  contentItemRight: {
+    width:'50%'
+  },
   contentNum: {
     display: 'flex',
     alignItems: 'center',
+    textAlign: 'left',
   },
   bigNum: {
     color: '#333',
-    fontSize: 50,
+    fontSize: 40,
   },
   symbol: {
     color: '#333',
@@ -74,7 +70,7 @@ const styles = {
   contentDesc: {
     color: '#666666',
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: 6,
   },
 };

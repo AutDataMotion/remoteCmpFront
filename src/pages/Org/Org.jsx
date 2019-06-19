@@ -46,7 +46,7 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}>主办单位：
             </td>
             <td style={styles.textLeft}>
-              国家自然科学基金委信息科学部 <br/>
+              国家自然科学基金委信息科学部<br/>
               空间信息网络重大研究计划指导专家组
             </td>
           </tr>
@@ -237,7 +237,13 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 中国科学院空间应用工程与技术中心</td>
             <td style={styles.textJustify}> 李盛阳</td>
-            <td style={styles.textJustify}> 研究员</td>
+            <td style={styles.textJustify}> 研究员</td> 
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 哈尔滨工业大学</td>
+            <td style={styles.textJustify}> 谷延锋</td>
+            <td style={styles.textJustify}> 教授</td>
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>

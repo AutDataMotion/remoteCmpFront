@@ -16,44 +16,39 @@ export default class DetailTable extends Component {
   render() {
     return (
       <div className="detail-table">
-        <IceContainer title="任务详情">
           <ul style={styles.detailTable}>
             <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>任务标题：</div>
-              <div style={styles.detailBody}>集盒家居旗舰店双十一活动</div>
+              <div style={styles.detailTitle}>标题：</div>
+              <div style={styles.detailBody}>图片说明标题</div>
             </li>
             <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>单个任务金额：</div>
-              <div style={styles.detailBody}>¥ 1000.00</div>
+              <div style={styles.detailTitle}>指标1：</div>
+              <div style={styles.detailBody}>1000.00</div>
             </li>
             <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>接单时间：</div>
-              <div style={styles.detailBody}>2017-10-18 12:20:07</div>
+              <div style={styles.detailTitle}>指标2：</div>
+              <div style={styles.detailBody}>1000.00</div>
             </li>
             <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>商家联系方式：</div>
-              <div style={styles.detailBody}>15112111213</div>
+              <div style={styles.detailTitle}>指标3：</div>
+              <div style={styles.detailBody}>1000.00</div>
             </li>
             <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>任务状态：</div>
+              <div style={styles.detailTitle}>指标4：</div>
               <div style={styles.detailBody}>
-                <span style={styles.statusProcessing}>进行中</span>
-              </div>
-            </li>
-            <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>收货地址：</div>
-              <div style={styles.detailBody}>
-                浙江省杭州市余杭区文一西路969号淘宝城
+                1000.00
               </div>
             </li>
           </ul>
-        </IceContainer>
       </div>
     );
   }
 }
 
 const styles = {
+  detailTable:{
+    padding:20,
+  },
   detailItem: {
     padding: '15px 0px',
     display: 'flex',

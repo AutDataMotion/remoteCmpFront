@@ -164,7 +164,7 @@ class UserRegister extends Component {
         "email": "",
         "is_captain": 0,
         // "teamId": 0,
-        "competition_id": 1,
+        "competition_id": "",
         team_name: '', // 队伍名称
         invite_code: '', // 邀请码
       }
@@ -285,7 +285,7 @@ class UserRegister extends Component {
     if (index === 1) {
       isLead = true;
       value.team_name = "";
-      value.competition_id = 1;
+      value.competition_id = "";
     }
 
     this.setState({
@@ -295,6 +295,9 @@ class UserRegister extends Component {
     console.log("userTypeId", index);
   }
 
+  onThemeChange=(v)=>{
+
+  }
 
   onCountryChange=(selValue)=> {
     console.log('onCountryChange', selValue);
@@ -560,7 +563,12 @@ class UserRegister extends Component {
             <Col>
               <div style={styles.formItem}>
                 <IceFormBinder name="competition_id" required message="赛题">
-                  <Select dataSource={themeEnum} placeholder="选择赛题" style={{width: '100%', height: 40}} {...themeSelectPop}/>
+                  <Select
+                          dataSource={themeEnum}
+                          placeholder="请谨慎选择赛题，提交后无法更改"
+                          onChange={this.onThemeChange}
+                          style={{width: '100%', height: 40}}
+                          {...themeSelectPop}/>
                 </IceFormBinder>
                 <IceFormError name="competition_id"/>
               </div>
@@ -571,8 +579,11 @@ class UserRegister extends Component {
             <Col l={'8'}>
               <div style={styles.formItem}>
                 <IceFormBinder name="country" required message="国家">
-                  <Select dataSource={countryEnum} onChange={this.onCountryChange} defaultValue={{...countryEnum[0]}}
-                          placeholder="我来自" style={styles.selectStatus} style={{width:'100%'}}/>
+                  <Select dataSource={countryEnum}
+                          onChange={this.onCountryChange}
+                          defaultValue={{...countryEnum[0]}}
+                          placeholder="我来自"
+                          style={styles.selectStatus} style={{width:'100%'}}/>
                 </IceFormBinder>
                 <IceFormError name="country"/>
               </div>
@@ -583,7 +594,10 @@ class UserRegister extends Component {
             <Col>
               <div style={styles.formItem}>
                 <IceFormBinder name="work_id" required message="单位类型">
-                  <Select dataSource={orgEnum} onChange={this.onSelectOrg} placeholder="单位类型" style={styles.selectStatus} style={{width:'100%'}}/>
+                  <Select dataSource={orgEnum}
+                          onChange={this.onSelectOrg}
+                          placeholder="单位类型"
+                          style={styles.selectStatus} style={{width:'100%'}}/>
                 </IceFormBinder>
                 <IceFormError name="work_id"/>
               </div>
