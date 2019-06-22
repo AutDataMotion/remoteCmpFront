@@ -224,7 +224,7 @@ export default class DataAnalysis extends Component {
         <div style={styles.main}>
 		  
           <div style={styles.side}>
-			<PieChart id="left_pie" data={data.country} title="国家队伍分布"/>
+			<PieChart id="left_pie"  avoidLabelOverlap={true}  data={data.country} title="国家队伍分布"/>
             <TopList style={{marginTop:15}} type={1} data={data.topCityForeign} title="国家队伍分布信息"/>
             {/*<LineChart data={data.source} title="队伍分布" />*/}
           </div>
@@ -239,7 +239,7 @@ export default class DataAnalysis extends Component {
           </div>
 		  
           <div style={styles.side}>
-            <PieChart id="right_pie" data={data.cityChina} title="国内队伍分布"/>
+            <PieChart id="right_pie" avoidLabelOverlap={false}  data={data.cityChina} title="国内队伍分布"/>
             <TopList style={{marginTop:15}} type={2} data={data.cityMembers} title="国内城市队伍分布信息"/>
           </div>
 		  
@@ -275,7 +275,7 @@ const styles = {
     zIndex: 1,
     width: '320px',
     padding: '10px',
-    marginTop: '85px',
+    marginTop: '46px',
   },
   middle: {
     flex: 1,

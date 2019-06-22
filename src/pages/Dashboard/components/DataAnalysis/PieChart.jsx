@@ -34,7 +34,7 @@ export default class PicChart extends Component {
           selectedMode: 'single',
           label: {
             show: true,
-            formatter: '{b}:{c}支队伍',
+            formatter: '{b}',
           },
           color: ['#5e83fb', '#f7da47', '#58ca9a', '#ee706d', '#1bc918', '#999'],
         },
@@ -44,9 +44,10 @@ export default class PicChart extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     // console.log('Component DID UPDATE!')
-    const {id, data, title} = this.props;
+    const {id, data,avoidLabelOverlap, title} = this.props;
     const myChart = echarts.init(document.getElementById(id));
     this.option.series[0].data = data;
+    this.option.series[0].avoidLabelOverlap = avoidLabelOverlap;
     myChart.setOption(this.option);
   }
 
@@ -58,9 +59,8 @@ export default class PicChart extends Component {
     // console.log(data);
     //this.option.series[0].data = data;
     return (
-      <div style={{height: '50%'}}>
+      <div style={{height: '45%'}}>
         <Title data={title}/>
-
         <div style={{width: '100%', height: '100%'}} id={id}/>
       </div>
     );
