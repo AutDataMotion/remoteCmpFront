@@ -75,8 +75,10 @@ const globalConf={
     callback();
   },
   mockUrl:'https://www.easy-mock.com/mock/5cf3950fab668e50becaa078/example/',
-  baseUrl:'http://119.3.202.35:8000/',
-  baseUrlFront:'http://119.3.202.35/',
+  baseUrl:'http://rscup.bjxintong.com.cn:8000/',
+  // baseUrl:'http://114.115.182.9:8000/',
+  // baseUrl:'http://119.3.202.35:8000/',
+  baseUrlFront:'http://rscup.bjxintong.com.cn/',
   uploadTips:'今天还可提交结果次数:',//'提示：每日限制上传【5】次，取最高分作为最终成绩',
   dashboardTips:'公告：排行榜每日上午8:00更新一次',
 
