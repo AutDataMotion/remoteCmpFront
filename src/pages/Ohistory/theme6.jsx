@@ -27,7 +27,7 @@ export default class Theme6 extends React.Component {
           竞赛数据：加分赛采用的测试数据与各赛题决赛阶段测试数据相同。竞赛中将根据参赛队伍参加的赛题 (遥感图像场景分类、遥感图像目标检测、遥感图像语义分割、遥感图像变化检测、遥感卫星视频目标跟踪)，提供对应的决赛测试数据。
         </p>
         <p>
-          竞赛设备：竞赛主办方将为参加决赛加分赛的团队提供华为Atlas 200 DK AI开发者套件和详细技术文档 (请参考附件一<a href={globalConf.genUrlFront('2019_att1.docx')}>【点击下载】</a>)，由各参赛队伍携带笔记本电脑进行环境搭建、模型移植和图像解译模型推理计算。为方便参赛队伍参与决赛加分赛，大赛组织方构建了Atlas 200 DK AI开发者讨论区(<a href="https://www.huawei.com/minisite/ascend/cn/index.html" target="_blank">【点击进入】</a>)，提供Atlas 200 DK AI开发者套件的详细介绍、安装配置、开发指导、体验指引、Q&A等资源，参赛队员可在社区自由下载开发资源及提问交流。决赛加分赛实施期间，竞赛主办方也将组织专家提供技术指导。
+          竞赛设备：竞赛主办方将为参加决赛加分赛的团队提供华为Atlas 200 DK AI开发者套件和详细技术文档 (<a href={globalConf.genUrlFront('2019_att1.docx')}>【点击下载】</a>)，由各参赛队伍携带笔记本电脑进行环境搭建、模型移植和图像解译模型推理计算。为方便参赛队伍参与决赛加分赛，华为技术有限公司提供了Atlas 200 DK线上培训课程(<a href="http://www.bizconfstreaming.cn/webcast/huawei190628.html" target="_blank">【点击观看】</a>)，同时构建了Atlas 200 DK AI开发者讨论区(<a href="https://www.huawei.com/minisite/ascend/cn/index.html" target="_blank">【点击进入】</a>)，提供Atlas 200 DK AI开发者套件的详细介绍、安装配置、开发指导、体验指引、Q&A等资源，参赛队员可在社区自由下载开发资源及提问交流。决赛加分赛实施期间，竞赛主办方也将组织专家提供技术指导。
         </p>
         <p>
           Atlas 200 DK AI开发者套件介绍：华为Atlas 200 DK AI开发者套件是以华为Ascend 310芯片为核心的一个开发者板形态产品，主要功能是将Ascend 310芯片的核心功能通过该板上的外围接口开放出来，方便用户快速简捷的接入并使用Ascend 310芯片强大的处理能力。得益于昇腾芯片的全栈全场景能力，基于Atlas 200 DK AI开发者套件开发的程序只需一次开发，即可实现端、边、云全场景部署。可以运用于平安城市、无人机、机器人、视频服务器、闸机等众多领域的开发。
