@@ -68,7 +68,8 @@ export default class ApplicationProgress extends Component {
           <td valign="top" style={styleTable.textLeft}>
             <span style={styles.fontTable}>承办单位：</span><br/>
             <img style={styleTable.logoImgSmall} src={require('./images/LIESMARS.png')}/>武汉大学测绘遥感信息工程国家重点实验室<br/>
-            <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心
+            <img style={styleTable.logoImg} src={require('./images/csu.png')}/>中国科学院空间应用工程与技术中心<br/>
+            <img style={styleTable.logoImgMiddle} src={require('./images/htht.png')}/>北京航天宏图信息技术股份有限公司
           </td>
 
           <td valign="top" valign="top" style={styleTable.textLeft}>
@@ -289,6 +290,12 @@ const styleTable = {
     display: 'inline',
     verticalAlign:'middle',
     marginRight:'5px'
+  },
+  logoImgMiddle:{
+    width:'50px',
+    display: 'inline',
+    verticalAlign:'middle',
+    marginRight:'13px'
   },
   logoImgMin:{
     width:'122px',

@@ -54,7 +54,8 @@ export default class Org extends Component {
             <td valign="top" style={styles.textRight}>承办单位：</td>
             <td style={styles.textLeft}>
               武汉大学测绘遥感信息工程国家重点实验室<br/>
-              中国科学院空间应用工程与技术中心
+              中国科学院空间应用工程与技术中心<br/>
+              北京航天宏图信息技术股份有限公司
             </td>
           </tr>
           <tr>
@@ -244,6 +245,18 @@ export default class Org extends Component {
             <td style={styles.textLeft}> 哈尔滨工业大学</td>
             <td style={styles.textJustify}> 谷延锋</td>
             <td style={styles.textJustify}> 教授</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 北京眼神科技有限公司</td>
+            <td style={styles.textJustify}> 周军</td>
+            <td style={styles.textJustify}> 董事长</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 北京航天宏图信息技术股份有限公司</td>
+            <td style={styles.textJustify}> 王宇翔</td>
+            <td style={styles.textJustify}> 董事长</td> 
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
