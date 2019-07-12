@@ -82,7 +82,7 @@ export default class Org extends Component {
           <tbody>
           <tr>
             <td valign="top" style={styles.textRight}>主 席：</td>
-            <td style={styles.textLeft}> 鹏城实验室（深圳网络空间科学与技术广东省实验室）</td>
+            <td style={styles.textLeft}> 鹏城实验室 </td>
             <td style={styles.textJustify}> 于 全</td>
             <td style={styles.textJustify}> 院 士</td>
           </tr>
@@ -171,6 +171,18 @@ export default class Org extends Component {
             <td style={styles.textJustify}> 张英梗</td>
             <td style={styles.textJustify}> 副总裁</td>
           </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 北京眼神科技有限公司</td>
+            <td style={styles.textJustify}> 周军</td>
+            <td style={styles.textJustify}> 董事长</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 北京航天宏图信息技术股份有限公司</td>
+            <td style={styles.textJustify}> 王宇翔</td>
+            <td style={styles.textJustify}> 董事长</td> 
+          </tr>
           </tbody>
         </table>
 
@@ -188,9 +200,33 @@ export default class Org extends Component {
           <tbody>
           <tr>
             <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 鹏城实验室</td>
+            <td style={styles.textJustify}> 王敬超</td>
+            <td style={styles.textJustify}> 高 工</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 武汉大学</td>
             <td style={styles.textJustify}> 王 密</td>
             <td style={styles.textJustify}> 教 授</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 清华大学</td>
+            <td style={styles.textJustify}> 葛 宁</td>
+            <td style={styles.textJustify}> 教 授</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 北京航空航天大学</td>
+            <td style={styles.textJustify}> 刘 锋</td>
+            <td style={styles.textJustify}>教 授</td>
+          </tr>
+          <tr>
+            <td valign="top" style={styles.textRight}></td>
+            <td style={styles.textLeft}> 北京市遥感信息研究所</td>
+            <td style={styles.textJustify}> 蔡 琳</td>
+            <td style={styles.textJustify}> 高 工</td>
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
@@ -212,30 +248,6 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 清华大学</td>
-            <td style={styles.textJustify}> 葛 宁</td>
-            <td style={styles.textJustify}> 教 授</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 北京市遥感信息研究所</td>
-            <td style={styles.textJustify}> 蔡 琳</td>
-            <td style={styles.textJustify}> 高 工</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}>鹏城实验室（深圳网络空间科学与技术广东省实验室）</td>
-            <td style={styles.textJustify}> 王敬超</td>
-            <td style={styles.textJustify}> 高 工</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 北京航空航天大学</td>
-            <td style={styles.textJustify}> 刘 锋</td>
-            <td style={styles.textJustify}>教 授</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 中国科学院空间应用工程与技术中心</td>
             <td style={styles.textJustify}> 李盛阳</td>
             <td style={styles.textJustify}> 研究员</td> 
@@ -248,23 +260,10 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 北京眼神科技有限公司</td>
-            <td style={styles.textJustify}> 周军</td>
-            <td style={styles.textJustify}> 董事长</td>
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 北京航天宏图信息技术股份有限公司</td>
-            <td style={styles.textJustify}> 王宇翔</td>
-            <td style={styles.textJustify}> 董事长</td> 
-          </tr>
-          <tr>
-            <td valign="top" style={styles.textRight}></td>
             <td style={styles.textLeft}> 长光卫星技术有限公司</td>
             <td style={styles.textJustify}> 钟 兴</td>
             <td style={styles.textJustify}> 研究员</td>
           </tr>
-
           </tbody>
         </table>
         <br/>
