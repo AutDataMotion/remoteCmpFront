@@ -13,19 +13,20 @@ export default class MainData extends Component {
   }
 
   render() {
+
+    const {data} = this.props;
     return (
       <div style={styles.wrapper}>
         <div style={styles.content}>
           <div style={styles.contentItemLeft}>
             <div style={styles.contentNum}>
-              <span style={styles.symbol}>总得分:</span>
-              <span style={styles.bigNum}>99.9999</span>
+              <span style={styles.symbol}>队伍名称:</span>
+              <span style={styles.bigNum}>{data.teamName}</span>
             </div>
-          </div>
-          <div style={styles.contentItemRight}>
-            <div style={styles.contentDesc}>摘要信息说明文字</div>
-            <div style={styles.contentDesc}>摘要信息说明文字</div>
-            <div style={styles.contentDesc}>摘要信息说明文字</div>
+            <div style={styles.contentNumRight}>
+              <span style={styles.symbol}>得分:</span>
+              <span style={styles.bigNum}>{data.score}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -48,16 +49,23 @@ const styles = {
     margin: '0 auto',
   },
   contentItemLeft: {
-    width:'50%'
   },
   contentItemRight: {
     width:'50%'
   },
   contentNum: {
-    display: 'flex',
+    float: 'left',
     alignItems: 'center',
     textAlign: 'left',
   },
+
+  contentNumRight: {
+    float: 'left',
+    alignItems: 'center',
+    textAlign: 'left',
+    marginLeft:'100px',
+  },
+
   bigNum: {
     color: '#333',
     fontSize: 40,

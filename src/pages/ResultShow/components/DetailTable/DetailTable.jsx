@@ -14,31 +14,24 @@ export default class DetailTable extends Component {
   }
 
   render() {
+
+    const {data} = this.props;
     return (
       <div className="detail-table">
           <ul style={styles.detailTable}>
             <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>标题：</div>
-              <div style={styles.detailBody}>图片说明标题</div>
+              <div style={styles.detailTitle}>总分：</div>
+              <div style={styles.detailBody}>{data.score}</div>
             </li>
-            <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>指标1：</div>
-              <div style={styles.detailBody}>1000.00</div>
-            </li>
-            <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>指标2：</div>
-              <div style={styles.detailBody}>1000.00</div>
-            </li>
-            <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>指标3：</div>
-              <div style={styles.detailBody}>1000.00</div>
-            </li>
-            <li style={styles.detailItem}>
-              <div style={styles.detailTitle}>指标4：</div>
-              <div style={styles.detailBody}>
-                1000.00
-              </div>
-            </li>
+            {
+              data.summary.map((item)=>{
+                return (
+                  <li style={styles.detailItem}>
+                    <div style={styles.detailTitle}>{item}</div>
+                  </li>
+                );
+              })
+            }
           </ul>
       </div>
     );
@@ -57,7 +50,6 @@ const styles = {
   detailTitle: {
     marginRight: '30px',
     textAlign: 'right',
-    width: '120px',
     color: '#999999',
   },
   detailBody: {
