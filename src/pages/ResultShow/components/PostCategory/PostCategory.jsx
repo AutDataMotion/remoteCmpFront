@@ -256,12 +256,12 @@ export default class PostCategory extends Component {
                     }} >
                       <MainData data={selectTeam} />
                     </Layout.Header>
-                    <Layout.Main scrollable={true}
+                    <Layout.Main
                                  style={{
                                    margin: '20px 0px'
                                  }} >
                       <Row>
-                        <Col l={14}>
+                        <Col xxs={14} xs={14} s={14} l={14}>
                           <Slider arrowSize="large">
                             {this.renderSlide(teamResultDetail.imageInfo)}
                           </Slider>
