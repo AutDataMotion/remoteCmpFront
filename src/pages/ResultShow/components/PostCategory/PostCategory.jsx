@@ -237,7 +237,7 @@ export default class PostCategory extends Component {
                       onRowClick={this.onTableRowClick}
                       hasBorder={false}
                     >
-                      <Table.Column style={{width:'30%'}} title="队伍编号" dataIndex="teamId"/>
+                      <Table.Column style={{width:'30%', display:'none'}} title="队伍编号" dataIndex="teamId"/>
                       <Table.Column style={{width:'40%'}} title="队伍名称" dataIndex="teamName"/>
                       <Table.Column style={{width:'30%'}} title="得分" dataIndex="score" />
                     </Table>
