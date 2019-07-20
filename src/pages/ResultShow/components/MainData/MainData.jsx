@@ -41,7 +41,7 @@ const styles = {
   },
   content: {
     width: '100%',
-    height: 100,
+    height: 70,
     maxWidth: 1024,
     display: 'flex',
     justifyContent: 'space-around',

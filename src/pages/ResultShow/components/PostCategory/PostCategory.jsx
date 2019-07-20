@@ -9,28 +9,8 @@ import Slider from "@alifd/next/lib/slider";
 import DetailTable from "../DetailTable";
 import DataBinder from '@icedesign/data-binder';
 import cloneDeep from "lodash.clonedeep";
+import ResultTabContent from "./ResultTabContent";
 
-function url114(path){
-  if (path.startsWith("/")){
-    return "http://114.115.182.9:8000"+path;
-  }
-  return "http://114.115.182.9:8000/"+path;
-}
-
-const defaultQueryMdl = globalConf.genPageModel({competition_id:0});
-const defaultDetail = {
-  score:'--',
-  summary:['--','--'],
-  imageInfo:[
-    {
-      title:'标题',
-      imgUrl:'/assets/73cf717975561d8258465f3703e4a903.png',
-      items:[
-        {name:'指标1',value:'1000'},
-      ]
-    },
-  ]
-};
 
 const tabs = [
   {
@@ -59,228 +39,87 @@ const tabs = [
   },
 ];
 
-@DataBinder({
-  themeTeams: {
-    url: url114('result/themeTeams'),
-    method: 'get',
-    param: defaultQueryMdl,
-    defaultBindingData: {
-      "total": 0,
-      "pageId": 1,
-      "pageSize": 30,
-      "results": [],
-    },
-    responseFormatter: (rspHandler, res, orgRsp) => {
-      res = globalConf.formatResponseComm(res);
-      rspHandler(res, orgRsp);
-    },
-    error:(res, defaultCallBack, orgResponse)=>{
-      defaultCallBack();
-    },
-  },
-  teamResultDetail: {
-    url: url114('result/teamResultDetail'),
-    method: 'get',
-    param: {},
-    defaultBindingData: defaultDetail,
-    responseFormatter: (rspHandler, res, orgRsp) => {
-      res = globalConf.formatResponseComm(res);
-      rspHandler(res, orgRsp);
-    },
-    error:(res, defaultCallBack, orgResponse)=>{
-      defaultCallBack();
-    },
-  },
-
-})
 export default class PostCategory extends Component {
   static displayName = 'PostCategory';
 
   constructor(props) {
     super(props);
-    this.state = {
-      pageId: 1,
-      themeId:1,
-      isLoading: false,
-      searchQuery:cloneDeep(defaultQueryMdl),
-      dataSource: [],
-      selectTeam:{
-        teamId:'--', teamName:'请选择队伍', score:'--'
-      },
-      selectRowIndex: 0,
-    };
   }
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData = () => {
-    this.setState(
-      {
-        isLoading: true,
-      },
-    );
-
-    // get data
-    const {searchQuery, pageId,themeId} = this.state;
-    searchQuery.competition_id = themeId;
-    const {themeTeams} = this.props.bindingData;
-    this.props.updateBindingData('themeTeams',{
-      params:{
-        ...searchQuery,
-        pageId: pageId
-      },
-      defaultBindingData: {
-        ...themeTeams,
-        pageId:pageId
-      }
-    },(response) => {
-      // 请求回调，可按需使用
-      console.log('数据加载完成啦', response);
-      this.onTableRowClick(response.data.results[0]);
-    });
-
-    this.setState({
-      isLoading: false,
-    });
-
-  };
-
-  onTabChangeClick = (key)=>{
-    this.setState({
-      themeId: key,
-    }, ()=>{
-      this.fetchData();
-    });
-  };
-
-  handlePaginationChange = (pageId) => {
-    // this.setState({ dataSource: mockData(page) });
-    this.setState(
-      {
-        pageId,
-      },
-      () => {
-        this.fetchData();
-      }
-    );
-  };
-
-  onTableRowClick = (record, index)=>{
-    console.log('onRowClick', record);
-    const {teamResultDetail} = this.props.bindingData;
-    this.props.updateBindingData('teamResultDetail',{
-      params:{
-        teamId: record.teamId
-      },
-      defaultBindingData: {
-        ...teamResultDetail
-      }
-    });
-    this.setState({
-      isLoading: false,
-      selectRowIndex:index,
-      selectTeam:record,
-    });
-  };
-
-  propsConf = {
-    style: {background: '#0308a9'},
-  };
-
-  setRowProps = (record, index) => {
-    const {selectRowIndex} = this.state;
-    if (index === selectRowIndex) {
-      return this.propsConf;
-    }
-  };
-
-  renderSlide = (slides)=>{
-    return slides.map(
-      (item, index) => <div key={index} className="slider-img-wrapper"><img src={url114(item.imgUrl)}/></div>
-    );
-  };
 
   render() {
-
-
-    const {pageId, isLoading, selectTeam} = this.state;
-    const {themeTeams, teamResultDetail} = this.props.bindingData;
-    console.log('themeTeams', themeTeams, "teamResultDetail", teamResultDetail);
-
     return (
       <div>
         <Tab
           navStyle={{ backgroundColor: '#fff' }}
           contentStyle={{ backgroundColor: '#fff', marginTop: 20 }}
-          triggerType="click" onChange={this.onTabChangeClick}
+          triggerType="click"
         >
-          {tabs.map((item) => {
-            return (
-              <Tab.Item
-                tabStyle={{ height: 60, padding: '0 15px' }}
-                key={item.key}
-                title={
-                  <div style={styles.navItemWraper}>
-                    {item.tab}
-                  </div>
-                }
-              >
-                <Layout fixable={true}>
-                  <Layout.Aside style={{
-                    width: '24%',
-                    margin: '20px 30px 20px 20px'
-                  }} >
-                    <Table
-                      loading={isLoading}
-                      dataSource={themeTeams.results}
-                      onRowClick={this.onTableRowClick}
-                      hasBorder={false}
-                    >
-                      <Table.Column style={{width:'30%', display:'none'}} title="队伍编号" dataIndex="teamId"/>
-                      <Table.Column style={{width:'40%'}} title="队伍名称" dataIndex="teamName"/>
-                      <Table.Column style={{width:'30%'}} title="得分" dataIndex="score" />
-                    </Table>
-                    <Pagination
-                      current={pageId}
-                      pageSize={themeTeams.pageSize}
-                      total={themeTeams.total}
-                      onChange={this.handlePaginationChange}
-                    />
-                  </Layout.Aside>
-                  <Layout.Section style={{
-                    margin: '20px 10px ',
-                    width:'76%',
-                  }} >
-                    <Layout.Header style={{
-                    }} >
-                      <MainData data={selectTeam} />
-                    </Layout.Header>
-                    <Layout.Main
-                                 style={{
-                                   margin: '20px 0px'
-                                 }} >
-                      <Row>
-                        <Col xxs={14} xs={14} s={14} l={14}>
-                          <Slider arrowSize="large">
-                            {this.renderSlide(teamResultDetail.imageInfo)}
-                          </Slider>
-                        </Col>
-                        <Col>
-                          <DetailTable data={teamResultDetail} />
-                        </Col>
-                      </Row>
-                    </Layout.Main>
-                  </Layout.Section>
-                </Layout>
-              </Tab.Item>
-            );
-          })}
+          <Tab.Item
+            tabStyle={{ height: 60, padding: '0 15px' }}
+            key={tabs[0].key}
+            title={
+              <div style={styles.navItemWraper}>
+                {tabs[0].tab}
+              </div>
+            }
+          >
+            <ResultTabContent themeInfo={tabs[0]}/>
+          </Tab.Item>
+
+          <Tab.Item
+            tabStyle={{ height: 60, padding: '0 15px' }}
+            key={tabs[1].key}
+            title={
+              <div style={styles.navItemWraper}>
+                {tabs[1].tab}
+              </div>
+            }
+          >
+            <ResultTabContent themeInfo={tabs[1]}/>
+          </Tab.Item>
+
+          <Tab.Item
+            tabStyle={{ height: 60, padding: '0 15px' }}
+            key={tabs[2].key}
+            title={
+              <div style={styles.navItemWraper}>
+                {tabs[2].tab}
+              </div>
+            }
+          >
+            <ResultTabContent themeInfo={tabs[2]}/>
+          </Tab.Item>
+
+          <Tab.Item
+            tabStyle={{ height: 60, padding: '0 15px' }}
+            key={tabs[3].key}
+            title={
+              <div style={styles.navItemWraper}>
+                {tabs[3].tab}
+              </div>
+            }
+          >
+            <ResultTabContent themeInfo={tabs[3]}/>
+          </Tab.Item>
+
+          <Tab.Item
+            tabStyle={{ height: 60, padding: '0 15px' }}
+            key={tabs[4].key}
+            title={
+              <div style={styles.navItemWraper}>
+                {tabs[4].tab}
+              </div>
+            }
+          >
+            <ResultTabContent themeInfo={tabs[4]}/>
+          </Tab.Item>
+
         </Tab>
       </div>
     );
   }
 }
+
 
 const styles = {
   titleWrapper: {
