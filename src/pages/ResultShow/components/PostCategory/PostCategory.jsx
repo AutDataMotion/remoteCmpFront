@@ -3,12 +3,6 @@ import Layout from '@icedesign/layout';
 import {Table, Card, Pagination} from '@alifd/next';
 import { Tab, Button } from '@alifd/next';
 import globalConf from "../../../../globalConfig";
-import MainData from "../MainData";
-import {Col, Row} from "@alifd/next/lib/grid";
-import Slider from "@alifd/next/lib/slider";
-import DetailTable from "../DetailTable";
-import DataBinder from '@icedesign/data-binder';
-import cloneDeep from "lodash.clonedeep";
 import ResultTabContent from "./ResultTabContent";
 
 
