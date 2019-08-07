@@ -118,7 +118,7 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 中国科学院光电研究院</td>
+            <td style={styles.textLeft}> 中国科学院空天信息研究院</td>
             <td style={styles.textJustify}> 吴海涛</td>
             <td style={styles.textJustify}> 研究员</td>
           </tr>
@@ -137,8 +137,8 @@ export default class Org extends Component {
           </tr>
           <tr>
             <td valign="top" style={styles.textRight}></td>
-            <td style={styles.textLeft}> 自然科学基金委信息科研诚信建设办</td>
-            <td style={styles.textJustify}> 何 杰</td>
+            <td style={styles.textLeft}> 自然科学基金委信息科学部</td>
+            <td style={styles.textJustify}> 李建军</td>
             <td style={styles.textJustify}> 研究员</td>
           </tr>
           <tr>
