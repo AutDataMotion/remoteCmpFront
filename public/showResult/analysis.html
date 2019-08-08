@@ -9,11 +9,13 @@
  <script src="js/jquery.min.js"></script>
 <script src="js/unslider.min.js"></script>
 
+<!--<link rel="stylesheet" type="text/css" href="partialSlider/partialviewslider.css">-->
+<!--<script src="partialSlider/partialviewslider.js"></script>-->
+
 <style>
   .banner { position: relative; overflow: auto; text-align: center;}
   .banner li { list-style: none; }
   .banner ul li { float: left; }
-
 </style>
 <body>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
@@ -75,9 +77,12 @@
           <h2
             style="text-align: center; width: 100%; font-size: 90%; font-weight: normal;letter-spacing:2px; font-weight:  normal; overflow: hidden;">
             实时效果展示</h2>
-          <div id="imgSliderDiv" class="amiddboxttop_map banner" style="">
-            <ul id="imgSliderUl">
-            </ul>
+          <div class="amiddboxttop_map" style="">
+            <div id="imgSliderDiv" class="banner">
+              <ul id="imgSliderUl">
+              </ul>
+            </div>
+
           </div>
         </div>
         <div class="amiddboxttop_theme">
@@ -490,6 +495,7 @@
         });
       }
 
+      var unsliderObj = null;
       function freshImgSlider(teamId){
         $.ajax({
           type: "get",
@@ -499,13 +505,36 @@
           // async: false,//使用同步的方式,true为异步方式
           crossDomain: true,  //【这个很重要，一定要加】
           success: function (result) {
+
+            // 先停止
+            if(unsliderObj!=null){
+              unsliderObj.data('unslider').stop();
+            }
+            // 自适应大小处理
+            var widthDiv = $(".amiddboxttop_map").width();
+            var heightDiv = $(".amiddboxttop_map").height();
+            console.log("sliderDiv w h", widthDiv, heightDiv);
+
             var imgList = result.data.imageInfo;
             var sliderHtml = '';
             for(var i=0; i<imgList.length; i++){
-              sliderHtml += createImgSliderRow(imgList[i].imgUrl);
+              sliderHtml += createImgSliderRow(imgList[i].imgUrl, widthDiv, heightDiv);
             }
             $('#imgSliderUl').html(sliderHtml);
-            $('#imgSliderDiv').unslider();
+            var widthHeightObj = {width:widthDiv+'px', height:heightDiv+'px'};
+            $('#imgSliderDiv').css(widthHeightObj);
+            $('#imgSliderDiv ul').css(widthHeightObj);
+            $("#imgSliderDiv ul li").each(function () {
+              $(this).css({width:widthDiv+'px', height:heightDiv+'px'});
+            });
+
+            unsliderObj = $('#imgSliderDiv').unslider({speed:1000, delay:5000});
+            // $('#imgSliderUl').partialViewSlider({
+            //   backdrop: false,
+            //   width: 100,
+            //   auto: true
+            // });
+
           },
           error: function (result) {
             console.log(result);
@@ -814,8 +843,8 @@
     function buildImgUrl(imgPath){
       return 'http://114.115.182.9:8000' + imgPath;
     }
-    function createImgSliderRow(imgPath){
-      return '<li><img src="'+buildImgUrl(imgPath)+ '" alt="" width="100%" height="100%" ></li>';
+    function createImgSliderRow(imgPath, widthDiv, heightDiv){
+      return '<li><img src="'+buildImgUrl(imgPath)+ '" alt="" width="'+widthDiv+'px" height="'+heightDiv+'px" ></li>';
     }
   </script>
 
