@@ -589,7 +589,7 @@
           fontSize: 10,
           color: 'rgba(255,255,255,.6)'
         },
-        text: '性能曲线：整体分类精度' // mAP, Kappa系数, F1得分, AUC精度
+        // text: '性能曲线：整体分类精度' // mAP, Kappa系数, F1得分, AUC精度
       },
       toolbox: {
         show: true,
@@ -730,8 +730,8 @@
         {
           type: 'value',
           name: '',
-          min: 200,
-          max: 2200,
+          min: 0,
+          max: 2000,
           interval: 200,
           axisLine: {
             lineStyle: {
@@ -745,7 +745,7 @@
           },
 
           axisLabel: {
-            formatter: '{value} 支'
+            formatter: '{value} '
           }
         },
         {
