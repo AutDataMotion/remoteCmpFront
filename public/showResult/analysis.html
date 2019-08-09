@@ -150,7 +150,8 @@
    var urlTeamMemeber = "http://rscup.bjxintong.com.cn:8000/theme/count?competition_id=";
 
    function getMockUrl(path){
-     return "https://mock.yonyoucloud.com/mock/1642/result/"+path;
+     // return "https://mock.yonyoucloud.com/mock/1642/result/"+path;
+     return "http://119.3.202.35:8000/result/"+path;
    }
 
    for (var i=1;i<=5; i++){
@@ -427,7 +428,7 @@
       function freshTableTeam() {
         $.ajax({
           type: "get",
-          url: "http://114.115.182.9:8000/result/themeTeams?competition_id="+curThemeId,
+          url: getMockUrl("themeTeams?competition_id=")+curThemeId,
           data: {},
           dataType: 'json',  //【不要用jsonp，一定是json】
           async: false,//使用同步的方式,true为异步方式
@@ -499,7 +500,7 @@
       function freshImgSlider(teamId){
         $.ajax({
           type: "get",
-          url: 'http://114.115.182.9:8000/result/teamResultDetail?teamId='+teamId,
+          url: getMockUrl('teamResultDetail?teamId=')+teamId,
           data: {},
           dataType: 'json',  //【这里要小心啊，不要用jsonp，一定是json】
           // async: false,//使用同步的方式,true为异步方式
@@ -576,7 +577,7 @@
     var optionTopScore = {
       backgroundColor: 'rgba(1,202,217,.2)',
       grid: {
-        left: 40,
+        left: 50,
         right: 40,
         top: 50,
         bottom: 40
@@ -688,7 +689,7 @@
     optionRegistAndSubmit = {
       backgroundColor: 'rgba(1,202,217,.2)',
       grid: {
-        left: 50,
+        left: 58,
         right: 45,
         top: 50,
         bottom: 40
@@ -729,9 +730,9 @@
         {
           type: 'value',
           name: '',
-          min: 0,
-          max: 250,
-          interval: 50,
+          min: 200,
+          max: 2200,
+          interval: 200,
           axisLine: {
             lineStyle: {
               color: 'rgba(255,255,255,.3)'
@@ -750,8 +751,8 @@
         {
           type: 'value',
           name: '',
-          max: 40,
-          interval: 5,
+          max: 80,
+          interval: 10,
           axisLine: {
             lineStyle: {
               color: 'rgba(255,255,255,.3)'
@@ -763,7 +764,7 @@
             }
           },
           axisLabel: {
-            formatter: '{value} 支'
+            formatter: '{value} 次'
           }
         }
       ],
@@ -825,7 +826,6 @@
 
   <script type="text/javascript">
     // 队伍排名
-    var teamRankUrl = "http://114.115.182.9:8000/result/themeTeams?competition_id=1&pageId=1&pageSize=30";
     function createTeamTableRow(rankId, teamId, teamName, score, bgClass){
       return '<li class="'+bgClass +'">\n' +
         '                <table style="width: 100%">\n' +
@@ -841,7 +841,7 @@
 
     // 图片轮播
     function buildImgUrl(imgPath){
-      return 'http://114.115.182.9:8000' + imgPath;
+      return 'http://119.3.202.35:8000' + imgPath;
     }
     function createImgSliderRow(imgPath, widthDiv, heightDiv){
       return '<li><img src="'+buildImgUrl(imgPath)+ '" alt="" width="'+widthDiv+'px" height="'+heightDiv+'px" ></li>';
@@ -856,7 +856,7 @@
       backgroundColor: 'rgba(1,202,217,.2)',
 
       grid: {
-        left: '5%',
+        left: '6%',
         right: '8%',
         bottom: '7%',
         top: '8%',

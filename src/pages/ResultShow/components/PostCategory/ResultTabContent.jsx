@@ -10,11 +10,13 @@ import DetailTable from "../DetailTable";
 import DataBinder from '@icedesign/data-binder';
 import cloneDeep from "lodash.clonedeep";
 
+const urlIp114='http://114.115.182.9:8000';
+const urlIp119='http://119.3.202.35:8000';
 function url114(path){
   if (path.startsWith("/")){
-    return "http://114.115.182.9:8000"+path;
+    return urlIp119 + path;
   }
-  return "http://114.115.182.9:8000/"+path;
+  return urlIp119+ "/" + path;
 }
 
 const settings = {
