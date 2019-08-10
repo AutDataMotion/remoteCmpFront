@@ -126,7 +126,7 @@ html,body{ font-family: 微软雅黑, MicrosoftYahei, sans-serif; color:#fff; ba
 .topbnt_left li { background:url(../img/bnt.png) center; font-size: 14px; line-height: 33px;background-repeat: no-repeat;width:18%; height:35px;float: left; text-align: center; margin-left: 1%}
 .topbnt_left li.active,.topbnt_right li.active{background:url(../img/bntactive.png) no-repeat center; }
 .topbnt_left li a{ text-decoration: none; color: #fff;}
-.tith1{ width: 40%; text-align: left; padding-top: 16px; font-weight: bold; letter-spacing:6px; font-size: 30px;}
+.tith1{ width: 100%; position: fixed;text-align: center; padding-top: 16px; font-weight: bold; letter-spacing:6px; font-size: 30px;}
 .topbnt_right{padding-top: 2%; padding-right:2.5%; width: 28.8%}
 .topbnt_right li { background:url(../img/bnt.png) center; font-size: 14px; line-height: 33px;background-repeat: no-repeat;width:22%; height:35px;float: right; text-align: center; margin-right:1%}
 .topbnt_right li a{ text-decoration: none; color: #fff;}

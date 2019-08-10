@@ -16,6 +16,19 @@
   .banner { position: relative; overflow: auto; text-align: center;}
   .banner li { list-style: none; }
   .banner ul li { float: left; }
+
+  .teamRow{
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+  }
+  .teamRowSelect{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1ce21b;
+  }
+  .teamRow:hover {border-color: #03e2d9;}
+
 </style>
 <body>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
@@ -310,6 +323,7 @@
       $(curDivId).removeClass("tabNormal");
       $(curDivId).addClass("tabSelect");
     }
+
     $(function () {
       // theme tab
       $('#tabTheme1').click(function () {
@@ -441,7 +455,7 @@
               if (i%2==1){
                 bg='bg';
               }
-              tableHtml += createTeamTableRow(i+1,dataTableTeams[i].teamId, dataTableTeams[i].teamName, dataTableTeams[i].score,bg );
+              tableHtml += createTeamTableRow(i+1,dataTableTeams[i].teamId, dataTableTeams[i].teamName, dataTableTeams[i].score.toFixed(4),bg );
             }
             $('#tableTeam').html(tableHtml);
             // 记录第一支队伍id
@@ -560,6 +574,9 @@
       // 每行数据绑定点击事件
       $('#tableTeam').on('click','li',function(){
         curSelectTeamId = $(this).find('.teamIdColumn').text();
+        $("#tableTeam").children().removeClass("teamRowSelect");
+        $(this).addClass("teamRowSelect");
+        // $(this).css({ "border-color":"#08d9e2"});
         // 刷新轮播图
         freshImgSlider(curSelectTeamId);
         // 刷新队伍提交成绩
@@ -827,12 +844,12 @@
   <script type="text/javascript">
     // 队伍排名
     function createTeamTableRow(rankId, teamId, teamName, score, bgClass){
-      return '<li class="'+bgClass +'">\n' +
+      return '<li class="teamRow '+bgClass +'">\n' +
         '                <table style="width: 100%">\n' +
         '                  <tr>\n' +
         '                    <th class="teamIdColumn" style="text-align: left;width: 0px;display:none;">'+teamId+'</th>\n' +
-        '                    <th style="text-align: left;width: 33.3%">'+rankId+'</th>\n' +
-        '                    <th style="text-align: left;width: 33.3%">'+teamName+'</th>\n' +
+        '                    <th style="text-align: left;width: 23.3%">'+rankId+'</th>\n' +
+        '                    <th style="text-align: left;width: 43.3%">'+teamName+'</th>\n' +
         '                    <th style="text-align: right;width: 33.4%">'+score+'</th>\n' +
         '                  </tr>\n' +
         '                </table>\n' +
