@@ -88,7 +88,7 @@ export default class ThemeInfo4 extends React.Component {
           <BlockMath math={'F_1=2 \\times \\frac{precision \\times recall}{precision+recall}'}/>
         </p>
         <p>
-          比赛初赛成绩由大赛评委会专家根据 F<sub>1</sub>得分进行排名， F<sub>1</sub>值越高，遥感图像语变化检测结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+          比赛初赛成绩由大赛评委会专家根据 F<sub>1</sub>得分进行排名， F<sub>1</sub>值越高，遥感图像语变化检测结果越准确，排名越靠前。比赛决赛成绩将基于算法模型精度、效率等指标加权，对算法模型性能进行综合评估与排名。
         </p>
 
         <p>
