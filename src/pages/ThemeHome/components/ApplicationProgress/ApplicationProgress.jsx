@@ -122,6 +122,7 @@ export default class ApplicationProgress extends Component {
             <Step.Item title="发布数据" />
             <Step.Item title="初赛" />
             <Step.Item title="决赛" />
+            <Step.Item title="复审答辩" />
           </Step>
           <div>
             {data.map((item, index) => {
